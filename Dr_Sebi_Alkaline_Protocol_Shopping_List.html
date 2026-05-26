@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Sebi Alkaline Protocol — Shopping List · Heal Yourself</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;
+  --bg-nav:#2c3a2e;--bg-footer:#263028;
+  --ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;--ink-ghost:#a89e8e;
+  --sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-light:#7aac8a;--sage-pale:#e4f0e8;--sage-nav:#8ab89a;
+  --terra:#8c5a3c;--terra-light:#b07a58;--terra-pale:#f5ede6;
+  --honey:#a07830;--honey-pale:#f5eddb;
+  --border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);
+  --nav-h:52px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-nav);border-bottom:1px solid rgba(138,184,154,0.12);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 28px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:17px;color:#d4c9a8;text-decoration:none;letter-spacing:0.02em;}
+.nav-center{display:flex;align-items:center;}
+.nav-center a{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;white-space:nowrap;}
+.nav-center a:hover{color:var(--sage-nav);}
+@media(max-width:640px){.nav-center{display:none;}}
+.hero{padding:calc(var(--nav-h) + 40px) 24px 40px;background:var(--bg-warm);border-bottom:1px solid var(--border-s);}
+.hero-inner{max-width:860px;margin:0 auto;}
+.hero-tag{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--sage-mid);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,42px);font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:14px;}
+.hero h1 em{font-style:italic;color:var(--sage);}
+.hero-sub{font-size:15px;color:var(--ink-light);line-height:1.7;max-width:600px;margin-bottom:24px;}
+.hero-back{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--sage);text-decoration:none;padding:9px 16px;border:1px solid var(--border);border-radius:5px;background:var(--sage-pale);transition:all 0.2s;}
+.hero-back:hover{background:rgba(61,107,74,0.12);}
+.iherb-bar{background:var(--honey-pale);padding:14px 24px;border-bottom:1px solid rgba(160,120,48,0.15);}
+.iherb-bar-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.iherb-code{font-family:'DM Mono',monospace;font-size:22px;font-weight:500;color:var(--honey);letter-spacing:0.06em;white-space:nowrap;}
+.iherb-text{font-size:13px;color:var(--ink-mid);line-height:1.6;flex:1;min-width:200px;}
+.iherb-btn{display:inline-block;background:var(--sage);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;padding:9px 18px;border-radius:5px;white-space:nowrap;}
+.jump-nav{background:var(--bg-deep);border-bottom:1px solid var(--border-s);padding:0 24px;position:sticky;top:var(--nav-h);z-index:90;overflow-x:auto;scrollbar-width:none;}
+.jump-nav::-webkit-scrollbar{display:none;}
+.jump-nav-inner{display:flex;min-width:max-content;max-width:860px;margin:0 auto;}
+.jump-nav a{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:0 16px;height:38px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.jump-nav a:hover,.jump-nav a.active{color:var(--sage);border-bottom-color:var(--sage);}
+.main{max-width:860px;margin:0 auto;padding:0 24px 80px;}
+.section-block{margin-top:48px;}
+.section-header{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;padding-bottom:12px;border-bottom:2px solid var(--border);}
+.section-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.12em;color:var(--sage);background:var(--sage-pale);padding:3px 10px;border-radius:3px;white-space:nowrap;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(17px,2.2vw,22px);font-weight:700;color:var(--ink);}
+.section-desc{font-size:13px;color:var(--ink-light);line-height:1.7;margin:10px 0 20px;max-width:640px;}
+.cat-label{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);margin:24px 0 10px;padding-left:2px;}
+.product-list{display:flex;flex-direction:column;border:1px solid var(--border-s);border-radius:8px;overflow:hidden;background:var(--bg-warm);}
+.product-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border-s);transition:background 0.15s;}
+.product-row:last-child{border-bottom:none;}
+.product-row:hover{background:var(--bg-deep);}
+.product-left{display:flex;flex-direction:column;gap:3px;}
+.product-name{font-size:14px;font-weight:600;color:var(--ink);line-height:1.3;}
+.product-latin{font-size:11px;color:var(--ink-ghost);font-style:italic;margin-top:1px;}
+.product-dose{font-family:'DM Mono',monospace;font-size:11px;color:var(--sage);margin-top:2px;}
+.product-note{font-size:12px;color:var(--ink-light);line-height:1.5;margin-top:3px;}
+.product-warn{font-size:11px;color:var(--terra);margin-top:3px;}
+.product-link{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:0.05em;color:#fff;background:var(--sage);text-decoration:none;padding:7px 13px;border-radius:4px;white-space:nowrap;flex-shrink:0;transition:background 0.2s;}
+.product-link:hover{background:var(--sage-mid);}
+.product-link svg{width:10px;height:10px;opacity:0.8;}
+.combo-link{background:var(--honey);color:#fff;}
+.combo-link:hover{background:#8a6820;}
+.ext-link{background:var(--bg-stone);color:var(--ink-mid);border:1px solid var(--border);}
+.ext-link:hover{background:var(--bg-deep);}
+.badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:2px 7px;border-radius:3px;margin-left:6px;vertical-align:middle;}
+.badge-combo{background:var(--honey-pale);color:var(--honey);}
+.badge-caution{background:var(--terra-pale);color:var(--terra);}
+.badge-specialist{background:var(--bg-stone);color:var(--ink-light);}
+.section-total{margin-top:16px;padding:12px 16px;background:var(--bg-stone);border-radius:6px;font-size:12px;color:var(--ink-light);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.section-total strong{color:var(--ink-mid);}
+.section-divider{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent);margin-top:48px;}
+footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);padding:40px 24px;}
+.ft-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+@media(max-width:560px){.ft-inner{grid-template-columns:1fr;}}
+.ft-brand{font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;}
+.ft-disc{font-size:12px;color:var(--ink-ghost);line-height:1.7;}
+.ft-nav{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
+.ft-nav a{font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;}
+.ft-nav a:hover{color:#d4c9a8;}
+@media(max-width:600px){.product-row{grid-template-columns:1fr;}.product-link{align-self:flex-start;margin-top:6px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Heal Yourself</a>
+  <div class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="protocols.html">All Protocols</a>
+    <a href="Dr_Sebi_Alkaline_Protocol.html">← Dr. Sebi Protocol</a>
+    <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank">iHerb — GUW6132</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Shopping List</div>
+    <h1>Dr. Sebi Alkaline Protocol<br><em>Complete Herb &amp; Supplement List</em></h1>
+    <p class="hero-sub">All herbs across the foundational, respiratory, nervous system, and advanced cleansing phases — with direct iHerb links where available and sourcing notes for the rest. Code <strong style="font-family:'DM Mono',monospace;color:var(--honey);">GUW6132</strong> at checkout.</p>
+    <a href="Dr_Sebi_Alkaline_Protocol.html" class="hero-back">← Back to Full Protocol</a>
+  </div>
+</div>
+
+<div class="iherb-bar">
+  <div class="iherb-bar-inner">
+    <div class="iherb-code">GUW6132</div>
+    <div class="iherb-text">Enter at iHerb checkout. <strong>You get a discount.</strong> Supports this free guide.</div>
+    <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" class="iherb-btn">Shop iHerb</a>
+  </div>
+</div>
+
+<div class="jump-nav">
+  <div class="jump-nav-inner">
+    <a href="#foundational">Foundational Trio</a>
+    <a href="#cleansing">Blood &amp; Lymph</a>
+    <a href="#immune">Immune &amp; Respiratory</a>
+    <a href="#nervous">Nervous System</a>
+    <a href="#advanced">Advanced Cleansing</a>
+    <a href="#alkaline-foods">Alkaline Foods</a>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ═══ FOUNDATIONAL TRIO ═══ -->
+  <div class="section-block" id="foundational">
+    <div class="section-header">
+      <span class="section-num">Phase 01</span>
+      <span class="section-title">Foundational Trio — The Core of Dr. Sebi's Protocol</span>
+    </div>
+    <p class="section-desc">Dr. Sebi's protocol begins with three plants he considered inseparable: Irish Sea Moss, Bladderwrack, and Burdock Root. He referred to them as the foundation — the baseline mineral and cleansing support that every other herb builds upon. All three are now available in a single combined formula on iHerb.</p>
+
+    <div class="cat-label">All Three in One — Most Convenient</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Irish Sea Moss + Bladderwrack + Burdock Root Complex<span class="badge badge-combo">all three in one</span></div>
+          <div class="product-latin">Chondrus crispus · Fucus vesiculosus · Arctium lappa</div>
+          <div class="product-dose">3 capsules daily · With a meal · Nature's Truth formula</div>
+          <div class="product-note">The exact three-herb combination Dr. Sebi considered his foundational compound, in a single capsule. Sea moss provides 92 trace minerals and rebuilds mucous membranes. Bladderwrack adds fucoidan — a sulphated polysaccharide with documented antiviral properties — and concentrated iodine for thyroid support. Burdock root purifies the blood and lymph, stimulates bile, and feeds beneficial gut bacteria via inulin. Nature's Truth uses wildcrafted Irish Sea Moss with a 10:1 burdock extract and 4:1 bladderwrack concentrate.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/nature-s-truth-irish-sea-moss-complex-plus-bladderwrack-burdock-root-90-quick-release-capsules/119555?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="cat-label">Or Source Individually — Fresh Gel Preferred for Sea Moss</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Irish Sea Moss — Raw Gel Form<span class="badge badge-specialist">fresh is superior</span></div>
+          <div class="product-latin">Chondrus crispus / Gracilaria</div>
+          <div class="product-dose">1–2 tbsp raw gel daily · In smoothie, juice, or warm water</div>
+          <div class="product-note">Dr. Sebi preferred raw sea moss gel over capsules — soaked and blended from dried whole sea moss. The gel retains a broader spectrum of polysaccharides and is more bioavailable than encapsulated powder. Source dried sea moss from Jamaican or Caribbean suppliers — wildcrafted Atlantic, not pool-grown. Soak 12–24 hours in fresh water, blend with spring water until smooth. Refrigerates for 2–3 weeks. The combined capsule above is an appropriate substitute for those who cannot source fresh.</div>
+        </div>
+        <span style="font-size:11px;color:var(--ink-ghost);white-space:nowrap;">Caribbean suppliers</span>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span><strong>1 combined product on iHerb</strong> (Nature's Truth sea moss complex /119555) covers all three foundational herbs</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ BLOOD & LYMPH ═══ -->
+  <div class="section-block" id="cleansing">
+    <div class="section-header">
+      <span class="section-num">Phase 02</span>
+      <span class="section-title">Blood &amp; Lymph Purification</span>
+    </div>
+    <p class="section-desc">Dr. Sebi's framework centres on the concept that disease originates in mucus and acidic buildup — and that the blood and lymphatic system must be continuously purified to allow healing. Sarsaparilla and Yellow Dock are his primary tools for this phase.</p>
+
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Sarsaparilla Root — Fluid Extract</div>
+          <div class="product-latin">Smilax medica / Smilax officinalis</div>
+          <div class="product-dose">20–40 drops in water · 2–3× daily · Alcohol-free extract</div>
+          <div class="product-note">One of Dr. Sebi's most important herbs for restoring iron in the blood — specifically the bioelectric iron he distinguished from ferrous (synthetic) iron. Contains saponins that bind endotoxins in the gut and remove them. Also documented for hormonal balance via steroid-like saponin structures. Used for skin conditions (acne, psoriasis, eczema), joint inflammation, and systemic blood purification. Nature's Answer alcohol-free fluid extract is the most bioavailable form — faster acting than capsules.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/nature-s-answer-sarsaparilla-root-fluid-extract-alcohol-free-2-000-mg-1-fl-oz-30-ml/8001?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Yellow Dock Root</div>
+          <div class="product-latin">Rumex crispus</div>
+          <div class="product-dose">500mg · 2–3× daily · With food</div>
+          <div class="product-note">A bitter root with a high plant-iron content — one of the plant-based iron sources Dr. Sebi endorsed for anaemia. Also a liver tonic and mild laxative: stimulates bile production and bowel motility. The bitter compounds (anthraquinones) activate all digestive secretions, improving nutrient absorption and clearing stagnant bile. Used for skin conditions via the liver-skin axis, anaemia unresponsive to conventional iron, and constipation. Pairs naturally with burdock root for comprehensive blood and liver support.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/nature-s-way-yellow-dock-root-500-mg-100-capsules/2057?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span><strong>2 products on iHerb</strong> · Sarsaparilla fluid extract /8001 · Yellow Dock /2057</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ IMMUNE & RESPIRATORY ═══ -->
+  <div class="section-block" id="immune">
+    <div class="section-header">
+      <span class="section-num">Phase 03</span>
+      <span class="section-title">Immune Support &amp; Respiratory Cleansing</span>
+    </div>
+    <p class="section-desc">The respiratory system is one of Dr. Sebi's primary focuses — he viewed mucus accumulation in the lungs and airways as the root of most chronic respiratory conditions. Mullein specifically targets the bronchial mucous membrane. Elderberry provides broad-spectrum antiviral support and is the most research-validated herb in this section.</p>
+
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Elderberry — Sambucus</div>
+          <div class="product-latin">Sambucus nigra</div>
+          <div class="product-dose">500mg · 1–3× daily · Capsule or tea</div>
+          <div class="product-note">The most extensively studied medicinal berry. Contains anthocyanins and flavonoids with documented antiviral properties — including published clinical trials against influenza and respiratory viruses. Dr. Sebi valued it for respiratory mucous membrane support: coughs, bronchitis, asthma, and immune activation. One of the few herbs in the alkaline protocol with independent clinical trial support beyond the Sebi framework. NOW Foods 500mg capsules — Sambucus nigra, non-GMO, vegan.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-elderberry-500-mg-60-veg-capsules/578?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Mullein Leaf</div>
+          <div class="product-latin">Verbascum thapsus</div>
+          <div class="product-dose">500mg capsules · 2–3× daily · Or as tea: 1–2 tsp dried leaf steeped 10 min</div>
+          <div class="product-note">The primary respiratory herb in Dr. Sebi's protocol. Mullein is specifically indicated for bronchial conditions: asthma, COPD, emphysema, chronic bronchitis, and chest congestion. It is simultaneously mucilaginous (soothing), expectorant (clearing), and anti-inflammatory at the bronchial mucous membrane — addressing the exact mechanism Dr. Sebi identified. Traditionally smoked (ironically) or used as tea or tincture. Nature's Answer vegetarian capsules — 500mg, alcohol-free, tested for potency.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/nature-s-answer-mullein-leaf-500-mg-90-vegetarian-capsules/8117?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Soursop Leaf — Graviola</div>
+          <div class="product-latin">Annona muricata</div>
+          <div class="product-dose">500mg · 2–3× daily with food · Read the full protocol warning before use</div>
+          <div class="product-note">The leaf of the soursop (guanabana/graviola) tree has produced some of the most striking anti-tumour ethnobotanical research available. Active compounds — annonaceous acetogenins — have documented selective inhibition of ATP production in cancer cell mitochondria specifically. Multiple published laboratory papers. Dr. Sebi discussed it specifically for tumours and cancer. The fruit is a food; the leaf is the medicinal form. NOW Foods Graviola 500mg veg capsules — non-GMO, vegan, 100 caps.</div>
+          <div class="product-warn">⚠️ Do not use if you have Parkinson's disease or any neurodegenerative disorder — annonacins in graviola are associated with atypical parkinsonism at high long-term doses. Do not combine with antihypertensive or MAO inhibitor medications.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-graviola-100-veg-capsules-500-mg-per-capsule/5018?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span><strong>3 products on iHerb</strong> · Elderberry /578 · Mullein /8117 · Graviola /5018</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ NERVOUS SYSTEM ═══ -->
+  <div class="section-block" id="nervous">
+    <div class="section-header">
+      <span class="section-num">Phase 04</span>
+      <span class="section-title">Nervous System &amp; Metabolic Support</span>
+    </div>
+    <p class="section-desc">Dr. Sebi addressed the nervous system directly through two herbs — Damiana for nervous system repair and energy restoration, and Prodigiosa for blood sugar regulation and pancreatic support. Both are central to his approach to chronic metabolic conditions.</p>
+
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Damiana Leaf</div>
+          <div class="product-latin">Turnera diffusa</div>
+          <div class="product-dose">600mg (2 capsules) · 3× daily · Or as tea 1–2 tsp steeped 10 min</div>
+          <div class="product-note">A Central American shrub historically used as a nervous system tonic and aphrodisiac. In the Sebi framework it is used for nervous system repair, energy restoration, and sexual vitality. Contains flavonoids and terpenes with documented anti-anxiety and mild stimulant effects — without dependence or tolerance. Also acts as a mild diuretic and digestive bitter. One of the few herbs in the protocol that directly addresses the nervous system. Nature's Way Damiana — Non-GMO Project Verified, vegan, TruID authenticated.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/nature-s-way-damiana-leaves-600-mg-100-vegan-capsules-300-mg-per-capsule/1970?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Prodigiosa<span class="badge badge-specialist">source from specialist</span></div>
+          <div class="product-latin">Brickellia grandiflora</div>
+          <div class="product-dose">As tea: 1 tsp dried herb steeped 10 min · 2–3× daily before meals</div>
+          <div class="product-note">A Mexican medicinal herb — called prodigiosa ("miraculous") for its dramatic effect on blood sugar and pancreatic function. Used throughout Mexico and Central America for centuries for diabetes. Dr. Sebi considered it his primary tool for pancreatic support and blood sugar regulation. Contains chromene compounds with documented hypoglycemic activity in animal and in vitro studies. Not commonly available on mainstream supplement retailers — source from Mexican herb suppliers, Latin American botanical shops, or alkaline herb specialists (search "brickellia grandiflora" or "prodigiosa herb").</div>
+          <div class="product-warn">⚠️ Documented blood sugar lowering effect — caution with diabetes medication. Monitor blood sugar closely if combining with pharmaceutical hypoglycemic agents.</div>
+        </div>
+        <span style="font-size:11px;color:var(--ink-ghost);white-space:nowrap;">Mexican herb suppliers</span>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span><strong>1 product on iHerb</strong> (Damiana /1970) · <strong>1 to source locally</strong> (Prodigiosa — Mexican herb suppliers)</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ ADVANCED CLEANSING ═══ -->
+  <div class="section-block" id="advanced">
+    <div class="section-header">
+      <span class="section-num">Phase 05</span>
+      <span class="section-title">Advanced Cleansing — Autoimmune &amp; Deep Cellular</span>
+    </div>
+    <p class="section-desc">These herbs are for specific conditions or experienced practitioners of the protocol. Kalawalla is Dr. Sebi's primary tool for autoimmune conditions. Chaparral is one of the most powerful antioxidants in plant medicine — and one requiring the most caution. Both are difficult to source on mainstream platforms.</p>
+
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Kalawalla — Polypodium leucotomos<span class="badge badge-specialist">specialist source</span></div>
+          <div class="product-latin">Polypodium leucotomos</div>
+          <div class="product-dose">400mg · 2–3× daily · Wildcrafted from Jamaica preferred</div>
+          <div class="product-note">A South American fern — one of Dr. Sebi's most respected herbs for autoimmune and inflammatory conditions. Contains polypodine B and other compounds with documented immunomodulatory effects. Used for lupus, multiple sclerosis, psoriasis, and conditions where the immune system is dysregulated. Also documented for skin protection against UV radiation. One of the more research-supported herbs on the Sebi list — published studies exist for Polypodium leucotomos specifically. Not currently available on iHerb — source from alkaline herb shops or Amazon (search "Kalawalla polypodium leucotomos capsules Jamaica").</div>
+        </div>
+        <a href="https://www.amazon.com/s?k=kalawalla+polypodium+leucotomos+capsules" target="_blank" class="product-link ext-link">Amazon search →</a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Chaparral<span class="badge badge-caution">use with caution</span></div>
+          <div class="product-latin">Larrea tridentata (creosote bush)</div>
+          <div class="product-dose">Short-term use only · Low dose · Under guidance · Not for long-term daily use</div>
+          <div class="product-note">One of the most powerful antioxidant plants in North America. The Sonoran desert plant produces NDGA (nordihydroguaiaretic acid) — one of the strongest antioxidants identified in plant medicine. Dr. Sebi used it for cancer, lymphatic congestion, and as a broad-spectrum antimicrobial. Available from some specialist herb suppliers. Requires real caution: excess doses are hepatotoxic. The FDA has issued warnings. This is a powerful herb with a narrow therapeutic window — not appropriate for self-medication without practitioner guidance.</div>
+          <div class="product-warn">⚠️ Hepatotoxic at excess doses. FDA advisory exists. Short-term use only (no more than 4–6 weeks). Not for use with liver disease, during pregnancy, or with hepatotoxic medications. This is not a herb to experiment with casually.</div>
+        </div>
+        <span style="font-size:11px;color:var(--ink-ghost);white-space:nowrap;">Specialist only</span>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span><strong>0 products on iHerb</strong> for this phase · Both require specialist sourcing · Kalawalla is accessible via Amazon</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ ALKALINE FOODS ═══ -->
+  <div class="section-block" id="alkaline-foods">
+    <div class="section-header">
+      <span class="section-num">Foundation</span>
+      <span class="section-title">Alkaline Foods — What to Eat Daily</span>
+    </div>
+    <p class="section-desc">The herbs are not a shortcut. Dr. Sebi's protocol begins with the alkaline diet — not as a complement to the herbs but as their prerequisite. He was consistent on this: the herbs cannot undo what the food is doing. The alkaline food list is built into the full protocol page. The key principles are summarised here.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;">
+      <div style="background:var(--bg-warm);border:1px solid var(--border-s);border-left:3px solid var(--sage);border-radius:0 8px 8px 0;padding:16px 18px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin-bottom:10px;">Alkaline Approved</div>
+        <div style="font-size:13px;color:var(--ink-mid);line-height:1.8;">
+          Amaranth · Quinoa · Spelt · Rye<br>
+          Chickpeas · Lentils · Hemp seeds<br>
+          All vegetables except hybrid<br>
+          All approved fruits (no seedless)<br>
+          Sea vegetables · Spirulina<br>
+          Spring water only
+        </div>
+      </div>
+      <div style="background:var(--bg-warm);border:1px solid var(--border-s);border-left:3px solid var(--terra);border-radius:0 8px 8px 0;padding:16px 18px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);margin-bottom:10px;">Excluded</div>
+        <div style="font-size:13px;color:var(--ink-mid);line-height:1.8;">
+          All animal products · Dairy<br>
+          Wheat · Corn · Soy · Rice<br>
+          All hybrid fruits (seedless grapes, etc.)<br>
+          Sugar (only date sugar or agave)<br>
+          Tap water · Alcohol<br>
+          All processed food
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--honey-pale);border:1px solid rgba(160,120,48,0.2);border-radius:8px;padding:14px 18px;margin-top:16px;">
+      <p style="font-size:13px;color:var(--ink-mid);line-height:1.7;">The full approved and excluded food lists, cooking principles, and water protocol are on the main Dr. Sebi Protocol page. The food list is the protocol — the herbs support it. Not the other way around.</p>
+      <a href="Dr_Sebi_Alkaline_Protocol.html#food-list" style="display:inline-block;margin-top:10px;font-size:12px;font-weight:600;color:var(--honey);text-decoration:underline;text-underline-offset:3px;">See full approved food list →</a>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- SUMMARY -->
+  <div style="margin-top:48px;padding:28px 32px;background:var(--bg-warm);border:1px solid var(--border-s);border-radius:8px;">
+    <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:16px;">Dr. Sebi Protocol — Complete Sourcing Summary</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin-bottom:10px;">On iHerb — Code GUW6132</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--ink-mid);">
+          <div>✓ Sea Moss + Bladderwrack + Burdock Root — Nature's Truth</div>
+          <div>✓ Sarsaparilla Root Fluid Extract — Nature's Answer</div>
+          <div>✓ Yellow Dock Root — Nature's Way</div>
+          <div>✓ Elderberry 500mg — NOW Foods</div>
+          <div>✓ Mullein Leaf 500mg — Nature's Answer</div>
+          <div>✓ Soursop/Graviola 500mg — NOW Foods</div>
+          <div>✓ Damiana Leaves — Nature's Way</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:10px;">Source Elsewhere</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--ink-mid);">
+          <div>🌿 Raw sea moss gel — Caribbean/Jamaican suppliers (optional superior form)</div>
+          <div>🌿 Kalawalla (Polypodium leucotomos) — Amazon or alkaline herb specialists</div>
+          <div>⚠️ Chaparral — practitioner-guided specialist sources only</div>
+          <div>🌿 Prodigiosa — Mexican/Latin American herb suppliers</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:24px;">
+      <div style="background:var(--bg-deep);border-radius:6px;padding:14px 16px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:26px;font-weight:500;color:var(--sage);">7</div>
+        <div style="font-size:11px;color:var(--ink-light);letter-spacing:0.06em;text-transform:uppercase;margin-top:3px;">On iHerb</div>
+      </div>
+      <div style="background:var(--bg-deep);border-radius:6px;padding:14px 16px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:26px;font-weight:500;color:var(--honey);">4</div>
+        <div style="font-size:11px;color:var(--ink-light);letter-spacing:0.06em;text-transform:uppercase;margin-top:3px;">Other Sources</div>
+      </div>
+      <div style="background:var(--bg-deep);border-radius:6px;padding:14px 16px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:22px;font-weight:500;color:var(--honey);">GUW6132</div>
+        <div style="font-size:11px;color:var(--ink-light);letter-spacing:0.06em;text-transform:uppercase;margin-top:3px;">iHerb Code</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="Dr_Sebi_Alkaline_Protocol.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--sage);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:11px 22px;border-radius:5px;">Read Full Protocol</a>
+      <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--bg-stone);color:var(--ink-mid);border:1px solid var(--border);font-size:12px;font-weight:600;letter-spacing:0.04em;text-decoration:none;padding:11px 22px;border-radius:5px;">Shop iHerb — Code GUW6132</a>
+    </div>
+  </div>
+
+</div>
+
+<section style="background:var(--bg-deep);padding:40px 24px;border-top:1px solid var(--border-s);">
+  <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+    <div>
+      <div style="font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;">About This Guide</div>
+      <p style="font-size:14px;line-height:1.8;color:var(--ink-mid);margin-bottom:10px;">Thousands of hours of independent research — peer-reviewed studies, suppressed clinical trials, and ancient healing traditions. Written by a former Pharmaceutical QA Internal Auditor. Free because health knowledge should not be a luxury.</p>
+      <a href="index.html#about" style="display:inline-block;margin-top:10px;font-size:12px;font-weight:600;color:var(--sage);text-decoration:underline;text-underline-offset:3px;">Read the full story</a>
+    </div>
+    <div style="text-align:center;padding:28px;background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);margin-bottom:8px;">Support this free guide</div>
+      <div style="font-family:'DM Mono',monospace;font-size:36px;font-weight:700;color:var(--sage);letter-spacing:0.06em;margin:10px 0;">GUW6132</div>
+      <div style="font-size:12px;color:var(--ink-light);margin-bottom:16px;">iHerb checkout · You get a discount</div>
+      <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" style="display:inline-block;background:var(--sage);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:10px 22px;border-radius:5px;">Shop iHerb</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div>
+      <div class="ft-brand">Heal Yourself</div>
+      <p class="ft-disc">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor.</p>
+    </div>
+    <nav class="ft-nav">
+      <a href="index.html">Home</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('.section-block');
+const navLinks = document.querySelectorAll('.jump-nav a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.jump-nav a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

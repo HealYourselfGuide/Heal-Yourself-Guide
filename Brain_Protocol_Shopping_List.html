@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brain Protocol — Complete Shopping List · Heal Yourself</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;
+  --bg-nav:#2c3a2e;--bg-footer:#263028;
+  --ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;--ink-ghost:#a89e8e;
+  --sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-light:#7aac8a;--sage-pale:#e4f0e8;--sage-nav:#8ab89a;
+  --terra:#8c5a3c;--terra-light:#b07a58;--terra-pale:#f5ede6;
+  --honey:#a07830;--honey-pale:#f5eddb;
+  --border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);
+  --nav-h:52px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-nav);border-bottom:1px solid rgba(138,184,154,0.12);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 28px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:17px;color:#d4c9a8;text-decoration:none;letter-spacing:0.02em;}
+.nav-center{display:flex;align-items:center;}
+.nav-center a{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;white-space:nowrap;}
+.nav-center a:hover{color:var(--sage-nav);}
+@media(max-width:640px){.nav-center{display:none;}}
+.hero{padding:calc(var(--nav-h) + 40px) 24px 40px;background:var(--bg-warm);border-bottom:1px solid var(--border-s);}
+.hero-inner{max-width:860px;margin:0 auto;}
+.hero-tag{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--sage-mid);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,42px);font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:14px;}
+.hero h1 em{font-style:italic;color:var(--sage);}
+.hero-sub{font-size:15px;color:var(--ink-light);line-height:1.7;max-width:580px;margin-bottom:24px;}
+.hero-back{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--sage);text-decoration:none;letter-spacing:0.04em;padding:9px 16px;border:1px solid var(--border);border-radius:5px;background:var(--sage-pale);transition:all 0.2s;}
+.hero-back:hover{background:rgba(61,107,74,0.12);border-color:var(--sage-mid);}
+.iherb-bar{background:var(--honey-pale);padding:14px 24px;border-bottom:1px solid rgba(160,120,48,0.15);}
+.iherb-bar-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.iherb-code{font-family:'DM Mono',monospace;font-size:22px;font-weight:500;color:var(--honey);letter-spacing:0.06em;white-space:nowrap;}
+.iherb-text{font-size:13px;color:var(--ink-mid);line-height:1.6;flex:1;min-width:200px;}
+.iherb-btn{display:inline-block;background:var(--sage);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;padding:9px 18px;border-radius:5px;white-space:nowrap;transition:background 0.2s;}
+.iherb-btn:hover{background:var(--sage-mid);}
+.jump-nav{background:var(--bg-deep);border-bottom:1px solid var(--border-s);padding:0 24px;position:sticky;top:var(--nav-h);z-index:90;overflow-x:auto;scrollbar-width:none;}
+.jump-nav::-webkit-scrollbar{display:none;}
+.jump-nav-inner{display:flex;min-width:max-content;max-width:860px;margin:0 auto;}
+.jump-nav a{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:0 16px;height:38px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.jump-nav a:hover,.jump-nav a.active{color:var(--sage);border-bottom-color:var(--sage);}
+.main{max-width:860px;margin:0 auto;padding:0 24px 80px;}
+.phase-block{margin-top:48px;}
+.phase-header{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;padding-bottom:12px;border-bottom:2px solid var(--border);}
+.phase-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.12em;color:var(--sage);background:var(--sage-pale);padding:3px 10px;border-radius:3px;white-space:nowrap;}
+.phase-days{font-size:12px;color:var(--ink-ghost);font-weight:400;letter-spacing:0.04em;}
+.phase-title{font-family:'Playfair Display',serif;font-size:clamp(17px,2.2vw,22px);font-weight:700;color:var(--ink);}
+.phase-desc{font-size:13px;color:var(--ink-light);line-height:1.7;margin:10px 0 20px;max-width:620px;}
+.cat-label{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);margin:24px 0 10px;padding-left:2px;}
+.product-list{display:flex;flex-direction:column;border:1px solid var(--border-s);border-radius:8px;overflow:hidden;background:var(--bg-warm);}
+.product-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border-s);transition:background 0.15s;}
+.product-row:last-child{border-bottom:none;}
+.product-row:hover{background:var(--bg-deep);}
+.product-left{display:flex;flex-direction:column;gap:3px;}
+.product-name{font-size:14px;font-weight:600;color:var(--ink);line-height:1.3;}
+.product-dose{font-family:'DM Mono',monospace;font-size:11px;color:var(--sage);margin-top:1px;}
+.product-note{font-size:12px;color:var(--ink-light);line-height:1.5;margin-top:2px;}
+.product-warn{font-size:11px;color:var(--terra);margin-top:3px;}
+.product-link{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:0.05em;color:#fff;background:var(--sage);text-decoration:none;padding:7px 13px;border-radius:4px;white-space:nowrap;flex-shrink:0;transition:background 0.2s;}
+.product-link:hover{background:var(--sage-mid);}
+.product-link svg{width:10px;height:10px;opacity:0.8;}
+.badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:2px 7px;border-radius:3px;margin-left:6px;vertical-align:middle;}
+.badge-budget{background:var(--honey-pale);color:var(--honey);}
+.badge-alt{background:var(--bg-stone);color:var(--ink-light);}
+.badge-critical{background:var(--terra-pale);color:var(--terra);}
+.phase-total{margin-top:16px;padding:12px 16px;background:var(--bg-stone);border-radius:6px;font-size:12px;color:var(--ink-light);display:flex;align-items:center;gap:8px;}
+.phase-total strong{color:var(--ink-mid);}
+.phase-divider{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent);margin-top:48px;}
+footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);padding:40px 24px;}
+.ft-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+@media(max-width:560px){.ft-inner{grid-template-columns:1fr;}}
+.ft-brand{font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;}
+.ft-disc{font-size:12px;color:var(--ink-ghost);line-height:1.7;}
+.ft-nav{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
+.ft-nav a{font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;}
+.ft-nav a:hover{color:#d4c9a8;}
+@media(max-width:600px){.product-row{grid-template-columns:1fr;}.product-link{align-self:flex-start;margin-top:6px;}}
+@media print{nav,.jump-nav,footer{display:none!important;}.hero{padding-top:20px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Heal Yourself</a>
+  <div class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="protocols.html">All Protocols</a>
+    <a href="Brain_Protocol.html">← Brain Protocol</a>
+    <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank">iHerb — GUW6132</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Shopping List</div>
+    <h1>Brain Health Protocol<br><em>Complete Supplement List</em></h1>
+    <p class="hero-sub">Every supplement across all six protocol phases — aluminium removal, neuroprotection, neurogenesis, movement disorder support, gut-brain axis, and glyphosate clearance. Direct iHerb links throughout. Use code <strong style="font-family:'DM Mono',monospace;color:var(--honey);">GUW6132</strong> at checkout.</p>
+    <a href="Brain_Protocol.html" class="hero-back">← Back to Full Protocol</a>
+  </div>
+</div>
+
+<div class="iherb-bar">
+  <div class="iherb-bar-inner">
+    <div class="iherb-code">GUW6132</div>
+    <div class="iherb-text">Enter at iHerb checkout. <strong>You get a discount.</strong> A small commission supports this free guide.</div>
+    <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" class="iherb-btn">Shop iHerb</a>
+  </div>
+</div>
+
+<div class="jump-nav">
+  <div class="jump-nav-inner">
+    <a href="#aluminium">Aluminium &amp; Teeth</a>
+    <a href="#neuroprotection">Neuroprotection</a>
+    <a href="#neurogenesis">Neurogenesis</a>
+    <a href="#movement">Movement Disorders</a>
+    <a href="#gut-brain">Gut-Brain Axis</a>
+    <a href="#glyphosate">Glyphosate Protocol</a>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ═══ ALUMINIUM & SILICA ═══ -->
+  <div class="phase-block" id="aluminium">
+    <div class="phase-header">
+      <span class="phase-num">Phase 02</span>
+      <span class="phase-days">Weeks 5–16</span>
+      <span class="phase-title">Aluminium Removal &amp; Dental Detox</span>
+    </div>
+    <p class="phase-desc">Aluminium accumulates in brain tissue over decades — from cookware, deodorants, vaccines adjuvants, and food additives. Professor Christopher Exley's work at Keele University documents its direct neurotoxicity. Silica is the primary documented removal agent — it binds aluminium ions and facilitates renal excretion. ACV mobilises; silica binds and removes. Both are required together.</p>
+
+    <div class="cat-label">Silica Sources — Use One Primary + One Budget Backup</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">BioSil — Ch-OSA Orthosilicic Acid<span class="badge badge-critical">primary choice</span></div>
+          <div class="product-dose">6–10 drops or 2 capsules daily · In water · Away from meals</div>
+          <div class="product-note">Ch-OSA (choline-stabilised orthosilicic acid) is the only form shown in published trials to cross the blood-brain barrier and bind aluminium ions directly. This is the form used in all of Christopher Exley's research. BioSil is the original patented source. More expensive than alternatives but clinically validated.</div>
+          <div class="product-warn">⚠️ Ensure 2+ litres of water daily — silica needs water to flush aluminium through the kidneys. Without adequate hydration, mobilisation without elimination occurs.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/biosil-ch-osa-advanced-collagen-generator-5-fl-oz-141-ml/17442?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Horsetail — Equisetum arvense<span class="badge badge-budget">budget</span></div>
+          <div class="product-dose">500mg · 1–2× daily · Standardised to 7% silica</div>
+          <div class="product-note">Highest plant source of bioavailable silica. A portion converts to orthosilicic acid in the gut. Not as potent as Ch-OSA but significantly cheaper and still effective for long-term maintenance. Use as a budget alternative or alongside Ch-OSA for higher total silica load.</div>
+          <div class="product-warn">⚠️ Avoid in kidney disease or kidney stones. Use supplement form only — the unprocessed plant contains thiaminase which destroys vitamin B1.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-horsetail-herb-500-mg-100-capsules/768?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Food-Grade Diatomaceous Earth<span class="badge badge-budget">cheapest option</span></div>
+          <div class="product-dose">½–1 tsp in water · Morning · Empty stomach · Start with ¼ tsp and build over 2 weeks</div>
+          <div class="product-note">~85% amorphous silica. Cheapest silica source available. Also provides documented gut integrity benefits — the silica matrix physically cleans intestinal walls. Additional documented heavy metal chelation. Food-grade only — industrial or pool-grade diatomaceous earth is a respiratory hazard.</div>
+          <div class="product-warn">⚠️ Food-grade ONLY — never pool, filter, or industrial grade. Do not inhale the powder at any time — crystalline silica is a lung hazard even in food-grade form if inhaled.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/harris-food-grade-diatomaceous-earth-with-powder-duster-1-lb-453-g/70574?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Bragg Organic Apple Cider Vinegar<span class="badge badge-budget">budget mobiliser</span></div>
+          <div class="product-dose">1–2 tbsp in large glass of water · Daily · With or before silica supplement</div>
+          <div class="product-note">ACV = Apple Cider Vinegar — raw, unfiltered, with the "mother." Malic acid content mobilises aluminium from soft tissue and bone. Critical rule: never use ACV alone — always pair with silica to bind what is mobilised. Mobilising without binding causes redistribution to other tissues, not elimination.</div>
+          <div class="product-warn">⚠️ Always dilute in at least 250ml water — undiluted ACV damages tooth enamel and the oesophagus. Drink through a straw if possible. Do not use with existing low potassium or kidney issues without checking with a practitioner.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/bragg-organic-raw-apple-cider-vinegar-with-the-mother-32-fl-oz-946-ml/26551?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+    </div>
+    <div class="phase-total">
+      <span><strong>4 products</strong> · Use Ch-OSA as primary, budget alternatives as backups or stacked</span>
+    </div>
+  </div>
+
+  <div class="phase-divider"></div>
+
+  <!-- ═══ NEUROPROTECTION ═══ -->
+  <div class="phase-block" id="neuroprotection">
+    <div class="phase-header">
+      <span class="phase-num">Phase 03</span>
+      <span class="phase-days">Weeks 9–20</span>
+      <span class="phase-title">Neuroprotection — Defend What Remains</span>
+    </div>
+    <p class="phase-desc">These compounds do not regrow neurons — they protect existing ones from further oxidative damage, inflammation, and energy failure. Start here before neurogenesis supplements. A neuron you protect today is the one that carries memory tomorrow.</p>
+
+    <div class="cat-label">Core Neuroprotective Stack</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Lion's Mane Mushroom Extract — Real Mushrooms</div>
+          <div class="product-dose">500–1,000mg · Morning · 30%+ beta-glucan verified · Fruiting body only</div>
+          <div class="product-note">The only natural source of hericenones and erinacines — compounds that stimulate Nerve Growth Factor (NGF) and Brain-Derived Neurotrophic Factor (BDNF) production. NGF is essential for neuron survival and regeneration. Double-blind human trials document cognitive improvement. Real Mushrooms is fruiting body only with >30% beta-glucans verified — most other brands use mycelium on grain (largely inert). Form matters profoundly here.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/real-mushrooms-lion-s-mane-mushroom-extract-powder-120-capsules/112246?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Curcumin — Phytosome / BCM-95 Form</div>
+          <div class="product-dose">500–1,000mg · Twice daily · With fat-containing meal</div>
+          <div class="product-note">Crosses the blood-brain barrier. Documented anti-neuroinflammatory, anti-amyloid, and BDNF-stimulating effects. Standard curcumin has ~1% absorption — the phytosome form used here is 29× better absorbed. BCM-95 (used in Jarrow Phytosome) also includes turmeric essential oils that extend blood retention to 8–12 hours vs 4 hours for standard. Form is everything with curcumin.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/jarrow-formulas-curcumin-phytosome-500-mg-60-tablets/13271?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Magnesium L-Threonate — Life Extension Neuro-Mag</div>
+          <div class="product-dose">2,000mg (delivering 144mg elemental Mg) · Split morning + evening</div>
+          <div class="product-note">MIT-developed and MIT-patented form. The only magnesium form demonstrated in controlled trials to significantly raise brain magnesium levels. Documented to increase synapse density by 50%, improve working memory, and reverse age-related cognitive decline in animal models with human trial confirmation. Uses Magtein® — the original patented compound. For neurological protocols, no other magnesium form reaches the brain in meaningful concentration.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/life-extension-neuro-mag-magnesium-l-threonate-90-vegetarian-capsules-48-mg-per-capsule/40244?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Omega-3 EPA + DHA — Triglyceride Form</div>
+          <div class="product-dose">2–3g combined EPA+DHA · Daily · With largest fat-containing meal</div>
+          <div class="product-note">DHA is a structural component of neuron cell membranes — 40% of the brain's polyunsaturated fatty acids are DHA. The brain cannot function without it. EPA reduces neuroinflammation. Triglyceride form is 70% better absorbed than the ethyl ester form found in cheap fish oils. kd-pur® certification means molecularly distilled, verified for PCB and mercury removal.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/california-gold-nutrition-omega-800-ultra-concentrated-omega-3-fish-oil-kd-pur-triglyceride-form-90-fish-gelatin-softgels-1-000-mg-per-softgel/68796?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">NMN — Nicotinamide Mononucleotide (NAD+ Precursor)</div>
+          <div class="product-dose">500mg · Morning · Fasted · Sublingual preferred if available</div>
+          <div class="product-note">NAD+ declines approximately 50% per decade after age 40. Every neuron runs its energy metabolism on NAD+. As NAD+ falls, neuronal energy production fails — a documented mechanism in age-related cognitive decline and neurodegeneration. ProHealth uses Uthever® NMN — the only form with independent third-party purity and heavy metal verification.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/prohealth-longevity-nmn-pro-500-500-mg-30-capsules/114170?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Bacopa Monnieri — Himalaya Organic</div>
+          <div class="product-dose">300–750mg · With food · 8–12 weeks minimum for full effect · Do not expect results in 2 weeks</div>
+          <div class="product-note">One of the most extensively human-trialled cognitive herbs in existence. Increases cerebral blood flow, enhances acetylcholine signalling, reduces amyloid aggregation, reduces cortisol, and stimulates synaptogenesis (new synaptic connections). Himalaya has been producing this formula since 1930 — USDA organic, clinically studied, no fillers. Bacopa is slow-acting — 8 weeks is the minimum before assessment.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/himalaya-organic-bacopa-60-caplets/3687?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+    </div>
+    <div class="phase-total">
+      <span><strong>6 products</strong> · Core neuroprotective stack — take all together for synergistic effect</span>
+    </div>
+  </div>
+
+  <div class="phase-divider"></div>
+
+  <!-- ═══ NEUROGENESIS ═══ -->
+  <div class="phase-block" id="neurogenesis">
+    <div class="phase-header">
+      <span class="phase-num">Phase 04</span>
+      <span class="phase-days">Weeks 13–24</span>
+      <span class="phase-title">Neurogenesis — Stimulate New Growth</span>
+    </div>
+    <p class="phase-desc">These compounds go beyond protection — they stimulate the growth of new neurons, new synaptic connections, and new mitochondria. Begin after neuroprotection is established. You cannot grow something in an environment that is still being destroyed.</p>
+
+    <div class="cat-label">Neurogenesis &amp; Cognitive Enhancement Stack</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Ashwagandha — KSM-66 Root Extract</div>
+          <div class="product-dose">300–600mg KSM-66 · Evening · 12+ weeks</div>
+          <div class="product-note">KSM-66 is the only ashwagandha extract produced exclusively from roots (leaves contain withanolides with different pharmacology). 24 published double-blind RCTs document cortisol reduction, axon growth, dendrite growth, and reduced anxiety. Chronic cortisol elevation directly kills hippocampal neurons — reducing it is a direct neuroprotective act. The neurogenesis-stimulating effects are well-documented in animal models with strong human trial confirmation for cognitive outcomes.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/planetary-herbals-ksm-66-ashwagandha-root-extract-120-vegetarian-capsules-300-mg-per-capsule/119529?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Ginkgo Biloba — 120mg Standardised Extract</div>
+          <div class="product-dose">120–240mg · Twice daily · Standardised to 24% flavonoids / 6% terpenes · 6 weeks minimum</div>
+          <div class="product-note">One of the oldest documented medicinal plants — the ginkgo tree is essentially unchanged for 200 million years. Increases cerebral circulation via vasodilation of blood vessels. Documented in multiple clinical trials for cognitive function, dementia, and age-related decline. The dual standardisation (24% ginkgoflavone glycosides + 6% terpene lactones) is clinically mandatory — unstandardised ginkgo has inconsistent and unreliable potency.</div>
+          <div class="product-warn">⚠️ Mild blood-thinning effect — caution with anticoagulant medications (warfarin, aspirin, heparin). Stop 2 weeks before any surgery.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-ginkgo-biloba-120-mg-200-veg-capsules/583?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">PQQ — Pyrroloquinoline Quinone (20mg)</div>
+          <div class="product-dose">10–20mg daily · With CoQ10 for synergistic effect · Morning</div>
+          <div class="product-note">PQQ = Pyrroloquinoline Quinone. The only compound identified to stimulate mitochondrial biogenesis — the creation of entirely new mitochondria in neurons. CoQ10 optimises existing mitochondria. PQQ creates new ones. Together they restore neuronal energy production from two complementary angles. Jarrow uses BioPQQ™ — the only clinically studied PQQ form, produced by MGC Japan.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/jarrow-formulas-pqq-20-mg-60-capsules/64123?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Phosphatidylserine — Sunflower-Derived, Soy-Free</div>
+          <div class="product-dose">100–300mg daily · With food · Start at 100mg</div>
+          <div class="product-note">A phospholipid that makes up a significant portion of neuronal cell membranes at synapses. The only supplement with an FDA-qualified health claim specifically for cognitive decline. Multiple clinical trials document improvement in memory, concentration, and learning. Also reduces cortisol response to acute stress. California Gold Nutrition is sunflower-sourced (soy-free), vegan, iTested certified.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/california-gold-nutrition-sunflower-phosphatidylserine-100-mg-120-veggie-capsules/97387?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+    </div>
+    <div class="phase-total">
+      <span><strong>4 products</strong> · Add after neuroprotection phase is established (week 13+)</span>
+    </div>
+  </div>
+
+  <div class="phase-divider"></div>
+
+  <!-- ═══ MOVEMENT DISORDERS ═══ -->
+  <div class="phase-block" id="movement">
+    <div class="phase-header">
+      <span class="phase-num">Phase 05</span>
+      <span class="phase-days">Ongoing · Under Practitioner Guidance</span>
+      <span class="phase-title">Movement Disorders — Dopamine Pathway Support</span>
+    </div>
+    <p class="phase-desc">This section is for those with documented movement disorder symptoms or a Parkinson's diagnosis. These compounds address dopamine precursor supply, mitochondrial energy in the substantia nigra, and glutathione depletion — the three documented biochemical failures in movement disorder progression. Do not begin this section without reading the full Brain Protocol.</p>
+
+    <div class="cat-label">Dopamine Pathway &amp; Mitochondrial Support</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">CoQ10 Ubiquinol + PQQ — Combined Formula</div>
+          <div class="product-dose">Start 200–400mg ubiquinol · Increase to 1,200mg over 4 weeks · Split into 3 doses with meals</div>
+          <div class="product-note">An NIH-funded landmark trial found 1,200mg/day ubiquinol associated with significantly slower movement disorder progression over 16 months vs placebo. Ubiquinol is the active reduced form — 8× better absorbed than ubiquinone (especially over 40). Jarrow QH-absorb + PQQ combines both compounds: ubiquinol optimises existing mitochondria, BioPQQ generates new ones. The most cost-effective combined mitochondrial formula on iHerb.</div>
+          <div class="product-warn">⚠️ Begin at 200–400mg and build over 4 weeks — sudden high-dose CoQ10 can cause temporary nausea. The 100mg dose commonly sold is insufficient for neurological therapeutic effect.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/jarrow-formulas-qh-absorb-pqq-60-softgels/64126?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Mucuna Pruriens — 15% L-DOPA Standardised</div>
+          <div class="product-dose">250–500mg standardised to 15% L-DOPA · With food · Early in day · Under practitioner guidance</div>
+          <div class="product-note">Mucuna pruriens is the "dopamine bean" — the only plant food with documented, meaningful L-DOPA content. Ancient Ayurvedic texts referred to the condition it addresses as Kampavata (trembling disease) and documented Mucuna as the primary treatment — thousands of years before pharmaceutical levodopa existed. The plant-based L-DOPA arrives with natural cofactors absent from pharmaceutical preparations. NOW Dopa Mucuna uses 15% standardised extract — the clinically studied concentration.</div>
+          <div class="product-warn">⚠️ Critical: Do not combine with pharmaceutical L-DOPA/carbidopa without practitioner guidance — serious L-DOPA excess can occur. If currently on Parkinson's medications, this requires medical supervision and likely dose reduction of the pharmaceutical.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-dopa-mucuna-180-veg-capsules/100198?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">NAC — N-Acetyl Cysteine (600mg)</div>
+          <div class="product-dose">600–1,200mg · Fasted or between meals · Throughout protocol</div>
+          <div class="product-note">Glutathione depletion in the substantia nigra (the dopamine-producing region) is one of the earliest, most consistent, and most replicated findings in movement disorder pathology. Glutathione cannot cross the blood-brain barrier directly — but NAC does, and the brain converts it to glutathione. Published clinical data show intravenous NAC improves dopamine pathway function markers. Oral NAC is less potent but documented to raise brain glutathione measurably.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-nac-600-mg-250-capsules/694?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Lion's Mane 1,000mg — High Dose for Neurological Protocol</div>
+          <div class="product-dose">1,000mg oral daily + DMSO 50–60% applied topically to cervical spine simultaneously</div>
+          <div class="product-note">At 1,000mg, Lion's Mane maintains therapeutic NGF stimulation — required for the survival of dopamine-producing neurons. Pair with topical DMSO application to the back of the neck and base of skull simultaneously: DMSO crosses the blood-brain barrier and enhances CNS delivery of active compounds circulating in blood at the moment of application. The 300-capsule bottle provides the high-dose long-term supply this protocol requires.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/real-mushrooms-lion-s-mane-mushroom-extract-powder-300-capsules/115892?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+    </div>
+    <div class="phase-total">
+      <span><strong>4 products</strong> · Movement disorder protocol — read full Brain Protocol before beginning</span>
+    </div>
+  </div>
+
+  <div class="phase-divider"></div>
+
+  <!-- ═══ GUT-BRAIN ═══ -->
+  <div class="phase-block" id="gut-brain">
+    <div class="phase-header">
+      <span class="phase-num">Phase 06</span>
+      <span class="phase-days">Ongoing · Parallel to Other Phases</span>
+      <span class="phase-title">Gut-Brain Axis — The Road the Protocol Travels On</span>
+    </div>
+    <p class="phase-desc">Alpha-synuclein — the misfolded protein found in Parkinson's pathology — travels from the gut to the brain via the vagus nerve (Neuron, 2019). Truncal vagotomy reduces Parkinson's risk by 40% in long-term studies. The gut is not separate from the brain. These products address the gut-origin pathway directly alongside the neurological protocol above.</p>
+
+    <div class="cat-label">Resistant Starch — Butyrate Production</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Green Banana Flour<span class="badge badge-budget">budget RS2</span></div>
+          <div class="product-dose">20g daily · In water, smoothie, or cold food · Do not heat</div>
+          <div class="product-note">High RS2 (resistant starch type 2) content. Reaches the colon undigested, where gut bacteria ferment it into butyrate — a short-chain fatty acid that directly feeds colonocytes (colon cells) and reduces intestinal inflammation. The RESISTA-PD trial documented that resistant starch raised butyrate and reduced non-motor symptoms in movement disorder patients. Must be used cold — heating destroys the resistant starch structure.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-raw-green-banana-flour-24-oz-680-g/113875?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Bob's Red Mill Unmodified Potato Starch<span class="badge badge-budget">richest RS source</span></div>
+          <div class="product-dose">1 tbsp in cold water · Start with 1 tsp and build over 2 weeks</div>
+          <div class="product-note">Raw unmodified potato starch is one of the highest-concentration resistant starch sources available. Must be used completely raw and cold — even lukewarm water partially gelatinises it and destroys the RS content. Some gas and bloating is normal as the microbiome adjusts to the increased fermentation substrate. Build the dose slowly.</div>
+          <div class="product-warn">⚠️ Start with 1 tsp only. Increasing too fast causes significant gas and bloating as gut bacteria populations shift. This is normal but uncomfortable. Build over 2 weeks.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/bob-s-red-mill-unmodified-potato-starch-24-oz-680-g/54736?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="cat-label">SymPD Probiotic Strains — Clinically Studied for Movement Disorders</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Multi-Strain Probiotic — SymPD Strain Profile</div>
+          <div class="product-dose">As directed · Away from antiparasitic herbs · Away from oregano oil</div>
+          <div class="product-note">The SymPD trial (Leta et al., Movement Disorders, 2025) documented that a 4-strain probiotic containing L. rhamnosus, L. acidophilus, L. plantarum, and E. faecium produced positive motor outcomes in a randomised controlled trial — the first positive motor RCT for probiotics in movement disorders. Renew Life Ultimate Flora provides 50 billion CFU across a profile closest to the SymPD strains available on iHerb.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/renew-life-ultimate-flora-probiotic-extra-care-50-billion-90-vegetable-capsules/39870?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+    </div>
+    <div class="phase-total">
+      <span><strong>3 products</strong> · Gut-brain axis support — run parallel to neurological protocol</span>
+    </div>
+  </div>
+
+  <div class="phase-divider"></div>
+
+  <!-- ═══ GLYPHOSATE ═══ -->
+  <div class="phase-block" id="glyphosate">
+    <div class="phase-header">
+      <span class="phase-num">Protocol Add-On</span>
+      <span class="phase-days">4 weeks active · Then maintenance</span>
+      <span class="phase-title">Glyphosate Displacement Protocol</span>
+    </div>
+    <p class="phase-desc">Published in Movement Disorders 2023 (DOI 10.1002/mds.29371), E. Ray Dorsey documented glyphosate's agnotology — the deliberate manufacturing of doubt around its neurotoxicity. Paraquat and glyphosate are linked to Parkinson's risk in multiple epidemiological studies. Syngenta's 2025 settlement of ~6,500 paraquat lawsuits and their announced end of global paraquat production (June 2026) confirms what the research showed years earlier. These four compounds bind and displace glyphosate via distinct mechanisms. Run for 4 weeks, then reduce to maintenance.</p>
+
+    <div class="cat-label">Glyphosate Binders &amp; Displacement Agents</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Glycine Powder</div>
+          <div class="product-dose">4g twice daily for 4 weeks · Then 1g twice daily maintenance · In water</div>
+          <div class="product-note">Glyphosate is structurally similar to glycine and substitutes for it in protein synthesis — disrupting proteins throughout the body. Supplementing glycine at high doses competes with glyphosate for incorporation, progressively displacing it. This is the mechanism documented by Anthony Samsel and Stephanie Seneff. NOW Foods pure glycine — no fillers, powder form for accurate therapeutic dosing.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-glycine-pure-powder-1-lb-454-g/7087?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Modified Citrus Pectin — PectaSol</div>
+          <div class="product-dose">5g powder · 3× daily · On empty stomach</div>
+          <div class="product-note">PectaSol is the most clinically studied modified citrus pectin — 65+ published studies. Binds glyphosate and heavy metals in the gut for faecal elimination without stripping essential minerals (unlike activated charcoal). Also reduces galectin-3, an inflammatory marker elevated in neurodegeneration. The Econugenics 150g powder is the most economical format for the 5g × 3 daily dosing this protocol requires.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/econugenics-pectasol-modified-citrus-pectin-5-29-oz-150-g/55234?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Humic &amp; Fulvic Acid Complex</div>
+          <div class="product-dose">750mg · Twice daily</div>
+          <div class="product-note">Fulvic and humic acids are ancient organic compounds formed from decomposed plant matter over millions of years. They bind glyphosate and other agrochemical residues in the gut via ion exchange. Also directly support microbiome diversity — fulvic acid is documented to increase bacterial genus diversity in clinical studies. A separate benefit from their binder function.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/micro-ingredients-fulvic-acid-and-humic-acid-complex-200-capsules-750-mg-per-capsule/108762?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Chlorella — Organic Broken Cell Wall</div>
+          <div class="product-dose">1–3g daily · With meals · Can take alongside food unlike other binders</div>
+          <div class="product-note">Broken cell wall allows chlorella's chelating proteins to bind mercury, lead, glyphosate, and other agrochemical residues. A 2020 study (Fagan et al., Environmental Research) documented that one week on an organic diet reduced urinary glyphosate by 70.93% — chlorella accelerates this elimination. One of the few binders that functions as a whole food — provides chlorophyll, B12, complete protein, and iron alongside its binding function.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-certified-organic-chlorella-500-mg-200-tablets/21320?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+    </div>
+    <div class="phase-total">
+      <span><strong>4 products</strong> · 4-week intensive · then glycine + chlorella as ongoing maintenance</span>
+    </div>
+  </div>
+
+  <div class="phase-divider"></div>
+
+  <!-- SUMMARY -->
+  <div style="margin-top:48px;padding:28px 32px;background:var(--bg-warm);border:1px solid var(--border-s);border-radius:8px;">
+    <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:16px;">Brain Protocol — At a Glance</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:24px;">
+      <div style="background:var(--bg-deep);border-radius:6px;padding:14px 16px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:26px;font-weight:500;color:var(--sage);">24</div>
+        <div style="font-size:11px;color:var(--ink-light);letter-spacing:0.06em;text-transform:uppercase;margin-top:3px;">Total Products</div>
+      </div>
+      <div style="background:var(--bg-deep);border-radius:6px;padding:14px 16px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:26px;font-weight:500;color:var(--sage);">6</div>
+        <div style="font-size:11px;color:var(--ink-light);letter-spacing:0.06em;text-transform:uppercase;margin-top:3px;">Protocol Phases</div>
+      </div>
+      <div style="background:var(--bg-deep);border-radius:6px;padding:14px 16px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:26px;font-weight:500;color:var(--sage);">24+</div>
+        <div style="font-size:11px;color:var(--ink-light);letter-spacing:0.06em;text-transform:uppercase;margin-top:3px;">Weeks Active</div>
+      </div>
+      <div style="background:var(--bg-deep);border-radius:6px;padding:14px 16px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:22px;font-weight:500;color:var(--honey);">GUW6132</div>
+        <div style="font-size:11px;color:var(--ink-light);letter-spacing:0.06em;text-transform:uppercase;margin-top:3px;">iHerb Code</div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--ink-light);line-height:1.8;margin-bottom:16px;">This is not a generic brain supplement stack. Every product was selected for a specific documented mechanism — form, dose, and clinical validation. Budget alternatives are marked. Read the full protocol before beginning the movement disorder section.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="Brain_Protocol.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--sage);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:11px 22px;border-radius:5px;">Read Full Protocol</a>
+      <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--bg-stone);color:var(--ink-mid);border:1px solid var(--border);font-size:12px;font-weight:600;letter-spacing:0.04em;text-decoration:none;padding:11px 22px;border-radius:5px;">Shop All on iHerb — Code GUW6132</a>
+    </div>
+  </div>
+
+</div>
+
+<section style="background:var(--bg-deep);padding:40px 24px;border-top:1px solid var(--border-s);">
+  <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+    <div>
+      <div style="font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;">About This Guide</div>
+      <p style="font-size:14px;line-height:1.8;color:var(--ink-mid);margin-bottom:10px;">This guide was built from thousands of hours of independent research — peer-reviewed studies, suppressed clinical trials, and ancient healing traditions that predate the pharmaceutical model. The author spent years as a Pharmaceutical QA Internal Auditor before leaving to find the answers the system was not asking for.</p>
+      <p style="font-size:14px;line-height:1.8;color:var(--ink-mid);">Every protocol here is free — because health knowledge should not be a luxury.</p>
+      <a href="index.html#about" style="display:inline-block;margin-top:14px;font-size:12px;font-weight:600;color:var(--sage);text-decoration:underline;text-underline-offset:3px;">Read the full story</a>
+    </div>
+    <div style="text-align:center;padding:28px;background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);margin-bottom:8px;">Support this free guide</div>
+      <div style="font-family:'Playfair Display',serif;font-size:15px;color:var(--ink);margin-bottom:4px;">Buy supplements on iHerb</div>
+      <div style="font-family:'DM Mono',monospace;font-size:36px;font-weight:700;color:var(--sage);letter-spacing:0.06em;margin:10px 0;">GUW6132</div>
+      <div style="font-size:12px;color:var(--ink-light);margin-bottom:16px;">Enter at checkout &middot; You get a discount</div>
+      <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" style="display:inline-block;background:var(--sage);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:10px 22px;border-radius:5px;">Shop iHerb</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div>
+      <div class="ft-brand">Heal Yourself</div>
+      <p class="ft-disc">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor. Always consult a professional before making changes to your health protocol.</p>
+    </div>
+    <nav class="ft-nav">
+      <a href="index.html">Home</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('.phase-block');
+const navLinks = document.querySelectorAll('.jump-nav a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.jump-nav a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

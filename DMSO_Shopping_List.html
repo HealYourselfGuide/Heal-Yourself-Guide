@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DMSO &amp; Oxygen Therapy — Shopping List · Heal Yourself</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;
+  --bg-nav:#2c3a2e;--bg-footer:#263028;
+  --ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;--ink-ghost:#a89e8e;
+  --sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-light:#7aac8a;--sage-pale:#e4f0e8;--sage-nav:#8ab89a;
+  --terra:#8c5a3c;--terra-light:#b07a58;--terra-pale:#f5ede6;
+  --honey:#a07830;--honey-pale:#f5eddb;
+  --border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);
+  --nav-h:52px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-nav);border-bottom:1px solid rgba(138,184,154,0.12);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 28px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:17px;color:#d4c9a8;text-decoration:none;letter-spacing:0.02em;}
+.nav-center{display:flex;align-items:center;}
+.nav-center a{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;white-space:nowrap;}
+.nav-center a:hover{color:var(--sage-nav);}
+@media(max-width:640px){.nav-center{display:none;}}
+.hero{padding:calc(var(--nav-h) + 40px) 24px 40px;background:var(--bg-warm);border-bottom:1px solid var(--border-s);}
+.hero-inner{max-width:860px;margin:0 auto;}
+.hero-tag{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--sage-mid);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,42px);font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:14px;}
+.hero h1 em{font-style:italic;color:var(--sage);}
+.hero-sub{font-size:15px;color:var(--ink-light);line-height:1.7;max-width:600px;margin-bottom:24px;}
+.hero-back{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--sage);text-decoration:none;letter-spacing:0.04em;padding:9px 16px;border:1px solid var(--border);border-radius:5px;background:var(--sage-pale);transition:all 0.2s;}
+.hero-back:hover{background:rgba(61,107,74,0.12);border-color:var(--sage-mid);}
+.iherb-bar{background:var(--honey-pale);padding:14px 24px;border-bottom:1px solid rgba(160,120,48,0.15);}
+.iherb-bar-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.iherb-code{font-family:'DM Mono',monospace;font-size:22px;font-weight:500;color:var(--honey);letter-spacing:0.06em;white-space:nowrap;}
+.iherb-text{font-size:13px;color:var(--ink-mid);line-height:1.6;flex:1;min-width:200px;}
+.iherb-btn{display:inline-block;background:var(--sage);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;padding:9px 18px;border-radius:5px;white-space:nowrap;}
+.jump-nav{background:var(--bg-deep);border-bottom:1px solid var(--border-s);padding:0 24px;position:sticky;top:var(--nav-h);z-index:90;overflow-x:auto;scrollbar-width:none;}
+.jump-nav::-webkit-scrollbar{display:none;}
+.jump-nav-inner{display:flex;min-width:max-content;max-width:860px;margin:0 auto;}
+.jump-nav a{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:0 16px;height:38px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.jump-nav a:hover,.jump-nav a.active{color:var(--sage);border-bottom-color:var(--sage);}
+.main{max-width:860px;margin:0 auto;padding:0 24px 80px;}
+.section-block{margin-top:48px;}
+.section-header{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;padding-bottom:12px;border-bottom:2px solid var(--border);}
+.section-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.12em;color:var(--sage);background:var(--sage-pale);padding:3px 10px;border-radius:3px;white-space:nowrap;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(17px,2.2vw,22px);font-weight:700;color:var(--ink);}
+.section-desc{font-size:13px;color:var(--ink-light);line-height:1.7;margin:10px 0 20px;max-width:640px;}
+.cat-label{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);margin:24px 0 10px;padding-left:2px;}
+.product-list{display:flex;flex-direction:column;border:1px solid var(--border-s);border-radius:8px;overflow:hidden;background:var(--bg-warm);}
+.product-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border-s);transition:background 0.15s;}
+.product-row:last-child{border-bottom:none;}
+.product-row:hover{background:var(--bg-deep);}
+.product-left{display:flex;flex-direction:column;gap:3px;}
+.product-name{font-size:14px;font-weight:600;color:var(--ink);line-height:1.3;}
+.product-dose{font-family:'DM Mono',monospace;font-size:11px;color:var(--sage);margin-top:1px;}
+.product-note{font-size:12px;color:var(--ink-light);line-height:1.5;margin-top:2px;}
+.product-warn{font-size:11px;color:var(--terra);margin-top:3px;}
+.product-link{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:0.05em;color:#fff;background:var(--sage);text-decoration:none;padding:7px 13px;border-radius:4px;white-space:nowrap;flex-shrink:0;transition:background 0.2s;}
+.product-link:hover{background:var(--sage-mid);}
+.product-link svg{width:10px;height:10px;opacity:0.8;}
+.external-link{background:var(--terra);color:#fff;}
+.external-link:hover{background:var(--terra-light);}
+.badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:2px 7px;border-radius:3px;margin-left:6px;vertical-align:middle;}
+.badge-budget{background:var(--honey-pale);color:var(--honey);}
+.badge-external{background:var(--terra-pale);color:var(--terra);}
+.badge-diy{background:var(--bg-stone);color:var(--ink-light);}
+.alert-box{background:var(--terra-pale);border:1px solid rgba(140,90,60,0.2);border-radius:8px;padding:16px 20px;margin:20px 0;}
+.alert-box-title{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--terra);margin-bottom:8px;}
+.alert-box p{font-size:13px;color:var(--ink-mid);line-height:1.7;}
+.combo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:560px){.combo-grid{grid-template-columns:1fr;}}
+.combo-card{background:var(--bg-warm);border:1px solid var(--border-s);border-left:3px solid var(--sage);border-radius:0 8px 8px 0;padding:16px;}
+.combo-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.combo-formula{font-family:'DM Mono',monospace;font-size:10px;color:var(--sage);margin-bottom:8px;display:block;}
+.combo-desc{font-size:12px;color:var(--ink-light);line-height:1.6;}
+.section-total{margin-top:16px;padding:12px 16px;background:var(--bg-stone);border-radius:6px;font-size:12px;color:var(--ink-light);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.section-total strong{color:var(--ink-mid);}
+.section-divider{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent);margin-top:48px;}
+footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);padding:40px 24px;}
+.ft-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+@media(max-width:560px){.ft-inner{grid-template-columns:1fr;}}
+.ft-brand{font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;}
+.ft-disc{font-size:12px;color:var(--ink-ghost);line-height:1.7;}
+.ft-nav{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
+.ft-nav a{font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;}
+.ft-nav a:hover{color:#d4c9a8;}
+@media(max-width:600px){.product-row{grid-template-columns:1fr;}.product-link{align-self:flex-start;margin-top:6px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Heal Yourself</a>
+  <div class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="protocols.html">All Protocols</a>
+    <a href="DMSO_Oxygen_Therapy.html">← DMSO Protocol</a>
+    <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank">iHerb — GUW6132</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Shopping List</div>
+    <h1>DMSO &amp; Oxygen Therapy<br><em>What to Source &amp; Where</em></h1>
+    <p class="hero-sub">DMSO itself is not available on supplement retailers — it requires a specialist source. This page explains exactly where to get it, what grade to ask for, and lists all companion compounds available on iHerb with your affiliate code <strong style="font-family:'DM Mono',monospace;color:var(--honey);">GUW6132</strong>.</p>
+    <a href="DMSO_Oxygen_Therapy.html" class="hero-back">← Back to Full Protocol</a>
+  </div>
+</div>
+
+<div class="iherb-bar">
+  <div class="iherb-bar-inner">
+    <div class="iherb-code">GUW6132</div>
+    <div class="iherb-text">Use at iHerb checkout for a discount. Supports this free guide at no extra cost to you.</div>
+    <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" class="iherb-btn">Shop iHerb</a>
+  </div>
+</div>
+
+<div class="jump-nav">
+  <div class="jump-nav-inner">
+    <a href="#dmso-source">Sourcing DMSO</a>
+    <a href="#companion">Companion Compounds</a>
+    <a href="#combinations">Combination Protocols</a>
+    <a href="#oxygen">Oxygen Therapy</a>
+    <a href="#safety">Safety Checklist</a>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ═══ SOURCING DMSO ═══ -->
+  <div class="section-block" id="dmso-source">
+    <div class="section-header">
+      <span class="section-num">Step 01</span>
+      <span class="section-title">Sourcing DMSO — What to Ask For</span>
+    </div>
+    <p class="section-desc">DMSO (Dimethyl Sulfoxide) is classified as an industrial solvent in most regulatory frameworks, which means mainstream supplement retailers including iHerb do not carry it. This is a regulatory issue, not a safety issue — DMSO has been FDA-approved since 1978 for one condition (interstitial cystitis) and is approved in over 40 countries for various uses. More than 3,000 peer-reviewed studies confirm its safety profile.</p>
+
+    <div class="alert-box">
+      <div class="alert-box-title">⚗️ What to Tell Your Supplier</div>
+      <p>Ask specifically for: <strong>"Dimethyl Sulfoxide 99.9% pharmaceutical grade, in a glass bottle."</strong></p>
+      <p style="margin-top:8px;">Glass is essential — DMSO dissolves plasticisers from plastic containers and carries them through the skin. Never use DMSO stored in plastic. Amber glass is ideal for UV protection.</p>
+    </div>
+
+    <div class="cat-label">Where to Source — By Region</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Compounding Pharmacy<span class="badge badge-external">prescription may be required</span></div>
+          <div class="product-dose">Ask for: DMSO 99.9% pharmaceutical grade · Glass bottle · Undiluted</div>
+          <div class="product-note">Most reliable source for confirmed pharmaceutical-grade purity. In some countries a prescription is required; in others (including Israel) it is available without. Call ahead and ask specifically for "dimethyl sulfoxide pharmaceutical grade for compounding." They will know what you mean.</div>
+        </div>
+        <span style="font-size:11px;color:var(--ink-ghost);white-space:nowrap;">Ask locally</span>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Veterinary Supplier<span class="badge badge-budget">widely available</span></div>
+          <div class="product-dose">Veterinary DMSO is pharmaceutical grade — the same compound</div>
+          <div class="product-note">Veterinary DMSO is identical to pharmaceutical-grade DMSO — same compound, same purity standard, lower cost. Used extensively in equine medicine for joint injury and inflammation. This is how many practitioners source it. Ask for 99.9% in a glass bottle. "Equine DMSO" sold in glass is appropriate for human topical use.</div>
+        </div>
+        <span style="font-size:11px;color:var(--ink-ghost);white-space:nowrap;">Vet supply stores</span>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Online Specialist Retailers</div>
+          <div class="product-dose">Search: "DMSO 99.9% pharmaceutical grade glass bottle" in your country</div>
+          <div class="product-note">Several specialist natural health retailers carry pharmaceutical-grade DMSO in glass bottles. Heiltropfen (European), DMSO Store (US), and similar suppliers have established track records. Always verify: glass packaging, 99.9% purity, and that the product states pharmaceutical or reagent grade. Never purchase DMSO in plastic containers regardless of claimed purity.</div>
+          <div class="product-warn">⚠️ Verify glass packaging before ordering. DMSO in plastic is contaminated DMSO.</div>
+        </div>
+        <span style="font-size:11px;color:var(--ink-ghost);white-space:nowrap;">Search locally</span>
+      </div>
+    </div>
+
+    <div class="cat-label">Concentration Guide — What You Will Dilute To</div>
+    <div style="border:1px solid var(--border-s);border-radius:8px;overflow:hidden;background:var(--bg-warm);">
+      <div style="display:grid;grid-template-columns:100px 1fr 1fr;gap:0;font-size:12px;">
+        <div style="padding:10px 14px;background:var(--bg-deep);font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--sage);text-transform:uppercase;">Concentration</div>
+        <div style="padding:10px 14px;background:var(--bg-deep);font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--ink-light);text-transform:uppercase;">Use</div>
+        <div style="padding:10px 14px;background:var(--bg-deep);font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--ink-light);text-transform:uppercase;">How to Mix (from 99%)</div>
+        <div style="padding:10px 14px;border-bottom:1px solid var(--border-s);font-family:'DM Mono',monospace;color:var(--sage);font-weight:500;">99%</div>
+        <div style="padding:10px 14px;border-bottom:1px solid var(--border-s);color:var(--ink-mid);">Never apply undiluted to skin</div>
+        <div style="padding:10px 14px;border-bottom:1px solid var(--border-s);color:var(--ink-light);">—</div>
+        <div style="padding:10px 14px;border-bottom:1px solid var(--border-s);font-family:'DM Mono',monospace;color:var(--sage);font-weight:500;">70%</div>
+        <div style="padding:10px 14px;border-bottom:1px solid var(--border-s);color:var(--ink-mid);">Joint pain, scars, scar tissue</div>
+        <div style="padding:10px 14px;border-bottom:1px solid var(--border-s);color:var(--ink-light);">7 parts DMSO · 3 parts distilled water</div>
+        <div style="padding:10px 14px;border-bottom:1px solid var(--border-s);font-family:'DM Mono',monospace;color:var(--sage);font-weight:500;">50–60%</div>
+        <div style="padding:10px 14px;border-bottom:1px solid var(--border-s);color:var(--ink-mid);">General topical · Nerve pain · Combinations</div>
+        <div style="padding:10px 14px;border-bottom:1px solid var(--border-s);color:var(--ink-light);">1 part DMSO · 1 part distilled water</div>
+        <div style="padding:10px 14px;border-bottom:1px solid var(--border-s);font-family:'DM Mono',monospace;color:var(--sage);font-weight:500;">35–40%</div>
+        <div style="padding:10px 14px;border-bottom:1px solid var(--border-s);color:var(--ink-mid);">Sensitive skin · Nasal · Eyes (specialist only)</div>
+        <div style="padding:10px 14px;border-bottom:1px solid var(--border-s);color:var(--ink-light);">2 parts DMSO · 3 parts distilled water</div>
+        <div style="padding:10px 14px;font-family:'DM Mono',monospace;color:var(--sage);font-weight:500;">10–25%</div>
+        <div style="padding:10px 14px;color:var(--ink-mid);">Oral internal use</div>
+        <div style="padding:10px 14px;color:var(--ink-light);">1 part 50% DMSO · 1 part distilled water</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--ink-light);margin-top:10px;line-height:1.6;">Always use distilled water for dilution — never tap water. Tap water contains chlorine and chloramine which DMSO will carry through the skin.</p>
+
+    <div class="section-total">
+      <span><strong>DMSO itself:</strong> source from compounding pharmacy, veterinary supplier, or specialist retailer in your country</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ COMPANION COMPOUNDS ═══ -->
+  <div class="section-block" id="companion">
+    <div class="section-header">
+      <span class="section-num">Step 02</span>
+      <span class="section-title">Companion Compounds — Available on iHerb</span>
+    </div>
+    <p class="section-desc">These are the compounds most commonly combined with DMSO in the protocols documented in this guide. All are available on iHerb with your affiliate code GUW6132.</p>
+
+    <div class="cat-label">Core Companion Supplements</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">MSM — Methylsulfonylmethane with OptiMSM®</div>
+          <div class="product-dose">1,000–3,000mg daily · Also used dissolved in water for DMSO combinations</div>
+          <div class="product-note">MSM is the oxidised form of DMSO — what DMSO becomes after it donates an oxygen atom. They work synergistically. Together they provide sulfur donation, anti-inflammatory action, and collagen support at a level neither achieves alone. OptiMSM® is the only pharmaceutical-grade MSM with multiple human clinical trials. Doctor's Best uses this form exclusively — it is the verified standard.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/doctor-s-best-msm-with-optimsm-360-capsules-1-000-mg-per-capsule/54231?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Magnesium Chloride Flakes — Zechstein Source</div>
+          <div class="product-dose">Dissolve in distilled water to make magnesium oil (approx. 33% solution) · Mix 1:1 with 50% DMSO for combination protocol</div>
+          <div class="product-note">Magnesium chloride penetrates poorly through intact skin on its own — topical magnesium effectiveness is debated for this reason. With DMSO as a carrier, magnesium reaches muscular and nerve tissue directly and measurably. NOW Foods Zechstein-source flakes are the same ancient seabed source as premium brands at better value. Used for muscle cramps, restless legs, fibromyalgia, nerve pain, anxiety, and sleep.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-solutions-pure-magnesium-flakes-54-oz-1-531-g/73068?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Curcumin Phytosome — BCM-95 Form</div>
+          <div class="product-dose">Oral: 500mg twice daily with food · DMSO combination: small amount curcumin powder dissolved in DMSO first, then diluted to 50%</div>
+          <div class="product-note">Curcumin has extraordinary anti-inflammatory, antioxidant, and documented anti-tumour properties — but its bioavailability when taken orally is famously poor (~1%). The liver removes most of it before it reaches target tissues. DMSO bypasses first-pass metabolism entirely. Applied topically with DMSO to area of concern for direct local effect, or to the back of neck and cervical spine for neurological effect. Phytosome form used here is 29× better absorbed orally than standard curcumin.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/jarrow-formulas-curcumin-phytosome-500-mg-60-tablets/13271?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Cold-Pressed Castor Oil<span class="badge badge-budget">budget</span></div>
+          <div class="product-dose">Apply DMSO first at 50–60% · Wait 20–30 minutes for full absorption · Then apply castor oil</div>
+          <div class="product-note">Do not mix DMSO and castor oil together — apply sequentially. DMSO opens the dermal pathways; castor oil's ricinoleic acid then penetrates to depth it normally cannot reach. Used for breast cysts, fibroids, ovarian cysts, liver support, joint inflammation, and lymphatic congestion. DMSO-primed castor oil is significantly more effective than castor oil alone.</div>
+          <div class="product-warn">⚠️ Hexane-free food-grade only. Sequentially applied — never mixed with DMSO in the same application.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/heritage-store-castor-oil-16-fl-oz-473-ml/2513?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="cat-label">Also Source Separately</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Lugol's Iodine 5% — for DMSO + Iodine Combination<span class="badge badge-external">not on iHerb</span></div>
+          <div class="product-dose">2–3 drops per ml of DMSO solution · Applied over thyroid area, breast tissue, or affected area</div>
+          <div class="product-note">Iodine delivered via DMSO reaches tissues at concentrations impossible by oral supplementation or standard topical application. Lugol's 5% is the clinical standard form. Source from a health food store, naturopath, or online pharmacy in your country — search "Lugol's iodine 5% solution." See the Hidden Deficiencies protocol for the full iodine context.</div>
+        </div>
+        <a href="Hidden_Deficiencies.html" style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:0.05em;color:var(--sage);background:var(--sage-pale);text-decoration:none;padding:7px 13px;border-radius:4px;white-space:nowrap;border:1px solid var(--border);" target="_blank">Iodine Protocol →</a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Food-Grade Hydrogen Peroxide 3% — for DMSO + H2O2 Combination<span class="badge badge-external">source locally</span></div>
+          <div class="product-dose">Mix equal parts 3% food-grade H2O2 with 50% DMSO · Topical use only</div>
+          <div class="product-note">Food-grade 3% hydrogen peroxide is sold in most pharmacies. The critical word is "food-grade" — standard pharmacy H2O2 contains stabilisers that DMSO will carry into tissue. Food-grade contains no stabilisers. Mix equal parts for a 1.5% H2O2 / 25% DMSO final solution. Used topically for sinusitis, ear infections, gum disease, nail fungus, and skin infections — never orally in combination with DMSO.</div>
+          <div class="product-warn">⚠️ Food-grade 3% ONLY. Standard pharmacy H2O2 contains stabilisers. Topical use only — never drink DMSO/H2O2 combination.</div>
+        </div>
+        <span style="font-size:11px;color:var(--ink-ghost);white-space:nowrap;">Pharmacy locally</span>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span><strong>4 companion products on iHerb</strong> · <strong>2 to source locally</strong> (Lugol's iodine, food-grade H2O2)</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ COMBINATION PROTOCOLS ═══ -->
+  <div class="section-block" id="combinations">
+    <div class="section-header">
+      <span class="section-num">Step 03</span>
+      <span class="section-title">Combination Protocols — Quick Reference</span>
+    </div>
+    <p class="section-desc">Each combination targets a different condition or delivery goal. DMSO acts as the carrier molecule — what it is combined with determines what is delivered and where. Always prepare in glass or ceramic containers.</p>
+
+    <div class="combo-grid">
+      <div class="combo-card">
+        <div class="combo-name">DMSO + Magnesium Chloride</div>
+        <span class="combo-formula">50% DMSO · Mix 1:1 with magnesium oil solution</span>
+        <p class="combo-desc">For muscle cramps, nerve pain, restless legs, anxiety, sleep. Apply to large muscle groups or along nerve pathways. 1–2× daily.</p>
+      </div>
+      <div class="combo-card">
+        <div class="combo-name">DMSO + Curcumin</div>
+        <span class="combo-formula">50–60% DMSO · Curcumin powder dissolved in DMSO</span>
+        <p class="combo-desc">For joint inflammation, neurological inflammation, skin conditions. Bypasses first-pass liver metabolism entirely. Apply to area of concern or cervical spine for neurological effect.</p>
+      </div>
+      <div class="combo-card">
+        <div class="combo-name">DMSO + Iodine</div>
+        <span class="combo-formula">50% DMSO · 2–3 drops Lugol's 5% per ml</span>
+        <p class="combo-desc">For thyroid area application, fibrocystic breast tissue, antifungal protocol. Iodine fades from skin — rate of fading indicates tissue absorption need.</p>
+      </div>
+      <div class="combo-card">
+        <div class="combo-name">DMSO + MSM</div>
+        <span class="combo-formula">50% DMSO · MSM dissolved in distilled water first</span>
+        <p class="combo-desc">For arthritis, joint pain, skin conditions, hair and nail health. One of the safest DMSO combinations — both compounds are exceptionally well-tolerated.</p>
+      </div>
+      <div class="combo-card">
+        <div class="combo-name">DMSO + H2O2</div>
+        <span class="combo-formula">Equal parts 50% DMSO + 3% food-grade H2O2</span>
+        <p class="combo-desc">For sinusitis, ear infections, gum disease, nail fungus, skin infections. Topical only — never oral. Most powerful antimicrobial combination in this protocol.</p>
+      </div>
+      <div class="combo-card">
+        <div class="combo-name">DMSO + Castor Oil</div>
+        <span class="combo-formula">DMSO first (50–60%) · Wait 20–30 min · Then castor oil</span>
+        <p class="combo-desc">For fibroids, cysts, liver support, joint inflammation. Sequential application only — not mixed. DMSO opens the pathway; castor oil follows.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ OXYGEN THERAPY ═══ -->
+  <div class="section-block" id="oxygen">
+    <div class="section-header">
+      <span class="section-num">Step 04</span>
+      <span class="section-title">Oxygen Therapy — What to Source</span>
+    </div>
+    <p class="section-desc">Most oxygen therapy interventions are either free (breathing protocols), equipment-based (ozone generator, HBOT chamber), or pharmacy-sourced (food-grade H2O2). None require iHerb. The chlorophyll protocol is the one daily supplement.</p>
+
+    <div class="cat-label">Daily Supplement — Available on iHerb</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Chlorella — Broken Cell Wall (Liquid Chlorophyll Source)</div>
+          <div class="product-dose">1–3g daily · With meals · As baseline oxygen support</div>
+          <div class="product-note">Chlorophyll is structurally identical to haemoglobin with magnesium at the centre instead of iron. Supports blood oxygen-carrying capacity. Chlorella also binds heavy metals and provides complete protein, B12, and iron. One of the most nutritionally complete single-ingredient supplements available. Also used in the glyphosate binder protocol (Brain Protocol page).</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-certified-organic-chlorella-500-mg-200-tablets/21320?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="cat-label">Equipment &amp; Non-iHerb Sources</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Food-Grade H2O2 — 3% for Internal Protocol<span class="badge badge-external">source locally</span></div>
+          <div class="product-dose">Start: 1 drop in 250ml distilled water · Empty stomach · Build slowly over weeks</div>
+          <div class="product-note">The oral hydrogen peroxide protocol uses extremely diluted 3% food-grade H2O2 in distilled water. Food-grade means no stabilisers. Source from health food stores, natural pharmacy, or online suppliers. Never use standard pharmacy H2O2 internally — it contains stabilisers including acetanilide that are not appropriate for oral use.</div>
+          <div class="product-warn">⚠️ Food-grade 3% only — start with 1 drop in a full glass of water. Never begin at higher doses. Build very gradually over weeks.</div>
+        </div>
+        <span style="font-size:11px;color:var(--ink-ghost);white-space:nowrap;">Health food store</span>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Home Ozone Generator — for Ear Insufflation<span class="badge badge-external">equipment</span></div>
+          <div class="product-dose">1–2 mcg/ml · 1–3 minutes per ear · 3× per week starting frequency</div>
+          <div class="product-note">Ear insufflation is the only ozone delivery method safely performed at home. A dedicated medical ozone generator (not air purifier ozone) with an ear insufflation attachment. Search "medical ozone generator ear insufflation" in your country. Equipment cost is typically £150–400. Rectal and IV ozone require a practitioner.</div>
+        </div>
+        <span style="font-size:11px;color:var(--ink-ghost);white-space:nowrap;">Specialist retailers</span>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Breathing Protocols — Wim Hof / Buteyko / Box Breathing<span class="badge badge-diy">free</span></div>
+          <div class="product-dose">20 minutes daily · Nothing to purchase</div>
+          <div class="product-note">These cost nothing. Wim Hof Method, Buteyko, and box breathing all alter blood oxygen and CO2 in documented ways. Measured effects on oxygenation, vagal tone, inflammation markers, and immune function. YouTube has complete guided sessions. Start here before investing in equipment.</div>
+        </div>
+        <span style="font-size:11px;color:var(--ink-ghost);white-space:nowrap;">Free — YouTube</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ SAFETY CHECKLIST ═══ -->
+  <div class="section-block" id="safety">
+    <div class="section-header">
+      <span class="section-num">Step 05</span>
+      <span class="section-title">Safety Checklist — Before First Use</span>
+    </div>
+    <p class="section-desc">DMSO is exceptionally safe when used correctly. It is dangerous only when used without understanding its unique property: it carries everything through the skin. This checklist covers the non-negotiables.</p>
+
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
+      <div style="display:flex;gap:12px;padding:12px 16px;background:var(--bg-warm);border:1px solid var(--border-s);border-radius:6px;align-items:flex-start;">
+        <span style="color:var(--sage);font-weight:700;font-size:16px;flex-shrink:0;">✓</span>
+        <div><strong style="color:var(--ink);">Glass bottle only.</strong> <span style="font-size:13px;color:var(--ink-light);">Never apply DMSO from or near a plastic container. It dissolves plasticisers and carries them through the skin.</span></div>
+      </div>
+      <div style="display:flex;gap:12px;padding:12px 16px;background:var(--bg-warm);border:1px solid var(--border-s);border-radius:6px;align-items:flex-start;">
+        <span style="color:var(--sage);font-weight:700;font-size:16px;flex-shrink:0;">✓</span>
+        <div><strong style="color:var(--ink);">Skin must be clean and dry.</strong> <span style="font-size:13px;color:var(--ink-light);">Wash the application area with unscented natural soap and dry completely. Any substance on the skin — lotion, fragrance, synthetic fabric — will be carried inward.</span></div>
+      </div>
+      <div style="display:flex;gap:12px;padding:12px 16px;background:var(--bg-warm);border:1px solid var(--border-s);border-radius:6px;align-items:flex-start;">
+        <span style="color:var(--sage);font-weight:700;font-size:16px;flex-shrink:0;">✓</span>
+        <div><strong style="color:var(--ink);">Natural fibre clothing only.</strong> <span style="font-size:13px;color:var(--ink-light);">No synthetic fabric (polyester, nylon, rayon) during or after application. DMSO will carry synthetic chemicals from fabric through the skin. Cotton, linen, or wool only.</span></div>
+      </div>
+      <div style="display:flex;gap:12px;padding:12px 16px;background:var(--bg-warm);border:1px solid var(--border-s);border-radius:6px;align-items:flex-start;">
+        <span style="color:var(--sage);font-weight:700;font-size:16px;flex-shrink:0;">✓</span>
+        <div><strong style="color:var(--ink);">Distilled water only for dilution.</strong> <span style="font-size:13px;color:var(--ink-light);">Tap water contains chlorine, chloramine, fluoride, and other compounds. DMSO will carry all of them. Distilled or reverse osmosis water only.</span></div>
+      </div>
+      <div style="display:flex;gap:12px;padding:12px 16px;background:var(--bg-warm);border:1px solid var(--border-s);border-radius:6px;align-items:flex-start;">
+        <span style="color:var(--sage);font-weight:700;font-size:16px;flex-shrink:0;">✓</span>
+        <div><strong style="color:var(--ink);">Start at 50% concentration.</strong> <span style="font-size:13px;color:var(--ink-light);">Never apply 99% undiluted DMSO to skin. 50–60% is the working concentration for most topical applications. Beginners should start at 40% and observe skin response for 24 hours.</span></div>
+      </div>
+      <div style="display:flex;gap:12px;padding:12px 16px;background:var(--bg-warm);border:1px solid var(--border-s);border-radius:6px;align-items:flex-start;">
+        <span style="color:var(--sage);font-weight:700;font-size:16px;flex-shrink:0;">✓</span>
+        <div><strong style="color:var(--ink);">The garlic breath is normal.</strong> <span style="font-size:13px;color:var(--ink-light);">DMSO metabolises to dimethyl sulphide, which is excreted through breath and sweat. This is not a side effect — it is confirmation the compound is working. It is temporary and reduces with regular use.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- SUMMARY -->
+  <div style="margin-top:48px;padding:28px 32px;background:var(--bg-warm);border:1px solid var(--border-s);border-radius:8px;">
+    <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:16px;">DMSO Protocol — Complete Sourcing Summary</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--terra);margin-bottom:10px;">Source Locally or Online</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--ink-mid);">
+          <div>⚗️ DMSO 99.9% in glass — compounding pharmacy or vet supplier</div>
+          <div>🧪 Lugol's Iodine 5% — health food store or pharmacy</div>
+          <div>💧 Food-grade H2O2 3% — health food store</div>
+          <div>🔬 Ozone generator — specialist medical equipment</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage);margin-bottom:10px;">Available on iHerb — Code GUW6132</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--ink-mid);">
+          <div>✓ MSM with OptiMSM® — Doctor's Best</div>
+          <div>✓ Magnesium Chloride Flakes — NOW Foods</div>
+          <div>✓ Curcumin Phytosome BCM-95 — Jarrow</div>
+          <div>✓ Cold-Pressed Castor Oil — Heritage Store</div>
+          <div>✓ Chlorella broken cell wall — NOW Foods</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="DMSO_Oxygen_Therapy.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--sage);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:11px 22px;border-radius:5px;">Read Full Protocol</a>
+      <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--bg-stone);color:var(--ink-mid);border:1px solid var(--border);font-size:12px;font-weight:600;letter-spacing:0.04em;text-decoration:none;padding:11px 22px;border-radius:5px;">Shop iHerb — Code GUW6132</a>
+    </div>
+  </div>
+
+</div>
+
+<section style="background:var(--bg-deep);padding:40px 24px;border-top:1px solid var(--border-s);">
+  <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+    <div>
+      <div style="font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;">About This Guide</div>
+      <p style="font-size:14px;line-height:1.8;color:var(--ink-mid);margin-bottom:10px;">This guide was built from thousands of hours of independent research — peer-reviewed studies, suppressed clinical trials, and ancient healing traditions that predate the pharmaceutical model. The author spent years as a Pharmaceutical QA Internal Auditor before leaving to find the answers the system was not asking for.</p>
+      <p style="font-size:14px;line-height:1.8;color:var(--ink-mid);">Every protocol here is free — because health knowledge should not be a luxury.</p>
+      <a href="index.html#about" style="display:inline-block;margin-top:14px;font-size:12px;font-weight:600;color:var(--sage);text-decoration:underline;text-underline-offset:3px;">Read the full story</a>
+    </div>
+    <div style="text-align:center;padding:28px;background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);margin-bottom:8px;">Support this free guide</div>
+      <div style="font-family:'Playfair Display',serif;font-size:15px;color:var(--ink);margin-bottom:4px;">Buy supplements on iHerb</div>
+      <div style="font-family:'DM Mono',monospace;font-size:36px;font-weight:700;color:var(--sage);letter-spacing:0.06em;margin:10px 0;">GUW6132</div>
+      <div style="font-size:12px;color:var(--ink-light);margin-bottom:16px;">Enter at checkout &middot; You get a discount</div>
+      <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" style="display:inline-block;background:var(--sage);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:10px 22px;border-radius:5px;">Shop iHerb</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div>
+      <div class="ft-brand">Heal Yourself</div>
+      <p class="ft-disc">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor.</p>
+    </div>
+    <nav class="ft-nav">
+      <a href="index.html">Home</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('.section-block');
+const navLinks = document.querySelectorAll('.jump-nav a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.jump-nav a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

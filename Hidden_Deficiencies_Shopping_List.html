@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hidden Deficiencies — Complete Shopping List · Heal Yourself</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;
+  --bg-nav:#2c3a2e;--bg-footer:#263028;
+  --ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;--ink-ghost:#a89e8e;
+  --sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-light:#7aac8a;--sage-pale:#e4f0e8;--sage-nav:#8ab89a;
+  --terra:#8c5a3c;--terra-light:#b07a58;--terra-pale:#f5ede6;
+  --honey:#a07830;--honey-pale:#f5eddb;
+  --border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);
+  --nav-h:52px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-nav);border-bottom:1px solid rgba(138,184,154,0.12);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 28px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:17px;color:#d4c9a8;text-decoration:none;letter-spacing:0.02em;}
+.nav-center{display:flex;align-items:center;}
+.nav-center a{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;white-space:nowrap;}
+.nav-center a:hover{color:var(--sage-nav);}
+@media(max-width:640px){.nav-center{display:none;}}
+.hero{padding:calc(var(--nav-h) + 40px) 24px 40px;background:var(--bg-warm);border-bottom:1px solid var(--border-s);}
+.hero-inner{max-width:860px;margin:0 auto;}
+.hero-tag{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--sage-mid);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,42px);font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:14px;}
+.hero h1 em{font-style:italic;color:var(--sage);}
+.hero-sub{font-size:15px;color:var(--ink-light);line-height:1.7;max-width:600px;margin-bottom:24px;}
+.hero-back{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--sage);text-decoration:none;padding:9px 16px;border:1px solid var(--border);border-radius:5px;background:var(--sage-pale);transition:all 0.2s;}
+.hero-back:hover{background:rgba(61,107,74,0.12);border-color:var(--sage-mid);}
+.iherb-bar{background:var(--honey-pale);padding:14px 24px;border-bottom:1px solid rgba(160,120,48,0.15);}
+.iherb-bar-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.iherb-code{font-family:'DM Mono',monospace;font-size:22px;font-weight:500;color:var(--honey);letter-spacing:0.06em;white-space:nowrap;}
+.iherb-text{font-size:13px;color:var(--ink-mid);line-height:1.6;flex:1;min-width:200px;}
+.iherb-btn{display:inline-block;background:var(--sage);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;padding:9px 18px;border-radius:5px;white-space:nowrap;}
+.jump-nav{background:var(--bg-deep);border-bottom:1px solid var(--border-s);padding:0 24px;position:sticky;top:var(--nav-h);z-index:90;overflow-x:auto;scrollbar-width:none;}
+.jump-nav::-webkit-scrollbar{display:none;}
+.jump-nav-inner{display:flex;min-width:max-content;max-width:860px;margin:0 auto;}
+.jump-nav a{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:0 16px;height:38px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.jump-nav a:hover,.jump-nav a.active{color:var(--sage);border-bottom-color:var(--sage);}
+.main{max-width:860px;margin:0 auto;padding:0 24px 80px;}
+.section-block{margin-top:48px;}
+.section-header{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;padding-bottom:12px;border-bottom:2px solid var(--border);}
+.section-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.12em;color:var(--sage);background:var(--sage-pale);padding:3px 10px;border-radius:3px;white-space:nowrap;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(17px,2.2vw,22px);font-weight:700;color:var(--ink);}
+.section-desc{font-size:13px;color:var(--ink-light);line-height:1.7;margin:10px 0 20px;max-width:640px;}
+.cat-label{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);margin:24px 0 10px;padding-left:2px;}
+.product-list{display:flex;flex-direction:column;border:1px solid var(--border-s);border-radius:8px;overflow:hidden;background:var(--bg-warm);}
+.product-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border-s);transition:background 0.15s;}
+.product-row:last-child{border-bottom:none;}
+.product-row:hover{background:var(--bg-deep);}
+.product-left{display:flex;flex-direction:column;gap:3px;}
+.product-name{font-size:14px;font-weight:600;color:var(--ink);line-height:1.3;}
+.product-dose{font-family:'DM Mono',monospace;font-size:11px;color:var(--sage);margin-top:1px;}
+.product-note{font-size:12px;color:var(--ink-light);line-height:1.5;margin-top:2px;}
+.product-warn{font-size:11px;color:var(--terra);margin-top:3px;}
+.product-link{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:0.05em;color:#fff;background:var(--sage);text-decoration:none;padding:7px 13px;border-radius:4px;white-space:nowrap;flex-shrink:0;transition:background 0.2s;}
+.product-link:hover{background:var(--sage-mid);}
+.product-link svg{width:10px;height:10px;opacity:0.8;}
+.badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:2px 7px;border-radius:3px;margin-left:6px;vertical-align:middle;}
+.badge-budget{background:var(--honey-pale);color:var(--honey);}
+.badge-free{background:var(--sage-pale);color:var(--sage);}
+.badge-food{background:var(--bg-stone);color:var(--ink-light);}
+.badge-local{background:var(--terra-pale);color:var(--terra);}
+.section-total{margin-top:16px;padding:12px 16px;background:var(--bg-stone);border-radius:6px;font-size:12px;color:var(--ink-light);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.section-total strong{color:var(--ink-mid);}
+.section-divider{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent);margin-top:48px;}
+footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);padding:40px 24px;}
+.ft-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+@media(max-width:560px){.ft-inner{grid-template-columns:1fr;}}
+.ft-brand{font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;}
+.ft-disc{font-size:12px;color:var(--ink-ghost);line-height:1.7;}
+.ft-nav{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
+.ft-nav a{font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;}
+.ft-nav a:hover{color:#d4c9a8;}
+@media(max-width:600px){.product-row{grid-template-columns:1fr;}.product-link{align-self:flex-start;margin-top:6px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Heal Yourself</a>
+  <div class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="protocols.html">All Protocols</a>
+    <a href="Hidden_Deficiencies.html">← Hidden Deficiencies</a>
+    <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank">iHerb — GUW6132</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Shopping List</div>
+    <h1>Hidden Deficiencies<br><em>Complete Supplement List</em></h1>
+    <p class="hero-sub">Iodine, alkalinity, copper, zinc, and magnesium — the five hidden deficiencies that underlie most chronic illness and are almost never tested for correctly. Every product across all five sections, with direct iHerb links. Use code <strong style="font-family:'DM Mono',monospace;color:var(--honey);">GUW6132</strong> at checkout.</p>
+    <a href="Hidden_Deficiencies.html" class="hero-back">← Back to Full Protocol</a>
+  </div>
+</div>
+
+<div class="iherb-bar">
+  <div class="iherb-bar-inner">
+    <div class="iherb-code">GUW6132</div>
+    <div class="iherb-text">Enter at iHerb checkout. <strong>You get a discount.</strong> Supports this free guide.</div>
+    <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" class="iherb-btn">Shop iHerb</a>
+  </div>
+</div>
+
+<div class="jump-nav">
+  <div class="jump-nav-inner">
+    <a href="#iodine">Iodine</a>
+    <a href="#alkalinity">Alkalinity</a>
+    <a href="#copper">Copper</a>
+    <a href="#zinc">Zinc</a>
+    <a href="#magnesium">Magnesium</a>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ═══ IODINE ═══ -->
+  <div class="section-block" id="iodine">
+    <div class="section-header">
+      <span class="section-num">Deficiency 01</span>
+      <span class="section-title">Iodine — The Halogen War</span>
+    </div>
+    <p class="section-desc">The World Health Organisation estimates 96% of people are iodine deficient. The reason is not dietary failure — it is the systematic displacement of iodine from the body by three halogen competitors: fluoride (in water and toothpaste), bromine (added to bread flour in 1970 when iodine was removed), and chlorine (in tap water). All three halogens sit in the same row of the periodic table as iodine and compete for the same receptor sites. Replenishing iodine requires not just supplementing it, but understanding that you are fighting a chemical war in your own body.</p>
+
+    <div class="cat-label">Primary Protocol — Choose One Starting Point</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Lugol's Iodine 5%<span class="badge badge-local">source locally or online</span></div>
+          <div class="product-dose">Start: 1 drop (6.25mg combined iodine/iodide) · Build slowly over months · Mix in water or juice</div>
+          <div class="product-note">Lugol's Solution is the clinical standard form used in iodine research — a combination of elemental iodine and potassium iodide. Iodine serves different tissues: iodide is absorbed by the thyroid; elemental iodine is preferentially taken up by breast, prostate, and ovarian tissue. The combination covers all iodine-dependent tissues simultaneously. Not typically on mainstream retailers — source from health food stores, naturopathic suppliers, or online pharmacies. Search "Lugol's iodine 5%."</div>
+          <div class="product-warn">⚠️ Do not begin at therapeutic doses immediately — iodine mobilises stored halogens (bromine, fluoride) causing detox reactions. Start with 1 drop and build over months, not weeks.</div>
+        </div>
+        <span style="font-size:11px;color:var(--ink-ghost);white-space:nowrap;">Source locally</span>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Nascent Iodine — Global Healing Detoxadine</div>
+          <div class="product-dose">Start: 1–3 drops (650–1,950mcg) · In water · Morning · Empty stomach · Build slowly</div>
+          <div class="product-note">Nascent iodine (monoatomic iodine) is a single iodine atom in an energised state — different from Lugol's which contains both molecular iodine and iodide. Gentler introduction for people with thyroid sensitivity. Created from 300-million-year-old salt deposits 7,000 feet underground — no seaweed or kelp derivation. Detoxadine is USDA organic certified with no additives. Best choice for those who cannot source Lugol's or who want a gentler starting point.</div>
+          <div class="product-warn">⚠️ Begin with 1 drop regardless of the label instruction — individual sensitivity varies widely. If you have a thyroid condition, consult a practitioner before use.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/global-healing-detoxadine-nascent-iodine-1-fl-oz-29-6-ml/140496?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Sea-Iodine — Kelp &amp; Bladderwrack<span class="badge badge-budget">budget / food-source</span></div>
+          <div class="product-dose">1,000mcg · Daily · With food</div>
+          <div class="product-note">Food-source iodine from kelp and bladderwrack — the form humans consumed for millennia through seaweed and seafood. Life Extension Sea-Iodine combines both seaweed sources, providing a broader spectrum of naturally occurring iodine compounds alongside trace minerals. Not as potent as Lugol's for therapeutic loading but appropriate for maintenance and for people with sensitivity to concentrated iodine supplements.</div>
+          <div class="product-warn">⚠️ If you have hyperthyroidism or Hashimoto's thyroiditis, consult a practitioner before using any iodine supplement.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/life-extension-sea-iodine-1-000-mcg-60-vegetarian-capsules/55644?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="cat-label">Essential Co-Factor — Always Take With Iodine</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Selenium — L-Selenomethionine 200mcg</div>
+          <div class="product-dose">200mcg daily · With food · Non-negotiable when supplementing iodine</div>
+          <div class="product-note">Selenium is the rate-limiting cofactor for thyroid hormone conversion. Without adequate selenium, supplemental iodine can cause or worsen autoimmune thyroid conditions. Selenomethionine is the organic form with the highest bioavailability and the form used in the clinical trials that established selenium's role in thyroid health. The rule: never supplement iodine without ensuring selenium status is adequate. NOW Foods 200mcg is the standard clinical dose — affordable, yeast-free, trusted brand.</div>
+          <div class="product-warn">⚠️ Do not exceed 400mcg/day total selenium from all sources. Selenium toxicity (selenosis) causes hair loss, nail brittleness, and neurological effects at chronic overdose.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-selenium-200-mcg-180-veg-capsules/818?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span><strong>3 products</strong> (choose 1 iodine form + always include selenium) · Lugol's is strongest, nascent is gentlest, kelp is budget maintenance</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ ALKALINITY ═══ -->
+  <div class="section-block" id="alkalinity">
+    <div class="section-header">
+      <span class="section-num">Deficiency 02</span>
+      <span class="section-title">Alkalinity — Baking Soda Protocol</span>
+    </div>
+    <p class="section-desc">The body maintains blood pH within a very narrow range — any deviation is life-threatening. But the cellular environment, the lymph, and the interstitial fluid can become chronically acidic without affecting blood pH. This cellular acidity creates a hostile internal environment: pathogens thrive, enzymes malfunction, oxygen delivery decreases, and inflammation becomes entrenched. Baking soda (sodium bicarbonate) is one of the oldest, cheapest, and most effective alkalising interventions available.</p>
+
+    <div class="cat-label">What to Buy</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Pure Sodium Bicarbonate — Aluminium-Free<span class="badge badge-free">from your pantry</span></div>
+          <div class="product-dose">½ tsp in 250ml warm water with ½ lemon · Morning on empty stomach · Or as directed in the protocol</div>
+          <div class="product-note">Standard food-grade baking soda (sodium bicarbonate) from a supermarket is entirely appropriate. The critical requirement: aluminium-free. Standard baking powder contains aluminium compounds — do not use. Buy pure baking soda (sodium bicarbonate only, no other ingredients listed). Bob's Red Mill, Arm & Hammer Pure, and similar brands are all appropriate. This costs almost nothing. The budget note here is not a compromise — it is the genuine recommendation.</div>
+          <div class="product-warn">⚠️ Never take with meals — neutralises stomach acid needed for digestion and B12 absorption. Take 30 minutes before or 2 hours after food. Hypertension or kidney disease: consult a practitioner before therapeutic use — sodium bicarbonate adds sodium load. Maximum 3.5 tsp in 24 hours.</div>
+        </div>
+        <span style="font-size:11px;color:var(--ink-ghost);white-space:nowrap;">Supermarket</span>
+      </div>
+    </div>
+
+    <div style="background:var(--sage-pale);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin-top:16px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--sage);margin-bottom:8px;">Budget Note</div>
+      <p style="font-size:13px;color:var(--ink-mid);line-height:1.7;">A 500g bag of pure baking soda costs less than any supplement and lasts months. The protocol is the same whether you spend £0.80 or £8. Buy it from a supermarket or bulk food store — not a supplement retailer. Keep it clean (no food grade contamination from double-dipping spoons) and store in a sealed container.</p>
+    </div>
+
+    <div class="section-total">
+      <span><strong>Buy at supermarket</strong> — not on iHerb. Pure sodium bicarbonate, aluminium-free.</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ COPPER ═══ -->
+  <div class="section-block" id="copper">
+    <div class="section-header">
+      <span class="section-num">Deficiency 03</span>
+      <span class="section-title">Copper — The Forgotten Essential</span>
+    </div>
+    <p class="section-desc">Copper deficiency has become epidemic — not from inadequate intake but from excessive zinc supplementation without copper balance, and from the widespread promotion of zinc as an immune supplement during and after COVID-19. Zinc and copper compete for absorption: zinc consistently wins. Every person who has taken 25–50mg zinc daily for months without copper supplementation is likely copper deficient. Copper is required for melanin production (grey hair before time), iron regulation, nerve myelination, and ceruloplasmin — the iron-managing protein whose loss is implicated in neurodegeneration.</p>
+
+    <div class="cat-label">Copper Supplementation Options</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Copper — NOW Foods 3mg Veg Capsules</div>
+          <div class="product-dose">1–3mg daily · With food · Morning</div>
+          <div class="product-note">The safe therapeutic range for copper supplementation is 1–3mg daily — the amount that corrects deficiency without risking accumulation. NOW Foods copper provides the clinically relevant dose in a clean veg capsule. The correct zinc-to-copper ratio is 8:1 to 15:1. If taking zinc supplements, ensure copper is included. Symptoms of copper deficiency: premature grey hair, fatigue, immune dysfunction, anaemia unresponsive to iron, neurological symptoms, peripheral neuropathy.</div>
+          <div class="product-warn">⚠️ Do not take copper within 2 hours of zinc — they compete for absorption. Take at separate meals. Do not exceed 10mg/day. Wilson's disease contraindication: copper accumulates pathologically in Wilson's disease — do not supplement without testing if you have liver disease of unknown cause.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-copper-3-mg-100-veg-capsules/767?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Copper Water — Ancient Practice<span class="badge badge-free">free after vessel purchase</span></div>
+          <div class="product-dose">Store water overnight in a pure copper vessel · Drink first thing in the morning on empty stomach</div>
+          <div class="product-note">Storing water in a copper vessel overnight (8+ hours) allows trace copper ions to leach into the water — creating a naturally oligodynamic (antimicrobial) water with bioavailable copper. This is a 5,000-year-old Ayurvedic practice (Tamra Jal) with modern antimicrobial validation. The dose is low and self-limiting — water stored for 8 hours provides approximately 0.5–1mg copper. A copper water bottle or cup is a one-time purchase. Source from Ayurvedic suppliers, Indian kitchen stores, or Amazon — search "pure copper water bottle 100%."</div>
+        </div>
+        <span style="font-size:11px;color:var(--ink-ghost);white-space:nowrap;">Ayurvedic / Amazon</span>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Oysters — Food-First Option<span class="badge badge-food">food source</span></div>
+          <div class="product-dose">1–2 canned oysters daily · Provides full RDA for both zinc and copper in natural ratio</div>
+          <div class="product-note">Oysters contain more zinc per serving than any other food, alongside bioavailable copper in the natural 8:1 ratio the body expects. If the zinc-copper balance is the problem, oysters solve both sides simultaneously — no risk of ratio imbalance from supplementing one mineral without the other. Canned oysters in water (not brine, not oil) are the most practical daily source. This is not a budget compromise — it is genuinely the best food-source correction available.</div>
+        </div>
+        <span style="font-size:11px;color:var(--ink-ghost);white-space:nowrap;">Supermarket</span>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span><strong>1 product on iHerb</strong> · NOW Foods Copper 3mg · Plus free ancient practice option and food source</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ ZINC ═══ -->
+  <div class="section-block" id="zinc">
+    <div class="section-header">
+      <span class="section-num">Deficiency 04</span>
+      <span class="section-title">Zinc — Immune, Neurological &amp; Taste</span>
+    </div>
+    <p class="section-desc">Zinc is required for over 300 enzymatic processes. Loss of taste or smell is one of the most reliable clinical indicators of zinc deficiency — a diagnostic that requires no blood test. Zinc deficiency also manifests as slow wound healing, recurrent infections, white spots on fingernails, delayed sexual maturation, and in severe cases, hair loss and dermatitis. The critical rule: always balance zinc with copper.</p>
+
+    <div class="cat-label">Zinc Supplementation — With Copper Balance</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Zinc Bisglycinate — 25–30mg<span class="badge badge-budget">search iHerb for best price</span></div>
+          <div class="product-dose">15–30mg daily · With food · NOT within 2 hours of copper</div>
+          <div class="product-note">Bisglycinate is the most absorbable and gentle form of zinc — chelated with glycine for stomach tolerance and superior uptake compared to zinc sulfate or oxide. Do not exceed 40mg daily from all sources including dietary zinc. If taking 25–30mg daily, ensure 2–3mg copper is included in the daily protocol to maintain the correct ratio. Zinc Carnosine (PepZinGI) is a different compound used specifically for gut lining repair — see Full Body Detox Protocol, Phase 4.</div>
+          <div class="product-warn">⚠️ Never take zinc and copper within 2 hours of each other — they compete for absorption and zinc consistently displaces copper. Take zinc at dinner, copper at breakfast.</div>
+        </div>
+        <a href="https://www.iherb.com/search?kw=zinc+bisglycinate+25mg&rcode=GUW6132" target="_blank" style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:0.05em;color:var(--sage);background:var(--sage-pale);text-decoration:none;padding:7px 13px;border-radius:4px;white-space:nowrap;flex-shrink:0;border:1px solid var(--border);">Search iHerb →</a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Oysters — Natural Zinc + Copper Balance<span class="badge badge-food">food first</span></div>
+          <div class="product-dose">1–2 canned oysters daily</div>
+          <div class="product-note">The most balanced zinc source available — natural zinc-to-copper ratio, highly bioavailable, food matrix prevents imbalance. If you are eating 1–2 oysters daily you may not need any zinc supplement. Assess symptoms (taste, smell, wound healing, immunity) and supplement only what food does not provide.</div>
+        </div>
+        <span style="font-size:11px;color:var(--ink-ghost);white-space:nowrap;">Supermarket</span>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span><strong>1 product to search on iHerb</strong> · Zinc bisglycinate 25–30mg · Always pair with copper at a separate meal</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ MAGNESIUM ═══ -->
+  <div class="section-block" id="magnesium">
+    <div class="section-header">
+      <span class="section-num">Deficiency 05</span>
+      <span class="section-title">Magnesium — The Master Mineral</span>
+    </div>
+    <p class="section-desc">Magnesium is required as a cofactor for over 300 enzymatic reactions — more than any other mineral. It is involved in DNA synthesis, protein synthesis, nerve transmission, muscle contraction, blood pressure regulation, and glucose metabolism. Approximately 80% of adults are deficient by current estimates. The standard blood serum test misses magnesium deficiency entirely — only 1% of the body's magnesium is in the blood; the rest is in cells and bone. The RBC (red blood cell) magnesium test is the correct diagnostic. Different forms of magnesium serve different purposes — form selection is important.</p>
+
+    <div class="cat-label">Magnesium Forms — Choose by Purpose</div>
+    <div class="product-list">
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Magnesium Glycinate — Daily Foundation<span class="badge badge-budget">best for daily maintenance</span></div>
+          <div class="product-dose">300–400mg elemental magnesium · Evening · With or without food</div>
+          <div class="product-note">Glycinate is the gentlest, best-tolerated magnesium form for daily long-term use. No laxative effect at normal doses. The glycine chelate means minimal gastric irritation even at higher doses. Best for: sleep, anxiety, muscle relaxation, blood sugar regulation, general deficiency correction. This is the form to use for daily maintenance once the protocol is established. Doctor's Best uses Albion® TRAACS® chelate — the gold standard for mineral bioavailability verification.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/doctor-s-best-high-absorption-magnesium-lysinate-glycinate-chelated-albion-traacs-240-tablets-100-mg-per-tablet/85189?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Magnesium L-Threonate — Brain &amp; Cognitive</div>
+          <div class="product-dose">2,000mg complex (delivers 144mg elemental Mg) · Split morning + evening</div>
+          <div class="product-note">The only magnesium form demonstrated in controlled trials to significantly raise brain magnesium levels. Uses MIT-patented Magtein® compound. Best for: neurological conditions, cognitive decline, memory support, movement disorder protocols. More expensive than other forms but clinically distinct — no other form reaches the brain in meaningful concentration. Use alongside glycinate rather than as a replacement if budget allows.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/life-extension-neuro-mag-magnesium-l-threonate-90-vegetarian-capsules-48-mg-per-capsule/40244?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Magnesium Chloride Flakes — Topical Absorption<span class="badge badge-budget">budget</span></div>
+          <div class="product-dose">2 cups in bath water · Soak 20–30 min · OR dissolve in water for magnesium oil spray</div>
+          <div class="product-note">Magnesium chloride absorbs transdermally — bypassing the digestive system entirely. Valuable for those with digestive issues that limit oral magnesium absorption, and for people who experience loose stools from oral magnesium. NOW Foods Zechstein-source flakes are from the same ancient underground seabed as premium brands, at better value. Topical magnesium is also an excellent companion to DMSO application — see DMSO Protocol.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-solutions-pure-magnesium-flakes-54-oz-1-531-g/73068?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+      <div class="product-row">
+        <div class="product-left">
+          <div class="product-name">Magnesium Malate — Energy &amp; Fibromyalgia</div>
+          <div class="product-dose">300–400mg elemental magnesium · Morning or afternoon · With food</div>
+          <div class="product-note">Malate is the form most associated with energy production — malic acid is a Krebs cycle intermediate. Best for: fibromyalgia, chronic fatigue, muscle pain, afternoon energy dips. The combination of magnesium and malic acid synergistically supports cellular energy metabolism. NOW Foods Magnesium Malate provides 100mg elemental magnesium per tablet — 3 tablets daily is the standard dose for the energy protocol. For fibromyalgia specifically, this is the most commonly recommended magnesium form in clinical literature.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-magnesium-malate-1-000-mg-180-tablets/692?rcode=GUW6132" target="_blank" class="product-link">iHerb <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1M9 1H3M9 1V7"/></svg></a>
+      </div>
+    </div>
+
+    <div style="background:var(--honey-pale);border:1px solid rgba(160,120,48,0.2);border-radius:8px;padding:14px 18px;margin-top:16px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--honey);margin-bottom:8px;">Which Form to Choose?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;color:var(--ink-mid);">
+        <div>Daily maintenance, sleep, anxiety → <strong>Glycinate</strong></div>
+        <div>Brain health, memory, neurological → <strong>L-Threonate</strong></div>
+        <div>Gut issues, transdermal preferred → <strong>Chloride flakes</strong></div>
+        <div>Fatigue, fibromyalgia, energy → <strong>Malate</strong></div>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span><strong>4 magnesium forms on iHerb</strong> · Choose by purpose · Glycinate is the universal starting point</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- SUMMARY -->
+  <div style="margin-top:48px;padding:28px 32px;background:var(--bg-warm);border:1px solid var(--border-s);border-radius:8px;">
+    <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:16px;">Hidden Deficiencies — At a Glance</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:24px;">
+      <div style="background:var(--bg-deep);border-radius:6px;padding:14px 16px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:26px;font-weight:500;color:var(--sage);">5</div>
+        <div style="font-size:11px;color:var(--ink-light);letter-spacing:0.06em;text-transform:uppercase;margin-top:3px;">Deficiencies</div>
+      </div>
+      <div style="background:var(--bg-deep);border-radius:6px;padding:14px 16px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:26px;font-weight:500;color:var(--sage);">9</div>
+        <div style="font-size:11px;color:var(--ink-light);letter-spacing:0.06em;text-transform:uppercase;margin-top:3px;">iHerb Products</div>
+      </div>
+      <div style="background:var(--bg-deep);border-radius:6px;padding:14px 16px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:22px;font-weight:500;color:var(--honey);">GUW6132</div>
+        <div style="font-size:11px;color:var(--ink-light);letter-spacing:0.06em;text-transform:uppercase;margin-top:3px;">iHerb Code</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;font-size:13px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin-bottom:8px;">On iHerb — Code GUW6132</div>
+        <div style="display:flex;flex-direction:column;gap:5px;color:var(--ink-mid);">
+          <div>✓ Detoxadine Nascent Iodine — Global Healing</div>
+          <div>✓ Selenium 200mcg L-Selenomethionine — NOW Foods</div>
+          <div>✓ Sea-Iodine 1,000mcg — Life Extension</div>
+          <div>✓ Copper 3mg — NOW Foods</div>
+          <div>✓ Magnesium Glycinate — Doctor's Best</div>
+          <div>✓ Magnesium L-Threonate — Life Extension Neuro-Mag</div>
+          <div>✓ Magnesium Chloride Flakes — NOW Foods</div>
+          <div>✓ Magnesium Malate 1,000mg — NOW Foods</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:8px;">Source Locally / Free</div>
+        <div style="display:flex;flex-direction:column;gap:5px;color:var(--ink-mid);">
+          <div>⚗️ Lugol's Iodine 5% — health food store</div>
+          <div>🧂 Pure baking soda — supermarket</div>
+          <div>🥛 Pure copper water vessel — Ayurvedic supplier</div>
+          <div>🦪 Canned oysters — supermarket (best zinc/copper balance)</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="Hidden_Deficiencies.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--sage);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:11px 22px;border-radius:5px;">Read Full Protocol</a>
+      <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--bg-stone);color:var(--ink-mid);border:1px solid var(--border);font-size:12px;font-weight:600;letter-spacing:0.04em;text-decoration:none;padding:11px 22px;border-radius:5px;">Shop iHerb — Code GUW6132</a>
+    </div>
+  </div>
+
+</div>
+
+<section style="background:var(--bg-deep);padding:40px 24px;border-top:1px solid var(--border-s);">
+  <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+    <div>
+      <div style="font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;">About This Guide</div>
+      <p style="font-size:14px;line-height:1.8;color:var(--ink-mid);margin-bottom:10px;">Thousands of hours of independent research — peer-reviewed studies, suppressed clinical trials, and ancient healing traditions. Written by a former Pharmaceutical QA Internal Auditor. Free because health knowledge should not be a luxury.</p>
+      <a href="index.html#about" style="display:inline-block;margin-top:10px;font-size:12px;font-weight:600;color:var(--sage);text-decoration:underline;text-underline-offset:3px;">Read the full story</a>
+    </div>
+    <div style="text-align:center;padding:28px;background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);margin-bottom:8px;">Support this free guide</div>
+      <div style="font-family:'DM Mono',monospace;font-size:36px;font-weight:700;color:var(--sage);letter-spacing:0.06em;margin:10px 0;">GUW6132</div>
+      <div style="font-size:12px;color:var(--ink-light);margin-bottom:16px;">iHerb checkout · You get a discount</div>
+      <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" style="display:inline-block;background:var(--sage);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:10px 22px;border-radius:5px;">Shop iHerb</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div>
+      <div class="ft-brand">Heal Yourself</div>
+      <p class="ft-disc">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor.</p>
+    </div>
+    <nav class="ft-nav">
+      <a href="index.html">Home</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('.section-block');
+const navLinks = document.querySelectorAll('.jump-nav a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.jump-nav a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
