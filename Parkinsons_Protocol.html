@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movement Disorder Recovery Protocol — Heal Yourself</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;--bg-nav:#2c3a2e;--bg-footer:#263028;--ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;--ink-ghost:#a89e8e;--sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-light:#7aac8a;--sage-pale:#e4f0e8;--sage-nav:#8ab89a;--terra:#8c5a3c;--terra-light:#b07a58;--terra-pale:#f5ede6;--honey:#a07830;--honey-pale:#f5eddb;--border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);overflow-x:hidden;}
+
+/* NAV */
+.topnav{background:var(--bg-nav);padding:0 24px;display:flex;align-items:center;gap:0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.topnav a{color:var(--sage-nav);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 16px;display:block;transition:color 0.2s;}
+.topnav a:hover{color:#fff;}
+.topnav .brand{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;letter-spacing:0.01em;margin-right:20px;padding:14px 0;text-transform:none;}
+
+/* HERO */
+.hero{background:var(--bg-nav);padding:72px 24px 56px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(138,184,154,0.08) 0%,transparent 70%);pointer-events:none;}
+.hero-tag{font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage-nav);margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:12px;}
+.hero-tag::before,.hero-tag::after{content:'';width:40px;height:1px;background:rgba(138,184,154,0.4);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,52px);font-weight:700;color:#fff;line-height:1.15;margin-bottom:14px;}
+.hero h1 em{font-style:italic;color:var(--sage-nav);}
+.hero-sub{font-size:clamp(13px,2vw,15px);color:rgba(255,255,255,0.55);font-weight:300;max-width:520px;margin:0 auto 36px;line-height:1.9;}
+.hero-note{display:inline-block;background:rgba(138,184,154,0.12);border:1px solid rgba(138,184,154,0.2);border-radius:6px;padding:10px 20px;font-size:12px;color:rgba(255,255,255,0.6);max-width:560px;line-height:1.7;}
+.hero-note strong{color:rgba(255,255,255,0.85);}
+
+/* PRINT BUTTON */
+.print-bar{background:var(--bg-deep);border-bottom:1px solid var(--border-s);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.print-bar p{font-size:12px;color:var(--ink-light);}
+.print-btn{background:var(--sage);color:#fff;border:none;padding:8px 20px;border-radius:4px;font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;}
+.print-btn:hover{background:var(--sage-mid);}
+
+/* LAYOUT */
+.inner{max-width:780px;margin:0 auto;}
+.sec{padding:48px 24px;}
+.sec-warm{background:var(--bg-warm);}
+.sec-deep{background:var(--bg-deep);}
+.sec-stone{background:var(--bg-stone);}
+.sec-sage{background:#e8f2ec;}
+.sec-terra{background:var(--terra-pale);}
+.sec-honey{background:var(--honey-pale);}
+.sec-dark{background:#2c3a2e;}
+.divider{height:1px;background:linear-gradient(to right,transparent,rgba(61,107,74,0.18),transparent);}
+
+/* TYPOGRAPHY */
+.kicker{font-size:10px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.kicker::before{content:'';width:22px;height:1px;background:var(--sage-mid);}
+.kicker-terra{color:var(--terra);}
+.kicker-terra::before{background:var(--terra-light);}
+.kicker-honey{color:var(--honey);}
+.kicker-honey::before{background:var(--honey);}
+.kicker-white{color:rgba(255,255,255,0.7);}
+.kicker-white::before{background:rgba(255,255,255,0.3);}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(20px,3.5vw,30px);font-weight:700;color:var(--ink);line-height:1.22;margin-bottom:8px;}
+.sec-title-white{color:#fff;}
+.sec-sub{font-size:14px;color:var(--ink-light);font-weight:300;line-height:1.85;margin-bottom:28px;max-width:620px;}
+.sec-sub-white{color:rgba(255,255,255,0.55);}
+
+/* THE BIG WARNING BOX */
+.warning-box{background:#fff8f0;border:2px solid #d4793a;border-radius:8px;padding:20px 24px;margin-bottom:32px;}
+.warning-box .w-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#8c4a1c;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.warning-box p{font-size:13px;color:#6b3d18;line-height:1.8;}
+
+/* BAKING SODA HIGHLIGHT */
+.highlight-box{background:var(--sage-pale);border-left:4px solid var(--sage);border-radius:0 8px 8px 0;padding:18px 22px;margin-bottom:24px;}
+.highlight-box .h-title{font-size:13px;font-weight:700;color:var(--sage);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.1em;}
+.highlight-box p{font-size:13px;color:var(--ink-mid);line-height:1.8;}
+
+.caution-box{background:#fff8e6;border-left:4px solid var(--honey);border-radius:0 8px 8px 0;padding:16px 20px;margin:16px 0 0;}
+.caution-box p{font-size:12px;color:#6b5010;line-height:1.75;}
+.caution-box strong{color:#5c420e;}
+
+/* DAILY SCHEDULE TABLE */
+.schedule{width:100%;border-collapse:collapse;margin-bottom:24px;}
+.schedule th{background:var(--sage);color:#fff;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:10px 14px;text-align:left;}
+.schedule td{padding:11px 14px;border-bottom:1px solid var(--border-s);font-size:13px;line-height:1.6;vertical-align:top;}
+.schedule tr:nth-child(even) td{background:rgba(61,107,74,0.03);}
+.schedule .time{font-family:'DM Mono',monospace;font-size:11px;color:var(--sage);white-space:nowrap;font-weight:500;}
+.schedule .action{font-weight:600;color:var(--ink);display:block;margin-bottom:2px;}
+.schedule .detail{font-size:12px;color:var(--ink-light);}
+.schedule .tag{display:inline-block;background:var(--sage-pale);color:var(--sage);font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-right:4px;margin-bottom:3px;letter-spacing:0.05em;}
+.schedule .tag-terra{background:var(--terra-pale);color:var(--terra);}
+.schedule .tag-honey{background:var(--honey-pale);color:var(--honey);}
+.schedule .tag-new{background:#e8f2ec;color:#2a5c38;border:1px solid rgba(61,107,74,0.3);}
+
+/* SUPPLEMENT LIST */
+.supp-grid{display:grid;gap:2px;margin-bottom:24px;}
+.supp-row{display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:start;padding:14px 16px;background:var(--bg-warm);border-radius:4px;}
+.supp-row:nth-child(odd){background:var(--bg);}
+.supp-check{color:var(--sage);font-size:16px;font-weight:700;line-height:1.4;}
+.supp-body{}
+.supp-name{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.supp-dose{font-family:'DM Mono',monospace;font-size:11px;color:var(--sage);margin-bottom:3px;}
+.supp-why{font-size:12px;color:var(--ink-light);line-height:1.65;}
+.supp-warn{font-size:11px;color:#8c4a1c;margin-top:4px;display:flex;align-items:flex-start;gap:5px;}
+.supp-warn::before{content:'⚠';flex-shrink:0;}
+.supp-link{color:var(--sage);text-decoration:none;font-size:11px;font-weight:700;white-space:nowrap;border:1px solid var(--border);padding:5px 10px;border-radius:4px;display:inline-block;margin-top:4px;transition:background 0.15s;}
+.supp-link:hover{background:var(--sage-pale);}
+.badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;letter-spacing:0.08em;text-transform:uppercase;}
+.badge-key{background:#2c3a2e;color:#8ab89a;}
+.badge-food{background:var(--sage-pale);color:var(--sage);}
+.badge-new{background:#e8f2ec;color:#2a5c38;border:1px solid rgba(61,107,74,0.3);}
+.badge-caution{background:#fff0e0;color:#8c5a1c;border:1px solid rgba(140,90,60,0.25);}
+
+/* SECTION DIVIDERS */
+.phase-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;}
+.phase-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#fff;background:var(--sage);padding:4px 10px;border-radius:3px;flex-shrink:0;}
+.phase-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);}
+.phase-title-white{color:#fff;}
+
+/* FOOD SECTION */
+.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;}
+@media(max-width:500px){.food-grid{grid-template-columns:1fr;}}
+.food-col{}
+.food-col-title{font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--sage);}
+.food-col-title.bad{border-bottom-color:var(--terra);}
+.food-item{font-size:13px;color:var(--ink-mid);padding:5px 0;border-bottom:1px solid var(--border-s);display:flex;align-items:flex-start;gap:8px;line-height:1.5;}
+.food-item::before{content:'✓';color:var(--sage);font-weight:700;flex-shrink:0;font-size:12px;margin-top:2px;}
+.food-item.bad::before{content:'✕';color:var(--terra);}
+
+/* EXERCISE */
+.ex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:24px;}
+@media(max-width:500px){.ex-grid{grid-template-columns:1fr 1fr;}}
+.ex-card{background:var(--bg-warm);border-radius:6px;padding:14px 14px;border-top:3px solid var(--sage);}
+.ex-icon{font-size:20px;margin-bottom:6px;}
+.ex-name{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+.ex-dose{font-family:'DM Mono',monospace;font-size:11px;color:var(--sage);}
+.ex-why{font-size:11px;color:var(--ink-light);margin-top:4px;line-height:1.6;}
+
+/* PRINT PAGE */
+@media print {
+  body{background:#fff !important;color:#000 !important;font-size:11px;}
+  .topnav,.print-bar,.no-print{display:none !important;}
+  .hero{background:#2c3a2e !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:28px 20px !important;}
+  .hero h1{font-size:22px !important;}
+  .hero-sub,.hero-note{font-size:11px !important;}
+  .sec,.sec-warm,.sec-deep,.sec-stone,.sec-sage,.sec-terra,.sec-honey{padding:16px 20px !important;background:#fff !important;}
+  .sec-dark{background:#2c3a2e !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:16px 20px !important;}
+  .schedule th{background:var(--sage) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .supp-row,.supp-row:nth-child(odd){background:#fff !important;border-bottom:1px solid #e0ddd8 !important;}
+  .supp-link{display:none !important;}
+  .food-col-title{border-bottom:2px solid #3d6b4a !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .phase-num{background:#3d6b4a !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .highlight-box{background:#f0f7f2 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .warning-box{background:#fff8f0 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  a[href]::after{content:none !important;}
+  .divider{display:none;}
+  h2,h3{page-break-after:avoid;}
+  .supp-grid,.food-grid,.ex-grid,.schedule{page-break-inside:avoid;}
+  .sec{page-break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <a href="index.html" class="brand">Heal Yourself</a>
+  <a href="index.html">Home</a>
+  <a href="Brain_Protocol.html">Brain Protocol</a>
+  <a href="Full_Body_Detox_Protocol.html">Full Body Detox</a>
+  <a href="DMSO_Oxygen_Therapy.html">DMSO</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag">Complete Healing Protocol</div>
+  <h1>Movement Disorder <em>Recovery Protocol</em></h1>
+  <p class="hero-sub">Every intervention. In the correct order. One page you can print and follow today.</p>
+  <p class="hero-note"><strong>Start here, always:</strong> This protocol layers on top of the Full Body Detox. If you have not completed the detox, begin there first — it clears the terrain that makes every other intervention possible. This page is for daily use once the detox is underway or complete.</p>
+</header>
+
+<!-- PRINT BAR -->
+<div class="print-bar no-print">
+  <p>This page is designed to print cleanly. Print and give directly to your person.</p>
+  <button class="print-btn" onclick="window.print()">🖨 Print This Protocol</button>
+</div>
+
+<!-- BAKING SODA RESEARCH -->
+<section class="sec sec-sage">
+  <div class="inner">
+    <div class="kicker">New Research</div>
+    <h2 class="sec-title">Baking Soda & Neuroinflammation</h2>
+    <p class="sec-sub">What the research actually shows — and how it applies here.</p>
+
+    <div class="highlight-box">
+      <div class="h-title">The Anti-Inflammatory Evidence (Journal of Immunology, 2018)</div>
+      <p>Researchers at Augusta University found that drinking a daily solution of baking soda (sodium bicarbonate) in water triggers a system-wide shift in the immune response. Macrophages — the immune cells that drive inflammation — switch from the inflammatory M1 type to the anti-inflammatory M2 type. This shift was observed in the kidneys, spleen, and peripheral blood, and was sustained for at least four hours in humans. Regulatory T cells also increased, which suppresses autoimmune activity and prevents the immune system from attacking the body's own tissue.</p>
+    </div>
+
+    <div class="highlight-box">
+      <div class="h-title">Why This Matters for Movement Disorders</div>
+      <p>Neuroinflammation — specifically the chronic activation of microglia and inflammatory macrophages in the midbrain — is now understood as a central driver of dopaminergic neuron loss. Separately, a 2026 pre-print study found that reactive astrocytes create an acidic microenvironment in the brain that activates acid-sensing ion channels (ASIC1), directly triggering alpha-synuclein aggregation and neuronal death. Alkalising the body systemically may help counteract both mechanisms — reducing the inflammatory load and the acidic conditions that accelerate protein misfolding.</p>
+    </div>
+
+    <div class="caution-box">
+      <p><strong>Honest limitation:</strong> These are mechanistic findings, not Parkinson's clinical trials. No direct human trial on sodium bicarbonate for movement disorders exists yet. This is used here as a low-risk, low-cost adjunct intervention based on documented anti-inflammatory and alkalising mechanisms — not as a primary treatment. The dose is small. The risk is negligible. The rationale is sound.</p>
+    </div>
+
+    <div class="caution-box" style="margin-top:12px;">
+      <p><strong>Important DMSO note:</strong> A 2022 peer-reviewed study (Scientific Reports) found that low-dose DMSO accelerates alpha-synuclein oligomerization in vitro — the exact protein aggregation process driving this condition. DMSO is valuable for pain, inflammation, and as a carrier — but it is <strong>not recommended</strong> as a direct neurological intervention here until more in-vivo data exists. It remains in the protocol for joint/muscle symptoms and topical pain relief only.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DAILY SCHEDULE -->
+<section class="sec sec-warm">
+  <div class="inner">
+    <div class="kicker">Daily Protocol</div>
+    <h2 class="sec-title">What To Do — Every Day</h2>
+    <p class="sec-sub">Print this table. Tick each item. Follow the time sequence — it matters.</p>
+
+    <table class="schedule">
+      <thead>
+        <tr>
+          <th style="width:110px;">Time</th>
+          <th>Action</th>
+          <th style="width:80px;">Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time">On waking<br>Before anything</td>
+          <td>
+            <span class="action">Sole water + lemon water</span>
+            <span class="detail">1 tsp saturated Celtic sea salt solution in a full glass of filtered water. Wait 5 min. Then juice of ½ lemon in warm filtered water. Use a straw.</span>
+          </td>
+          <td><span class="tag">Minerals</span></td>
+        </tr>
+        <tr>
+          <td class="time">Waking<br>+10 min</td>
+          <td>
+            <span class="action">Baking soda drink <span class="badge badge-new">New</span></span>
+            <span class="detail">¼ tsp food-grade baking soda (aluminum-free) in a full glass of filtered water. Drink slowly. Wait 30 min before eating. <em>Anti-inflammatory, alkalises the system, shifts macrophages to M2.</em></span>
+          </td>
+          <td><span class="tag tag-new">Anti-inflam</span></td>
+        </tr>
+        <tr>
+          <td class="time">Waking<br>+15 min</td>
+          <td>
+            <span class="action">Mucuna Pruriens — morning dose</span>
+            <span class="detail">500mg standardised extract (15% L-DOPA) on empty stomach. Take 30 min before breakfast. This is the primary dopamine support — natural levodopa. <em>If currently on pharmaceutical levodopa — discuss with doctor before adding.</em></span>
+          </td>
+          <td><span class="tag tag-terra">Dopamine</span></td>
+        </tr>
+        <tr>
+          <td class="time">Morning</td>
+          <td>
+            <span class="action">Sunlight — 10–20 minutes outside, face and arms</span>
+            <span class="detail">Circadian regulation, Vitamin D synthesis, dopamine pathway activation. Non-negotiable. Morning light is the single most powerful neurological regulator available for free.</span>
+          </td>
+          <td><span class="tag">Neuro</span></td>
+        </tr>
+        <tr>
+          <td class="time">Morning<br>Exercise</td>
+          <td>
+            <span class="action">Movement — minimum 30 minutes</span>
+            <span class="detail">Walking, dancing, Tai Chi, cycling, or boxing. See exercise section below. Exercise is the most evidence-backed intervention for slowing motor symptom progression. Do not skip.</span>
+          </td>
+          <td><span class="tag">Movement</span></td>
+        </tr>
+        <tr>
+          <td class="time">Breakfast<br>With food</td>
+          <td>
+            <span class="action">Core morning supplements with food</span>
+            <span class="detail">Lion's Mane 1,000mg · CoQ10 Ubiquinol 200–400mg · NAC 600mg · Milk Thistle 175mg · Omega-3 2–3g · Vitamin D3 5,000 IU + K2 200mcg. Take all with a fat-containing meal for absorption.</span>
+          </td>
+          <td><span class="tag">Supplements</span></td>
+        </tr>
+        <tr>
+          <td class="time">Mid-morning</td>
+          <td>
+            <span class="action">Silica-rich water (Volvic or Fiji) — 1 litre</span>
+            <span class="detail">Silica specifically binds and removes aluminium from brain tissue. Aluminium accumulation in the substantia nigra is documented in movement disorder pathology. 1 litre of silica-rich water daily is the safest and most effective aluminium chelation method available. Continue filtered water for rest of daily intake.</span>
+          </td>
+          <td><span class="tag">Detox</span></td>
+        </tr>
+        <tr>
+          <td class="time">Midday<br>Before lunch</td>
+          <td>
+            <span class="action">Mucuna Pruriens — midday dose</span>
+            <span class="detail">500mg, 30 minutes before lunch. Consistent spacing maintains stable dopamine precursor levels. Do not take with protein-heavy meals — protein competes with levodopa for absorption across the blood-brain barrier.</span>
+          </td>
+          <td><span class="tag tag-terra">Dopamine</span></td>
+        </tr>
+        <tr>
+          <td class="time">Lunch<br>With food</td>
+          <td>
+            <span class="action">Midday supplements</span>
+            <span class="detail">Magnesium glycinate 200mg · Berberine 500mg · Sauerkraut 2 tbsp (homemade or refrigerated only — not pasteurised).</span>
+          </td>
+          <td><span class="tag">Supplements</span></td>
+        </tr>
+        <tr>
+          <td class="time">Afternoon</td>
+          <td>
+            <span class="action">Vagus nerve practice — 10 minutes</span>
+            <span class="detail">Humming or singing (5 min) + 4:8 breathing — inhale 4 counts, exhale 8 counts (5 min). Gargling with cold water daily also strengthens vagal tone. The vagus nerve is the highway from gut to brain — and the pathway by which alpha-synuclein travels upward. Direct stimulation supports neurological regulation.</span>
+          </td>
+          <td><span class="tag">Neuro</span></td>
+        </tr>
+        <tr>
+          <td class="time">Afternoon</td>
+          <td>
+            <span class="action">Mannitol — if available</span>
+            <span class="detail">5–10g mannitol powder in water. Mannitol inhibits alpha-synuclein fibril formation and has shown motor improvement in animal models and patient reports. Phase IIa clinical trial confirmed safety and tolerability. A natural sugar alcohol found in many vegetables — highest evidence base of any natural anti-aggregation agent.</span>
+          </td>
+          <td><span class="tag tag-new">Alpha-syn</span></td>
+        </tr>
+        <tr>
+          <td class="time">Evening<br>Before dinner</td>
+          <td>
+            <span class="action">Mucuna Pruriens — evening dose (if needed)</span>
+            <span class="detail">500mg, 30 min before dinner. Omit if symptoms are well-managed on two doses. Always take away from protein-heavy meals.</span>
+          </td>
+          <td><span class="tag tag-terra">Dopamine</span></td>
+        </tr>
+        <tr>
+          <td class="time">Evening<br>3× per week</td>
+          <td>
+            <span class="action">Detox bath or foot soak</span>
+            <span class="detail">Epsom salt 2 cups + baking soda 1 cup + Celtic sea salt ½ cup + ACV 1 cup + bentonite clay ½ cup + ginger 2 tbsp. Soak 30–40 min. <em>Baking soda in the bath neutralises chlorine AND alkalises transdermally — doubles its value here.</em></span>
+          </td>
+          <td><span class="tag">Detox</span></td>
+        </tr>
+        <tr>
+          <td class="time">Before bed</td>
+          <td>
+            <span class="action">Night supplements</span>
+            <span class="detail">Magnesium glycinate 400mg · NMN 250–500mg (or NR 300mg) · Lion's Mane second dose 500–1,000mg · PQQ 20mg.</span>
+          </td>
+          <td><span class="tag">Neuro</span></td>
+        </tr>
+        <tr>
+          <td class="time">Before bed</td>
+          <td>
+            <span class="action">Castor oil pack over abdomen — 2×/week</span>
+            <span class="detail">Cold-pressed castor oil on cloth over the lower abdomen. Warm compress on top. 45 minutes. Supports lymphatic drainage, liver function, and gut motility — all directly linked to the gut-brain axis and alpha-synuclein transit.</span>
+          </td>
+          <td><span class="tag">Lymph</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SUPPLEMENTS -->
+<section class="sec sec-deep">
+  <div class="inner">
+    <div class="kicker">Complete Supplement Stack</div>
+    <h2 class="sec-title">Every Supplement — With Reasoning</h2>
+    <p class="sec-sub">Sorted by priority. Start with the first four. Add the rest as you build the routine.</p>
+
+    <!-- PRIORITY 1 -->
+    <div class="phase-header">
+      <span class="phase-num">PRIORITY 1</span>
+      <span class="phase-title">Dopamine & Nerve Repair</span>
+    </div>
+
+    <div class="supp-grid">
+      <div class="supp-row">
+        <span class="supp-check">✓</span>
+        <div class="supp-body">
+          <div class="supp-name">Mucuna Pruriens <span class="badge badge-key">Most Important</span></div>
+          <div class="supp-dose">500mg · 15% L-DOPA standardised · 2–3× daily · 30 min before meals · away from protein</div>
+          <div class="supp-why">Contains natural levodopa — the direct dopamine precursor. More than 3,000 years of use in Ayurvedic medicine for movement disorders. Multiple clinical trials show comparable efficacy to pharmaceutical levodopa, with faster onset and longer duration. Patented by neurologists for its advantages. Natural levodopa is better tolerated and does not cause the dyskinesia associated with synthetic Sinemet over time.</div>
+          <div class="supp-warn">If on pharmaceutical levodopa — discuss dose adjustment with doctor. Do not combine without guidance.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-dopa-mucuna-90-vcaps/714?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
+      </div>
+
+      <div class="supp-row">
+        <span class="supp-check">✓</span>
+        <div class="supp-body">
+          <div class="supp-name">Lion's Mane Mushroom <span class="badge badge-key">Most Important</span></div>
+          <div class="supp-dose">1,000mg twice daily · with meals · extract standardised to beta-glucans</div>
+          <div class="supp-why">Stimulates production of Nerve Growth Factor (NGF) — the compound that promotes growth, maintenance, and repair of neurons. The only natural substance with documented ability to stimulate NGF production in the brain. Research shows neuroprotection in dopaminergic neurons specifically. Also supports the myelin sheath — the protective coating of every nerve in the body.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/host-defense-lion-s-mane-memory-nerve-support-120-vegetarian-capsules/59092?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
+      </div>
+
+      <div class="supp-row">
+        <span class="supp-check">✓</span>
+        <div class="supp-body">
+          <div class="supp-name">CoQ10 Ubiquinol <span class="badge badge-key">Most Important</span></div>
+          <div class="supp-dose">200–400mg daily · with fat-containing meal · ubiquinol form only (not ubiquinone)</div>
+          <div class="supp-why">Mitochondrial energy production collapses in dopaminergic neurons before they die — CoQ10 is the central cofactor for mitochondrial function. Ubiquinol is the active, pre-reduced form — the only form the body can use directly. Studies show significantly lower CoQ10 levels in movement disorder patients. At high doses (1,200mg), a landmark clinical trial showed slowing of functional decline.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/jarrow-formulas-ubiquinol-qh-absorb-100-mg-120-softgels/4694?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
+      </div>
+
+      <div class="supp-row">
+        <span class="supp-check">✓</span>
+        <div class="supp-body">
+          <div class="supp-name">NMN (Nicotinamide Mononucleotide)</div>
+          <div class="supp-dose">500mg daily · morning · fasted · or NR 300mg as alternative</div>
+          <div class="supp-why">NAD+ — the cellular energy and DNA repair molecule — drops up to 50% between ages 40 and 60. In movement disorders, NAD+ depletion in neurons accelerates degeneration. NMN is the most direct NAD+ precursor. Supports mitochondrial function, sirtuin activation, and neuronal resilience at the cellular level.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/prohealth-longevity-nmn-pro-500-500-mg-30-capsules/114170?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
+      </div>
+    </div>
+
+    <!-- PRIORITY 2 -->
+    <div class="phase-header" style="margin-top:24px;">
+      <span class="phase-num">PRIORITY 2</span>
+      <span class="phase-title">Neuroprotection & Detox</span>
+    </div>
+
+    <div class="supp-grid">
+      <div class="supp-row">
+        <span class="supp-check">✓</span>
+        <div class="supp-body">
+          <div class="supp-name">NAC — N-Acetyl Cysteine</div>
+          <div class="supp-dose">600mg twice daily · between meals</div>
+          <div class="supp-why">Raises glutathione — the brain's primary antioxidant and detoxification molecule. Glutathione is severely depleted in the substantia nigra in movement disorders. NAC is the most effective oral method to restore it. Also disrupts biofilm and supports mitochondrial function.</div>
+          <div class="supp-warn">Do not use with nitroglycerin or blood pressure medications without guidance.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-nac-600-mg-250-capsules/694?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
+      </div>
+
+      <div class="supp-row">
+        <span class="supp-check">✓</span>
+        <div class="supp-body">
+          <div class="supp-name">PQQ — Pyrroloquinoline Quinone</div>
+          <div class="supp-dose">20mg daily · with CoQ10 for synergistic effect</div>
+          <div class="supp-why">Promotes mitochondrial biogenesis — the creation of new mitochondria in neurons. The only compound known to do this. Works synergistically with CoQ10. Also activates nerve growth factor and has antioxidant activity 5,000× greater than Vitamin C in some pathways.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/jarrow-formulas-pqq-pyrroloquinoline-quinone-20-mg-30-capsules/4698?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
+      </div>
+
+      <div class="supp-row">
+        <span class="supp-check">✓</span>
+        <div class="supp-body">
+          <div class="supp-name">Mannitol <span class="badge badge-new">Emerging Evidence</span></div>
+          <div class="supp-dose">5–10g powder daily · in water · afternoon · away from meals</div>
+          <div class="supp-why">A natural sugar alcohol that inhibits alpha-synuclein fibril formation — the specific protein aggregation that drives dopaminergic neuron loss. In animal models, mannitol reversed motor impairments and reduced brain alpha-synuclein burden. A Phase IIa clinical trial (2024) confirmed safety and tolerability in movement disorder patients. Of all natural compounds, mannitol has the most direct mechanistic action on the core pathology.</div>
+        </div>
+        <a href="https://www.amazon.com/s?k=mannitol+powder+food+grade" target="_blank" class="supp-link">Search →</a>
+      </div>
+
+      <div class="supp-row">
+        <span class="supp-check">✓</span>
+        <div class="supp-body">
+          <div class="supp-name">Vitamin D3 + K2</div>
+          <div class="supp-dose">D3 5,000 IU + K2 MK-7 200mcg daily · with fat-containing meal · always together</div>
+          <div class="supp-why">Vitamin D receptors are found throughout the brain including the substantia nigra. Deficiency is associated with increased movement disorder risk and faster progression. D3 must always be taken with K2 — D3 without K2 causes calcium to deposit in soft tissue rather than bone.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/now-foods-vitamin-d-3-k-2-120-veg-capsules/66218?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
+      </div>
+
+      <div class="supp-row">
+        <span class="supp-check">✓</span>
+        <div class="supp-body">
+          <div class="supp-name">Omega-3 (EPA + DHA)</div>
+          <div class="supp-dose">2–3g combined EPA+DHA daily · with meals · wild-caught fish oil or algae-based</div>
+          <div class="supp-why">The brain is 60% fat, predominantly DHA. Reduces neuroinflammation, supports dopamine receptor integrity, and maintains cell membrane fluidity in neurons. Low omega-3 status is consistently associated with accelerated neurodegeneration.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/california-gold-nutrition-omega-800-ultra-concentrated-omega-3-fish-oil-kd-pur-triglyceride-form-90-fish-gelatin-softgels-1-000-mg-per-softgel/68796?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
+      </div>
+
+      <div class="supp-row">
+        <span class="supp-check">✓</span>
+        <div class="supp-body">
+          <div class="supp-name">Magnesium Glycinate</div>
+          <div class="supp-dose">400–600mg daily · split morning and night</div>
+          <div class="supp-why">Required for over 300 enzymatic reactions including dopamine synthesis, muscle relaxation, and neurological function. Most movement disorder patients are severely deficient. Glycinate form crosses the blood-brain barrier most effectively and is the gentlest on digestion. Directly reduces muscle rigidity and cramps — two of the most debilitating daily symptoms.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/doctor-s-best-high-absorption-magnesium-lysinate-glycinate-chelated-albion-traacs-240-tablets-100-mg-per-tablet/85189?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
+      </div>
+
+      <div class="supp-row">
+        <span class="supp-check">✓</span>
+        <div class="supp-body">
+          <div class="supp-name">Probiotics — Soil-Based Organisms</div>
+          <div class="supp-dose">As directed · with meals · build slowly</div>
+          <div class="supp-why">The gut-brain axis is now understood as central to movement disorder pathology — alpha-synuclein aggregation begins in the gut (enteric nervous system) years before it reaches the brain. Restoring beneficial gut bacteria directly reduces the inflammatory load on the vagus nerve pathway. Specific strains (Lactobacillus acidophilus, Bifidobacterium) are depleted in movement disorder patients and support dopamine production.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/garden-of-life-primal-defense-ultra-ultimate-probiotic-formula-216-ugam-capsules/52?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
+      </div>
+
+      <div class="supp-row">
+        <span class="supp-check">✓</span>
+        <div class="supp-body">
+          <div class="supp-name">Baking Soda Drink <span class="badge badge-new">Anti-inflammatory</span></div>
+          <div class="supp-dose">¼ tsp in full glass filtered water · once daily · morning · 30 min before eating</div>
+          <div class="supp-why">Triggers spleen-mediated anti-inflammatory response — shifting immune cells from pro-inflammatory M1 macrophages to anti-inflammatory M2. Also alkalises the body systemically, which may counteract the brain acidosis associated with astrocyte-driven alpha-synuclein aggregation. Cheap, safe, and evidence-backed for immune regulation. Start with ⅛ tsp and build up.</div>
+          <div class="supp-warn">Avoid if on sodium-restricted diet, have kidney disease, or are taking prescription antacids. Do not use within 2 hours of other medications.</div>
+        </div>
+        <a href="https://www.iherb.com/pr/bob-s-red-mill-baking-soda-gluten-free-16-oz-454-g/89505?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOOD -->
+<section class="sec sec-warm">
+  <div class="inner">
+    <div class="kicker">Food as Medicine</div>
+    <h2 class="sec-title">What To Eat — And What To Remove</h2>
+    <p class="sec-sub">Food is not optional in this protocol. The diet creates or destroys the conditions for healing.</p>
+
+    <div class="food-grid">
+      <div class="food-col">
+        <div class="food-col-title">Eat Every Day</div>
+        <div class="food-item">Sauerkraut or kimchi — 2 tbsp with every meal. Homemade or refrigerated only.</div>
+        <div class="food-item">Wild-caught fatty fish (sardines, mackerel, salmon) — 3–4× per week. EPA/DHA for neuroinflammation.</div>
+        <div class="food-item">Organic blueberries — daily. Anthocyanins protect dopaminergic neurons specifically.</div>
+        <div class="food-item">Turmeric with black pepper — in cooking daily. Curcumin crosses the blood-brain barrier and reduces neuroinflammation.</div>
+        <div class="food-item">Green tea — 2–3 cups daily. EGCG is neuroprotective and supports dopamine metabolism.</div>
+        <div class="food-item">Raw garlic — 2 cloves daily, crushed and left 10 min. Allicin reduces neuroinflammation and supports gut microbiome.</div>
+        <div class="food-item">Cooked and cooled potatoes or green banana — resistant starch feeds gut bacteria that produce butyrate, which protects the gut-brain axis.</div>
+        <div class="food-item">Organic leafy greens (spinach, rocket, kale) — every day. Folate, magnesium, and antioxidants.</div>
+        <div class="food-item">Bone broth or collagen — daily. Heals gut lining, glycine for neurotransmitter balance.</div>
+        <div class="food-item">Coconut oil or MCT oil — 1–2 tbsp daily. Provides ketones — an alternative brain fuel that bypasses impaired glucose metabolism in neurons.</div>
+        <div class="food-item">Fava beans — several times per week. The only food with measurable natural levodopa content. Works synergistically with Mucuna.</div>
+      </div>
+      <div class="food-col">
+        <div class="food-col-title bad">Remove Permanently</div>
+        <div class="food-item bad">All seed oils — canola, sunflower, soybean, corn, vegetable oil. Profoundly inflammatory to the nervous system.</div>
+        <div class="food-item bad">Gluten — particularly wheat, barley, rye. Gut permeability and neuroinflammation are directly linked to gluten in predisposed individuals.</div>
+        <div class="food-item bad">Processed sugar and refined carbohydrates. Disrupts dopamine signalling, feeds pathogenic gut bacteria, drives neuroinflammation.</div>
+        <div class="food-item bad">Tap water — unfiltered. Fluoride, chlorine, pharmaceutical residues. Use filtered only.</div>
+        <div class="food-item bad">Non-stick cookware. PFAS chemicals are neurotoxic and accumulate in brain tissue.</div>
+        <div class="food-item bad">Processed foods with additives, emulsifiers (carboxymethylcellulose, polysorbate 80). Directly damage gut lining and microbiome.</div>
+        <div class="food-item bad">Alcohol. Directly toxic to dopaminergic neurons and gut microbiome.</div>
+        <div class="food-item bad">High-protein meals at the same time as Mucuna. Protein competes with levodopa for absorption. Eat Mucuna 30 min before or 2 hours after large protein meals.</div>
+        <div class="food-item bad">Conventional dairy and factory-farmed meat. Antibiotics and hormones disrupt gut microbiome — the foundation of gut-brain axis health.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXERCISE -->
+<section class="sec sec-stone">
+  <div class="inner">
+    <div class="kicker">Movement Therapy</div>
+    <h2 class="sec-title">Exercise — The Non-Negotiable</h2>
+    <p class="sec-sub">Exercise is the single most evidence-backed intervention for slowing motor symptom progression. It is not optional. It is medicine. 30+ minutes daily, every day.</p>
+
+    <div class="ex-grid">
+      <div class="ex-card">
+        <div class="ex-icon">🥊</div>
+        <div class="ex-name">Boxing / Rock Steady</div>
+        <div class="ex-dose">3× per week · 45–60 min</div>
+        <div class="ex-why">Highest evidence base of any exercise for movement disorders. Improves balance, gait, coordination, and motor control. Activates dopamine pathways through rhythm and challenge.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-icon">🥋</div>
+        <div class="ex-name">Tai Chi</div>
+        <div class="ex-dose">Daily · 20–30 min</div>
+        <div class="ex-why">Improves balance, reduces falls, builds body-mind connection. Specific clinical trials show significant improvement in gait and postural stability.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-icon">🚴</div>
+        <div class="ex-name">Cycling (Forced Pace)</div>
+        <div class="ex-dose">3× per week · 30–45 min</div>
+        <div class="ex-why">Forced-rate cycling at cadences higher than voluntary has shown remarkable motor improvement in clinical trials — believed to engage cerebellar-thalamic pathways that bypass the damaged basal ganglia.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-icon">💃</div>
+        <div class="ex-name">Dance / Tango</div>
+        <div class="ex-dose">2× per week · any duration</div>
+        <div class="ex-why">Rhythm activates the basal ganglia through an external cue system. Argentine tango specifically has multiple clinical trials showing improvement in motor symptoms. Music provides a metronome the brain can lock onto.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-icon">🚶</div>
+        <div class="ex-name">Walking — Fast Paced</div>
+        <div class="ex-dose">Daily · 30+ min · with intention</div>
+        <div class="ex-why">Minimum daily requirement. Walk to music with a strong beat — the auditory rhythm improves stride length and gait. Focus on heel-strike, arm swing, and upright posture. Listening to metronome apps helps regulate cadence.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-icon">🏊</div>
+        <div class="ex-name">Swimming / Water Exercise</div>
+        <div class="ex-dose">2× per week</div>
+        <div class="ex-why">Low-impact, full-body. Water resistance builds strength while reducing fall risk. Particularly valuable when tremor or rigidity makes land-based exercise difficult. The buoyancy effect allows fuller range of motion.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GUT BRAIN -->
+<section class="sec sec-sage">
+  <div class="inner">
+    <div class="kicker">Gut-Brain Axis</div>
+    <h2 class="sec-title">The Root Nobody Is Addressing</h2>
+    <p class="sec-sub">The most important insight in current movement disorder research — and the most actionable.</p>
+
+    <div class="highlight-box">
+      <div class="h-title">What the Research Shows</div>
+      <p>Studies published in Cell and Nature show that the toxic proteins associated with dopaminergic decline appear in the gut — specifically the enteric nervous system — years, sometimes decades, before they appear in the brain. They travel upward via the vagus nerve. The disease does not start in the brain. It starts in the gut. This means the gut is not just a secondary concern — it is the primary site of origin.</p>
+    </div>
+
+    <div class="highlight-box" style="margin-top:14px;">
+      <div class="h-title">What To Do About It</div>
+      <p><strong>Daily sauerkraut:</strong> 2 tbsp with every meal — more live bacteria per serving than any commercial probiotic.<br>
+      <strong>Prebiotic foods daily:</strong> cooked-and-cooled potatoes, green banana, asparagus, Jerusalem artichoke, raw garlic and onion — feed the bacteria that produce butyrate, which protects the gut-brain axis.<br>
+      <strong>Avoid all gut disruptors:</strong> NSAIDs, antibiotics (unless essential), seed oils, glyphosate-exposed grains, emulsifiers, alcohol.<br>
+      <strong>Castor oil pack:</strong> Over abdomen 2× per week. Directly stimulates lymphatic and vagal pathways in the gut.<br>
+      <strong>4:8 breathing daily:</strong> Extended exhale activates the vagus nerve — the highway between gut and brain. 10 minutes daily changes vagal tone measurably within weeks.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WEEKLY CHECKLIST -->
+<section class="sec sec-deep">
+  <div class="inner">
+    <div class="kicker">Weekly Schedule</div>
+    <h2 class="sec-title">What Happens Each Day of the Week</h2>
+
+    <table class="schedule">
+      <thead>
+        <tr>
+          <th style="width:80px;">Day</th>
+          <th>In Addition to Daily Protocol</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time">Monday<br>Wednesday<br>Friday</td>
+          <td>
+            <span class="action">Boxing, cycling, or high-intensity exercise</span>
+            <span class="detail">These are your high-effort movement days. At least 45 minutes. This is the non-negotiable triad for motor function.</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="time">Tuesday<br>Thursday</td>
+          <td>
+            <span class="action">Dance, Tai Chi, or swimming</span>
+            <span class="detail">Active recovery days — lower intensity, rhythm-focused. Balance and coordination work.</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="time">Mon · Wed · Fri</td>
+          <td>
+            <span class="action">Detox bath or foot soak</span>
+            <span class="detail">Epsom salt + baking soda + Celtic salt + ACV + bentonite clay + ginger. 30–40 minutes. 3× per week minimum.</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="time">Tue · Sat</td>
+          <td>
+            <span class="action">Castor oil pack over abdomen</span>
+            <span class="detail">Cold-pressed castor oil, flannel cloth, warm compress, 45 minutes. Vagal and lymphatic support.</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="time">Sunday</td>
+          <td>
+            <span class="action">Rest day + weekly review</span>
+            <span class="detail">Note symptom changes — tremor, rigidity, sleep quality, mood, digestion. The body speaks. Listen to it weekly and adjust accordingly. Rest is not optional — it is when the nervous system repairs.</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRINTABLE DAILY CHECKLIST -->
+<section class="sec sec-warm">
+  <div class="inner">
+    <div class="kicker">Print This Section</div>
+    <h2 class="sec-title">Daily Checklist — One Page</h2>
+    <p class="sec-sub">Tick every item. Every day. Put it on the wall.</p>
+
+    <table class="schedule">
+      <thead>
+        <tr><th>✓</th><th>Time</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>☐</td><td class="time">Wake</td><td>Sole water (1 tsp salt solution in glass of water)</td></tr>
+        <tr><td>☐</td><td class="time">+5 min</td><td>Lemon water (½ lemon in warm filtered water, use straw)</td></tr>
+        <tr><td>☐</td><td class="time">+10 min</td><td>Baking soda drink (¼ tsp in glass of filtered water)</td></tr>
+        <tr><td>☐</td><td class="time">+15 min</td><td>Mucuna Pruriens 500mg — first dose (30 min before breakfast)</td></tr>
+        <tr><td>☐</td><td class="time">Morning</td><td>Sunlight — 10–20 minutes outside</td></tr>
+        <tr><td>☐</td><td class="time">Morning</td><td>Exercise — minimum 30 minutes</td></tr>
+        <tr><td>☐</td><td class="time">Morning</td><td>1 litre silica-rich water (Volvic or Fiji)</td></tr>
+        <tr><td>☐</td><td class="time">Breakfast</td><td>Lion's Mane 1,000mg · CoQ10 Ubiquinol 200mg · NAC 600mg · Omega-3 2g · Vitamin D3+K2 · Milk Thistle</td></tr>
+        <tr><td>☐</td><td class="time">Breakfast</td><td>Sauerkraut 2 tbsp with meal</td></tr>
+        <tr><td>☐</td><td class="time">Midday</td><td>Mucuna Pruriens 500mg — second dose (30 min before lunch)</td></tr>
+        <tr><td>☐</td><td class="time">Lunch</td><td>Magnesium glycinate 200mg · Berberine 500mg · Sauerkraut 2 tbsp</td></tr>
+        <tr><td>☐</td><td class="time">Afternoon</td><td>Vagus nerve practice — humming 5 min + 4:8 breathing 5 min</td></tr>
+        <tr><td>☐</td><td class="time">Afternoon</td><td>Mannitol 5–10g in water</td></tr>
+        <tr><td>☐</td><td class="time">Evening</td><td>Mucuna Pruriens 500mg — third dose if needed (30 min before dinner)</td></tr>
+        <tr><td>☐</td><td class="time">Dinner</td><td>Sauerkraut 2 tbsp · Prebiotic vegetables</td></tr>
+        <tr><td>☐</td><td class="time">3×/week</td><td>Detox bath: Epsom salt + baking soda + Celtic salt + ACV + clay + ginger</td></tr>
+        <tr><td>☐</td><td class="time">2×/week</td><td>Castor oil pack over abdomen — 45 min with warm compress</td></tr>
+        <tr><td>☐</td><td class="time">Bedtime</td><td>Magnesium glycinate 400mg · NMN 500mg · Lion's Mane 500mg · PQQ 20mg</td></tr>
+        <tr><td>☐</td><td class="time">Daily</td><td>2+ litres filtered water throughout the day</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DISCLAIMER -->
+<section class="sec sec-dark">
+  <div class="inner">
+    <div class="kicker kicker-white">Important</div>
+    <h2 class="sec-title sec-title-white">Before Beginning</h2>
+    <p class="sec-sub sec-sub-white">This protocol is a comprehensive natural support framework based on peer-reviewed research, documented traditional medicine, and emerging clinical science. It is not a substitute for medical care.</p>
+    <div class="warning-box" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15);">
+      <p style="color:rgba(255,255,255,0.65);">If currently taking pharmaceutical levodopa (Sinemet, Madopar), Mucuna Pruriens requires medical supervision for dose adjustment. Several compounds in this protocol — including NAC, berberine, and nattokinase — have documented interactions with pharmaceutical medications. If taking any prescription medication, review this protocol with a qualified integrative medicine practitioner before beginning. If you experience any worsening of symptoms, stop and seek guidance immediately.</p>
+    </div>
+    <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:20px;">This guide is for educational purposes only. The author is not a doctor. Always consult a qualified healthcare practitioner before beginning any protocol.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--bg-footer);padding:28px 24px;text-align:center;">
+  <p style="font-family:'Playfair Display',serif;font-size:16px;color:#fff;margin-bottom:8px;">Heal Yourself</p>
+  <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:16px;">This guide is free and will always remain free.</p>
+  <p style="font-size:12px;color:rgba(255,255,255,0.4);">Support this guide: buy supplements on iHerb using code <strong style="color:var(--sage-nav);">GUW6132</strong> — you get a discount, this guide stays alive.</p>
+  <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" style="display:inline-block;margin-top:14px;background:var(--sage);color:#fff;padding:10px 24px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;">Shop iHerb · Code GUW6132</a>
+</footer>
+
+</body>
+</html>
