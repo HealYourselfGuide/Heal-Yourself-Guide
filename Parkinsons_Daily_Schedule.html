@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parkinson's Daily Schedule — Phase by Phase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;
+  --bg-nav:#2c3a2e;--bg-footer:#263028;
+  --ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;
+  --sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-pale:#e4f0e8;--sage-nav:#8ab89a;
+  --terra:#8c5a3c;--terra-light:#b07a58;--terra-pale:#f5ede6;
+  --honey:#a07830;--honey-pale:#f5eddb;
+  --border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);
+  --phase-color: var(--sage);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
+
+/* NAV */
+.topnav{background:var(--bg-nav);padding:0 24px;display:flex;align-items:center;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,0.06);}
+.topnav a{color:var(--sage-nav);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 14px;display:block;transition:color 0.2s;}
+.topnav a:hover{color:#fff;}
+.topnav .brand{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;margin-right:16px;padding:14px 0;text-transform:none;}
+
+/* HERO */
+.hero{background:var(--bg-nav);padding:48px 24px 40px;text-align:center;}
+.hero-tag{font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage-nav);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:12px;}
+.hero-tag::before,.hero-tag::after{content:'';width:40px;height:1px;background:rgba(138,184,154,0.4);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,42px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:10px;}
+.hero h1 em{font-style:italic;color:var(--sage-nav);}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.5);max-width:500px;margin:0 auto;}
+
+/* PRINT BAR */
+.print-bar{background:var(--bg-deep);border-bottom:1px solid var(--border-s);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.print-bar p{font-size:12px;color:var(--ink-light);}
+.print-btn{background:var(--sage);color:#fff;border:none;padding:8px 18px;border-radius:4px;font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;}
+
+/* PHASE NAV */
+.phase-nav{background:var(--bg-nav);padding:12px 24px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.08);}
+.phase-nav a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:11px;font-weight:600;padding:6px 12px;border-radius:3px;border:1px solid rgba(255,255,255,0.1);transition:all 0.2s;letter-spacing:0.05em;}
+.phase-nav a:hover{background:rgba(138,184,154,0.15);color:#fff;border-color:rgba(138,184,154,0.3);}
+.phase-nav a.active{background:var(--sage);color:#fff;border-color:var(--sage);}
+
+/* LAYOUT */
+.inner{max-width:800px;margin:0 auto;}
+.phase-section{padding:0 0 60px;}
+
+/* PHASE HEADER */
+.phase-header{padding:40px 24px 32px;border-bottom:3px solid var(--phase-color);}
+.phase-meta{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
+.phase-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:600;color:#fff;background:var(--phase-color);padding:5px 12px;border-radius:3px;}
+.phase-weeks{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-light);background:var(--bg-stone);padding:5px 10px;border-radius:3px;}
+.phase-focus{font-size:11px;color:var(--phase-color);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.phase-title{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,34px);font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:8px;}
+.phase-desc{font-size:14px;color:var(--ink-light);line-height:1.8;max-width:640px;}
+
+/* FEEL BOX */
+.feel-box{margin:0 24px;padding:16px 20px;background:var(--honey-pale);border-left:4px solid var(--honey);border-radius:0 6px 6px 0;}
+.feel-title{font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--honey);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.feel-title::before{content:'💛';}
+.feel-body{font-size:13px;color:var(--ink-mid);line-height:1.75;}
+.feel-body strong{color:var(--honey);}
+
+/* DAILY SCHEDULE */
+.day-grid{padding:24px 24px 0;display:grid;gap:3px;}
+
+.time-block{display:grid;grid-template-columns:90px 1fr;gap:0;border-radius:4px;overflow:hidden;}
+@media(max-width:480px){.time-block{grid-template-columns:70px 1fr;}}
+
+.time-label{background:var(--phase-color);color:#fff;padding:14px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.time-text{font-family:'DM Mono',monospace;font-size:11px;font-weight:600;line-height:1.3;}
+.time-icon{font-size:18px;margin-bottom:4px;}
+
+.time-content{background:var(--bg-warm);padding:14px 16px;border-bottom:1px solid var(--border-s);}
+.time-block:nth-child(even) .time-content{background:var(--bg);}
+.time-block:nth-child(even) .time-label{background:var(--sage-mid);}
+
+.action-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.action-items{list-style:none;padding:0;}
+.action-items li{font-size:13px;color:var(--ink-mid);padding:3px 0;padding-left:16px;position:relative;line-height:1.6;}
+.action-items li::before{content:'☐';position:absolute;left:0;color:var(--phase-color);font-size:12px;}
+.action-items li.done::before{content:'✓';color:var(--sage);}
+.dose{font-family:'DM Mono',monospace;font-size:11px;color:var(--phase-color);margin-left:4px;}
+.note{font-size:11px;color:var(--ink-light);margin-top:4px;padding-left:16px;line-height:1.6;font-style:italic;}
+
+/* MEAL CARD */
+.meal-card{background:var(--bg-stone);border-radius:6px;padding:14px 16px;margin-top:8px;}
+.meal-label{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-bottom:8px;}
+.meal-option{font-size:13px;color:var(--ink-mid);padding:5px 0;border-bottom:1px solid var(--border-s);line-height:1.6;}
+.meal-option:last-child{border-bottom:none;padding-bottom:0;}
+.meal-option strong{color:var(--ink);}
+.meal-avoid{font-size:12px;color:var(--terra);margin-top:8px;padding-top:8px;border-top:1px solid rgba(140,90,60,0.15);}
+.meal-avoid::before{content:'✕ Avoid today: ';}
+
+/* WEEKLY GRID */
+.weekly{padding:20px 24px 0;}
+.weekly-title{font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-light);margin-bottom:10px;}
+.week-row{display:grid;grid-template-columns:80px 1fr;gap:8px;margin-bottom:6px;align-items:start;}
+.week-day{font-family:'DM Mono',monospace;font-size:11px;color:var(--phase-color);font-weight:600;}
+.week-actions{font-size:12px;color:var(--ink-mid);line-height:1.65;}
+
+/* FOOD FOCUS */
+.food-focus{margin:20px 24px 0;padding:16px 20px;background:var(--sage-pale);border-left:4px solid var(--sage);border-radius:0 6px 6px 0;}
+.food-focus-title{font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-bottom:10px;}
+.food-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:480px){.food-cols{grid-template-columns:1fr;}}
+.food-eat,.food-avoid-col{font-size:13px;color:var(--ink-mid);line-height:1.8;}
+.food-eat-title{font-size:11px;font-weight:700;color:var(--sage);margin-bottom:6px;}
+.food-avoid-title{font-size:11px;font-weight:700;color:var(--terra);margin-bottom:6px;}
+
+/* SHOPPING NOTE */
+.shop-note{margin:16px 24px 0;padding:12px 16px;background:var(--bg-deep);border-radius:4px;font-size:12px;color:var(--ink-light);line-height:1.7;}
+.shop-note strong{color:var(--ink);}
+
+/* PHASE DIVIDER */
+.phase-divider{height:8px;background:linear-gradient(to right,var(--phase-color),transparent);margin-bottom:0;}
+
+/* PRINT */
+@media print{
+  body{background:#fff;font-size:11px;}
+  .topnav,.print-bar,.phase-nav,.no-print{display:none!important;}
+  .hero{background:#2c3a2e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:20px!important;}
+  .hero h1{font-size:20px!important;}
+  .phase-section{page-break-before:always;padding-bottom:20px;}
+  .phase-section:first-child{page-break-before:avoid;}
+  .phase-header{padding:16px 0 12px!important;}
+  .time-label{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .time-block{page-break-inside:avoid;}
+  .feel-box{margin:0 0 12px!important;}
+  .day-grid,.weekly,.food-focus{padding-left:0!important;padding-right:0!important;}
+  .meal-card{background:#f0ede8!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .food-focus{background:#e8f2ec!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .phase-num{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  a[href]::after{content:none!important;}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="brand">Heal Yourself</a>
+  <a href="index.html">Home</a>
+  <a href="Parkinsons_Protocol.html">Full Protocol</a>
+  <a href="Full_Body_Detox_Protocol.html">Detox</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-tag">Parkinson's Recovery</div>
+  <h1>Daily Schedule — <em>Phase by Phase</em></h1>
+  <p class="hero-sub">Print the page for your current phase. Follow it exactly. One day at a time.</p>
+</header>
+
+<div class="print-bar no-print">
+  <p>Print only your current phase — use Ctrl+P and select the pages you need.</p>
+  <button class="print-btn" onclick="window.print()">🖨 Print All Phases</button>
+</div>
+
+<nav class="phase-nav no-print">
+  <a href="#phase1">Phase 1 · Wk 1–2</a>
+  <a href="#phase2">Phase 2 · Wk 3–4</a>
+  <a href="#phase3">Phase 3 · Wk 5–8</a>
+  <a href="#phase4">Phase 4 · Wk 9–12</a>
+  <a href="#phase5">Phase 5 · Wk 13–16</a>
+  <a href="#phase6">Phase 6 · Forever</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PHASE 1 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="phase-divider" style="--phase-color:#3d6b4a;"></div>
+<section class="phase-section" id="phase1">
+  <div class="inner">
+
+    <div class="phase-header" style="--phase-color:#3d6b4a;">
+      <div class="phase-meta">
+        <span class="phase-num" style="background:#3d6b4a;">Phase 1</span>
+        <span class="phase-weeks">Weeks 1–2 · Days 1–14</span>
+        <span class="phase-focus" style="color:#3d6b4a;">Open the Drainage Doors</span>
+      </div>
+      <h2 class="phase-title">Prepare the Body. No Supplements Yet.</h2>
+      <p class="phase-desc">The body's five exit routes — colon, liver, kidneys, lymph, skin — must be open before anything else is added. Putting supplements into a congested body is like pouring clean water into a blocked drain. These two weeks are the foundation everything else is built on.</p>
+    </div>
+
+    <div class="feel-box" style="margin-top:20px;">
+      <div class="feel-title">What You May Feel This Week</div>
+      <div class="feel-body">
+        <strong>Days 1–3:</strong> Possibly nothing, or mild fatigue as the body shifts gears.<br>
+        <strong>Days 4–7:</strong> Possible headaches, skin breakouts, or stronger-smelling urine — this is the kidneys and skin waking up. It is a good sign.<br>
+        <strong>Days 8–14:</strong> Better bowel movements, clearer head, improved energy in the morning. Sleep may already improve from the magnesium alone.<br>
+        <strong>If feeling very unwell:</strong> Slow down. Drink more water. Add activated charcoal (500mg, away from everything). The body is clearing. Support it, don't push it.
+      </div>
+    </div>
+
+    <div class="day-grid" style="margin-top:20px;">
+
+      <div class="time-block">
+        <div class="time-label" style="background:#3d6b4a;">
+          <div class="time-icon">🌅</div>
+          <div class="time-text">On<br>Waking</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Before Anything Else</div>
+          <ul class="action-items">
+            <li>Sole water — 1 tsp Celtic salt solution in full glass filtered water <span class="dose">drink slowly</span></li>
+            <li>Wait 5 minutes</li>
+            <li>Lemon water — ½ lemon in warm filtered water <span class="dose">use a straw</span></li>
+            <li>Baking soda drink — ¼ tsp in glass of filtered water <span class="dose">wait 30 min before eating</span></li>
+          </ul>
+          <p class="note">Keep a glass of water on the bedside. Drink before your feet touch the floor.</p>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#5a8c6a;">
+          <div class="time-icon">☀️</div>
+          <div class="time-text">Morning<br>Routine</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Morning Body Work</div>
+          <ul class="action-items">
+            <li>Dry skin brushing — 3–5 min, always toward heart, before shower</li>
+            <li>Shower — end with 30 seconds cold water on legs and back</li>
+            <li>Sunlight — 10–20 min outside, face and arms, no sunglasses</li>
+            <li>Rebounding or gentle walking — 15–20 min minimum</li>
+          </ul>
+          <p class="note">Dry brushing + cold shower + sunlight = lymphatic system activated. Do all three. None are optional.</p>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#3d6b4a;">
+          <div class="time-icon">🍳</div>
+          <div class="time-text">Break<br>fast</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Breakfast — With Food</div>
+          <ul class="action-items">
+            <li>Milk Thistle 175mg <span class="dose">with food</span></li>
+            <li>Vitamin D3 5,000 IU + K2 200mcg <span class="dose">with fat in meal</span></li>
+            <li>Omega-3 2g <span class="dose">with food</span></li>
+            <li>Magnesium glycinate 200mg <span class="dose">with food</span></li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">What to Eat — Simple Options</div>
+            <div class="meal-option"><strong>Option A:</strong> 2 scrambled eggs in coconut oil + handful of blueberries + green tea</div>
+            <div class="meal-option"><strong>Option B:</strong> Warm bone broth + 2 tbsp sauerkraut + slice of sourdough with olive oil</div>
+            <div class="meal-option"><strong>Option C:</strong> Smoothie — banana, blueberries, 1 tbsp MCT oil, almond milk, handful of spinach</div>
+            <div class="meal-avoid">all seed oils, pasteurised dairy, processed cereal, orange juice</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#5a8c6a;">
+          <div class="time-icon">🌿</div>
+          <div class="time-text">Mid<br>Morning</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Herbal Support</div>
+          <ul class="action-items">
+            <li>Dandelion root tea — 1 cup <span class="dose">sip slowly</span></li>
+            <li>Silica-rich water — begin 1 litre (Volvic or Fiji) <span class="dose">sip through morning</span></li>
+            <li>Psyllium husk — 1 tbsp in large glass of water <span class="dose">drink immediately, always with full glass</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#3d6b4a;">
+          <div class="time-icon">🥗</div>
+          <div class="time-text">Lunch</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Lunch</div>
+          <ul class="action-items">
+            <li>2 tbsp sauerkraut with meal <span class="dose">always</span></li>
+            <li>1 tbsp apple cider vinegar in water, 10 min before eating <span class="dose">use a straw</span></li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">What to Eat — Simple Options</div>
+            <div class="meal-option"><strong>Option A:</strong> Sardines on sourdough + large handful of rocket + olive oil + lemon</div>
+            <div class="meal-option"><strong>Option B:</strong> Lentil soup with garlic and turmeric + 2 tbsp sauerkraut</div>
+            <div class="meal-option"><strong>Option C:</strong> Boiled eggs + avocado + raw carrots + olive oil</div>
+            <div class="meal-avoid">white bread, pasta, fried foods, sugary drinks</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#5a8c6a;">
+          <div class="time-icon">🌀</div>
+          <div class="time-text">After<br>noon</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Movement & Vagus Nerve</div>
+          <ul class="action-items">
+            <li>Walk or Tai Chi — 30 min minimum <span class="dose">to music with a strong beat</span></li>
+            <li>Vagus nerve practice — 5 min humming + 5 min 4:8 breathing</li>
+            <li>Dandelion root tea — second cup</li>
+          </ul>
+          <p class="note">Walk in nature if possible. The combination of movement, sunlight, and rhythm is the most powerful free medicine available.</p>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#3d6b4a;">
+          <div class="time-icon">🍽️</div>
+          <div class="time-text">Dinner</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Dinner</div>
+          <ul class="action-items">
+            <li>2 tbsp sauerkraut with meal</li>
+            <li>Psyllium husk — second dose, 1 tbsp in large glass of water</li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">What to Eat — Simple Options</div>
+            <div class="meal-option"><strong>Option A:</strong> Baked salmon + steamed broccoli + cooked-and-cooled potato with olive oil</div>
+            <div class="meal-option"><strong>Option B:</strong> Chicken broth soup with vegetables + garlic + turmeric</div>
+            <div class="meal-option"><strong>Option C:</strong> Stir-fried vegetables in coconut oil + boiled eggs + brown rice</div>
+            <div class="meal-avoid">alcohol, dessert, heavy proteins after 6pm</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#5a8c6a;">
+          <div class="time-icon">🌙</div>
+          <div class="time-text">Bed<br>time</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Night Protocol</div>
+          <ul class="action-items">
+            <li>Magnesium citrate 300–400mg <span class="dose">for bowel regularity</span></li>
+            <li>Magnesium glycinate 400mg <span class="dose">for sleep and tremor prevention</span></li>
+            <li>No screens 1 hour before sleep</li>
+            <li>Castor oil pack over liver — 3×/week (Mon, Wed, Fri) <span class="dose">45 min, warm compress</span></li>
+            <li>Bedside setup: glass of water + Mucuna capsules + magnesium <span class="dose">ready for 3am tremor</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- end day-grid -->
+
+    <div class="weekly" style="margin-top:20px;">
+      <div class="weekly-title">Weekly Actions — Phase 1</div>
+      <div class="week-row"><span class="week-day">Mon·Wed·Fri</span><span class="week-actions">Castor oil pack over liver, 45 min · Detox bath: 2 cups Epsom salt + 1 cup baking soda + ½ cup Celtic salt + 1 cup ACV + 2 tbsp ginger, 30–40 min hot</span></div>
+      <div class="week-row"><span class="week-day">Tue·Thu·Sat</span><span class="week-actions">Longer walk or swimming · Dry brushing double session (morning and before bed)</span></div>
+      <div class="week-row"><span class="week-day">Sunday</span><span class="week-actions">Rest day · Write down any symptoms, changes, bowel movements, sleep quality · Prepare next week's food</span></div>
+    </div>
+
+    <div class="food-focus" style="margin-top:16px;">
+      <div class="food-focus-title">Phase 1 Food Focus — Drain & Nourish</div>
+      <div class="food-cols">
+        <div class="food-eat">
+          <div class="food-eat-title">Eat Every Day</div>
+          Raw garlic (2 cloves, crushed, wait 10 min)<br>
+          Blueberries — handful<br>
+          Leafy greens — spinach, rocket, kale<br>
+          Bone broth or collagen — 1–2 cups<br>
+          Sauerkraut — 2 tbsp every meal<br>
+          Turmeric + black pepper — in cooking<br>
+          Coconut oil or olive oil — for cooking<br>
+          Wild-caught fish — 3× this week<br>
+          Green tea — 2–3 cups daily
+        </div>
+        <div class="food-avoid-col">
+          <div class="food-avoid-title">Remove This Week</div>
+          All seed oils (canola, sunflower, corn)<br>
+          Non-stick cookware — replace with cast iron or stainless<br>
+          Tap water for drinking or cooking<br>
+          Processed sugar<br>
+          Pasteurised dairy<br>
+          Gluten (wheat, rye, barley) if possible<br>
+          Alcohol — completely<br>
+          Processed or packaged foods
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-note">
+      <strong>What you need to buy for Phase 1:</strong> Celtic sea salt · Bob's Red Mill baking soda · Milk Thistle (iHerb) · Vitamin D3+K2 (iHerb) · Omega-3 fish oil (iHerb) · Magnesium glycinate (iHerb) · Magnesium citrate (iHerb) · Psyllium husk · Dandelion root tea · Castor oil (Heritage Store, iHerb) · Epsom salt (Epsoak 5lb, Amazon) · Dry skin brush · AquaBliss shower filter (Amazon) · Volvic or Fiji water (1L daily) · Sauerkraut (refrigerated, not pasteurised) · Apple cider vinegar (raw, with mother)
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PHASE 2 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="phase-divider" style="--phase-color:#6a5acd;background:linear-gradient(to right,#6a5acd,transparent);"></div>
+<section class="phase-section" id="phase2">
+  <div class="inner">
+
+    <div class="phase-header" style="border-bottom-color:#6a5acd;">
+      <div class="phase-meta">
+        <span class="phase-num" style="background:#6a5acd;">Phase 2</span>
+        <span class="phase-weeks">Weeks 3–4 · Days 15–28</span>
+        <span class="phase-focus" style="color:#6a5acd;">Neurological Stack Begins + Biofilm Disruption</span>
+      </div>
+      <h2 class="phase-title">The Brain Starts Getting Support.</h2>
+      <p class="phase-desc">Drainage is open. Now the core Parkinson's supplements begin. Simultaneously, biofilm disruption starts — breaking the protective shell around pathogens so the immune system can find them. Everything from Phase 1 continues. This is where the real work begins.</p>
+    </div>
+
+    <div class="feel-box">
+      <div class="feel-title">What You May Feel This Week</div>
+      <div class="feel-body">
+        <strong>Days 15–18:</strong> Some people feel a mild energy lift within days of starting Mucuna — others take 1–2 weeks. Be patient. Start at 250mg if 500mg feels too strong.<br>
+        <strong>Days 19–24:</strong> Possible mild nausea from Mucuna — always take 30 min before food, never on a full stomach. If nausea persists, reduce dose.<br>
+        <strong>Biofilm die-off (Days 15+):</strong> Serrapeptase and Nattokinase may cause brief flu-like symptoms, bloating, or fatigue as biofilm breaks down. This is normal. Drink extra water. Add activated charcoal if needed.<br>
+        <strong>Sleep:</strong> Magnesium is often felt within the first week — deeper sleep, less night waking, reduced tremor intensity.
+      </div>
+    </div>
+
+    <div class="day-grid" style="margin-top:20px;">
+
+      <div class="time-block">
+        <div class="time-label" style="background:#6a5acd;">
+          <div class="time-icon">🌅</div>
+          <div class="time-text">On<br>Waking</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Before Anything Else</div>
+          <ul class="action-items">
+            <li>Sole water — Celtic salt solution in filtered water</li>
+            <li>Lemon water — ½ lemon in warm water, use straw</li>
+            <li>Baking soda drink — ¼ tsp in water</li>
+            <li>Serrapeptase 120,000 SPU <span class="dose">empty stomach — 45 min before food</span></li>
+            <li>Nattokinase 2,000 FU <span class="dose">empty stomach — 45 min before food</span></li>
+            <li>Mucuna Pruriens 500mg <span class="dose">30 min before breakfast — empty stomach</span></li>
+          </ul>
+          <p class="note">Mucuna and the enzymes are both taken on empty stomach but at slightly different timings — take enzymes first, then Mucuna 15 min later, then wait for breakfast.</p>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#7b6bde;">
+          <div class="time-icon">☀️</div>
+          <div class="time-text">Morning<br>Routine</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Morning Body Work — Same as Phase 1</div>
+          <ul class="action-items">
+            <li>Dry skin brushing — 3–5 min before shower</li>
+            <li>Cold water finish to shower — 30 seconds</li>
+            <li>Sunlight — 10–20 min outside</li>
+            <li>Exercise — 30+ min (boxing, cycling, or Tai Chi)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#6a5acd;">
+          <div class="time-icon">🍳</div>
+          <div class="time-text">Break<br>fast</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Breakfast — With Food</div>
+          <ul class="action-items">
+            <li>Lion's Mane 1,000mg <span class="dose">with food</span></li>
+            <li>CoQ10 Ubiquinol 200mg <span class="dose">with fat in meal — critical for absorption</span></li>
+            <li>NAC 600mg <span class="dose">with food</span></li>
+            <li>Milk Thistle 175mg <span class="dose">with food</span></li>
+            <li>Vitamin D3 5,000 IU + K2 200mcg <span class="dose">with food</span></li>
+            <li>Omega-3 2g <span class="dose">with food</span></li>
+            <li>Magnesium glycinate 200mg <span class="dose">with food</span></li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">What to Eat — Low Protein (Mucuna needs space)</div>
+            <div class="meal-option"><strong>Option A:</strong> Oats with blueberries, banana, MCT oil, seeds — Mucuna absorbs better with low-protein breakfast</div>
+            <div class="meal-option"><strong>Option B:</strong> Smoothie — spinach, blueberries, banana, coconut milk, 1 tbsp MCT oil, no protein powder</div>
+            <div class="meal-option"><strong>Option C:</strong> Cooked and cooled potato with olive oil + steamed greens + 2 tbsp sauerkraut</div>
+            <div class="meal-avoid">eggs, meat, cheese, protein powder at breakfast — competes with Mucuna absorption</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#7b6bde;">
+          <div class="time-icon">🌿</div>
+          <div class="time-text">Mid<br>Morning</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Herbal Support</div>
+          <ul class="action-items">
+            <li>Dandelion root tea — 1 cup</li>
+            <li>Silica-rich water — 1 litre (Volvic or Fiji)</li>
+            <li>Psyllium husk — 1 tbsp in large glass of water</li>
+            <li>Raw garlic — 2 cloves, crushed, wait 10 min before eating</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#6a5acd;">
+          <div class="time-icon">🥗</div>
+          <div class="time-text">Lunch<br>−30 min</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Before Lunch</div>
+          <ul class="action-items">
+            <li>Mucuna Pruriens 500mg <span class="dose">30 min before lunch — away from protein</span></li>
+            <li>Apple cider vinegar 1 tbsp in water <span class="dose">10 min before eating</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#7b6bde;">
+          <div class="time-icon">🥗</div>
+          <div class="time-text">Lunch</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Lunch — With Food</div>
+          <ul class="action-items">
+            <li>Berberine 500mg <span class="dose">with lunch</span></li>
+            <li>Magnesium glycinate 200mg <span class="dose">with lunch</span></li>
+            <li>2 tbsp sauerkraut</li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">What to Eat</div>
+            <div class="meal-option"><strong>Option A:</strong> Sardines + large green salad + olive oil + lemon + raw garlic dressing</div>
+            <div class="meal-option"><strong>Option B:</strong> Fava beans + olive oil + lemon + parsley + sourdough — fava beans contain natural levodopa</div>
+            <div class="meal-option"><strong>Option C:</strong> Lentil soup + turmeric + black pepper + garlic + 2 tbsp sauerkraut on side</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#6a5acd;">
+          <div class="time-icon">🌀</div>
+          <div class="time-text">After<br>noon</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Afternoon</div>
+          <ul class="action-items">
+            <li>Vagus nerve — 5 min humming + 5 min 4:8 breathing</li>
+            <li>Mannitol 5g in water <span class="dose">away from meals</span></li>
+            <li>Dandelion root tea — second cup</li>
+            <li>Psyllium husk — second dose</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#7b6bde;">
+          <div class="time-icon">🍽️</div>
+          <div class="time-text">Dinner<br>−30 min</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Before Dinner</div>
+          <ul class="action-items">
+            <li>Mucuna Pruriens 500mg <span class="dose">30 min before dinner</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#6a5acd;">
+          <div class="time-icon">🍽️</div>
+          <div class="time-text">Dinner</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Dinner — With Food</div>
+          <ul class="action-items">
+            <li>Berberine 500mg <span class="dose">with dinner</span></li>
+            <li>2 tbsp sauerkraut</li>
+            <li>Prebiotic food — cooked and cooled potato, or green banana, or asparagus</li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">What to Eat</div>
+            <div class="meal-option"><strong>Option A:</strong> Baked salmon + roasted sweet potato + steamed broccoli with garlic and olive oil</div>
+            <div class="meal-option"><strong>Option B:</strong> Chicken and vegetable stew with turmeric, ginger, garlic, bone broth base</div>
+            <div class="meal-option"><strong>Option C:</strong> Eggs any style + sautéed greens + cooked-and-cooled potato + 2 tbsp sauerkraut</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#7b6bde;">
+          <div class="time-icon">🌙</div>
+          <div class="time-text">Bed<br>time</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Night Protocol</div>
+          <ul class="action-items">
+            <li>Lion's Mane 500mg <span class="dose">second dose</span></li>
+            <li>NMN 500mg or NR 300mg</li>
+            <li>PQQ 20mg</li>
+            <li>Magnesium glycinate 400mg</li>
+            <li>Magnesium citrate 300mg <span class="dose">for bowel regularity</span></li>
+            <li>Passionflower extract 250mg <span class="dose">if sleep disturbed</span></li>
+            <li>No screens 1 hour before sleep</li>
+            <li>Bedside: water + Mucuna 250mg + magnesium glycinate</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="weekly" style="margin-top:20px;">
+      <div class="weekly-title">Weekly Actions — Phase 2</div>
+      <div class="week-row"><span class="week-day">Mon·Wed·Fri</span><span class="week-actions">Boxing, forced cycling, or high-intensity exercise · Detox bath with full recipe (Epsom + baking soda + Celtic salt + ACV + clay + ginger)</span></div>
+      <div class="week-row"><span class="week-day">Tue·Thu</span><span class="week-actions">Dance, Tai Chi, or swimming · Castor oil pack over abdomen, 45 min</span></div>
+      <div class="week-row"><span class="week-day">Sat</span><span class="week-actions">Castor oil pack over liver (right side) · Long walk to music</span></div>
+      <div class="week-row"><span class="week-day">Sunday</span><span class="week-actions">Rest day · Weekly symptom log — tremor, rigidity, sleep, mood, digestion, energy</span></div>
+    </div>
+
+    <div class="food-focus">
+      <div class="food-focus-title">Phase 2 Food Focus — Low Protein Mornings, Dopamine Foods</div>
+      <div class="food-cols">
+        <div class="food-eat">
+          <div class="food-eat-title">Prioritise This Phase</div>
+          Fava beans — 3× this week (natural levodopa)<br>
+          Blueberries + dark berries — daily<br>
+          Green tea — 3 cups daily (EGCG neuroprotective)<br>
+          MCT oil or coconut oil — every breakfast<br>
+          Turmeric + black pepper — every meal<br>
+          Wild-caught salmon or sardines — 4× this week<br>
+          Raw garlic — 2 cloves daily<br>
+          Bone broth — daily
+        </div>
+        <div class="food-avoid-col">
+          <div class="food-avoid-title">Critical Rule This Phase</div>
+          No protein within 1 hour of Mucuna — protein blocks levodopa absorption across the blood-brain barrier<br><br>
+          Keep breakfast low-protein: oats, fruit, smoothies, vegetables<br><br>
+          Save eggs, meat, fish for lunch and dinner<br><br>
+          No gluten — disrupts gut lining being healed
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PHASE 3 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="phase-divider" style="background:linear-gradient(to right,#8c5a3c,transparent);"></div>
+<section class="phase-section" id="phase3">
+  <div class="inner">
+
+    <div class="phase-header" style="border-bottom-color:var(--terra);">
+      <div class="phase-meta">
+        <span class="phase-num" style="background:var(--terra);">Phase 3</span>
+        <span class="phase-weeks">Weeks 5–8 · Days 29–56</span>
+        <span class="phase-focus" style="color:var(--terra);">Antiparasitic Rotation</span>
+      </div>
+      <h2 class="phase-title">Clear What Has Been Hidden.</h2>
+      <p class="phase-desc">Everything from Phases 1 and 2 continues. Now add the antiparasitic rotation. Rotate herbs every 7–10 days — parasites adapt to a single herb but cannot adapt to a rotation. This phase is the most intensive. Expect die-off. Support the drainage system heavily.</p>
+    </div>
+
+    <div class="feel-box">
+      <div class="feel-title">What You May Feel This Week</div>
+      <div class="feel-body">
+        <strong>Die-off (Herxheimer) reaction is normal and expected:</strong> Flu-like symptoms, fatigue, headaches, skin rashes, strong body odour, unusual bowel movements, temporary worsening of symptoms. This is not the herbs harming you — it is the pathogens dying and releasing toxins as they die.<br><br>
+        <strong>Managing die-off:</strong> Drink 3+ litres of water. Take activated charcoal 500mg (away from supplements). Add an extra detox bath. Rest. Reduce herb dose if overwhelming — never stop entirely.<br><br>
+        <strong>What should improve:</strong> Energy, clarity, reduced bloating, better bowel regularity, improved sleep. Many people notice the Mucuna working better as gut health improves — because gut permeability was blocking absorption.
+      </div>
+    </div>
+
+    <div class="day-grid" style="margin-top:20px;">
+
+      <div class="time-block">
+        <div class="time-label" style="background:var(--terra);">
+          <div class="time-icon">🌅</div>
+          <div class="time-text">On<br>Waking</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Before Anything Else</div>
+          <ul class="action-items">
+            <li>Sole water + lemon water + baking soda drink — as previous phases</li>
+            <li>Serrapeptase + Nattokinase <span class="dose">empty stomach</span></li>
+            <li>Mucuna Pruriens 500mg <span class="dose">30 min before breakfast</span></li>
+            <li>Raw pumpkin seeds — large handful <span class="dose">empty stomach, chew well</span></li>
+            <li><strong>Antiparasitic herb — current rotation</strong> <span class="dose">see rotation schedule below</span></li>
+          </ul>
+          <p class="note">Rotation Schedule: Days 1–7: Black Walnut Hull tincture 20 drops · Days 8–14: Wormwood 300mg + Cloves 500mg (always together) · Days 15–21: Oregano Oil 200mg enteric coated · Days 22–28: Mimosa Pudica seed 1g · Then repeat.</p>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:var(--terra-light);">
+          <div class="time-icon">☀️</div>
+          <div class="time-text">Morning<br>Routine</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Morning Body Work — Same as Phase 2</div>
+          <ul class="action-items">
+            <li>Dry brushing + cold shower + sunlight</li>
+            <li>Exercise — 30–45 min (boxing or Tai Chi days)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:var(--terra);">
+          <div class="time-icon">🍳</div>
+          <div class="time-text">Break<br>fast</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Breakfast — All Phase 2 Supplements Continue</div>
+          <ul class="action-items">
+            <li>Lion's Mane 1,000mg · CoQ10 Ubiquinol 200mg · NAC 600mg</li>
+            <li>Milk Thistle 175mg · Vitamin D3+K2 · Omega-3 2g</li>
+            <li>Magnesium glycinate 200mg</li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">What to Eat — Anti-Parasitic Foods This Phase</div>
+            <div class="meal-option"><strong>Option A:</strong> Papaya + pumpkin seeds + blueberries + coconut milk — papaya seeds are directly antiparasitic (add 1 tsp ground seeds)</div>
+            <div class="meal-option"><strong>Option B:</strong> Oats with raw garlic stirred in + turmeric + black pepper + MCT oil + berries</div>
+            <div class="meal-option"><strong>Option C:</strong> Smoothie with pineapple (bromelain breaks biofilm), ginger, spinach, banana, coconut milk</div>
+            <div class="meal-avoid">sugar in all forms — sugar feeds parasites and candida directly</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:var(--terra-light);">
+          <div class="time-icon">🥗</div>
+          <div class="time-text">Lunch<br>−30 min</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Before Lunch</div>
+          <ul class="action-items">
+            <li>Mucuna Pruriens 500mg <span class="dose">30 min before</span></li>
+            <li>Berberine 500mg <span class="dose">with lunch</span></li>
+            <li>ACV 1 tbsp in water</li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">What to Eat</div>
+            <div class="meal-option"><strong>Option A:</strong> Fava beans + olive oil + crushed raw garlic + parsley + lemon</div>
+            <div class="meal-option"><strong>Option B:</strong> Sardines + large salad with raw onion + olive oil + ACV dressing</div>
+            <div class="meal-option"><strong>Option C:</strong> Vegetable curry with turmeric, ginger, garlic, coconut milk + brown rice</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:var(--terra);">
+          <div class="time-icon">🌀</div>
+          <div class="time-text">After<br>noon</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Afternoon</div>
+          <ul class="action-items">
+            <li>Vagus nerve — humming + 4:8 breathing</li>
+            <li>Mannitol 5–10g in water</li>
+            <li>Activated charcoal 500mg if die-off symptoms <span class="dose">2 hrs from all supplements</span></li>
+            <li>Psyllium husk second dose</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:var(--terra-light);">
+          <div class="time-icon">🍽️</div>
+          <div class="time-text">Dinner<br>−30 min</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Before Dinner</div>
+          <ul class="action-items">
+            <li>Mucuna Pruriens 500mg <span class="dose">30 min before</span></li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">Dinner Options</div>
+            <div class="meal-option"><strong>Option A:</strong> Salmon + roasted vegetables (pumpkin, courgette, garlic) + olive oil</div>
+            <div class="meal-option"><strong>Option B:</strong> Chicken thighs with ginger, garlic, turmeric + bone broth + steamed broccoli</div>
+            <div class="meal-option"><strong>Option C:</strong> Egg and vegetable frittata + large green salad + sauerkraut</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:var(--terra);">
+          <div class="time-icon">🌙</div>
+          <div class="time-text">Bed<br>time</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Night Protocol — Same as Phase 2</div>
+          <ul class="action-items">
+            <li>Lion's Mane 500mg · NMN 500mg · PQQ 20mg</li>
+            <li>Magnesium glycinate 400mg · Magnesium citrate 300mg</li>
+            <li>Passionflower 250mg if sleep disturbed</li>
+            <li>Bedside: water + Mucuna + magnesium</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="weekly" style="margin-top:20px;">
+      <div class="weekly-title">Weekly Actions — Phase 3</div>
+      <div class="week-row"><span class="week-day">Mon·Wed·Fri</span><span class="week-actions">High-intensity exercise · Full detox bath · Check antiparasitic rotation — which herb is this week?</span></div>
+      <div class="week-row"><span class="week-day">Tue·Thu</span><span class="week-actions">Castor oil pack over abdomen · Dance or Tai Chi</span></div>
+      <div class="week-row"><span class="week-day">Sat</span><span class="week-actions">Extra rest if die-off has been heavy · Castor oil pack · Long walk</span></div>
+      <div class="week-row"><span class="week-day">Sunday</span><span class="week-actions">Weekly symptom log · Advance antiparasitic rotation if 7–10 days completed on current herb</span></div>
+    </div>
+
+    <div class="food-focus">
+      <div class="food-focus-title">Phase 3 Food Focus — Starve the Parasites</div>
+      <div class="food-cols">
+        <div class="food-eat">
+          <div class="food-eat-title">Antiparasitic Power Foods</div>
+          Pumpkin seeds — every morning, raw<br>
+          Papaya — papaya seeds are antiparasitic<br>
+          Raw garlic — 4 cloves daily this phase<br>
+          Pineapple — bromelain breaks biofilm<br>
+          Ginger — in everything<br>
+          Turmeric + black pepper — every meal<br>
+          Raw onion — anti-parasitic, prebiotic<br>
+          Coconut oil — caprylic acid antifungal
+        </div>
+        <div class="food-avoid-col">
+          <div class="food-avoid-title">Strictly Avoid</div>
+          All sugar and sweeteners — parasites feed on sugar<br><br>
+          Fruit juice — too much sugar<br><br>
+          Alcohol — completely<br><br>
+          Processed carbohydrates<br><br>
+          Dairy — creates mucus that shelters parasites<br><br>
+          Pork — highest parasite load of all meats
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PHASE 4 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="phase-divider" style="background:linear-gradient(to right,#4a7a8c,transparent);"></div>
+<section class="phase-section" id="phase4">
+  <div class="inner">
+
+    <div class="phase-header" style="border-bottom-color:#4a7a8c;">
+      <div class="phase-meta">
+        <span class="phase-num" style="background:#4a7a8c;">Phase 4</span>
+        <span class="phase-weeks">Weeks 9–12 · Days 57–84</span>
+        <span class="phase-focus" style="color:#4a7a8c;">Heavy Metal Clearing — Aluminium Out</span>
+      </div>
+      <h2 class="phase-title">Pull the Metals From Deep Tissue.</h2>
+      <p class="phase-desc">Aluminium accumulation in the substantia nigra — the brain region that fails in Parkinson's — is documented in post-mortem studies. This phase pulls it out. All previous phases continue. Binders are added and must be taken at least 2 hours away from food and supplements. Silica water intensifies. Never mobilise metals without binders present.</p>
+    </div>
+
+    <div class="feel-box">
+      <div class="feel-title">What You May Feel This Week</div>
+      <div class="feel-body">
+        <strong>Weeks 9–10:</strong> Chlorella may cause brief nausea at first — build up slowly from 500mg. Start small, increase over 2 weeks.<br>
+        <strong>Brain fog or fatigue bursts:</strong> As metals mobilise from tissue, they temporarily increase in the bloodstream. This is why binders are essential — they capture what is mobilised before it recirculates.<br>
+        <strong>What should be improving by now:</strong> Tremor frequency or intensity should show measurable change. Sleep quality should be significantly better. Bowel function should be regular and easy. Energy more stable through the day.<br>
+        <strong>If not yet seeing change:</strong> Check Mucuna timing — is it being taken far enough from protein? Check bowel frequency — is the colon clearing daily? These are the two most common blockers.
+      </div>
+    </div>
+
+    <div class="day-grid" style="margin-top:20px;">
+
+      <div class="time-block">
+        <div class="time-label" style="background:#4a7a8c;">
+          <div class="time-icon">🌅</div>
+          <div class="time-text">On<br>Waking</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Before Anything Else</div>
+          <ul class="action-items">
+            <li>Sole water + lemon water + baking soda drink</li>
+            <li>Serrapeptase + Nattokinase <span class="dose">empty stomach</span></li>
+            <li>Mucuna Pruriens 500mg <span class="dose">30 min before breakfast</span></li>
+            <li>Zeolite 1–2g <span class="dose">in water — away from everything, 30 min before breakfast</span></li>
+            <li>Modified Citrus Pectin 5g powder <span class="dose">in water, between meals</span></li>
+          </ul>
+          <p class="note">Binders (zeolite, charcoal, MCP, chlorella) must always be 2+ hours away from supplements and medications. They bind everything — including your supplements — if taken too close.</p>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#5a8a9c;">
+          <div class="time-icon">☀️</div>
+          <div class="time-text">Morning</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Morning Body Work — Same as Previous Phases</div>
+          <ul class="action-items">
+            <li>Dry brushing + cold shower + sunlight</li>
+            <li>Exercise — 30–45 min</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#4a7a8c;">
+          <div class="time-icon">🍳</div>
+          <div class="time-text">Break<br>fast</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Breakfast — Full Supplement Stack</div>
+          <ul class="action-items">
+            <li>All Phase 2 supplements continue (Lion's Mane, CoQ10, NAC, Milk Thistle, D3+K2, Omega-3, Magnesium)</li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">What to Eat — Metal-Chelating Foods</div>
+            <div class="meal-option"><strong>Option A:</strong> Oats with Brazil nuts (selenium for mercury detox) + blueberries + MCT oil</div>
+            <div class="meal-option"><strong>Option B:</strong> Smoothie with cilantro (mobilises metals — always with chlorella as binder), spinach, banana, coconut milk</div>
+            <div class="meal-option"><strong>Option C:</strong> Eggs + avocado + garlic + sauerkraut — cilantro on top</div>
+            <div class="meal-avoid">never use cilantro without chlorella — cilantro mobilises metals without binding them and can recirculate them</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#5a8a9c;">
+          <div class="time-icon">🌿</div>
+          <div class="time-text">Mid<br>Morning</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Silica Protocol + Chlorella</div>
+          <ul class="action-items">
+            <li>Volvic or Fiji water — 1 litre, sip through morning <span class="dose">aluminium removal — permanent daily practice</span></li>
+            <li>Chlorella broken cell wall — 500mg start, build to 2g over 2 weeks <span class="dose">with food</span></li>
+            <li>Dandelion root tea · Psyllium husk first dose</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#4a7a8c;">
+          <div class="time-icon">🥗</div>
+          <div class="time-text">Lunch</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Lunch</div>
+          <ul class="action-items">
+            <li>Mucuna Pruriens 500mg <span class="dose">30 min before</span></li>
+            <li>Berberine 500mg + Magnesium glycinate 200mg with food</li>
+            <li>Modified Citrus Pectin 5g — second dose between meals</li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">What to Eat</div>
+            <div class="meal-option"><strong>Option A:</strong> Mackerel + large salad with cilantro + chlorella in smoothie alongside</div>
+            <div class="meal-option"><strong>Option B:</strong> Chicken broth soup + garlic + ginger + turmeric + celery + parsley</div>
+            <div class="meal-option"><strong>Option C:</strong> Lentils + sweet potato + olive oil + 2 tbsp sauerkraut</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#5a8a9c;">
+          <div class="time-icon">🌀</div>
+          <div class="time-text">After<br>noon</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Afternoon</div>
+          <ul class="action-items">
+            <li>Vagus nerve practice — humming + 4:8 breathing</li>
+            <li>Mannitol 5–10g in water</li>
+            <li>Psyllium husk second dose</li>
+            <li>Activated charcoal 500mg if heavy metal symptoms (brain fog, fatigue surge) <span class="dose">2 hrs from supplements</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#4a7a8c;">
+          <div class="time-icon">🍽️</div>
+          <div class="time-text">Dinner</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Dinner</div>
+          <ul class="action-items">
+            <li>Mucuna Pruriens 500mg <span class="dose">30 min before</span></li>
+            <li>Berberine 500mg + 2 tbsp sauerkraut</li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">Dinner Options</div>
+            <div class="meal-option"><strong>Option A:</strong> Baked salmon + roasted broccoli + cooked-and-cooled potato + olive oil + garlic</div>
+            <div class="meal-option"><strong>Option B:</strong> Turkey or chicken + sweet potato + steamed asparagus (prebiotic) + sauerkraut</div>
+            <div class="meal-option"><strong>Option C:</strong> Vegetable and bean soup with bone broth + garlic + turmeric</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#5a8a9c;">
+          <div class="time-icon">🌙</div>
+          <div class="time-text">Bed<br>time</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Night Protocol</div>
+          <ul class="action-items">
+            <li>Lion's Mane 500mg · NMN 500mg · PQQ 20mg</li>
+            <li>Magnesium glycinate 400mg · Magnesium citrate 300mg</li>
+            <li>Zeolite second dose 1g <span class="dose">away from supplements by 2 hrs</span></li>
+            <li>Bedside: water + Mucuna + magnesium</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="weekly" style="margin-top:20px;">
+      <div class="weekly-title">Weekly Actions — Phase 4</div>
+      <div class="week-row"><span class="week-day">Mon·Wed·Fri</span><span class="week-actions">High-intensity exercise · Full detox bath — add extra ½ cup bentonite clay (pulls metals transdermally)</span></div>
+      <div class="week-row"><span class="week-day">Tue·Thu</span><span class="week-actions">Castor oil pack over abdomen · Tai Chi or dance</span></div>
+      <div class="week-row"><span class="week-day">Sat</span><span class="week-actions">Sauna if available — sweating removes heavy metals faster than any supplement · Long walk</span></div>
+      <div class="week-row"><span class="week-day">Sunday</span><span class="week-actions">Weekly log · How is tremor compared to Week 1? Sleep? Rigidity? Note everything.</span></div>
+    </div>
+
+    <div class="food-focus">
+      <div class="food-focus-title">Phase 4 Food Focus — Metal-Chelating Foods</div>
+      <div class="food-cols">
+        <div class="food-eat">
+          <div class="food-eat-title">Chelating Power Foods</div>
+          Cilantro — daily, always with chlorella<br>
+          Brazil nuts — 2–3 daily (selenium for mercury)<br>
+          Wild-caught fish — high EPA/DHA, low mercury<br>
+          Garlic and onion — sulphur compounds bind metals<br>
+          Leafy greens — chlorophyll binds metals<br>
+          Spirulina — neuroprotective + chelating<br>
+          Green tea — 3 cups (EGCG chelates aluminium)<br>
+          Bone broth — glycine supports liver detox phase 2
+        </div>
+        <div class="food-avoid-col">
+          <div class="food-avoid-title">Avoid Metal Sources</div>
+          Antiperspirant deodorant — switch to natural<br><br>
+          Aluminium cookware and foil — use glass or cast iron<br><br>
+          Large fish (tuna, swordfish, shark) — high mercury<br><br>
+          Processed food in aluminium cans<br><br>
+          Fluoride toothpaste — switch to natural<br><br>
+          Tap water — filtered only, always
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PHASE 5 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="phase-divider" style="background:linear-gradient(to right,var(--sage),transparent);"></div>
+<section class="phase-section" id="phase5">
+  <div class="inner">
+
+    <div class="phase-header" style="border-bottom-color:var(--sage);">
+      <div class="phase-meta">
+        <span class="phase-num" style="background:var(--sage);">Phase 5</span>
+        <span class="phase-weeks">Weeks 13–16 · Days 85–112</span>
+        <span class="phase-focus" style="color:var(--sage);">Gut Rebuild — The Origin Point</span>
+      </div>
+      <h2 class="phase-title">Rebuild the Gut. Heal the Brain.</h2>
+      <p class="phase-desc">Alpha-synuclein begins in the gut. The clearing phases have removed what was damaging it. Now it must be rebuilt — the lining, the microbiome, the motility. This is where the gut-brain axis is repaired. Everything from previous phases continues, simplified. This phase is gentler — the body is ready to receive.</p>
+    </div>
+
+    <div class="feel-box">
+      <div class="feel-title">What You May Feel This Week</div>
+      <div class="feel-body">
+        <strong>This phase should feel easier:</strong> The heaviest clearing is complete. Many people describe feeling lighter, calmer, and more energetic by Week 13.<br>
+        <strong>Gut rebuilding feels different:</strong> Bone broth and L-Glutamine may cause bloating initially as the gut adjusts. This settles within a week.<br>
+        <strong>What to watch:</strong> Tremor response to Mucuna should be more predictable and consistent by now — if it is, that means gut absorption has improved. If still inconsistent, focus even harder on the protein separation rule.<br>
+        <strong>Emotional shifts:</strong> As the gut microbiome restores, serotonin production increases — 90% of serotonin is made in the gut. Mood often lifts noticeably in this phase.
+      </div>
+    </div>
+
+    <div class="day-grid" style="margin-top:20px;">
+
+      <div class="time-block">
+        <div class="time-label" style="background:var(--sage);">
+          <div class="time-icon">🌅</div>
+          <div class="time-text">On<br>Waking</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Before Anything Else</div>
+          <ul class="action-items">
+            <li>Sole water + lemon water + baking soda drink</li>
+            <li>L-Glutamine 5–10g powder in water <span class="dose">empty stomach — gut lining fuel</span></li>
+            <li>Aloe vera inner leaf gel 1–2 tbsp in water <span class="dose">empty stomach</span></li>
+            <li>Mucuna Pruriens 500mg <span class="dose">30 min before breakfast</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:var(--sage-mid);">
+          <div class="time-icon">☀️</div>
+          <div class="time-text">Morning</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Morning Body Work</div>
+          <ul class="action-items">
+            <li>Dry brushing + cold shower finish + 20 min sunlight</li>
+            <li>Exercise — 30–45 min (all types)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:var(--sage);">
+          <div class="time-icon">🍳</div>
+          <div class="time-text">Break<br>fast</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Breakfast — Gut-Healing Focus</div>
+          <ul class="action-items">
+            <li>Bone broth — 1 cup, warm <span class="dose">or collagen powder in warm water</span></li>
+            <li>Zinc carnosine 75mg <span class="dose">with food</span></li>
+            <li>SBO Probiotics <span class="dose">with food — build dose slowly</span></li>
+            <li>All Phase 2 neurological supplements continue</li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">What to Eat — Gut-Healing Foods</div>
+            <div class="meal-option"><strong>Option A:</strong> Warm bone broth + soft-boiled eggs + cooked spinach + olive oil + sauerkraut</div>
+            <div class="meal-option"><strong>Option B:</strong> Oats cooked in bone broth + banana + blueberries + 1 tbsp MCT oil</div>
+            <div class="meal-option"><strong>Option C:</strong> Steamed sweet potato + avocado + 2 tbsp sauerkraut + soft-boiled eggs + olive oil</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:var(--sage-mid);">
+          <div class="time-icon">🌿</div>
+          <div class="time-text">Mid<br>Morning</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Gut Support</div>
+          <ul class="action-items">
+            <li>Silica-rich water — 1 litre (continue permanently)</li>
+            <li>Dandelion root tea — 1 cup</li>
+            <li>Psyllium husk — 1 tbsp in large glass of water</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:var(--sage);">
+          <div class="time-icon">🥗</div>
+          <div class="time-text">Lunch</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Lunch</div>
+          <ul class="action-items">
+            <li>Mucuna Pruriens 500mg <span class="dose">30 min before</span></li>
+            <li>Berberine 500mg + Magnesium 200mg with food</li>
+            <li>2 tbsp sauerkraut + prebiotic food</li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">What to Eat — Prebiotic Rich</div>
+            <div class="meal-option"><strong>Option A:</strong> Jerusalem artichoke soup + garlic + olive oil + side of sauerkraut</div>
+            <div class="meal-option"><strong>Option B:</strong> Cooked and cooled potato salad (resistant starch) + wild salmon + greens + ACV dressing</div>
+            <div class="meal-option"><strong>Option C:</strong> Fava beans + asparagus + raw garlic + olive oil + lemon</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:var(--sage-mid);">
+          <div class="time-icon">🌀</div>
+          <div class="time-text">After<br>noon</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Afternoon</div>
+          <ul class="action-items">
+            <li>Vagus nerve — humming + 4:8 breathing</li>
+            <li>Mannitol 5–10g in water</li>
+            <li>Psyllium husk — second dose</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:var(--sage);">
+          <div class="time-icon">🍽️</div>
+          <div class="time-text">Dinner</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Dinner</div>
+          <ul class="action-items">
+            <li>Mucuna Pruriens 500mg <span class="dose">30 min before</span></li>
+            <li>2 tbsp sauerkraut + prebiotic food</li>
+            <li>Bone broth — second cup with or after dinner</li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">Dinner Options</div>
+            <div class="meal-option"><strong>Option A:</strong> Slow-cooked chicken with garlic, ginger, turmeric + sweet potato + steamed greens + bone broth</div>
+            <div class="meal-option"><strong>Option B:</strong> Baked salmon + roasted asparagus + cooked potato + olive oil + sauerkraut</div>
+            <div class="meal-option"><strong>Option C:</strong> Lentil and vegetable stew cooked in bone broth + raw garlic stirred in before serving</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:var(--sage-mid);">
+          <div class="time-icon">🌙</div>
+          <div class="time-text">Bed<br>time</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Night Protocol</div>
+          <ul class="action-items">
+            <li>Lion's Mane 500mg · NMN 500mg · PQQ 20mg</li>
+            <li>Magnesium glycinate 400mg · Magnesium citrate 300mg</li>
+            <li>L-Glutamine 5g — second dose if sleep is disturbed or gut still healing</li>
+            <li>Bedside: water + Mucuna + magnesium</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="weekly" style="margin-top:20px;">
+      <div class="weekly-title">Weekly Actions — Phase 5</div>
+      <div class="week-row"><span class="week-day">Mon·Wed·Fri</span><span class="week-actions">Exercise · Detox bath · Castor oil pack over abdomen (gut and lymph focus)</span></div>
+      <div class="week-row"><span class="week-day">Tue·Thu</span><span class="week-actions">Dance, Tai Chi, or swimming · Gentle yoga or stretching for gut motility</span></div>
+      <div class="week-row"><span class="week-day">Sunday</span><span class="week-actions">Weekly log · Make a batch of sauerkraut if making homemade · Prepare bone broth for the week</span></div>
+    </div>
+
+    <div class="food-focus">
+      <div class="food-focus-title">Phase 5 Food Focus — Feed the Microbiome, Heal the Lining</div>
+      <div class="food-cols">
+        <div class="food-eat">
+          <div class="food-eat-title">Gut Healing Priority Foods</div>
+          Bone broth — 2 cups daily<br>
+          Sauerkraut — 2 tbsp every meal<br>
+          Cooked and cooled potato — daily resistant starch<br>
+          Jerusalem artichoke — 2× week<br>
+          Asparagus — prebiotic, 3× week<br>
+          Green banana or plantain — resistant starch<br>
+          Kefir (if dairy tolerated) or coconut kefir<br>
+          Collagen powder in warm drinks<br>
+          Ginger tea — 2 cups daily for gut motility
+        </div>
+        <div class="food-avoid-col">
+          <div class="food-avoid-title">Still Avoid</div>
+          Gluten — gut lining still repairing<br><br>
+          NSAIDs (ibuprofen, aspirin) — destroy gut lining<br><br>
+          Antibiotics unless essential<br><br>
+          Seed oils — inflammatory to gut wall<br><br>
+          Emulsifiers in processed food (carboxymethylcellulose, polysorbate 80) — directly damage tight junctions<br><br>
+          Alcohol — destroys microbiome
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PHASE 6 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="phase-divider" style="background:linear-gradient(to right,#2c3a2e,transparent);"></div>
+<section class="phase-section" id="phase6">
+  <div class="inner">
+
+    <div class="phase-header" style="border-bottom-color:#2c3a2e;">
+      <div class="phase-meta">
+        <span class="phase-num" style="background:#2c3a2e;">Phase 6</span>
+        <span class="phase-weeks">Week 17 & Beyond · Forever</span>
+        <span class="phase-focus" style="color:#2c3a2e;">Maintenance — This Is Now Your Life</span>
+      </div>
+      <h2 class="phase-title">This Is Not a Protocol Anymore. This Is How You Live.</h2>
+      <p class="phase-desc">The world has not changed. Toxic exposure continues. Dopamine neurons need daily support. The gut microbiome needs daily feeding. These are not things you do for 16 weeks — they are the conditions under which a body can maintain and regenerate. This page is your permanent daily rhythm.</p>
+    </div>
+
+    <div class="feel-box">
+      <div class="feel-title">What You Should Be Experiencing by Now</div>
+      <div class="feel-body">
+        <strong>Motor symptoms:</strong> Measurable reduction in tremor frequency or intensity. Rigidity less severe in the mornings. Better gait stability. Fewer freezing episodes or shorter duration.<br>
+        <strong>Sleep:</strong> Waking less at night. If nocturnal tremor still occurs, it is less intense and resolves faster with bedside Mucuna.<br>
+        <strong>Digestion:</strong> Daily bowel movements. Reduced bloating. Better food tolerance.<br>
+        <strong>Mood and energy:</strong> Noticeably more stable. Depression and anxiety reduced. More resilience.<br>
+        <strong>If not seeing these changes:</strong> Do not give up. Return to Phase 1 and audit the foundations — is the colon moving daily? Is Mucuna taken correctly away from protein? Is silica water being taken? Is exercise happening every day? The foundations create the results.
+      </div>
+    </div>
+
+    <div class="day-grid" style="margin-top:20px;">
+
+      <div class="time-block">
+        <div class="time-label" style="background:#2c3a2e;">
+          <div class="time-icon">🌅</div>
+          <div class="time-text">On<br>Waking</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Every Morning — Non-Negotiable</div>
+          <ul class="action-items">
+            <li>Sole water + lemon water + baking soda drink</li>
+            <li>L-Glutamine 5g <span class="dose">empty stomach</span></li>
+            <li>Mucuna Pruriens 500mg <span class="dose">30 min before breakfast</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#3d4f3f;">
+          <div class="time-icon">☀️</div>
+          <div class="time-text">Morning</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Morning — Every Day</div>
+          <ul class="action-items">
+            <li>Sunlight — 10–20 min, non-negotiable</li>
+            <li>Exercise — 30+ min, every day</li>
+            <li>Dry brushing if not bathing in the evening</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#2c3a2e;">
+          <div class="time-icon">🍳</div>
+          <div class="time-text">Break<br>fast</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Breakfast Supplements — Every Day</div>
+          <ul class="action-items">
+            <li>Lion's Mane 1,000mg · CoQ10 Ubiquinol 200mg</li>
+            <li>NAC 600mg · Milk Thistle 175mg</li>
+            <li>Vitamin D3 5,000 IU + K2 200mcg · Omega-3 2g</li>
+            <li>Magnesium glycinate 200mg · Zinc carnosine 75mg</li>
+            <li>SBO Probiotics · Bone broth 1 cup</li>
+            <li>Sauerkraut 2 tbsp with meal</li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">Permanent Breakfast Principles</div>
+            <div class="meal-option"><strong>Low protein</strong> at breakfast — protect Mucuna absorption. Oats, fruit, smoothies, vegetables.</div>
+            <div class="meal-option"><strong>Always includes:</strong> Sauerkraut · MCT or coconut oil · Blueberries · Green tea</div>
+            <div class="meal-option"><strong>Rotate:</strong> Eggs, salmon, fava beans, sardines for lunch and dinner</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#3d4f3f;">
+          <div class="time-icon">🌿</div>
+          <div class="time-text">Mid<br>Morning</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Permanent Daily Practices</div>
+          <ul class="action-items">
+            <li>Silica-rich water — 1 litre (Volvic or Fiji) — forever</li>
+            <li>Psyllium husk — 1 tbsp in water</li>
+            <li>Dandelion root tea — 1–2 cups</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#2c3a2e;">
+          <div class="time-icon">🥗</div>
+          <div class="time-text">Lunch</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Lunch</div>
+          <ul class="action-items">
+            <li>Mucuna Pruriens 500mg <span class="dose">30 min before</span></li>
+            <li>Berberine 500mg · Magnesium 200mg with food</li>
+            <li>2 tbsp sauerkraut · Prebiotic food</li>
+            <li>ACV 1 tbsp before eating</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#3d4f3f;">
+          <div class="time-icon">🌀</div>
+          <div class="time-text">After<br>noon</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Afternoon — Every Day</div>
+          <ul class="action-items">
+            <li>Vagus nerve — 10 min (humming + breathing)</li>
+            <li>Mannitol 5–10g in water</li>
+            <li>Psyllium husk — second dose</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#2c3a2e;">
+          <div class="time-icon">🍽️</div>
+          <div class="time-text">Dinner</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Dinner</div>
+          <ul class="action-items">
+            <li>Mucuna Pruriens 500mg <span class="dose">30 min before</span></li>
+            <li>2 tbsp sauerkraut · Prebiotic food · Bone broth</li>
+          </ul>
+          <div class="meal-card">
+            <div class="meal-label">Weekly Meal Rotation — Permanent</div>
+            <div class="meal-option"><strong>Mon·Thu:</strong> Wild-caught fish (salmon, sardines, mackerel) + roasted vegetables + olive oil</div>
+            <div class="meal-option"><strong>Tue·Fri:</strong> Chicken or turkey (organic) cooked in bone broth + sweet potato + steamed greens</div>
+            <div class="meal-option"><strong>Wed:</strong> Fava beans + garlic + olive oil + lemon + greens — natural levodopa meal</div>
+            <div class="meal-option"><strong>Sat:</strong> Eggs any style + avocado + large salad + sauerkraut</div>
+            <div class="meal-option"><strong>Sun:</strong> Slow-cooked anything — bone broth base, garlic, turmeric, ginger, vegetables</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-label" style="background:#3d4f3f;">
+          <div class="time-icon">🌙</div>
+          <div class="time-text">Bed<br>time</div>
+        </div>
+        <div class="time-content">
+          <div class="action-title">Night — Every Night</div>
+          <ul class="action-items">
+            <li>Lion's Mane 500mg · NMN 500mg · PQQ 20mg</li>
+            <li>Magnesium glycinate 400mg · Magnesium citrate 300mg</li>
+            <li>No screens 1 hour before sleep</li>
+            <li>Bedside always ready: water + Mucuna 250mg + magnesium glycinate</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="weekly" style="margin-top:20px;">
+      <div class="weekly-title">Weekly Actions — Permanent Schedule</div>
+      <div class="week-row"><span class="week-day">Mon·Wed·Fri</span><span class="week-actions">Boxing, cycling, or high-intensity exercise · Detox bath (Epsom + baking soda + Celtic salt + ACV + clay + ginger)</span></div>
+      <div class="week-row"><span class="week-day">Tue·Thu</span><span class="week-actions">Dance, Tai Chi, or swimming · Castor oil pack over abdomen</span></div>
+      <div class="week-row"><span class="week-day">Sat</span><span class="week-actions">Castor oil pack over liver · Sauna if available · Long walk with music</span></div>
+      <div class="week-row"><span class="week-day">Sunday</span><span class="week-actions">Rest · Weekly symptom log · Prepare food for the week · Make bone broth if needed</span></div>
+      <div class="week-row"><span class="week-day">Once/year</span><span class="week-actions">Repeat Phases 1 and 2 for 30 days — annual reset. The world keeps exposing. Annual clearing prevents accumulation.</span></div>
+    </div>
+
+    <div class="food-focus">
+      <div class="food-focus-title">Permanent Food Rules — These Never Change</div>
+      <div class="food-cols">
+        <div class="food-eat">
+          <div class="food-eat-title">Always In the Kitchen</div>
+          Sauerkraut — fridge, always stocked<br>
+          Celtic sea salt — for sole water<br>
+          Bone broth — homemade or carton<br>
+          Coconut oil and olive oil — only cooking fats<br>
+          Garlic and ginger — in everything<br>
+          Turmeric and black pepper — in everything<br>
+          Blueberries — freezer always stocked<br>
+          MCT oil — in every breakfast<br>
+          Fava beans — weekly<br>
+          Wild-caught fish — weekly<br>
+          Prebiotic vegetables — asparagus, Jerusalem artichoke, cooked potato
+        </div>
+        <div class="food-avoid-col">
+          <div class="food-avoid-title">Never Again</div>
+          Seed oils — canola, sunflower, corn, soybean<br>
+          Non-stick cookware<br>
+          Tap water (drinking or cooking)<br>
+          Processed sugar<br>
+          Gluten (where possible)<br>
+          Alcohol<br>
+          Processed and packaged foods<br>
+          Antiperspirant with aluminium<br>
+          Aluminium cookware and foil<br>
+          Factory-farmed meat<br>
+          Fluoride toothpaste
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-note" style="margin-top:16px;margin-bottom:0;">
+      <strong>Your permanent monthly shopping — iHerb code GUW6132:</strong> Mucuna Pruriens · Lion's Mane · CoQ10 Ubiquinol · NMN · NAC · PQQ · Magnesium glycinate · Magnesium citrate · Milk Thistle · Vitamin D3+K2 · Omega-3 · Berberine · Zinc carnosine · Passionflower · SBO Probiotics · L-Glutamine · Mannitol · Psyllium husk · Baking soda (Bob's Red Mill) · Celtic sea salt. Plus: Epsom salt (Epsoak, Amazon) · Volvic or Fiji water (1L daily) · Sauerkraut (refrigerated) · Bone broth · Castor oil (Heritage Store).
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--bg-footer);padding:28px 24px;text-align:center;margin-top:40px;">
+  <p style="font-family:'Playfair Display',serif;font-size:16px;color:#fff;margin-bottom:8px;">Heal Yourself</p>
+  <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:12px;">Support this guide — shop iHerb with code <strong style="color:var(--sage-nav);">GUW6132</strong> and get a discount.</p>
+  <a href="Parkinsons_Protocol.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">← Back to Full Protocol</a>
+</footer>
+
+</body>
+</html>
