@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parkinson's Protocol — Must-Have Supplements by Phase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;
+  --bg-nav:#2c3a2e;--bg-footer:#263028;
+  --ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;
+  --sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-pale:#e4f0e8;--sage-nav:#8ab89a;
+  --terra:#8c5a3c;--terra-pale:#f5ede6;
+  --honey:#a07830;--honey-pale:#f5eddb;
+  --border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);
+  --p1:#3d6b4a;--p2:#6a5acd;--p3:#8c5a3c;--p4:#4a7a8c;--p5:#5a8c6a;--p6:#2c3a2e;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
+
+/* NAV */
+.topnav{background:var(--bg-nav);padding:0 24px;display:flex;align-items:center;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,0.06);}
+.topnav a{color:var(--sage-nav);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 14px;display:block;transition:color 0.2s;}
+.topnav a:hover{color:#fff;}
+.topnav .brand{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;margin-right:16px;padding:14px 0;text-transform:none;}
+
+/* HERO */
+.hero{background:var(--bg-nav);padding:48px 24px 36px;text-align:center;}
+.hero-tag{font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage-nav);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:12px;}
+.hero-tag::before,.hero-tag::after{content:'';width:40px;height:1px;background:rgba(138,184,154,0.4);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,38px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:10px;}
+.hero h1 em{font-style:italic;color:var(--sage-nav);}
+.hero-sub{font-size:13px;color:rgba(255,255,255,0.5);max-width:540px;margin:0 auto;}
+
+/* PRINT BAR */
+.print-bar{background:var(--bg-deep);border-bottom:1px solid var(--border-s);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.print-bar p{font-size:12px;color:var(--ink-light);}
+.print-btn{background:var(--sage);color:#fff;border:none;padding:8px 18px;border-radius:4px;font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;}
+
+/* PHASE NAV */
+.phase-nav{background:var(--bg-nav);padding:10px 24px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.08);}
+.phase-nav a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:11px;font-weight:600;padding:5px 11px;border-radius:3px;border:1px solid rgba(255,255,255,0.1);transition:all 0.2s;}
+.phase-nav a:hover{background:var(--sage);color:#fff;border-color:var(--sage);}
+
+/* INTRO BOX */
+.intro{background:var(--honey-pale);border-left:4px solid var(--honey);border-radius:0 8px 8px 0;padding:20px 24px;margin:32px auto;max-width:780px;}
+.intro-title{font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--honey);margin-bottom:10px;}
+.intro p{font-size:13px;color:var(--ink-mid);line-height:1.8;}
+.intro p + p{margin-top:8px;}
+
+/* LAYOUT */
+.inner{max-width:780px;margin:0 auto;padding:0 16px;}
+
+/* PHASE BLOCK */
+.phase-block{padding:36px 0 8px;}
+.phase-divider{height:4px;border-radius:2px;margin-bottom:0;}
+.phase-head{padding:28px 0 6px;}
+.phase-meta{display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+.phase-badge{font-family:'DM Mono',monospace;font-size:11px;font-weight:600;color:#fff;padding:5px 12px;border-radius:3px;}
+.phase-weeks{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-light);background:var(--bg-stone);padding:5px 10px;border-radius:3px;}
+.phase-title{font-family:'Playfair Display',serif;font-size:clamp(18px,3vw,26px);font-weight:700;color:var(--ink);margin-bottom:4px;}
+.phase-desc{font-size:13px;color:var(--ink-light);line-height:1.75;margin-bottom:20px;max-width:640px;}
+
+/* MUST HAVE LIST */
+.must-list{display:grid;gap:3px;margin-bottom:20px;}
+.must-item{display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:start;padding:14px 16px;background:var(--bg-warm);border-radius:4px;border-left:3px solid transparent;}
+.must-item:nth-child(odd){background:var(--bg);}
+.must-item.priority-1{border-left-color:var(--sage);}
+.must-item.priority-2{border-left-color:var(--honey);}
+
+.must-num{font-family:'DM Mono',monospace;font-size:13px;font-weight:700;color:#fff;background:var(--sage);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.must-body{}
+.must-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;line-height:1.3;}
+.must-why{font-size:12px;color:var(--ink-light);line-height:1.7;}
+.must-dose{font-family:'DM Mono',monospace;font-size:11px;color:var(--sage);margin-bottom:3px;}
+.must-warn{font-size:11px;color:var(--terra);margin-top:4px;}
+.must-warn::before{content:'⚠ ';}
+
+/* BADGES */
+.badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 6px;border-radius:2px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;}
+.badge-core{background:#2c3a2e;color:#8ab89a;}
+.badge-cheap{background:#e8f2ec;color:#3d6b4a;border:1px solid rgba(61,107,74,0.2);}
+.badge-pd{background:#eeecf9;color:#6a5acd;border:1px solid rgba(106,90,205,0.2);}
+.badge-warn{background:#fff0e0;color:#8c5a1c;border:1px solid rgba(140,90,60,0.2);}
+
+/* BUY LINK */
+.must-link{color:var(--sage);text-decoration:none;font-size:11px;font-weight:700;padding:5px 10px;border:1px solid var(--border);border-radius:4px;white-space:nowrap;display:inline-block;transition:background 0.15s;margin-top:4px;}
+.must-link:hover{background:var(--sage-pale);}
+.must-link.amazon{color:var(--honey);border-color:rgba(160,120,48,0.2);}
+.must-link.amazon:hover{background:var(--honey-pale);}
+
+/* CUT LIST */
+.cut-section{background:var(--bg-deep);border-radius:6px;padding:16px 18px;margin-bottom:24px;}
+.cut-title{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-light);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.cut-title::before{content:'';width:16px;height:1px;background:var(--ink-light);}
+.cut-items{display:flex;flex-wrap:wrap;gap:6px;}
+.cut-item{font-size:11px;color:var(--ink-light);background:var(--bg-stone);padding:4px 10px;border-radius:20px;border:1px solid var(--border-s);}
+.cut-note{font-size:11px;color:var(--ink-light);margin-top:8px;line-height:1.65;font-style:italic;}
+
+/* PHASE TOTAL */
+.phase-total-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:12px 16px;background:var(--bg-stone);border-radius:4px;margin-bottom:32px;}
+.phase-total-label{font-size:12px;color:var(--ink-light);}
+.phase-total-count{font-family:'DM Mono',monospace;font-size:14px;font-weight:700;}
+.phase-total-cost{font-size:11px;color:var(--ink-light);font-style:italic;}
+
+/* MASTER TABLE */
+.master-table{width:100%;border-collapse:collapse;margin-bottom:24px;font-size:12px;}
+.master-table th{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:10px 12px;text-align:left;background:var(--bg-nav);color:rgba(255,255,255,0.7);}
+.master-table td{padding:9px 12px;border-bottom:1px solid var(--border-s);vertical-align:top;line-height:1.5;}
+.master-table tr:hover td{background:rgba(0,0,0,0.02);}
+.phase-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle;}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(to right,transparent,rgba(61,107,74,0.18),transparent);margin:8px 0;}
+
+/* PRINT */
+@media print{
+  body{background:#fff;font-size:10px;}
+  .topnav,.print-bar,.phase-nav,.no-print{display:none!important;}
+  .hero{background:#2c3a2e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:16px!important;}
+  .hero h1{font-size:18px!important;}
+  .phase-block{page-break-before:always;padding:16px 0 6px!important;}
+  .phase-block:first-child{page-break-before:avoid;}
+  .must-item{page-break-inside:avoid;}
+  .phase-badge{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .must-num{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .must-link{display:none;}
+  a[href]::after{content:none!important;}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="brand">Heal Yourself</a>
+  <a href="index.html">Home</a>
+  <a href="Parkinsons_Protocol.html">Full Protocol</a>
+  <a href="Parkinsons_Daily_Schedule.html">Daily Schedule</a>
+  <a href="Parkinsons_Shopping_Table.html">Full Shopping List</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-tag">Budget Priority Guide</div>
+  <h1>Must-Have Supplements — <em>By Phase</em></h1>
+  <p class="hero-sub">If budget is tight — these are the items you cannot skip. Everything else helps. These are the foundation.</p>
+</header>
+
+<div class="print-bar no-print">
+  <p>Print this page and use it alongside the Full Shopping List.</p>
+  <button class="print-btn" onclick="window.print()">🖨 Print Priority List</button>
+</div>
+
+<nav class="phase-nav no-print">
+  <a href="#phase1">Phase 1</a>
+  <a href="#phase2">Phase 2</a>
+  <a href="#phase3">Phase 3</a>
+  <a href="#phase4">Phase 4</a>
+  <a href="#phase5">Phase 5</a>
+  <a href="#permanent">Permanent</a>
+  <a href="#master">Master View</a>
+</nav>
+
+<div class="inner">
+  <div class="intro">
+    <div class="intro-title">How to use this list</div>
+    <p>This is not the full protocol — it is the minimum viable protocol. Every item here was chosen because removing it would either break the phase mechanism entirely, or directly harm the healing process. These are non-negotiable.</p>
+    <p>Items marked <span class="badge badge-cheap">cheap</span> cost very little — they should never be cut regardless of budget. Items marked <span class="badge badge-core">core</span> are the primary mechanism of that phase. Items marked <span class="badge badge-pd">Parkinson's</span> are specific to dopamine and neurological function — cutting them defeats the purpose of the protocol entirely.</p>
+    <p>Items in the "can wait" section are genuinely valuable — add them as soon as budget allows. They are not on this list because they are unimportant. They are off this list because the must-haves cannot work without them.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PHASE 1 ═══════════════════════════════ -->
+<div class="phase-divider" style="background:var(--p1);" id="phase1"></div>
+<div class="inner">
+<div class="phase-block">
+  <div class="phase-head">
+    <div class="phase-meta">
+      <span class="phase-badge" style="background:var(--p1);">Phase 1</span>
+      <span class="phase-weeks">Weeks 1–2</span>
+      <span style="font-size:12px;color:var(--p1);font-weight:700;">Open the Drainage Doors</span>
+    </div>
+    <h2 class="phase-title">9 Must-Haves — The Drainage Foundation</h2>
+    <p class="phase-desc">The colon must move daily. The liver must be protected. The lymph must be activated. Without these, everything added in Phase 2 either recirculates as toxin or fails to absorb. This phase is the cheapest of all — most items cost almost nothing.</p>
+  </div>
+
+  <div class="must-list">
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p1);">1</div>
+      <div class="must-body">
+        <div class="must-name">Magnesium Citrate <span class="badge badge-core">core</span> <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-dose">300–400mg every night before bed</div>
+        <div class="must-why">The colon must move every day. One blocked day during detox means toxins recirculate directly into the bloodstream. Magnesium citrate is the safest, gentlest daily colon support available and costs almost nothing.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/now-foods-magnesium-citrate-120-veg-capsules-133-mg-per-capsule/698?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p1);">2</div>
+      <div class="must-body">
+        <div class="must-name">Magnesium Glycinate <span class="badge badge-core">core</span> <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">200mg morning + 400mg bedside at night</div>
+        <div class="must-why">Directly reduces tremor amplitude, relaxes muscle rigidity, and improves sleep depth — all within 20–30 minutes of a night dose. Also the fastest intervention for 3am nocturnal tremor. Keep on the bedside table permanently from Day 1.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/now-foods-magnesium-glycinate-180-tablets-100-mg-per-tablet/88819?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p1);">3</div>
+      <div class="must-body">
+        <div class="must-name">Psyllium Husk <span class="badge badge-core">core</span> <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-dose">1 tbsp in large glass of water · twice daily · always with full glass</div>
+        <div class="must-why">Sweeps the colon, binds toxins before they can be reabsorbed, and feeds the gut bacteria that produce butyrate. Without colon sweeping, the detox baths and liver support simply push toxins back into circulation.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/now-foods-whole-psyllium-husks-16-oz-454-g/37841?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p1);">4</div>
+      <div class="must-body">
+        <div class="must-name">Milk Thistle <span class="badge badge-core">core</span></div>
+        <div class="must-dose">175mg daily with food</div>
+        <div class="must-why">The liver is the primary detox organ — it must be actively protected before the detox load increases. Milk Thistle is the most researched liver-protective compound available. Without it, the liver becomes the bottleneck of the entire protocol.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/california-gold-nutrition-euroherbs-milk-thistle-extract-euromed-quality-175-mg-60-veggie-capsules/70955?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p1);">5</div>
+      <div class="must-body">
+        <div class="must-name">Castor Oil — Organic <span class="badge badge-core">core</span></div>
+        <div class="must-dose">Pack over liver area 3–4× per week · 45 min · warm compress</div>
+        <div class="must-why">The single most effective passive lymphatic and liver drainage practice available. Increases bile flow and lymphatic circulation without any pharmaceutical intervention. There is nothing that replaces the castor oil pack for opening the lymph-liver drainage pathway.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/heritage-store-organic-castor-oil-16-fl-oz-473-ml/22831?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p1);">6</div>
+      <div class="must-body">
+        <div class="must-name">Epsom Salt <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-dose">2 cups per bath · 3× per week · 30–40 min hot</div>
+        <div class="must-why">Transdermal magnesium directly into muscles — bypasses digestive absorption limits entirely. Combined with baking soda in the bath, activates the skin as a toxin exit route. Bulk purchase makes this one of the cheapest items per use in the entire protocol.</div>
+      </div>
+      <a class="must-link amazon" href="https://www.amazon.com/Epsoak-Magnesium-Resealable-Unscented-Cruelty-Free/dp/B004N79BYC" target="_blank">Amazon →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p1);">7</div>
+      <div class="must-body">
+        <div class="must-name">Baking Soda — Food Grade <span class="badge badge-cheap">cheap</span> <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">¼ tsp in water every morning · 1 cup in every detox bath</div>
+        <div class="must-why">Double duty: morning drink triggers the anti-inflammatory M1→M2 macrophage shift documented in peer-reviewed research. In the bath, neutralises chlorine and alkalises transdermally. Costs almost nothing. No reason to cut this.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/bob-s-red-mill-baking-soda-gluten-free-16-oz-454-g/89505?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p1);">8</div>
+      <div class="must-body">
+        <div class="must-name">Celtic Sea Salt <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-dose">1 tsp sole solution every morning before anything else</div>
+        <div class="must-why">Full-spectrum trace minerals — the body cannot run its biochemistry on sodium alone. Sole water is the cheapest and most bioavailable mineral supplement that exists. One bag lasts months.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/celtic-sea-salt-fine-ground-vital-mineral-blend-1-lb-454-g/40557?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p1);">9</div>
+      <div class="must-body">
+        <div class="must-name">Apple Cider Vinegar <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-dose">1 tbsp in water · 10 min before every meal · use a straw</div>
+        <div class="must-why">Restores stomach acid — critical from Phase 2 when Mucuna is added. Mucuna's levodopa is absorbed in the small intestine and requires proper stomach acid to break down before it gets there. Without ACV, Mucuna absorption is compromised. Start now, not at Phase 2.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/bragg-organic-raw-apple-cider-vinegar-32-fl-oz-946-ml/1864?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+  </div>
+
+  <div class="cut-section">
+    <div class="cut-title">Can wait until budget allows</div>
+    <div class="cut-items">
+      <span class="cut-item">Vitamin D3+K2</span>
+      <span class="cut-item">Omega-3 Fish Oil</span>
+      <span class="cut-item">Dandelion Root Tea</span>
+      <span class="cut-item">Shower Filter</span>
+      <span class="cut-item">Activated Charcoal (Phase 1 only)</span>
+    </div>
+    <p class="cut-note">These are all genuinely important — add Vitamin D3+K2 and Omega-3 as soon as possible, ideally by Week 3. The shower filter is a permanent health investment worth making. Dandelion tea can be replaced with extra ACV and garlic for liver/kidney support.</p>
+  </div>
+
+  <div class="phase-total-bar">
+    <span class="phase-total-label">Phase 1 must-haves:</span>
+    <span class="phase-total-count" style="color:var(--p1);">9 items</span>
+    <span class="phase-total-cost">Most are under €5 per month. Epsom salt and castor oil are the largest one-time costs.</span>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════ PHASE 2 ═══════════════════════════════ -->
+<div class="phase-divider" style="background:var(--p2);" id="phase2"></div>
+<div class="inner">
+<div class="phase-block">
+  <div class="phase-head">
+    <div class="phase-meta">
+      <span class="phase-badge" style="background:var(--p2);">Phase 2</span>
+      <span class="phase-weeks">Weeks 3–4</span>
+      <span style="font-size:12px;color:var(--p2);font-weight:700;">Neurological Stack + Biofilm</span>
+    </div>
+    <h2 class="phase-title">12 Must-Haves — The Core Parkinson's Stack</h2>
+    <p class="phase-desc">This is the most important phase for Parkinson's specifically. Every item here either directly addresses dopamine, neuroprotection, or biofilm — the three mechanisms that determine whether the protocol works. Do not cut from this phase.</p>
+  </div>
+
+  <div class="must-list">
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p2);">1</div>
+      <div class="must-body">
+        <div class="must-name">Mucuna Pruriens <span class="badge badge-core">core</span> <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">500mg · 2–3× daily · 30 min before meals · away from protein · bedside always</div>
+        <div class="must-why">The primary dopamine intervention. Natural levodopa — the direct precursor to dopamine. This is the most important product in the entire protocol. If only one supplement can be afforded, it is this one. Also keep a dose on the bedside table from Day 1 for nocturnal tremor.</div>
+        <div class="must-warn">If currently on pharmaceutical levodopa — discuss dose adjustment with doctor before adding.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/now-foods-dopa-mucuna-90-veg-capsules/8673?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p2);">2</div>
+      <div class="must-body">
+        <div class="must-name">Lion's Mane Mushroom <span class="badge badge-core">core</span> <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">1,000mg morning + 500mg night · with food</div>
+        <div class="must-why">The only natural compound that stimulates Nerve Growth Factor (NGF) — the protein that promotes neuron repair and survival. Without ongoing NGF stimulation, the dopaminergic neurons being supported by Mucuna continue to degrade. These two work together. Neither is optional.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/host-defense-mushrooms-lion-s-mane-120-capsules-0-5-g-per-capsule/61802?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p2);">3</div>
+      <div class="must-body">
+        <div class="must-name">CoQ10 Ubiquinol + PQQ <span class="badge badge-core">core</span> <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">1–2 caps daily · with fat-containing meal</div>
+        <div class="must-why">Mitochondrial energy production collapses in dopaminergic neurons before they die — this is the mechanism of neurodegeneration. CoQ10 ubiquinol powers existing mitochondria. PQQ creates new ones. Both are necessary. The CGN combo product covers both.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/california-gold-nutrition-ubiquinol-reduced-form-coq10-pqq-120-veggie-capsules/143326?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p2);">4</div>
+      <div class="must-body">
+        <div class="must-name">NAC — N-Acetyl Cysteine <span class="badge badge-core">core</span> <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">600mg twice daily · between meals</div>
+        <div class="must-why">Glutathione — the brain's primary antioxidant — is severely depleted in the substantia nigra in Parkinson's. NAC is the most effective oral method to restore it. Without glutathione, every other neuroprotective supplement has less effect. This is the foundation of the antioxidant stack.</div>
+        <div class="must-warn">Do not use with nitroglycerin or blood pressure medications without guidance.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/now-foods-nac-600-mg-250-capsules/694?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p2);">5</div>
+      <div class="must-body">
+        <div class="must-name">Vitamin D3 + K2 <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">2 caps daily · with fat-containing meal · always together</div>
+        <div class="must-why">Vitamin D receptors are throughout the brain including the substantia nigra. Deficiency is linked to faster Parkinson's progression. D3 without K2 causes calcium to deposit in soft tissue. Cheap and essential. Was on the "can wait" list in Phase 1 — cannot wait any longer.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/california-gold-nutrition-vitamin-d3-k2-as-mk-7-180-veggie-capsules/124745?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p2);">6</div>
+      <div class="must-body">
+        <div class="must-name">Omega-3 Fish Oil <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">2–3 softgels daily · with meals</div>
+        <div class="must-why">The brain is 60% fat — predominantly DHA. Reduces neuroinflammation and supports dopamine receptor integrity. Low omega-3 is directly associated with accelerated neurodegeneration. Was on the "can wait" list in Phase 1 — cannot wait any longer.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/now-foods-omega-3-fish-oil-200-softgels/323?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p2);">7</div>
+      <div class="must-body">
+        <div class="must-name">Serrapeptase <span class="badge badge-core">core</span></div>
+        <div class="must-dose">120,000 SPU · empty stomach · 45 min before food</div>
+        <div class="must-why">Biofilm is the protein shell that makes pathogens invisible to the immune system and resistant to every herb and supplement. Until the biofilm is broken, nothing else fully penetrates. Serrapeptase is the primary biofilm breaker. This is the entry point to Phase 2 — without it the phase does not work.</div>
+        <div class="must-warn">Do not use with blood-thinning medications.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/doctor-s-best-high-potency-serrapeptase-120-000-spu-270-veggie-caps/51946?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p2);">8</div>
+      <div class="must-body">
+        <div class="must-name">Nattokinase <span class="badge badge-core">core</span></div>
+        <div class="must-dose">2,000 FU twice daily · empty stomach</div>
+        <div class="must-why">Works with serrapeptase to break down fibrin — the structural scaffolding of biofilm. Neither enzyme alone is as effective as both together. The combination is the mechanism of Phase 2. Cannot skip one without undermining the other.</div>
+        <div class="must-warn">Do not combine with warfarin or aspirin without guidance.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/now-foods-nattokinase-100-mg-120-veg-capsules/11904?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p2);">9</div>
+      <div class="must-body">
+        <div class="must-name">Berberine <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-dose">500mg twice daily · with meals</div>
+        <div class="must-why">Disrupts the chemical signalling system pathogens use to rebuild biofilm after serrapeptase and nattokinase break it down. Also directly supports gut microbiome restoration — the gut-brain axis that is the origin of Parkinson's pathology. Inexpensive and essential.</div>
+        <div class="must-warn">Interacts with metformin and cyclosporine.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/natural-factors-wellbetx-berberine-60-vegetarian-capsules-500-mg-per-capsule/65987?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p2);">10</div>
+      <div class="must-body">
+        <div class="must-name">Mannitol <span class="badge badge-core">core</span> <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">5–10g powder in water · afternoon · away from meals</div>
+        <div class="must-why">The only natural compound with direct Phase IIa clinical trial data showing inhibition of alpha-synuclein fibril formation — the specific protein aggregation that kills dopaminergic neurons. Nothing else in the protocol acts on this exact mechanism. Non-negotiable for Parkinson's specifically.</div>
+      </div>
+      <a class="must-link amazon" href="https://www.amazon.com/s?k=mannitol+powder+food+grade" target="_blank">Amazon →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p2);">11</div>
+      <div class="must-body">
+        <div class="must-name">SBO Probiotics <span class="badge badge-core">core</span> <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">As directed · with meals · build slowly over 2 weeks</div>
+        <div class="must-why">The gut is where Parkinson's begins. The specific gut bacteria depleted in Parkinson's patients must begin to be restored in Phase 2 — not Phase 5. Waiting means the alpha-synuclein aggregation pathway in the gut continues unchecked throughout the entire clearing phase.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/ancient-nutrition-sbo-probiotics-25-billion-cfu-60-capsules/105816?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p2);">12</div>
+      <div class="must-body">
+        <div class="must-name">Sauerkraut — Refrigerated Live <span class="badge badge-cheap">cheap</span> <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">2 tbsp with every meal · every day · permanent</div>
+        <div class="must-why">More live beneficial bacteria per serving than most probiotic capsules. These are the specific bacteria depleted in Parkinson's that produce serotonin and regulate the gut-brain axis. Cheap, available everywhere, irreplaceable. This is the only item in the protocol that should never be cut regardless of any circumstances.</div>
+      </div>
+      <a class="must-link" style="color:var(--ink-light);border-color:var(--border-s);">Supermarket refrigerated section</a>
+    </div>
+
+  </div>
+
+  <div class="cut-section">
+    <div class="cut-title">Can wait until budget allows</div>
+    <div class="cut-items">
+      <span class="cut-item">NMN / NR</span>
+      <span class="cut-item">Passionflower (unless sleep severely disrupted)</span>
+      <span class="cut-item">Saffron Extract</span>
+    </div>
+    <p class="cut-note">NMN is valuable but expensive — add it by Week 6 at the latest. Passionflower only matters if nocturnal waking is severe and magnesium glycinate alone isn't enough. Saffron is the priority antidepressant intervention — add it as soon as the core neurological stack is established.</p>
+  </div>
+
+  <div class="phase-total-bar">
+    <span class="phase-total-label">Phase 2 must-haves:</span>
+    <span class="phase-total-count" style="color:var(--p2);">12 items</span>
+    <span class="phase-total-cost">Plus all 9 from Phase 1 continue. This is the highest-cost phase — Mucuna, Lion's Mane, and CoQ10 are not cheap. They are also the most important.</span>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════ PHASE 3 ═══════════════════════════════ -->
+<div class="phase-divider" style="background:var(--p3);" id="phase3"></div>
+<div class="inner">
+<div class="phase-block">
+  <div class="phase-head">
+    <div class="phase-meta">
+      <span class="phase-badge" style="background:var(--p3);">Phase 3</span>
+      <span class="phase-weeks">Weeks 5–8</span>
+      <span style="font-size:12px;color:var(--p3);font-weight:700;">Antiparasitic Rotation</span>
+    </div>
+    <h2 class="phase-title">5 Must-Haves — Clear the Hidden Load</h2>
+    <p class="phase-desc">The rotation is the mechanism. One herb is not enough. The charcoal is essential — without it, die-off toxins recirculate. The pumpkin seeds are free and must run every day.</p>
+  </div>
+
+  <div class="must-list">
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p3);">1</div>
+      <div class="must-body">
+        <div class="must-name">Black Walnut + Wormwood + Cloves Complex <span class="badge badge-core">core</span></div>
+        <div class="must-dose">½–2 droppersful twice daily · in juice or water before meals · rotation Week 1 and 3</div>
+        <div class="must-why">The Clark Triad — the only antiparasitic combination that addresses all life stages simultaneously. Cloves specifically are the only compound that kills eggs and larvae. Without cloves, adult parasites are killed but the next generation survives and repopulates within weeks.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/now-foods-green-black-walnut-wormwood-complex-2-fl-oz-59-ml/591?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p3);">2</div>
+      <div class="must-body">
+        <div class="must-name">Oregano Oil — Enteric Coated <span class="badge badge-core">core</span></div>
+        <div class="must-dose">1–2 caps twice daily · rotation Week 2</div>
+        <div class="must-why">The rotation is the mechanism — parasites adapt to a single herb in 7–10 days. Oregano oil provides a completely different mechanism of action (carvacrol disrupts cell membranes) ensuring pathogens that survived the Clark Triad are addressed.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/now-foods-oregano-oil-90-softgels/731?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p3);">3</div>
+      <div class="must-body">
+        <div class="must-name">Activated Charcoal <span class="badge badge-core">core</span> <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-dose">500–1,000mg · 2+ hours from all supplements · whenever die-off symptoms appear</div>
+        <div class="must-why">When pathogens die in large numbers they release toxins into the bloodstream — Herxheimer reaction. Without a binder to capture these toxins, they recirculate to the brain and worsen neurological symptoms. This is especially critical for Parkinson's where the blood-brain barrier is already compromised. Non-negotiable during the antiparasitic phase.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/now-foods-activated-charcoal-200-mg-capsules-100-veg-capsules/708?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p3);">4</div>
+      <div class="must-body">
+        <div class="must-name">Psyllium Husk — continue <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-dose">1 tbsp twice daily · increase if die-off is heavy</div>
+        <div class="must-why">Dead parasites and their toxins must be physically swept out of the colon. Psyllium husk is the mechanical broom. Without it, the cleared material sits in the colon and toxic load increases. More important during die-off than any other phase.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/now-foods-whole-psyllium-husks-16-oz-454-g/37841?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p3);">5</div>
+      <div class="must-body">
+        <div class="must-name">Raw Pumpkin Seeds <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-dose">Large handful every morning · empty stomach · chew well</div>
+        <div class="must-why">Cucurbitacin paralyses parasites and prevents intestinal adhesion. Safe for continuous daily use throughout the phase at essentially zero cost. The only reason not to do this is forgetting to buy them. There is no reason to skip this.</div>
+      </div>
+      <a class="must-link" style="color:var(--ink-light);border-color:var(--border-s);">Market / supermarket</a>
+    </div>
+
+  </div>
+
+  <div class="cut-section">
+    <div class="cut-title">Can wait until budget allows</div>
+    <div class="cut-items">
+      <span class="cut-item">Mimosa Pudica Seed</span>
+    </div>
+    <p class="cut-note">Mimosa Pudica is the most effective physical binder for parasites — worth adding in the second rotation cycle if possible. The three-herb rotation + charcoal + pumpkin seeds is the functional minimum.</p>
+  </div>
+
+  <div class="phase-total-bar">
+    <span class="phase-total-label">Phase 3 must-haves:</span>
+    <span class="phase-total-count" style="color:var(--p3);">5 new items</span>
+    <span class="phase-total-cost">Plus all Phase 1 and Phase 2 must-haves continue. Pumpkin seeds and charcoal are near-zero cost.</span>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════ PHASE 4 ═══════════════════════════════ -->
+<div class="phase-divider" style="background:var(--p4);" id="phase4"></div>
+<div class="inner">
+<div class="phase-block">
+  <div class="phase-head">
+    <div class="phase-meta">
+      <span class="phase-badge" style="background:var(--p4);">Phase 4</span>
+      <span class="phase-weeks">Weeks 9–12</span>
+      <span style="font-size:12px;color:var(--p4);font-weight:700;">Heavy Metal Clearing</span>
+    </div>
+    <h2 class="phase-title">4 Must-Haves — Remove the Aluminium</h2>
+    <p class="phase-desc">Aluminium in the substantia nigra is documented in Parkinson's post-mortem studies. This phase is non-negotiable for this condition specifically. All four items serve different mechanisms — none can replace another.</p>
+  </div>
+
+  <div class="must-list">
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p4);">1</div>
+      <div class="must-body">
+        <div class="must-name">Silica-Rich Water — Volvic or Fiji <span class="badge badge-core">core</span> <span class="badge badge-pd">Parkinson's</span> <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-dose">1 litre daily · every day · permanent — never stop</div>
+        <div class="must-why">The only intervention confirmed in peer-reviewed human trials to reduce brain aluminium load. Silica binds aluminium in the blood and removes it via urine. Available at any supermarket. One of the cheapest items in the protocol. The most directly relevant to Parkinson's pathology of anything in Phase 4. Never stop this.</div>
+      </div>
+      <a class="must-link" style="color:var(--ink-light);border-color:var(--border-s);">Supermarket — 1L daily</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p4);">2</div>
+      <div class="must-body">
+        <div class="must-name">Chlorella — Broken Cell Wall <span class="badge badge-core">core</span></div>
+        <div class="must-dose">Start 500mg · build to 2–4g · with food · always with cilantro if using cilantro</div>
+        <div class="must-why">The primary mercury chelator. Mercury is a documented neurotoxin that disrupts dopamine metabolism. Broken cell wall is essential — intact cell wall passes through unabsorbed. Never use cilantro as a mobiliser without chlorella present as a binder.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/now-foods-chlorella-120-tablets-1-g-per-tablet/512?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p4);">3</div>
+      <div class="must-body">
+        <div class="must-name">Modified Citrus Pectin (MCP) <span class="badge badge-core">core</span></div>
+        <div class="must-dose">5g powder · 3× daily · between meals</div>
+        <div class="must-why">Small enough to enter the bloodstream and pull lead, arsenic, cadmium, and mercury from tissue — not just the gut. The most comprehensively researched natural chelation agent. Essential because silica handles aluminium, chlorella handles mercury, and MCP handles the rest. All three cover different metals.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/econugenics-pectasol-modified-citrus-pectin-16-oz-454-g/15379?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p4);">4</div>
+      <div class="must-body">
+        <div class="must-name">Zeolite — Clinoptilolite <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">1–2g daily · away from all supplements · morning and night</div>
+        <div class="must-why">One of the few binders that enters the bloodstream to pull metals from tissue rather than just the gut. Specifically traps aluminium — the metal most directly implicated in substantia nigra degeneration in Parkinson's. Covers aluminium in tissue that silica water alone cannot reach.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/pure-planet-fulvic-zeolite-1-fl-oz-30-ml/39558?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+  </div>
+
+  <div class="phase-total-bar">
+    <span class="phase-total-label">Phase 4 must-haves:</span>
+    <span class="phase-total-count" style="color:var(--p4);">4 new items</span>
+    <span class="phase-total-cost">Silica water costs almost nothing. MCP is the most expensive item in this phase — it is also the most comprehensive chelator available.</span>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════ PHASE 5 ═══════════════════════════════ -->
+<div class="phase-divider" style="background:var(--p5);" id="phase5"></div>
+<div class="inner">
+<div class="phase-block">
+  <div class="phase-head">
+    <div class="phase-meta">
+      <span class="phase-badge" style="background:var(--p5);">Phase 5</span>
+      <span class="phase-weeks">Weeks 13–16</span>
+      <span style="font-size:12px;color:var(--p5);font-weight:700;">Gut Rebuild</span>
+    </div>
+    <h2 class="phase-title">5 Must-Haves — Repair the Origin Point</h2>
+    <p class="phase-desc">Alpha-synuclein begins in the gut. This phase rebuilds what the clearing exposed. The gut lining, the microbiome, and the gut-brain axis must all be actively restored — not just left to recover on their own.</p>
+  </div>
+
+  <div class="must-list">
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p5);">1</div>
+      <div class="must-body">
+        <div class="must-name">L-Glutamine Powder <span class="badge badge-core">core</span></div>
+        <div class="must-dose">5–10g every morning · empty stomach · also 5g before bed</div>
+        <div class="must-why">The primary fuel for gut lining cells — directly rebuilds the one-cell-thick barrier between the gut and the bloodstream. Without L-Glutamine the gut lining exposed by the clearing phase stays exposed. Nothing else substitutes for this at the cellular level.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/doctor-s-best-pure-l-glutamine-powder-10-6-oz-300-g/85597?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p5);">2</div>
+      <div class="must-body">
+        <div class="must-name">Bone Broth or Collagen Peptides <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-dose">1–2 cups daily OR 1–2 scoops collagen powder in warm drink</div>
+        <div class="must-why">Glycine and collagen are the structural raw material for gut lining, myelin sheath, and joint tissue. Works with L-Glutamine — one provides the fuel, the other provides the building material. Homemade bone broth is essentially free. This is irreplaceable traditional healing food.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/vital-proteins-collagen-peptides-unflavored-20-oz-567-g/71356?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p5);">3</div>
+      <div class="must-body">
+        <div class="must-name">Zinc Carnosine <span class="badge badge-core">core</span></div>
+        <div class="must-dose">75mg twice daily · with food</div>
+        <div class="must-why">Stabilises gut lining, reduces inflammation, and accelerates intestinal wall healing — documented in clinical trials. Works synergistically with L-Glutamine and collagen. Without zinc carnosine the repaired lining remains fragile and prone to re-injury from food and stress.</div>
+        <div class="must-warn">Long-term zinc supplementation depletes copper — monitor.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/doctor-s-best-pepzin-gi-zinc-l-carnosine-120-veggie-caps/2467?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p5);">4</div>
+      <div class="must-body">
+        <div class="must-name">Sauerkraut — continue and increase <span class="badge badge-cheap">cheap</span> <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">2 tbsp with every meal · permanent · homemade if possible</div>
+        <div class="must-why">The microbiome being rebuilt needs constant daily inoculation with live bacteria. Probiotics in capsules help — sauerkraut does more, costs less, and is available everywhere. Increase to every meal in Phase 5. The gut is the origin of Parkinson's — this is the most direct daily intervention on that origin point.</div>
+      </div>
+      <a class="must-link" style="color:var(--ink-light);border-color:var(--border-s);">Supermarket refrigerated section</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p5);">5</div>
+      <div class="must-body">
+        <div class="must-name">SBO Probiotics — continue <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">As directed · with meals · maintain dose from Phase 2</div>
+        <div class="must-why">The microbiome restoration started in Phase 2 reaches its most critical repair window here. The cleared and exposed gut lining is ready to receive new colonisation. SBO probiotics combined with sauerkraut and prebiotic foods are the triple action needed to fully restore the gut-brain axis.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/ancient-nutrition-sbo-probiotics-25-billion-cfu-60-capsules/105816?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+  </div>
+
+  <div class="cut-section">
+    <div class="cut-title">Can wait until budget allows</div>
+    <div class="cut-items">
+      <span class="cut-item">Aloe Vera softgels</span>
+    </div>
+    <p class="cut-note">L-Glutamine + bone broth + zinc carnosine + sauerkraut covers the core gut repair mechanism. Aloe Vera adds additional tight junction support and is worth adding, but is not the primary mechanism.</p>
+  </div>
+
+  <div class="phase-total-bar">
+    <span class="phase-total-label">Phase 5 must-haves:</span>
+    <span class="phase-total-count" style="color:var(--p5);">5 new items</span>
+    <span class="phase-total-cost">Bone broth is essentially free if made at home. Sauerkraut is cheap. L-Glutamine and Zinc Carnosine are the main costs.</span>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════ PERMANENT ═══════════════════════════════ -->
+<div class="phase-divider" style="background:var(--p6);" id="permanent"></div>
+<div class="inner">
+<div class="phase-block">
+  <div class="phase-head">
+    <div class="phase-meta">
+      <span class="phase-badge" style="background:var(--p6);">Permanent</span>
+      <span class="phase-weeks">Week 17 & Forever</span>
+      <span style="font-size:12px;color:var(--p6);font-weight:700;">These never stop</span>
+    </div>
+    <h2 class="phase-title">The 6 Permanent Non-Negotiables</h2>
+    <p class="phase-desc">If budget ever becomes severely limited and everything must be cut to the bone — these 6 remain. They are the minimum viable daily protocol for life.</p>
+  </div>
+
+  <div class="must-list">
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p6);">1</div>
+      <div class="must-body">
+        <div class="must-name">Mucuna Pruriens — bedside + daily <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">500mg 2–3× daily + 250mg on bedside table every night</div>
+        <div class="must-why">The primary dopamine intervention. Never stop. The bedside dose exists specifically for nocturnal tremor — the 3am crisis that will happen. If nothing else can be afforded, this one stays.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/now-foods-dopa-mucuna-90-veg-capsules/8673?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p6);">2</div>
+      <div class="must-body">
+        <div class="must-name">Magnesium Glycinate — bedside + daily <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">200mg morning + 400mg bedside every night</div>
+        <div class="must-why">Tremor, rigidity, sleep, neurological function. The bedside dose is the immediate tremor intervention. Never stop.</div>
+      </div>
+      <a class="must-link" href="https://www.iherb.com/pr/now-foods-magnesium-glycinate-180-tablets-100-mg-per-tablet/88819?rcode=GUW6132" target="_blank">iHerb →</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p6);">3</div>
+      <div class="must-body">
+        <div class="must-name">Silica-Rich Water <span class="badge badge-pd">Parkinson's</span> <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-dose">1 litre daily · Volvic or Fiji · every single day · permanent</div>
+        <div class="must-why">Aluminium removal from the brain. Peer-reviewed. Supermarket price. The only thing that costs less than its benefit in the entire protocol.</div>
+      </div>
+      <a class="must-link" style="color:var(--ink-light);border-color:var(--border-s);">Supermarket</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p6);">4</div>
+      <div class="must-body">
+        <div class="must-name">Sauerkraut <span class="badge badge-cheap">cheap</span> <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">2 tbsp every meal · refrigerated only · every day forever</div>
+        <div class="must-why">The gut-brain axis must be maintained permanently. Sauerkraut does more per serving than most probiotic products. Never stop.</div>
+      </div>
+      <a class="must-link" style="color:var(--ink-light);border-color:var(--border-s);">Supermarket refrigerated</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p6);">5</div>
+      <div class="must-body">
+        <div class="must-name">Baking Soda + Celtic Salt Morning Drinks <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-dose">Sole water + baking soda drink every morning before anything else</div>
+        <div class="must-why">Takes 3 minutes. Costs almost nothing. Provides minerals, anti-inflammatory shift, and systemic alkalisation. Do this every morning for the rest of life.</div>
+      </div>
+      <a class="must-link" style="color:var(--ink-light);border-color:var(--border-s);">Both on iHerb</a>
+    </div>
+
+    <div class="must-item priority-1">
+      <div class="must-num" style="background:var(--p6);">6</div>
+      <div class="must-body">
+        <div class="must-name">Exercise — 30+ min daily <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-dose">Every single day · walking, boxing, dancing, Tai Chi · rhythm-based preferred</div>
+        <div class="must-why">Free. The most evidence-backed intervention for slowing motor symptom progression in Parkinson's. Increases dopamine, BDNF, and serotonin simultaneously. No supplement replaces it. No budget constraint can remove it.</div>
+      </div>
+      <a class="must-link" style="color:var(--ink-light);border-color:var(--border-s);">Free</a>
+    </div>
+
+  </div>
+
+  <div class="phase-total-bar">
+    <span class="phase-total-label">Permanent minimum:</span>
+    <span class="phase-total-count" style="color:var(--p6);">6 items</span>
+    <span class="phase-total-cost">Of these 6, three cost almost nothing (silica water, sauerkraut, morning drinks). Exercise is free. Only Mucuna and Magnesium have a monthly cost.</span>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════ MASTER VIEW ═══════════════════════════════ -->
+<div class="phase-divider" style="background:var(--sage);" id="master"></div>
+<div class="inner">
+<div class="phase-block">
+  <div class="phase-head">
+    <div class="phase-meta">
+      <span class="phase-badge" style="background:var(--sage);">Master View</span>
+    </div>
+    <h2 class="phase-title">All Must-Haves at a Glance</h2>
+    <p class="phase-desc">Every non-negotiable item across all phases. Use this to plan your purchases phase by phase.</p>
+  </div>
+
+  <table class="master-table">
+    <thead>
+      <tr>
+        <th>Supplement</th>
+        <th style="width:80px;">Phase</th>
+        <th style="width:70px;">Category</th>
+        <th style="width:90px;">Cost Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Magnesium Citrate</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Drainage</td><td>Very cheap</td></tr>
+      <tr><td>Magnesium Glycinate</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Parkinson's</td><td>Cheap</td></tr>
+      <tr><td>Psyllium Husk</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Drainage</td><td>Very cheap</td></tr>
+      <tr><td>Milk Thistle</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Liver</td><td>Cheap</td></tr>
+      <tr><td>Castor Oil</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Lymph/Liver</td><td>Cheap</td></tr>
+      <tr><td>Epsom Salt</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Detox</td><td>Cheap bulk</td></tr>
+      <tr><td>Baking Soda</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Parkinson's</td><td>Pennies</td></tr>
+      <tr><td>Celtic Sea Salt</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Minerals</td><td>Pennies</td></tr>
+      <tr><td>Apple Cider Vinegar</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Absorption</td><td>Cheap</td></tr>
+      <tr><td><strong>Mucuna Pruriens ★</strong></td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Parkinson's</td><td>Medium</td></tr>
+      <tr><td><strong>Lion's Mane ★</strong></td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Parkinson's</td><td>Medium</td></tr>
+      <tr><td><strong>CoQ10 Ubiquinol + PQQ ★</strong></td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Parkinson's</td><td>Medium-high</td></tr>
+      <tr><td>NAC</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Parkinson's</td><td>Cheap</td></tr>
+      <tr><td>Vitamin D3+K2</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Parkinson's</td><td>Cheap</td></tr>
+      <tr><td>Omega-3 Fish Oil</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Neuro</td><td>Cheap</td></tr>
+      <tr><td>Serrapeptase</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Biofilm</td><td>Cheap</td></tr>
+      <tr><td>Nattokinase</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Biofilm</td><td>Cheap</td></tr>
+      <tr><td>Berberine</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Biofilm/Gut</td><td>Cheap</td></tr>
+      <tr><td><strong>Mannitol ★</strong></td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Parkinson's</td><td>Medium</td></tr>
+      <tr><td>SBO Probiotics</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Gut-Brain</td><td>Medium</td></tr>
+      <tr><td>Sauerkraut</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Gut-Brain</td><td>Very cheap</td></tr>
+      <tr><td>Black Walnut+Wormwood+Cloves</td><td><span class="phase-dot" style="background:var(--p3);"></span>Phase 3</td><td>Antiparasitic</td><td>Cheap</td></tr>
+      <tr><td>Oregano Oil</td><td><span class="phase-dot" style="background:var(--p3);"></span>Phase 3</td><td>Antiparasitic</td><td>Cheap</td></tr>
+      <tr><td>Activated Charcoal</td><td><span class="phase-dot" style="background:var(--p3);"></span>Phase 3</td><td>Binder</td><td>Very cheap</td></tr>
+      <tr><td>Raw Pumpkin Seeds</td><td><span class="phase-dot" style="background:var(--p3);"></span>Phase 3</td><td>Antiparasitic</td><td>Pennies</td></tr>
+      <tr><td>Silica-Rich Water ★</td><td><span class="phase-dot" style="background:var(--p4);"></span>Phase 4</td><td>Parkinson's</td><td>Very cheap</td></tr>
+      <tr><td>Chlorella (broken cell wall)</td><td><span class="phase-dot" style="background:var(--p4);"></span>Phase 4</td><td>Mercury</td><td>Cheap</td></tr>
+      <tr><td>Modified Citrus Pectin</td><td><span class="phase-dot" style="background:var(--p4);"></span>Phase 4</td><td>Metals</td><td>Medium-high</td></tr>
+      <tr><td>Zeolite</td><td><span class="phase-dot" style="background:var(--p4);"></span>Phase 4</td><td>Aluminium</td><td>Medium</td></tr>
+      <tr><td>L-Glutamine</td><td><span class="phase-dot" style="background:var(--p5);"></span>Phase 5</td><td>Gut repair</td><td>Cheap</td></tr>
+      <tr><td>Bone Broth / Collagen</td><td><span class="phase-dot" style="background:var(--p5);"></span>Phase 5</td><td>Gut repair</td><td>Very cheap</td></tr>
+      <tr><td>Zinc Carnosine</td><td><span class="phase-dot" style="background:var(--p5);"></span>Phase 5</td><td>Gut repair</td><td>Cheap</td></tr>
+    </tbody>
+  </table>
+
+  <div style="background:var(--bg-nav);border-radius:8px;padding:24px;text-align:center;margin-bottom:32px;">
+    <p style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:8px;">Total must-haves across all phases: <strong style="color:#fff;font-size:18px;">33 items</strong></p>
+    <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:16px;">Of these, 12 items cost almost nothing (pennies to cheap). The expensive items are Mucuna, Lion's Mane, CoQ10+PQQ, Mannitol, and MCP — all of which are non-negotiable for Parkinson's specifically.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+      <a href="Parkinsons_Shopping_Table.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">Full Shopping List →</a>
+      <a href="Parkinsons_Daily_Schedule.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">Daily Schedule →</a>
+      <a href="Parkinsons_Protocol.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">Full Protocol →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer style="background:var(--bg-footer);padding:28px 24px;text-align:center;">
+  <p style="font-family:'Playfair Display',serif;font-size:16px;color:#fff;margin-bottom:8px;">Heal Yourself</p>
+  <p style="font-size:12px;color:rgba(255,255,255,0.4);">Support this guide — shop iHerb with code <strong style="color:var(--sage-nav);">GUW6132</strong> and get a discount.</p>
+  <div style="margin-top:14px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+    <a href="Parkinsons_Protocol.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">← Full Protocol</a>
+    <a href="Parkinsons_Shopping_Table.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">Full Shopping List →</a>
+    <a href="Parkinsons_Daily_Schedule.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">Daily Schedule →</a>
+  </div>
+</footer>
+
+</body>
+</html>
