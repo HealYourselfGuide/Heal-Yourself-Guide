@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parkinson's Recovery Protocol — Heal Yourself</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--nav-h:56px;--bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;--bg-nav:#2c3a2e;--bg-footer:#263028;--ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;--ink-ghost:#a89e8e;--sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-light:#7aac8a;--sage-pale:#e4f0e8;--sage-nav:#8ab89a;--terra:#8c5a3c;--terra-light:#b07a58;--terra-pale:#f5ede6;--honey:#a07830;--honey-pale:#f5eddb;--border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);overflow-x:hidden;}
+
+/* TOP NAV */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-nav);border-bottom:1px solid rgba(138,184,154,0.12);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 28px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#d4c9a8;text-decoration:none;letter-spacing:0.02em;}
+.nav-center{display:flex;align-items:center;}
+.nav-center a{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;white-space:nowrap;}
+.nav-center a:hover{color:var(--sage-nav);border-bottom-color:rgba(138,184,154,0.3);}
+.nav-center a.active{color:var(--sage-nav);border-bottom-color:var(--sage-mid);}
+@media(max-width:400px){.nav-center{display:none;}}
+.nav-dropdown{position:relative;display:flex;align-items:center;height:var(--nav-h);}
+.nav-dropdown-toggle{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;white-space:nowrap;cursor:pointer;gap:5px;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;}
+.nav-dropdown-toggle:hover,.nav-dropdown:hover .nav-dropdown-toggle{color:var(--sage-nav);border-bottom-color:rgba(138,184,154,0.3);}
+.nav-dropdown-toggle svg{width:8px;height:8px;transition:transform 0.2s;opacity:0.5;}
+.nav-dropdown.open .nav-dropdown-toggle svg{transform:rotate(180deg);}
+.nav-dropdown-menu{position:absolute;top:calc(var(--nav-h) - 1px);right:0;background:var(--bg-nav);border:1px solid rgba(138,184,154,0.15);border-top:2px solid var(--sage-mid);border-radius:0 0 8px 8px;min-width:250px;padding:6px 0;z-index:200;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity 0.18s,transform 0.18s,visibility 0.18s;}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:11px;font-weight:500;letter-spacing:0.05em;color:rgba(212,201,168,0.7);text-decoration:none;text-transform:uppercase;transition:all 0.15s;border-bottom:1px solid rgba(138,184,154,0.07);}
+.nav-dropdown-menu a:last-child{border-bottom:none;}
+.nav-dropdown-menu a:hover{color:#d4c9a8;background:rgba(138,184,154,0.08);padding-left:22px;}
+.nav-dropdown-menu a .dd-icon{font-size:13px;flex-shrink:0;}
+.nav-dropdown-menu a .dd-label{flex:1;}
+.nav-dropdown-menu a .dd-tag{font-size:9px;font-weight:700;letter-spacing:0.1em;color:var(--sage-nav);background:rgba(90,140,106,0.2);padding:2px 7px;border-radius:3px;white-space:nowrap;}
+.dd-group{position:relative;}
+.dd-group>a{position:relative;padding-right:28px;border-bottom:1px solid rgba(138,184,154,0.07);}
+.dd-group>a::after{content:'›';position:absolute;right:14px;top:50%;transform:translateY(-50%);opacity:0.35;font-size:13px;transition:all 0.15s;}
+.dd-group:hover>a::after{opacity:0.9;color:var(--sage-nav);}
+.dd-group:hover>a{color:#d4c9a8;background:rgba(138,184,154,0.06);}
+.dd-subs{display:none;background:rgba(0,0,0,0.18);padding:2px 0;}
+.dd-group:hover .dd-subs{display:block;}
+.nav-dropdown-menu .dd-subs a.dd-sub{display:flex;align-items:center;gap:8px;padding:7px 12px 7px 24px;font-size:10px;font-weight:500;letter-spacing:0.05em;color:rgba(212,201,168,0.55);text-transform:uppercase;border:none;height:auto;min-height:0;border-left:1px solid rgba(138,184,154,0.25);margin-left:18px;transition:all 0.15s;}
+.nav-dropdown-menu .dd-subs a.dd-sub .dd-icon{font-size:10px;opacity:0.7;}
+.nav-dropdown-menu .dd-subs a.dd-sub .dd-label{font-size:10px;}
+.nav-dropdown-menu .dd-subs a.dd-sub:hover{color:rgba(212,201,168,0.85);padding-left:28px;background:none;border-left-color:var(--sage-nav);}
+/* HERO */
+.hero{background:var(--bg-warm);padding:72px 24px 56px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(138,184,154,0.08) 0%,transparent 70%);pointer-events:none;}
+.hero-tag{font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:12px;}
+.hero-tag::before,.hero-tag::after{content:'';flex:1;max-width:60px;height:1px;background:var(--sage-mid);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,52px);font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:14px;}
+.hero h1 em{font-style:italic;color:var(--sage-nav);}
+.hero-sub{font-size:clamp(13px,2vw,15px);color:var(--ink-light);font-weight:300;max-width:520px;margin:0 auto 36px;line-height:1.9;}
+.hero-note{display:inline-block;background:var(--sage-pale);border:1px solid var(--border);border-radius:6px;padding:12px 22px;font-size:13px;color:var(--ink-mid);max-width:580px;line-height:1.8;margin-top:8px;}
+.hero-note strong{color:var(--sage);}
+
+/* PRINT BUTTON */
+.print-bar{background:var(--bg-deep);border-bottom:1px solid var(--border-s);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.print-bar p{font-size:12px;color:var(--ink-light);}
+.print-btn{background:var(--sage);color:#fff;border:none;padding:8px 20px;border-radius:4px;font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;}
+.print-btn:hover{background:var(--sage-mid);}
+
+/* LAYOUT */
+.inner{max-width:780px;margin:0 auto;}
+.sec{padding:48px 24px;}
+.sec-warm{background:var(--bg-warm);}
+.sec-deep{background:var(--bg-deep);}
+.sec-stone{background:var(--bg-stone);}
+.sec-sage{background:#e8f2ec;}
+.sec-terra{background:var(--terra-pale);}
+.sec-honey{background:var(--honey-pale);}
+.sec-dark{background:#2c3a2e;}
+.divider{height:1px;background:linear-gradient(to right,transparent,rgba(61,107,74,0.18),transparent);}
+
+/* TYPOGRAPHY */
+.kicker{font-size:10px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.kicker::before{content:'';width:22px;height:1px;background:var(--sage-mid);}
+.kicker-terra{color:var(--terra);}
+.kicker-terra::before{background:var(--terra-light);}
+.kicker-honey{color:var(--honey);}
+.kicker-honey::before{background:var(--honey);}
+.kicker-white{color:rgba(255,255,255,0.7);}
+.kicker-white::before{background:rgba(255,255,255,0.3);}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(20px,3.5vw,30px);font-weight:700;color:var(--ink);line-height:1.22;margin-bottom:8px;}
+.sec-title-white{color:#fff;}
+.sec-sub{font-size:14px;color:var(--ink-light);font-weight:300;line-height:1.85;margin-bottom:28px;max-width:620px;}
+.sec-sub-white{color:rgba(255,255,255,0.55);}
+
+/* THE BIG WARNING BOX */
+.warning-box{background:#fff8f0;border:2px solid #d4793a;border-radius:8px;padding:20px 24px;margin-bottom:32px;}
+.warning-box .w-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#8c4a1c;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.warning-box p{font-size:13px;color:#6b3d18;line-height:1.8;}
+
+/* BAKING SODA HIGHLIGHT */
+.highlight-box{background:var(--sage-pale);border-left:4px solid var(--sage);border-radius:0 8px 8px 0;padding:18px 22px;margin-bottom:24px;}
+.highlight-box .h-title{font-size:13px;font-weight:700;color:var(--sage);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.1em;}
+.highlight-box p{font-size:13px;color:var(--ink-mid);line-height:1.8;}
+
+.caution-box{background:#fff8e6;border-left:4px solid var(--honey);border-radius:0 8px 8px 0;padding:16px 20px;margin:16px 0 0;}
+.caution-box p{font-size:12px;color:#6b5010;line-height:1.75;}
+.caution-box strong{color:#5c420e;}
+
+/* DAILY SCHEDULE TABLE */
+.schedule{width:100%;border-collapse:collapse;margin-bottom:24px;}
+.schedule th{background:var(--sage);color:#fff;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:10px 14px;text-align:left;}
+.schedule td{padding:11px 14px;border-bottom:1px solid var(--border-s);font-size:13px;line-height:1.6;vertical-align:top;}
+.schedule tr:nth-child(even) td{background:rgba(61,107,74,0.03);}
+.schedule .time{font-family:'DM Mono',monospace;font-size:11px;color:var(--sage);white-space:nowrap;font-weight:500;}
+.schedule .action{font-weight:600;color:var(--ink);display:block;margin-bottom:2px;}
+.schedule .detail{font-size:12px;color:var(--ink-light);}
+.schedule .tag{display:inline-block;background:var(--sage-pale);color:var(--sage);font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-right:4px;margin-bottom:3px;letter-spacing:0.05em;}
+.schedule .tag-terra{background:var(--terra-pale);color:var(--terra);}
+.schedule .tag-honey{background:var(--honey-pale);color:var(--honey);}
+.schedule .tag-new{background:#e8f2ec;color:#2a5c38;border:1px solid rgba(61,107,74,0.3);}
+
+/* SUPPLEMENT LIST */
+.supp-grid{display:grid;gap:2px;margin-bottom:24px;}
+.supp-row{display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:start;padding:14px 16px;background:var(--bg-warm);border-radius:4px;}
+.supp-row:nth-child(odd){background:var(--bg);}
+.supp-check{color:var(--sage);font-size:16px;font-weight:700;line-height:1.4;}
+.supp-body{}
+.supp-name{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.supp-dose{font-family:'DM Mono',monospace;font-size:11px;color:var(--sage);margin-bottom:3px;}
+.supp-why{font-size:12px;color:var(--ink-light);line-height:1.65;}
+.supp-warn{font-size:11px;color:#8c4a1c;margin-top:4px;display:flex;align-items:flex-start;gap:5px;}
+.supp-warn::before{content:'⚠';flex-shrink:0;}
+.supp-link{color:var(--sage);text-decoration:none;font-size:11px;font-weight:700;white-space:nowrap;border:1px solid var(--border);padding:5px 10px;border-radius:4px;display:inline-block;margin-top:4px;transition:background 0.15s;}
+.supp-link:hover{background:var(--sage-pale);}
+.badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;letter-spacing:0.08em;text-transform:uppercase;}
+.badge-key{background:#2c3a2e;color:#8ab89a;}
+.badge-food{background:var(--sage-pale);color:var(--sage);}
+.badge-new{background:#e8f2ec;color:#2a5c38;border:1px solid rgba(61,107,74,0.3);}
+.badge-caution{background:#fff0e0;color:#8c5a1c;border:1px solid rgba(140,90,60,0.25);}
+
+/* SECTION DIVIDERS */
+.phase-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;}
+.phase-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#fff;background:var(--sage);padding:4px 10px;border-radius:3px;flex-shrink:0;}
+.phase-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);}
+.phase-title-white{color:#fff;}
+
+/* FOOD SECTION */
+.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;}
+@media(max-width:500px){.food-grid{grid-template-columns:1fr;}}
+.food-col{}
+.food-col-title{font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--sage);}
+.food-col-title.bad{border-bottom-color:var(--terra);}
+.food-item{font-size:13px;color:var(--ink-mid);padding:5px 0;border-bottom:1px solid var(--border-s);display:flex;align-items:flex-start;gap:8px;line-height:1.5;}
+.food-item::before{content:'✓';color:var(--sage);font-weight:700;flex-shrink:0;font-size:12px;margin-top:2px;}
+.food-item.bad::before{content:'✕';color:var(--terra);}
+
+/* EXERCISE */
+.ex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:24px;}
+@media(max-width:500px){.ex-grid{grid-template-columns:1fr 1fr;}}
+.ex-card{background:var(--bg-warm);border-radius:6px;padding:14px 14px;border-top:3px solid var(--sage);}
+.ex-icon{font-size:20px;margin-bottom:6px;}
+.ex-name{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+.ex-dose{font-family:'DM Mono',monospace;font-size:11px;color:var(--sage);}
+.ex-why{font-size:11px;color:var(--ink-light);margin-top:4px;line-height:1.6;}
+
+/* PARALLEL TIMELINE */
+.timeline{position:relative;margin-bottom:32px;}
+.timeline-row{display:grid;grid-template-columns:90px 1fr 1fr;gap:0;margin-bottom:2px;}
+@media(max-width:560px){.timeline-row{grid-template-columns:70px 1fr 1fr;}}
+.tl-label{font-family:'DM Mono',monospace;font-size:10px;font-weight:600;color:var(--ink-light);padding:14px 10px 14px 0;display:flex;align-items:center;border-right:2px solid var(--border-s);}
+.tl-detox{background:#f0f5ee;border-left:3px solid var(--sage);padding:12px 14px;margin-left:8px;}
+.tl-pd{background:#f0f0f7;border-left:3px solid #6a5acd;padding:12px 14px;margin-left:4px;}
+.tl-both{background:#e8f2ec;border-left:3px solid var(--sage-mid);padding:12px 14px;margin-left:4px;}
+.tl-header{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:8px 14px 8px 0;display:flex;align-items:center;border-right:2px solid var(--border-s);}
+.tl-col-head{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:8px 14px;display:flex;align-items:center;gap:8px;}
+.tl-col-head.detox{background:var(--sage);color:#fff;margin-left:8px;}
+.tl-col-head.pd{background:#6a5acd;color:#fff;margin-left:4px;}
+.tl-title{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+.tl-body{font-size:11px;color:var(--ink-light);line-height:1.6;}
+.tl-note{font-size:10px;color:var(--sage);font-weight:600;margin-top:3px;font-style:italic;}
+.tl-note-pd{color:#6a5acd;}
+
+/* DETOX SUMMARY */
+.detox-phase{margin-bottom:28px;}
+.detox-phase-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--border-s);}
+.detox-phase-tag{font-family:'DM Mono',monospace;font-size:10px;font-weight:600;background:var(--sage);color:#fff;padding:4px 10px;border-radius:3px;white-space:nowrap;}
+.detox-phase-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--ink);}
+.detox-phase-days{font-size:11px;color:var(--ink-light);margin-left:auto;font-style:italic;}
+.detox-item{display:grid;grid-template-columns:22px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--border-s);align-items:start;}
+.detox-item:last-child{border-bottom:none;}
+.detox-check{color:var(--sage);font-weight:700;font-size:13px;margin-top:1px;}
+.detox-name{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px;}
+.detox-how{font-family:'DM Mono',monospace;font-size:11px;color:var(--sage);margin-bottom:2px;}
+.detox-why{font-size:12px;color:var(--ink-light);line-height:1.6;}
+.detox-warn{font-size:11px;color:#8c4a1c;margin-top:3px;}
+.detox-warn::before{content:'⚠ ';}
+.door-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;}
+@media(max-width:480px){.door-grid{grid-template-columns:1fr;}}
+.door-card{background:var(--bg-warm);border-radius:6px;padding:12px 14px;border-top:2px solid var(--sage);}
+.door-title{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.door-body{font-size:11px;color:var(--ink-light);line-height:1.65;}
+
+
+@media print {
+  body{background:#fff !important;color:#000 !important;font-size:11px;}
+  .topnav,.print-bar,.no-print{display:none !important;}
+  .hero{background:#2c3a2e !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:28px 20px !important;}
+  .hero h1{font-size:22px !important;}
+  .hero-sub,.hero-note{font-size:10px !important;}
+  .sec,.sec-warm,.sec-deep,.sec-stone,.sec-sage,.sec-terra,.sec-honey{padding:16px 20px !important;background:#fff !important;}
+  .sec-dark{background:#2c3a2e !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:16px 20px !important;}
+  .tl-col-head.detox{background:#3d6b4a !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .tl-col-head.pd{background:#6a5acd !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .tl-detox{background:#f0f5ee !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .tl-pd{background:#f0f0f7 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .tl-both{background:#e8f2ec !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .detox-phase-tag{background:#3d6b4a !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .door-card{background:#f5f5f0 !important;border-top-color:#3d6b4a !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .detox-item{page-break-inside:avoid;}
+  .detox-phase{page-break-inside:avoid;}
+  .schedule th{background:var(--sage) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .supp-row,.supp-row:nth-child(odd){background:#fff !important;border-bottom:1px solid #e0ddd8 !important;}
+  .supp-link{display:none !important;}
+  .food-col-title{border-bottom:2px solid #3d6b4a !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .phase-num{background:#3d6b4a !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .highlight-box{background:#f0f7f2 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .warning-box{background:#fff8f0 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  a[href]::after{content:none !important;}
+  .divider{display:none;}
+  h2,h3{page-break-after:avoid;}
+  .supp-grid,.food-grid,.ex-grid,.schedule{page-break-inside:avoid;}
+  .sec{page-break-inside:avoid;}
+}
+
+  body{padding-top:var(--nav-h);}</style>
+
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Heal Yourself</a>
+  <div class="nav-center">
+    <a href="index.html">Home</a>
+    <div class="nav-dropdown" id="nav-protocols">
+      <button class="nav-dropdown-toggle" onclick="toggleNavDropdown()" aria-expanded="false">
+        Protocols <svg viewBox="0 0 8 5" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l3 3 3-3"/></svg>
+      </button>
+      <div class="nav-dropdown-menu">
+        <div class="dd-group">
+          <a href="Full_Body_Detox_Protocol.html"><span class="dd-icon">🌿</span><span class="dd-label">Full Body Detox</span><span class="dd-tag">Start Here</span></a>
+          <div class="dd-subs">
+            <a href="Full_Body_Detox_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+            <a href="Full_Body_Detox_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+          </div>
+        </div>
+        <div class="dd-group">
+          <a href="Brain_Protocol.html"><span class="dd-icon">🧠</span><span class="dd-label">Brain Protocol</span></a>
+          <div class="dd-subs">
+            <a href="Brain_Protocol_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+            <a href="Brain_Protocol_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+          </div>
+        </div>
+        <a href="DMSO_Oxygen_Therapy.html"><span class="dd-icon">⚗️</span><span class="dd-label">DMSO &amp; Oxygen</span></a>
+        <a href="Hidden_Deficiencies.html"><span class="dd-icon">🔬</span><span class="dd-label">Hidden Deficiencies</span></a>
+        <a href="Dr_Sebi_Alkaline_Protocol.html"><span class="dd-icon">🌱</span><span class="dd-label">Dr. Sebi Alkaline</span></a>
+        <div class="dd-group">
+          <a href="Parkinsons_Protocol.html"><span class="dd-icon">🧬</span><span class="dd-label">Parkinson's Protocol</span></a>
+          <div class="dd-subs">
+            <a href="Parkinsons_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+            <a href="Parkinsons_Shopping_Table.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+            <a href="Parkinsons_Must_Have.html" class="dd-sub"><span class="dd-icon">⭐</span><span class="dd-label">Must-Have List</span></a>
+            <a href="Parkinsons_Symptoms.html" class="dd-sub"><span class="dd-icon">🔍</span><span class="dd-label">Symptom Guide</span></a>
+          </div>
+        </div>
+        <a href="protocols.html" style="margin-top:4px;border-top:1px solid rgba(138,184,154,0.15);"><span class="dd-icon">☰</span><span class="dd-label">All Protocols</span></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding-top:80px;">
+  <div class="eyebrow"><span>Parkinson's Recovery Protocol</span></div>
+  <h1>Symptom <em>Guide</em></h1>
+  <p class="hero-sub">Every symptom has a mechanism. Every mechanism has a natural intervention. This is what to do right now — not just what to take every day.</p>
+  <div style="margin-top:20px;">
+    <a href="Parkinsons_Protocol.html" style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--sage);text-decoration:none;letter-spacing:0.04em;padding:9px 16px;border:1px solid var(--border);border-radius:5px;background:var(--sage-pale);transition:all 0.2s;">← Back to Full Protocol</a>
+  </div>
+</section>
+
+<!-- JUMP NAV -->
+<div style="background:var(--bg-warm);border-bottom:1px solid var(--border-s);padding:12px 24px;position:sticky;top:56px;z-index:90;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
+  <a href="#tremor" style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:4px;transition:all 0.15s;">Tremor</a>
+  <a href="#freezing" style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:4px;transition:all 0.15s;">Freezing</a>
+  <a href="#rigidity" style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:4px;transition:all 0.15s;">Rigidity</a>
+  <a href="#sleep" style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:4px;transition:all 0.15s;">Sleep</a>
+  <a href="#constipation" style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:4px;transition:all 0.15s;">Constipation</a>
+  <a href="#depression" style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:4px;transition:all 0.15s;">Depression</a>
+  <a href="#drooling" style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:4px;transition:all 0.15s;">Drooling</a>
+  <a href="#fatigue" style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:4px;transition:all 0.15s;">Fatigue</a>
+</div>
+
+<!-- SYMPTOM GUIDE -->
+<section class="sec sec-terra">
+  <div class="inner">
+    <div class="kicker kicker-terra">Symptom-by-Symptom</div>
+    <h2 class="sec-title">What To Do When It Happens</h2>
+    <p class="sec-sub">Every symptom has a mechanism. Every mechanism has a natural intervention. This section is practical — what to do right now, not just what to take every day.</p>
+
+    <div id="tremor" style="scroll-margin-top:100px;"></div>
+    <!-- NOCTURNAL TREMOR -->
+    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
+      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
+        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
+        <span class="detox-phase-name">Night Tremor — Waking Shaking at 3am</span>
+      </div>
+
+      <div class="highlight-box" style="margin-bottom:16px;">
+        <div class="h-title">What Is Actually Happening</div>
+        <p>Parkinson's tremor is a resting tremor — it lessens during sleep, but wakes people when dopamine medication wears off overnight (typically 3–5am). At this hour, dopamine levels are at their lowest. The body is also most acidic, most dehydrated, and most magnesium-depleted after a night of metabolism. All three of these amplify tremor severity. The shaking is the nervous system screaming for dopamine support it no longer has.</p>
+      </div>
+
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--terra);margin-bottom:12px;">Immediate Actions — When She Wakes Shaking</div>
+
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">1</span>
+        <div>
+          <div class="detox-name">Do not panic — warmth and stillness first</div>
+          <div class="detox-why">Anxiety amplifies tremor immediately through adrenaline release. Warm blankets, slow breathing, and conscious muscle relaxation reduce the tremor loop within minutes.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">2</span>
+        <div>
+          <div class="detox-name">Mucuna Pruriens — emergency bedside dose</div>
+          <div class="detox-how">Keep 250–500mg capsules on the bedside table. Take immediately with a glass of water.</div>
+          <div class="detox-why">Natural levodopa takes 30–45 minutes to cross the blood-brain barrier — the sooner it is taken, the sooner the tremor begins to ease. This is the single most important bedside intervention.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">3</span>
+        <div>
+          <div class="detox-name">Magnesium glycinate — bedside</div>
+          <div class="detox-how">200–400mg in water, immediately</div>
+          <div class="detox-why">Magnesium directly relaxes muscle tension, reduces nerve excitability, and supports GABAergic calming — it works within 20–30 minutes and directly reduces tremor amplitude.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">4</span>
+        <div>
+          <div class="detox-name">4:8 breathing — immediately</div>
+          <div class="detox-how">Inhale for 4 counts, exhale slowly for 8 counts. Repeat 10 times.</div>
+          <div class="detox-why">Extended exhale activates the parasympathetic nervous system within seconds — directly opposing the sympathetic (fight-or-flight) state that amplifies tremor. This is free and works immediately.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">5</span>
+        <div>
+          <div class="detox-name">Warm foot bath or warm water bottle on feet</div>
+          <div class="detox-how">Feet in warm water with Epsom salt · or warm water bottle under feet</div>
+          <div class="detox-why">Warmth draws blood and nervous system attention to the periphery, away from the tremor-generating brain circuits. Epsom salt transdermally delivers magnesium within minutes.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">6</span>
+        <div>
+          <div class="detox-name">Gentle rhythmic music — turn it on</div>
+          <div class="detox-how">Calm, rhythmic music at low volume. Something familiar and loved.</div>
+          <div class="detox-why">Rhythm gives the nervous system an external beat to synchronise to — bypassing the disrupted internal timing circuits. Even during tremor, the auditory system can entrain the motor system.</div>
+        </div>
+      </div>
+
+      <div class="caution-box" style="margin-top:12px;">
+        <p><strong>Prevention — the nightly setup:</strong> Take magnesium glycinate 400mg before bed every night. Take a Mucuna Pruriens dose at bedtime if nocturnal tremor is frequent — this extends dopamine precursor availability into the early morning hours. Keep a glass of water, Mucuna capsules, and magnesium on the bedside table permanently.</p>
+      </div>
+    </div>
+
+    <div id="freezing" style="scroll-margin-top:100px;"></div>
+    <!-- FREEZING OF GAIT -->
+    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
+      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
+        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
+        <span class="detox-phase-name">Freezing — Feet Won't Move, Body Locked</span>
+      </div>
+
+      <div class="highlight-box" style="margin-bottom:16px;">
+        <div class="h-title">What Is Actually Happening</div>
+        <p>Freezing of gait happens when the basal ganglia — the brain's internal movement-initiation system — loses the dopamine signal needed to start a movement. The legs know what to do. The signal never arrives. An external cue (sound, sight, touch) can bypass the damaged internal circuit entirely and restart movement immediately.</p>
+      </div>
+
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">1</span>
+        <div>
+          <div class="detox-name">March to a beat — count out loud or clap</div>
+          <div class="detox-how">"One-two, one-two" out loud. Clap hands in rhythm. Or play music immediately.</div>
+          <div class="detox-why">Rhythmic auditory cueing activates an intact alternative motor pathway that bypasses the frozen basal ganglia circuit — this is documented in multiple clinical trials as the most effective immediate freezing intervention.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">2</span>
+        <div>
+          <div class="detox-name">Step over an imaginary line or a real object</div>
+          <div class="detox-how">Place a strip of tape on common freeze spots. Visualise stepping over a laser. Look at a target ahead.</div>
+          <div class="detox-why">Visual cues provide the external trigger the internal system cannot generate — the brain responds to perceived obstacles differently than to open space, reactivating the movement programme.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">3</span>
+        <div>
+          <div class="detox-name">Rock weight side to side first</div>
+          <div class="detox-how">Shift weight slowly left-right several times before attempting to step.</div>
+          <div class="detox-why">Weight shift activates the proprioceptive and vestibular systems, which can initiate motor output even when the basal ganglia pathway is blocked.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">4</span>
+        <div>
+          <div class="detox-name">Wear a metronome watch or use a metronome app daily</div>
+          <div class="detox-how">Set to 10% above natural walking cadence. Walk to the beat every day.</div>
+          <div class="detox-why">Daily rhythmic auditory stimulation training improves stride length, reduces freezing frequency, and builds the alternative neural pathway — effects persist for months after training stops.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">5</span>
+        <div>
+          <div class="detox-name">Stick tape lines on floors at home</div>
+          <div class="detox-how">Horizontal strips of coloured tape across doorways and narrow passages — common freeze trigger spots.</div>
+          <div class="detox-why">Pre-placed visual cues remove the cognitive load of generating a cue during freezing — the line is already there, the foot steps over it automatically.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="rigidity" style="scroll-margin-top:100px;"></div>
+    <!-- RIGIDITY & MUSCLE STIFFNESS -->
+    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
+      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
+        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
+        <span class="detox-phase-name">Rigidity — Stiffness, Pain, Can't Turn in Bed</span>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Magnesium glycinate — highest priority</div>
+          <div class="detox-how">400–600mg daily — morning and night split</div>
+          <div class="detox-why">Magnesium is the body's natural muscle relaxant — it directly opposes calcium-driven muscle contraction. Deficiency is near-universal in Parkinson's and makes rigidity significantly worse.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Warm Epsom salt bath — every evening if possible</div>
+          <div class="detox-how">2 cups Epsom salt + 1 cup baking soda in hot bath · 30 min</div>
+          <div class="detox-why">Transdermal magnesium absorption directly into muscles bypasses digestive absorption limits — the fastest way to get magnesium into tight, rigid tissue.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Tai Chi or yoga — every morning</div>
+          <div class="detox-how">20–30 minutes · slow, deliberate movement through full range</div>
+          <div class="detox-why">Morning movement before rigidity sets in prevents the progressive locking that worsens through the day — use it or lose it is never more literally true than with Parkinson's rigidity.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Silk or satin bedsheets</div>
+          <div class="detox-how">Replace cotton bedding with satin or silk fitted sheet and pillowcase</div>
+          <div class="detox-why">Rigid patients cannot turn in cotton sheets — the friction makes it impossible. Satin reduces friction to near zero, dramatically improving ability to reposition during the night independently.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Turmeric + black pepper — daily in food</div>
+          <div class="detox-how">1 tsp turmeric + pinch of black pepper in cooking or golden milk</div>
+          <div class="detox-why">Curcumin reduces neuroinflammation that directly contributes to muscle rigidity — black pepper increases curcumin absorption by 2,000%.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="sleep" style="scroll-margin-top:100px;"></div>
+    <!-- SLEEP DISTURBANCE -->
+    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
+      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
+        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
+        <span class="detox-phase-name">Sleep Disturbance — Acting Out Dreams, Insomnia, REM Disorder</span>
+      </div>
+
+      <div class="highlight-box" style="margin-bottom:14px;">
+        <div class="h-title">What Is Actually Happening</div>
+        <p>REM Sleep Behaviour Disorder — physically acting out dreams, shouting, thrashing — is one of the earliest signs of Parkinson's, sometimes appearing a decade before motor symptoms. The brain stem circuits that normally paralyse the body during dreams are damaged. Sleep fragmentation in Parkinson's is also caused by rigidity (can't turn over), pain, and the progressive loss of sleep-regulating brain structures. Poor sleep accelerates neurodegeneration — this is not a secondary concern.</p>
+      </div>
+
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Magnesium glycinate — 400mg before bed, non-negotiable</div>
+          <div class="detox-why">Calms neural excitability, reduces REM behaviour disorder severity, and dramatically improves sleep quality — the single most evidence-backed natural sleep intervention for Parkinson's.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">No screens after sunset — strict</div>
+          <div class="detox-why">Blue light suppresses melatonin, and the Parkinson's brain already produces less melatonin than healthy brains — any additional suppression destroys the circadian rhythm needed for dopamine recovery during sleep.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Satin sheets — immediately</div>
+          <div class="detox-why">Inability to turn over in bed is a primary cause of nocturnal awakening in Parkinson's — removing the friction removes the waking.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Passionflower extract — before bed</div>
+          <div class="detox-how">250–500mg standardised extract · 30 min before sleep</div>
+          <div class="detox-why">Passionflower increases GABA activity — the calming neurotransmitter that opposes the excitatory state causing REM disruption — without pharmaceutical side effects.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Morning sunlight — 10–20 min, every single morning</div>
+          <div class="detox-why">The circadian clock is set by morning light — it regulates melatonin production 14–16 hours later at night. Missing morning sunlight is the most common reason for poor sleep that people overlook.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Partner or caregiver awareness — safety first</div>
+          <div class="detox-how">Remove sharp objects from bedside. Consider a bed rail. Sleep in same room.</div>
+          <div class="detox-why">REM sleep behaviour disorder creates real injury risk — physical safety preparation is essential before any other sleep intervention.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="constipation" style="scroll-margin-top:100px;"></div>
+    <!-- CONSTIPATION -->
+    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
+      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
+        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
+        <span class="detox-phase-name">Constipation — Critical, Not Minor</span>
+      </div>
+
+      <div class="highlight-box" style="margin-bottom:14px;">
+        <div class="h-title">Why This Is Urgent, Not Incidental</div>
+        <p>Alpha-synuclein begins accumulating in the enteric nervous system of the gut years before it appears in the brain. A constipated gut is a stagnant environment where alpha-synuclein aggregates, pathogenic bacteria thrive, and toxins recirculate into the bloodstream and toward the brain. Constipation in Parkinson's is not a comfort issue — it is a disease-progression issue. Daily elimination is mandatory.</p>
+      </div>
+
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Magnesium citrate — every night</div>
+          <div class="detox-how">300–400mg before bed</div>
+          <div class="detox-why">Draws water into the colon, softens stool, and stimulates gentle peristaltic movement — safe for permanent daily use without dependency.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Psyllium husk — twice daily</div>
+          <div class="detox-how">1 tbsp in a large glass of water · always with a full glass · never without water</div>
+          <div class="detox-why">Bulking fibre that physically moves contents through the colon and feeds the gut bacteria that produce butyrate — dual action on both gut motility and microbiome.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Squatty Potty or foot stool under feet when toileting</div>
+          <div class="detox-how">Any step that raises the knees above hip level while sitting on the toilet</div>
+          <div class="detox-why">The squatting position straightens the anorectal angle and reduces straining to near zero — Parkinson's patients who strain can suffer dangerous vagal nerve responses.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Castor oil pack over abdomen — 2× per week</div>
+          <div class="detox-why">Directly stimulates lymphatic drainage and gut motility through the abdominal wall — the most effective passive intervention for gut movement.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Sauerkraut with every meal + prebiotic foods daily</div>
+          <div class="detox-why">Restores the specific gut bacteria depleted in Parkinson's that regulate gut motility — addressing the root of the problem, not just the symptom.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="depression" style="scroll-margin-top:100px;"></div>
+    <!-- DEPRESSION & ANXIETY -->
+    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
+      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
+        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
+        <span class="detox-phase-name">Depression & Anxiety — This Is Neurological, Not Emotional Weakness</span>
+      </div>
+
+      <div class="highlight-box" style="margin-bottom:14px;">
+        <div class="h-title">What Is Actually Happening</div>
+        <p>Dopamine is not just a movement chemical — it is a motivation, reward, and mood chemical. As dopamine-producing neurons die, depression and anxiety are neurological consequences, not psychological ones. They are not a response to the diagnosis — they precede it. This must be treated as a biological deficiency, not a character issue.</p>
+      </div>
+
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Mucuna Pruriens — the primary intervention</div>
+          <div class="detox-why">Natural levodopa restores dopamine precursor levels — addressing the actual neurochemical root of Parkinson's-related depression more directly than any antidepressant.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Saffron extract</div>
+          <div class="detox-how">30mg standardised extract daily</div>
+          <div class="detox-why">Multiple clinical trials show saffron at 30mg equals pharmaceutical antidepressants in mild-to-moderate depression — without side effects. Likely mechanism involves serotonin and dopamine reuptake inhibition.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Exercise — every day without exception</div>
+          <div class="detox-why">Exercise is the most powerful natural antidepressant that exists — it directly increases dopamine, serotonin, and BDNF simultaneously, and is the only intervention shown to create new neurons.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Omega-3 (EPA specifically) — 2–3g daily</div>
+          <div class="detox-why">EPA fraction of omega-3 has the strongest antidepressant evidence — the brain requires DHA for structure and EPA for mood regulation.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Social connection — non-negotiable</div>
+          <div class="detox-why">Isolation accelerates neurodegeneration measurably. Social engagement activates dopamine and oxytocin pathways. Being with loved ones is literally neuroprotective.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="drooling" style="scroll-margin-top:100px;"></div>
+    <!-- DROOLING -->
+    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
+      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
+        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
+        <span class="detox-phase-name">Drooling & Swallowing Difficulty</span>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Conscious swallowing practice — 10 min daily</div>
+          <div class="detox-how">Deliberate swallowing every 30 seconds · chin slightly down when swallowing</div>
+          <div class="detox-why">Parkinson's reduces automatic swallowing frequency — the problem is not excess saliva but reduced reflexive clearing. Conscious practice rebuilds the habit and reduces drooling immediately.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Singing and humming — daily</div>
+          <div class="detox-how">Any singing, 10+ minutes daily — even just humming while walking</div>
+          <div class="detox-why">Singing exercises the same muscles involved in swallowing and directly trains the oro-pharyngeal coordination that breaks down in Parkinson's — it also stimulates the vagus nerve simultaneously.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Speech and swallowing exercises — LSVT LOUD</div>
+          <div class="detox-how">LSVT LOUD programme · speech therapist referral · or YouTube-guided exercises</div>
+          <div class="detox-why">Lee Silverman Voice Treatment is the most evidence-backed speech and swallowing intervention for Parkinson's — clinically proven to improve voice, speech clarity, and swallowing function.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Upright posture during all meals</div>
+          <div class="detox-how">Sit fully upright, never eat lying or reclined · take small bites · eat slowly</div>
+          <div class="detox-why">Aspiration risk is real in Parkinson's — food and liquid entering the airways causes pneumonia, which is a leading cause of death in advanced disease. This is a safety intervention.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="fatigue" style="scroll-margin-top:100px;"></div>
+    <!-- FATIGUE -->
+    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
+      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
+        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
+        <span class="detox-phase-name">Fatigue — Profound Exhaustion</span>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">CoQ10 Ubiquinol — 400mg with breakfast</div>
+          <div class="detox-why">Mitochondrial dysfunction is a primary cause of Parkinson's fatigue — CoQ10 is the central cofactor for cellular energy production and is severely depleted in Parkinson's patients.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">NMN or NR — morning</div>
+          <div class="detox-how">NMN 500mg or NR 300mg, fasted, morning</div>
+          <div class="detox-why">NAD+ depletion is a second major driver of neurological fatigue — restoring it supports mitochondrial function, DNA repair, and neuronal resilience simultaneously.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">MCT oil or coconut oil — 1–2 tbsp daily in food</div>
+          <div class="detox-why">Provides ketones — an alternative brain fuel that bypasses impaired glucose metabolism in Parkinson's neurons — reducing the brain energy deficit that drives both fatigue and cognitive fog.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Exercise — even when exhausted, 20 min minimum</div>
+          <div class="detox-why">Counter-intuitive but evidence-backed: exercise reduces Parkinson's fatigue over time by improving mitochondrial function, sleep quality, and dopamine pathway efficiency — rest does not.</div>
+        </div>
+      </div>
+      <div class="detox-item">
+        <span class="detox-check" style="color:var(--terra);">✓</span>
+        <div>
+          <div class="detox-name">Iron and B12 check — blood test</div>
+          <div class="detox-why">Iron deficiency and B12 deficiency both mimic and amplify Parkinson's fatigue — they are common, completely treatable, and frequently missed.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+
+<section style="background:var(--bg-deep);border-top:1px solid var(--border);">
+  <div class="inner" style="max-width:740px;padding-top:52px;padding-bottom:52px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:18px;">About This Guide</div>
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:16px;">This guide was built from thousands of hours of independent research — peer-reviewed studies, suppressed clinical trials, and ancient healing traditions that predate the pharmaceutical model. The author spent years as a Pharmaceutical QA Internal Auditor before leaving to find the answers the system was not asking for.</p>
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:20px;">Every protocol here is free — because health knowledge should not be a luxury. If this guide helps you, the only thing asked in return is that you buy your supplements through iHerb using code <strong style="font-family:'DM Mono',monospace;color:var(--honey);">GUW6132</strong> at checkout. You save money. This guide stays alive.</p>
+    <a href="index.html#about" style="font-size:13px;font-weight:600;color:var(--sage);text-decoration:underline;text-underline-offset:3px;">Read the full story →</a>
+  </div>
+</section>
+
+<footer>
+  <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+    <div>
+      <div style="font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;">Heal Yourself</div>
+      <p style="font-size:12px;color:var(--ink-ghost);line-height:1.7;">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
+      <a href="index.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;">Home</a>
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+</html>

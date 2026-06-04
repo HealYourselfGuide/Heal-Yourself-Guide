@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
+:root{--nav-h:56px;
   --bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;
   --bg-nav:#2c3a2e;--bg-footer:#263028;
   --ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;
@@ -22,19 +22,45 @@
 html{scroll-behavior:smooth;}
 body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
 
-/* NAV */
-.topnav{background:var(--bg-nav);padding:0 24px;display:flex;align-items:center;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,0.06);}
-.topnav a{color:var(--sage-nav);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 14px;display:block;transition:color 0.2s;}
-.topnav a:hover{color:#fff;}
-.topnav .brand{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;margin-right:16px;padding:14px 0;text-transform:none;}
-
+/* TOP NAV */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-nav);border-bottom:1px solid rgba(138,184,154,0.12);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 28px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#d4c9a8;text-decoration:none;letter-spacing:0.02em;}
+.nav-center{display:flex;align-items:center;}
+.nav-center a{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;white-space:nowrap;}
+.nav-center a:hover{color:var(--sage-nav);border-bottom-color:rgba(138,184,154,0.3);}
+.nav-center a.active{color:var(--sage-nav);border-bottom-color:var(--sage-mid);}
+@media(max-width:400px){.nav-center{display:none;}}
+.nav-dropdown{position:relative;display:flex;align-items:center;height:var(--nav-h);}
+.nav-dropdown-toggle{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;white-space:nowrap;cursor:pointer;gap:5px;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;}
+.nav-dropdown-toggle:hover,.nav-dropdown:hover .nav-dropdown-toggle{color:var(--sage-nav);border-bottom-color:rgba(138,184,154,0.3);}
+.nav-dropdown-toggle svg{width:8px;height:8px;transition:transform 0.2s;opacity:0.5;}
+.nav-dropdown.open .nav-dropdown-toggle svg{transform:rotate(180deg);}
+.nav-dropdown-menu{position:absolute;top:calc(var(--nav-h) - 1px);right:0;background:var(--bg-nav);border:1px solid rgba(138,184,154,0.15);border-top:2px solid var(--sage-mid);border-radius:0 0 8px 8px;min-width:250px;padding:6px 0;z-index:200;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity 0.18s,transform 0.18s,visibility 0.18s;}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:11px;font-weight:500;letter-spacing:0.05em;color:rgba(212,201,168,0.7);text-decoration:none;text-transform:uppercase;transition:all 0.15s;border-bottom:1px solid rgba(138,184,154,0.07);}
+.nav-dropdown-menu a:last-child{border-bottom:none;}
+.nav-dropdown-menu a:hover{color:#d4c9a8;background:rgba(138,184,154,0.08);padding-left:22px;}
+.nav-dropdown-menu a .dd-icon{font-size:13px;flex-shrink:0;}
+.nav-dropdown-menu a .dd-label{flex:1;}
+.nav-dropdown-menu a .dd-tag{font-size:9px;font-weight:700;letter-spacing:0.1em;color:var(--sage-nav);background:rgba(90,140,106,0.2);padding:2px 7px;border-radius:3px;white-space:nowrap;}
+.dd-group{position:relative;}
+.dd-group>a{position:relative;padding-right:28px;border-bottom:1px solid rgba(138,184,154,0.07);}
+.dd-group>a::after{content:'›';position:absolute;right:14px;top:50%;transform:translateY(-50%);opacity:0.35;font-size:13px;transition:all 0.15s;}
+.dd-group:hover>a::after{opacity:0.9;color:var(--sage-nav);}
+.dd-group:hover>a{color:#d4c9a8;background:rgba(138,184,154,0.06);}
+.dd-subs{display:none;background:rgba(0,0,0,0.18);padding:2px 0;}
+.dd-group:hover .dd-subs{display:block;}
+.nav-dropdown-menu .dd-subs a.dd-sub{display:flex;align-items:center;gap:8px;padding:7px 12px 7px 24px;font-size:10px;font-weight:500;letter-spacing:0.05em;color:rgba(212,201,168,0.55);text-transform:uppercase;border:none;height:auto;min-height:0;border-left:1px solid rgba(138,184,154,0.25);margin-left:18px;transition:all 0.15s;}
+.nav-dropdown-menu .dd-subs a.dd-sub .dd-icon{font-size:10px;opacity:0.7;}
+.nav-dropdown-menu .dd-subs a.dd-sub .dd-label{font-size:10px;}
+.nav-dropdown-menu .dd-subs a.dd-sub:hover{color:rgba(212,201,168,0.85);padding-left:28px;background:none;border-left-color:var(--sage-nav);}
 /* HERO */
-.hero{background:var(--bg-nav);padding:48px 24px 36px;text-align:center;}
-.hero-tag{font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage-nav);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:12px;}
-.hero-tag::before,.hero-tag::after{content:'';width:40px;height:1px;background:rgba(138,184,154,0.4);}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,38px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:10px;}
+.hero{background:var(--bg-warm);padding:48px 24px 36px;text-align:center;}
+.hero-tag{font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:12px;}
+.hero-tag::before,.hero-tag::after{content:'';flex:1;max-width:60px;height:1px;background:var(--sage-mid);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,38px);font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:10px;}
 .hero h1 em{font-style:italic;color:var(--sage-nav);}
-.hero-sub{font-size:13px;color:rgba(255,255,255,0.5);max-width:540px;margin:0 auto;}
+.hero-sub{font-size:13px;color:var(--ink-light);max-width:540px;margin:0 auto;}
 
 /* PRINT BAR */
 .print-bar{background:var(--bg-deep);border-bottom:1px solid var(--border-s);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
@@ -83,7 +109,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
 /* BADGES */
 .badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 6px;border-radius:2px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;}
 .badge-core{background:#2c3a2e;color:#8ab89a;}
-.badge-cheap{background:#e8f2ec;color:#3d6b4a;border:1px solid rgba(61,107,74,0.2);}
+.badge-budget{background:#e8f2ec;color:#3d6b4a;border:1px solid rgba(61,107,74,0.2);}
 .badge-pd{background:#eeecf9;color:#6a5acd;border:1px solid rgba(106,90,205,0.2);}
 .badge-warn{background:#fff0e0;color:#8c5a1c;border:1px solid rgba(140,90,60,0.2);}
 
@@ -145,19 +171,35 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
         Protocols <svg viewBox="0 0 8 5" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l3 3 3-3"/></svg>
       </button>
       <div class="nav-dropdown-menu">
-        <a href="Full_Body_Detox_Protocol.html"><span class="dd-icon">🌿</span><span class="dd-label">Full Body Detox</span><span class="dd-tag">Start Here</span></a>
-        <a href="Brain_Protocol.html"><span class="dd-icon">🧠</span><span class="dd-label">Brain Protocol</span></a>
+        <div class="dd-group">
+          <a href="Full_Body_Detox_Protocol.html"><span class="dd-icon">🌿</span><span class="dd-label">Full Body Detox</span><span class="dd-tag">Start Here</span></a>
+          <div class="dd-subs">
+            <a href="Full_Body_Detox_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+            <a href="Full_Body_Detox_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+          </div>
+        </div>
+        <div class="dd-group">
+          <a href="Brain_Protocol.html"><span class="dd-icon">🧠</span><span class="dd-label">Brain Protocol</span></a>
+          <div class="dd-subs">
+            <a href="Brain_Protocol_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+            <a href="Brain_Protocol_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+          </div>
+        </div>
         <a href="DMSO_Oxygen_Therapy.html"><span class="dd-icon">⚗️</span><span class="dd-label">DMSO &amp; Oxygen</span></a>
         <a href="Hidden_Deficiencies.html"><span class="dd-icon">🔬</span><span class="dd-label">Hidden Deficiencies</span></a>
         <a href="Dr_Sebi_Alkaline_Protocol.html"><span class="dd-icon">🌱</span><span class="dd-label">Dr. Sebi Alkaline</span></a>
-        <a href="Parkinsons_Protocol.html"><span class="dd-icon">🧬</span><span class="dd-label">Parkinson's Protocol</span><span class="dd-tag">New</span></a>
-        <a href="Parkinsons_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">↳ Daily Schedule</span></a>
-        <a href="Parkinsons_Shopping_Table.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">↳ Shopping List</span></a>
-        <a href="Parkinsons_Must_Have.html" class="dd-sub"><span class="dd-icon">⭐</span><span class="dd-label">↳ Must-Have List</span></a>
+        <div class="dd-group">
+          <a href="Parkinsons_Protocol.html"><span class="dd-icon">🧬</span><span class="dd-label">Parkinson's Protocol</span></a>
+          <div class="dd-subs">
+            <a href="Parkinsons_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+            <a href="Parkinsons_Shopping_Table.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+            <a href="Parkinsons_Must_Have.html" class="dd-sub"><span class="dd-icon">⭐</span><span class="dd-label">Must-Have List</span></a>
+            <a href="Parkinsons_Symptoms.html" class="dd-sub"><span class="dd-icon">🔍</span><span class="dd-label">Symptom Guide</span></a>
+          </div>
+        </div>
         <a href="protocols.html" style="margin-top:4px;border-top:1px solid rgba(138,184,154,0.15);"><span class="dd-icon">☰</span><span class="dd-label">All Protocols</span></a>
       </div>
     </div>
-    <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank">iHerb — GUW6132</a>
   </div>
 </nav>
 
@@ -186,7 +228,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
   <div class="intro">
     <div class="intro-title">How to use this list</div>
     <p>This is not the full protocol — it is the minimum viable protocol. Every item here was chosen because removing it would either break the phase mechanism entirely, or directly harm the healing process. These are non-negotiable.</p>
-    <p>Items marked <span class="badge badge-cheap">cheap</span> cost very little — they should never be cut regardless of budget. Items marked <span class="badge badge-core">core</span> are the primary mechanism of that phase. Items marked <span class="badge badge-pd">Parkinson's</span> are specific to dopamine and neurological function — cutting them defeats the purpose of the protocol entirely.</p>
+    <p>Items marked <span class="badge badge-budget">budget-friendly</span> cost very little — they should never be cut regardless of budget. Items marked <span class="badge badge-core">core</span> are the primary mechanism of that phase. Items marked <span class="badge badge-pd">Parkinson's</span> are specific to dopamine and neurological function — cutting them defeats the purpose of the protocol entirely.</p>
     <p>Items in the "can wait" section are genuinely valuable — add them as soon as budget allows. They are not on this list because they are unimportant. They are off this list because the must-haves cannot work without them.</p>
   </div>
 </div>
@@ -202,7 +244,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
       <span style="font-size:12px;color:var(--p1);font-weight:700;">Open the Drainage Doors</span>
     </div>
     <h2 class="phase-title">9 Must-Haves — The Drainage Foundation</h2>
-    <p class="phase-desc">The colon must move daily. The liver must be protected. The lymph must be activated. Without these, everything added in Phase 2 either recirculates as toxin or fails to absorb. This phase is the cheapest of all — most items cost almost nothing.</p>
+    <p class="phase-desc">The colon must move daily. The liver must be protected. The lymph must be activated. Without these, everything added in Phase 2 either recirculates as toxin or fails to absorb. This phase is the most affordable of all — most items cost almost nothing.</p>
   </div>
 
   <div class="must-list">
@@ -210,7 +252,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p1);">1</div>
       <div class="must-body">
-        <div class="must-name">Magnesium Citrate <span class="badge badge-core">core</span> <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-name">Magnesium Citrate <span class="badge badge-core">core</span> <span class="badge badge-budget">budget-friendly</span></div>
         <div class="must-dose">300–400mg every night before bed</div>
         <div class="must-why">The colon must move every day. One blocked day during detox means toxins recirculate directly into the bloodstream. Magnesium citrate is the safest, gentlest daily colon support available and costs almost nothing.</div>
       </div>
@@ -230,7 +272,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p1);">3</div>
       <div class="must-body">
-        <div class="must-name">Psyllium Husk <span class="badge badge-core">core</span> <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-name">Psyllium Husk <span class="badge badge-core">core</span> <span class="badge badge-budget">budget-friendly</span></div>
         <div class="must-dose">1 tbsp in large glass of water · twice daily · always with full glass</div>
         <div class="must-why">Sweeps the colon, binds toxins before they can be reabsorbed, and feeds the gut bacteria that produce butyrate. Without colon sweeping, the detox baths and liver support simply push toxins back into circulation.</div>
       </div>
@@ -260,9 +302,9 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p1);">6</div>
       <div class="must-body">
-        <div class="must-name">Epsom Salt <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-name">Epsom Salt <span class="badge badge-budget">budget-friendly</span></div>
         <div class="must-dose">2 cups per bath · 3× per week · 30–40 min hot</div>
-        <div class="must-why">Transdermal magnesium directly into muscles — bypasses digestive absorption limits entirely. Combined with baking soda in the bath, activates the skin as a toxin exit route. Bulk purchase makes this one of the cheapest items per use in the entire protocol.</div>
+        <div class="must-why">Transdermal magnesium directly into muscles — bypasses digestive absorption limits entirely. Combined with baking soda in the bath, activates the skin as a toxin exit route. Bulk purchase makes this one of the lowest cost per use in the entire protocol.</div>
       </div>
       <a class="must-link amazon" href="https://www.amazon.com/Epsoak-Magnesium-Resealable-Unscented-Cruelty-Free/dp/B004N79BYC" target="_blank">Amazon →</a>
     </div>
@@ -270,7 +312,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p1);">7</div>
       <div class="must-body">
-        <div class="must-name">Baking Soda — Food Grade <span class="badge badge-cheap">cheap</span> <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-name">Baking Soda — Food Grade <span class="badge badge-budget">budget-friendly</span> <span class="badge badge-pd">Parkinson's</span></div>
         <div class="must-dose">¼ tsp in water every morning · 1 cup in every detox bath</div>
         <div class="must-why">Double duty: morning drink triggers the anti-inflammatory M1→M2 macrophage shift documented in peer-reviewed research. In the bath, neutralises chlorine and alkalises transdermally. Costs almost nothing. No reason to cut this.</div>
       </div>
@@ -280,9 +322,9 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p1);">8</div>
       <div class="must-body">
-        <div class="must-name">Celtic Sea Salt <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-name">Celtic Sea Salt <span class="badge badge-budget">budget-friendly</span></div>
         <div class="must-dose">1 tsp sole solution every morning before anything else</div>
-        <div class="must-why">Full-spectrum trace minerals — the body cannot run its biochemistry on sodium alone. Sole water is the cheapest and most bioavailable mineral supplement that exists. One bag lasts months.</div>
+        <div class="must-why">Full-spectrum trace minerals — the body cannot run its biochemistry on sodium alone. Sole water is the most affordable and bioavailable mineral supplement that exists. One bag lasts months.</div>
       </div>
       <a class="must-link" href="https://www.iherb.com/pr/celtic-sea-salt-fine-ground-1-lb-454-g/40557?rcode=GUW6132" target="_blank">iHerb →</a>
     </div>
@@ -290,7 +332,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p1);">9</div>
       <div class="must-body">
-        <div class="must-name">Apple Cider Vinegar <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-name">Apple Cider Vinegar <span class="badge badge-budget">budget-friendly</span></div>
         <div class="must-dose">1 tbsp in water · 10 min before every meal · use a straw</div>
         <div class="must-why">Restores stomach acid — critical from Phase 2 when Mucuna is added. Mucuna's levodopa is absorbed in the small intestine and requires proper stomach acid to break down before it gets there. Without ACV, Mucuna absorption is compromised. Start now, not at Phase 2.</div>
       </div>
@@ -382,7 +424,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
       <div class="must-body">
         <div class="must-name">Vitamin D3 + K2 <span class="badge badge-pd">Parkinson's</span></div>
         <div class="must-dose">2 caps daily · with fat-containing meal · always together</div>
-        <div class="must-why">Vitamin D receptors are throughout the brain including the substantia nigra. Deficiency is linked to faster Parkinson's progression. D3 without K2 causes calcium to deposit in soft tissue. Cheap and essential. Was on the "can wait" list in Phase 1 — cannot wait any longer.</div>
+        <div class="must-why">Vitamin D receptors are throughout the brain including the substantia nigra. Deficiency is linked to faster Parkinson's progression. D3 without K2 causes calcium to deposit in soft tissue. Affordable and essential. Was on the "can wait" list in Phase 1 — cannot wait any longer.</div>
       </div>
       <a class="must-link" href="https://www.iherb.com/pr/california-gold-nutrition-vitamin-d3-k2-as-mk-7-180-veggie-capsules/124745?rcode=GUW6132" target="_blank">iHerb →</a>
     </div>
@@ -422,7 +464,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p2);">9</div>
       <div class="must-body">
-        <div class="must-name">Berberine <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-name">Berberine <span class="badge badge-budget">budget-friendly</span></div>
         <div class="must-dose">500mg twice daily · with meals</div>
         <div class="must-why">Disrupts the chemical signalling system pathogens use to rebuild biofilm after serrapeptase and nattokinase break it down. Also directly supports gut microbiome restoration — the gut-brain axis that is the origin of Parkinson's pathology. Inexpensive and essential.</div>
         <div class="must-warn">Interacts with metformin and cyclosporine.</div>
@@ -453,9 +495,9 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p2);">12</div>
       <div class="must-body">
-        <div class="must-name">Sauerkraut — Refrigerated Live <span class="badge badge-cheap">cheap</span> <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-name">Sauerkraut — Refrigerated Live <span class="badge badge-budget">budget-friendly</span> <span class="badge badge-pd">Parkinson's</span></div>
         <div class="must-dose">2 tbsp with every meal · every day · permanent</div>
-        <div class="must-why">More live beneficial bacteria per serving than most probiotic capsules. These are the specific bacteria depleted in Parkinson's that produce serotonin and regulate the gut-brain axis. Cheap, available everywhere, irreplaceable. This is the only item in the protocol that should never be cut regardless of any circumstances.</div>
+        <div class="must-why">More live beneficial bacteria per serving than most probiotic capsules. These are the specific bacteria depleted in Parkinson's that produce serotonin and regulate the gut-brain axis. Low cost, available everywhere, irreplaceable. This is the only item in the protocol that should never be cut regardless of any circumstances.</div>
       </div>
       <a class="must-link" style="color:var(--ink-light);border-color:var(--border-s);">Supermarket refrigerated section</a>
     </div>
@@ -475,7 +517,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
   <div class="phase-total-bar">
     <span class="phase-total-label">Phase 2 must-haves:</span>
     <span class="phase-total-count" style="color:var(--p2);">12 items</span>
-    <span class="phase-total-cost">Plus all 9 from Phase 1 continue. This is the highest-cost phase — Mucuna, Lion's Mane, and CoQ10 are not cheap. They are also the most important.</span>
+    <span class="phase-total-cost">Plus all 9 from Phase 1 continue. This is the highest-cost phase — Mucuna, Lion's Mane, and CoQ10 are not inexpensive. They are also the most important.</span>
   </div>
 </div>
 </div>
@@ -519,7 +561,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p3);">3</div>
       <div class="must-body">
-        <div class="must-name">Activated Charcoal <span class="badge badge-core">core</span> <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-name">Activated Charcoal <span class="badge badge-core">core</span> <span class="badge badge-budget">budget-friendly</span></div>
         <div class="must-dose">500–1,000mg · 2+ hours from all supplements · whenever die-off symptoms appear</div>
         <div class="must-why">When pathogens die in large numbers they release toxins into the bloodstream — Herxheimer reaction. Without a binder to capture these toxins, they recirculate to the brain and worsen neurological symptoms. This is especially critical for Parkinson's where the blood-brain barrier is already compromised. Non-negotiable during the antiparasitic phase.</div>
       </div>
@@ -529,7 +571,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p3);">4</div>
       <div class="must-body">
-        <div class="must-name">Psyllium Husk — continue <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-name">Psyllium Husk — continue <span class="badge badge-budget">budget-friendly</span></div>
         <div class="must-dose">1 tbsp twice daily · increase if die-off is heavy</div>
         <div class="must-why">Dead parasites and their toxins must be physically swept out of the colon. Psyllium husk is the mechanical broom. Without it, the cleared material sits in the colon and toxic load increases. More important during die-off than any other phase.</div>
       </div>
@@ -539,7 +581,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p3);">5</div>
       <div class="must-body">
-        <div class="must-name">Raw Pumpkin Seeds <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-name">Raw Pumpkin Seeds <span class="badge badge-budget">budget-friendly</span></div>
         <div class="must-dose">Large handful every morning · empty stomach · chew well</div>
         <div class="must-why">Cucurbitacin paralyses parasites and prevents intestinal adhesion. Safe for continuous daily use throughout the phase at essentially zero cost. The only reason not to do this is forgetting to buy them. There is no reason to skip this.</div>
       </div>
@@ -583,9 +625,9 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p4);">1</div>
       <div class="must-body">
-        <div class="must-name">Silica-Rich Water — Volvic or Fiji <span class="badge badge-core">core</span> <span class="badge badge-pd">Parkinson's</span> <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-name">Silica-Rich Water — Volvic or Fiji <span class="badge badge-core">core</span> <span class="badge badge-pd">Parkinson's</span> <span class="badge badge-budget">budget-friendly</span></div>
         <div class="must-dose">1 litre daily · every day · permanent — never stop</div>
-        <div class="must-why">The only intervention confirmed in peer-reviewed human trials to reduce brain aluminium load. Silica binds aluminium in the blood and removes it via urine. Available at any supermarket. One of the cheapest items in the protocol. The most directly relevant to Parkinson's pathology of anything in Phase 4. Never stop this.</div>
+        <div class="must-why">The only intervention confirmed in peer-reviewed human trials to reduce brain aluminium load. Silica binds aluminium in the blood and removes it via urine. Available at any supermarket. One of the most affordable items in the protocol. The most directly relevant to Parkinson's pathology of anything in Phase 4. Never stop this.</div>
       </div>
       <a class="must-link" style="color:var(--ink-light);border-color:var(--border-s);">Supermarket — 1L daily</a>
     </div>
@@ -659,7 +701,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p5);">2</div>
       <div class="must-body">
-        <div class="must-name">Bone Broth or Collagen Peptides <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-name">Bone Broth or Collagen Peptides <span class="badge badge-budget">budget-friendly</span></div>
         <div class="must-dose">1–2 cups daily OR 1–2 scoops collagen powder in warm drink</div>
         <div class="must-why">Glycine and collagen are the structural raw material for gut lining, myelin sheath, and joint tissue. Works with L-Glutamine — one provides the fuel, the other provides the building material. Homemade bone broth is essentially free. This is irreplaceable traditional healing food.</div>
       </div>
@@ -680,7 +722,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p5);">4</div>
       <div class="must-body">
-        <div class="must-name">Sauerkraut — continue and increase <span class="badge badge-cheap">cheap</span> <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-name">Sauerkraut — continue and increase <span class="badge badge-budget">budget-friendly</span> <span class="badge badge-pd">Parkinson's</span></div>
         <div class="must-dose">2 tbsp with every meal · permanent · homemade if possible</div>
         <div class="must-why">The microbiome being rebuilt needs constant daily inoculation with live bacteria. Probiotics in capsules help — sauerkraut does more, costs less, and is available everywhere. Increase to every meal in Phase 5. The gut is the origin of Parkinson's — this is the most direct daily intervention on that origin point.</div>
       </div>
@@ -710,7 +752,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
   <div class="phase-total-bar">
     <span class="phase-total-label">Phase 5 must-haves:</span>
     <span class="phase-total-count" style="color:var(--p5);">5 new items</span>
-    <span class="phase-total-cost">Bone broth is essentially free if made at home. Sauerkraut is cheap. L-Glutamine and Zinc Carnosine are the main costs.</span>
+    <span class="phase-total-cost">Bone broth is essentially free if made at home. Sauerkraut is very affordable. L-Glutamine and Zinc Carnosine are the main costs.</span>
   </div>
 </div>
 </div>
@@ -754,7 +796,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p6);">3</div>
       <div class="must-body">
-        <div class="must-name">Silica-Rich Water <span class="badge badge-pd">Parkinson's</span> <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-name">Silica-Rich Water <span class="badge badge-pd">Parkinson's</span> <span class="badge badge-budget">budget-friendly</span></div>
         <div class="must-dose">1 litre daily · Volvic or Fiji · every single day · permanent</div>
         <div class="must-why">Aluminium removal from the brain. Peer-reviewed. Supermarket price. The only thing that costs less than its benefit in the entire protocol.</div>
       </div>
@@ -764,7 +806,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p6);">4</div>
       <div class="must-body">
-        <div class="must-name">Sauerkraut <span class="badge badge-cheap">cheap</span> <span class="badge badge-pd">Parkinson's</span></div>
+        <div class="must-name">Sauerkraut <span class="badge badge-budget">budget-friendly</span> <span class="badge badge-pd">Parkinson's</span></div>
         <div class="must-dose">2 tbsp every meal · refrigerated only · every day forever</div>
         <div class="must-why">The gut-brain axis must be maintained permanently. Sauerkraut does more per serving than most probiotic products. Never stop.</div>
       </div>
@@ -774,7 +816,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <div class="must-item priority-1">
       <div class="must-num" style="background:var(--p6);">5</div>
       <div class="must-body">
-        <div class="must-name">Baking Soda + Celtic Salt Morning Drinks <span class="badge badge-cheap">cheap</span></div>
+        <div class="must-name">Baking Soda + Celtic Salt Morning Drinks <span class="badge badge-budget">budget-friendly</span></div>
         <div class="must-dose">Sole water + baking soda drink every morning before anything else</div>
         <div class="must-why">Takes 3 minutes. Costs almost nothing. Provides minerals, anti-inflammatory shift, and systemic alkalisation. Do this every morning for the rest of life.</div>
       </div>
@@ -823,44 +865,44 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
       </tr>
     </thead>
     <tbody>
-      <tr><td>Magnesium Citrate</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Drainage</td><td>Very cheap</td></tr>
-      <tr><td>Magnesium Glycinate</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Parkinson's</td><td>Cheap</td></tr>
-      <tr><td>Psyllium Husk</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Drainage</td><td>Very cheap</td></tr>
-      <tr><td>Milk Thistle</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Liver</td><td>Cheap</td></tr>
-      <tr><td>Castor Oil</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Lymph/Liver</td><td>Cheap</td></tr>
-      <tr><td>Epsom Salt</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Detox</td><td>Cheap bulk</td></tr>
+      <tr><td>Magnesium Citrate</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Drainage</td><td>Very low cost</td></tr>
+      <tr><td>Magnesium Glycinate</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Parkinson's</td><td>Low cost</td></tr>
+      <tr><td>Psyllium Husk</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Drainage</td><td>Very low cost</td></tr>
+      <tr><td>Milk Thistle</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Liver</td><td>Low cost</td></tr>
+      <tr><td>Castor Oil</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Lymph/Liver</td><td>Low cost</td></tr>
+      <tr><td>Epsom Salt</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Detox</td><td>Low cost bulk</td></tr>
       <tr><td>Baking Soda</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Parkinson's</td><td>Pennies</td></tr>
       <tr><td>Celtic Sea Salt</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Minerals</td><td>Pennies</td></tr>
-      <tr><td>Apple Cider Vinegar</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Absorption</td><td>Cheap</td></tr>
+      <tr><td>Apple Cider Vinegar</td><td><span class="phase-dot" style="background:var(--p1);"></span>Phase 1</td><td>Absorption</td><td>Low cost</td></tr>
       <tr><td><strong>Mucuna Pruriens ★</strong></td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Parkinson's</td><td>Medium</td></tr>
       <tr><td><strong>Lion's Mane ★</strong></td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Parkinson's</td><td>Medium</td></tr>
       <tr><td><strong>CoQ10 Ubiquinol + PQQ ★</strong></td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Parkinson's</td><td>Medium-high</td></tr>
-      <tr><td>NAC</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Parkinson's</td><td>Cheap</td></tr>
-      <tr><td>Vitamin D3+K2</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Parkinson's</td><td>Cheap</td></tr>
-      <tr><td>Omega-3 Fish Oil</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Neuro</td><td>Cheap</td></tr>
-      <tr><td>Serrapeptase</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Biofilm</td><td>Cheap</td></tr>
-      <tr><td>Nattokinase</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Biofilm</td><td>Cheap</td></tr>
-      <tr><td>Berberine</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Biofilm/Gut</td><td>Cheap</td></tr>
+      <tr><td>NAC</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Parkinson's</td><td>Low cost</td></tr>
+      <tr><td>Vitamin D3+K2</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Parkinson's</td><td>Low cost</td></tr>
+      <tr><td>Omega-3 Fish Oil</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Neuro</td><td>Low cost</td></tr>
+      <tr><td>Serrapeptase</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Biofilm</td><td>Low cost</td></tr>
+      <tr><td>Nattokinase</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Biofilm</td><td>Low cost</td></tr>
+      <tr><td>Berberine</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Biofilm/Gut</td><td>Low cost</td></tr>
       <tr><td><strong>Mannitol ★</strong></td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Parkinson's</td><td>Medium</td></tr>
       <tr><td>SBO Probiotics</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Gut-Brain</td><td>Medium</td></tr>
-      <tr><td>Sauerkraut</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Gut-Brain</td><td>Very cheap</td></tr>
-      <tr><td>Black Walnut+Wormwood+Cloves</td><td><span class="phase-dot" style="background:var(--p3);"></span>Phase 3</td><td>Antiparasitic</td><td>Cheap</td></tr>
-      <tr><td>Oregano Oil</td><td><span class="phase-dot" style="background:var(--p3);"></span>Phase 3</td><td>Antiparasitic</td><td>Cheap</td></tr>
-      <tr><td>Activated Charcoal</td><td><span class="phase-dot" style="background:var(--p3);"></span>Phase 3</td><td>Binder</td><td>Very cheap</td></tr>
+      <tr><td>Sauerkraut</td><td><span class="phase-dot" style="background:var(--p2);"></span>Phase 2</td><td>Gut-Brain</td><td>Very low cost</td></tr>
+      <tr><td>Black Walnut+Wormwood+Cloves</td><td><span class="phase-dot" style="background:var(--p3);"></span>Phase 3</td><td>Antiparasitic</td><td>Low cost</td></tr>
+      <tr><td>Oregano Oil</td><td><span class="phase-dot" style="background:var(--p3);"></span>Phase 3</td><td>Antiparasitic</td><td>Low cost</td></tr>
+      <tr><td>Activated Charcoal</td><td><span class="phase-dot" style="background:var(--p3);"></span>Phase 3</td><td>Binder</td><td>Very low cost</td></tr>
       <tr><td>Raw Pumpkin Seeds</td><td><span class="phase-dot" style="background:var(--p3);"></span>Phase 3</td><td>Antiparasitic</td><td>Pennies</td></tr>
-      <tr><td>Silica-Rich Water ★</td><td><span class="phase-dot" style="background:var(--p4);"></span>Phase 4</td><td>Parkinson's</td><td>Very cheap</td></tr>
-      <tr><td>Chlorella (broken cell wall)</td><td><span class="phase-dot" style="background:var(--p4);"></span>Phase 4</td><td>Mercury</td><td>Cheap</td></tr>
+      <tr><td>Silica-Rich Water ★</td><td><span class="phase-dot" style="background:var(--p4);"></span>Phase 4</td><td>Parkinson's</td><td>Very low cost</td></tr>
+      <tr><td>Chlorella (broken cell wall)</td><td><span class="phase-dot" style="background:var(--p4);"></span>Phase 4</td><td>Mercury</td><td>Low cost</td></tr>
       <tr><td>Modified Citrus Pectin</td><td><span class="phase-dot" style="background:var(--p4);"></span>Phase 4</td><td>Metals</td><td>Medium-high</td></tr>
       <tr><td>Zeolite</td><td><span class="phase-dot" style="background:var(--p4);"></span>Phase 4</td><td>Aluminium</td><td>Medium</td></tr>
-      <tr><td>L-Glutamine</td><td><span class="phase-dot" style="background:var(--p5);"></span>Phase 5</td><td>Gut repair</td><td>Cheap</td></tr>
-      <tr><td>Bone Broth / Collagen</td><td><span class="phase-dot" style="background:var(--p5);"></span>Phase 5</td><td>Gut repair</td><td>Very cheap</td></tr>
-      <tr><td>Zinc Carnosine</td><td><span class="phase-dot" style="background:var(--p5);"></span>Phase 5</td><td>Gut repair</td><td>Cheap</td></tr>
+      <tr><td>L-Glutamine</td><td><span class="phase-dot" style="background:var(--p5);"></span>Phase 5</td><td>Gut repair</td><td>Low cost</td></tr>
+      <tr><td>Bone Broth / Collagen</td><td><span class="phase-dot" style="background:var(--p5);"></span>Phase 5</td><td>Gut repair</td><td>Very low cost</td></tr>
+      <tr><td>Zinc Carnosine</td><td><span class="phase-dot" style="background:var(--p5);"></span>Phase 5</td><td>Gut repair</td><td>Low cost</td></tr>
     </tbody>
   </table>
 
   <div style="background:var(--bg-nav);border-radius:8px;padding:24px;text-align:center;margin-bottom:32px;">
     <p style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:8px;">Total must-haves across all phases: <strong style="color:#fff;font-size:18px;">33 items</strong></p>
-    <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:16px;">Of these, 12 items cost almost nothing (pennies to cheap). The expensive items are Mucuna, Lion's Mane, CoQ10+PQQ, Mannitol, and MCP — all of which are non-negotiable for Parkinson's specifically.</p>
+    <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:16px;">Of these, 12 items cost almost nothing (pennies to very low cost). The expensive items are Mucuna, Lion's Mane, CoQ10+PQQ, Mannitol, and MCP — all of which are non-negotiable for Parkinson's specifically.</p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
       <a href="Parkinsons_Shopping_Table.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">Full Shopping List →</a>
       <a href="Parkinsons_Daily_Schedule.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">Daily Schedule →</a>
@@ -870,13 +912,25 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
 </div>
 </div>
 
-<footer style="background:var(--bg-footer);padding:28px 24px;text-align:center;">
-  <p style="font-family:'Playfair Display',serif;font-size:16px;color:#fff;margin-bottom:8px;">Heal Yourself</p>
-  <p style="font-size:12px;color:rgba(255,255,255,0.4);">Support this guide — shop iHerb with code <strong style="color:var(--sage-nav);">GUW6132</strong> and get a discount.</p>
-  <div style="margin-top:14px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-    <a href="Parkinsons_Protocol.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">← Full Protocol</a>
-    <a href="Parkinsons_Shopping_Table.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">Full Shopping List →</a>
-    <a href="Parkinsons_Daily_Schedule.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">Daily Schedule →</a>
+
+<section style="background:var(--bg-deep);border-top:1px solid var(--border);">
+  <div class="inner" style="max-width:740px;padding-top:52px;padding-bottom:52px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:18px;">About This Guide</div>
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:16px;">This guide was built from thousands of hours of independent research — peer-reviewed studies, suppressed clinical trials, and ancient healing traditions that predate the pharmaceutical model. The author spent years as a Pharmaceutical QA Internal Auditor before leaving to find the answers the system was not asking for.</p>
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:20px;">Every protocol here is free — because health knowledge should not be a luxury. If this guide helps you, the only thing asked in return is that you buy your supplements through iHerb using code <strong style="font-family:'DM Mono',monospace;color:var(--honey);">GUW6132</strong> at checkout. You save money. This guide stays alive.</p>
+    <a href="index.html#about" style="font-size:13px;font-weight:600;color:var(--sage);text-decoration:underline;text-underline-offset:3px;">Read the full story →</a>
+  </div>
+</section>
+
+<footer>
+  <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+    <div>
+      <div style="font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;">Heal Yourself</div>
+      <p style="font-size:12px;color:var(--ink-ghost);line-height:1.7;">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
+      <a href="index.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;">Home</a>
+    </div>
   </div>
 </footer>
 

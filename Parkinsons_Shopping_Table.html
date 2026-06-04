@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0067)file:///C:/Users/sharondrn/Downloads/Parkinsons_Shopping_Table.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Parkinson's Protocol — Complete Shopping List by Phase</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./Parkinson&#39;s Shopping list_files/css2" rel="stylesheet">
 <style>
-:root{
+:root{--nav-h:56px;
   --bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;
   --bg-nav:#2c3a2e;--bg-footer:#263028;
   --ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;
@@ -29,27 +29,55 @@
 body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
 
 /* NAV */
-.topnav{background:var(--bg-nav);padding:0 24px;display:flex;align-items:center;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,0.06);}
-.topnav a{color:var(--sage-nav);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 14px;display:block;transition:color 0.2s;}
-.topnav a:hover{color:#fff;}
-.topnav .brand{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;margin-right:16px;padding:14px 0;text-transform:none;}
-
-/* HERO */
-.hero{background:var(--bg-nav);padding:48px 24px 36px;text-align:center;}
-.hero-tag{font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage-nav);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:12px;}
-.hero-tag::before,.hero-tag::after{content:'';width:40px;height:1px;background:rgba(138,184,154,0.4);}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,38px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:10px;}
-.hero h1 em{font-style:italic;color:var(--sage-nav);}
-.hero-sub{font-size:13px;color:rgba(255,255,255,0.5);max-width:520px;margin:0 auto 20px;}
-.hero-code{display:inline-block;background:rgba(138,184,154,0.15);border:1px solid rgba(138,184,154,0.3);border-radius:6px;padding:10px 22px;font-size:13px;color:rgba(255,255,255,0.8);}
-.hero-code strong{color:var(--sage-nav);font-family:'DM Mono',monospace;font-size:14px;}
+/* TOP NAV */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-nav);border-bottom:1px solid rgba(138,184,154,0.12);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 28px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#d4c9a8;text-decoration:none;letter-spacing:0.02em;}
+.nav-center{display:flex;align-items:center;}
+.nav-center a{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;white-space:nowrap;}
+.nav-center a:hover{color:var(--sage-nav);border-bottom-color:rgba(138,184,154,0.3);}
+@media(max-width:400px){.nav-center{display:none;}}
+.nav-dropdown{position:relative;display:flex;align-items:center;height:var(--nav-h);}
+.nav-dropdown-toggle{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;white-space:nowrap;cursor:pointer;gap:5px;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;}
+.nav-dropdown-toggle:hover,.nav-dropdown:hover .nav-dropdown-toggle{color:var(--sage-nav);border-bottom-color:rgba(138,184,154,0.3);}
+.nav-dropdown-toggle svg{width:8px;height:8px;transition:transform 0.2s;opacity:0.5;}
+.nav-dropdown.open .nav-dropdown-toggle svg{transform:rotate(180deg);}
+.nav-dropdown-menu{position:absolute;top:calc(var(--nav-h) - 1px);right:0;background:var(--bg-nav);border:1px solid rgba(138,184,154,0.15);border-top:2px solid var(--sage-mid);border-radius:0 0 8px 8px;min-width:250px;padding:6px 0;z-index:200;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity 0.18s,transform 0.18s,visibility 0.18s;}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:11px;font-weight:500;letter-spacing:0.05em;color:rgba(212,201,168,0.7);text-decoration:none;text-transform:uppercase;transition:all 0.15s;border-bottom:1px solid rgba(138,184,154,0.07);}
+.nav-dropdown-menu a:last-child{border-bottom:none;}
+.nav-dropdown-menu a:hover{color:#d4c9a8;background:rgba(138,184,154,0.08);padding-left:22px;}
+.nav-dropdown-menu a .dd-icon{font-size:13px;flex-shrink:0;}
+.nav-dropdown-menu a .dd-label{flex:1;}
+.nav-dropdown-menu a .dd-tag{font-size:9px;font-weight:700;letter-spacing:0.1em;color:var(--sage-nav);background:rgba(90,140,106,0.2);padding:2px 7px;border-radius:3px;white-space:nowrap;}
+.dd-group{position:relative;}
+.dd-group>a{position:relative;padding-right:28px;border-bottom:1px solid rgba(138,184,154,0.07);}
+.dd-group>a::after{content:'›';position:absolute;right:14px;top:50%;transform:translateY(-50%);opacity:0.35;font-size:13px;transition:all 0.15s;}
+.dd-group:hover>a::after{opacity:0.9;color:var(--sage-nav);}
+.dd-group:hover>a{color:#d4c9a8;background:rgba(138,184,154,0.06);}
+.dd-subs{display:none;background:rgba(0,0,0,0.18);padding:2px 0;}
+.dd-group:hover .dd-subs{display:block;}
+.nav-dropdown-menu .dd-subs a.dd-sub{display:flex;align-items:center;gap:8px;padding:7px 12px 7px 24px;font-size:10px;font-weight:500;letter-spacing:0.05em;color:rgba(212,201,168,0.55);text-transform:uppercase;border:none;height:auto;min-height:0;border-left:1px solid rgba(138,184,154,0.25);margin-left:18px;transition:all 0.15s;}
+.nav-dropdown-menu .dd-subs a.dd-sub .dd-icon{font-size:10px;opacity:0.7;}
+.nav-dropdown-menu .dd-subs a.dd-sub .dd-label{font-size:10px;}
+.nav-dropdown-menu .dd-subs a.dd-sub:hover{color:rgba(212,201,168,0.85);padding-left:28px;background:none;border-left-color:var(--sage-nav);}
+/* HERO — WARM */
+.hero{background:var(--bg-warm);padding:72px 24px 48px;text-align:center;border-bottom:1px solid var(--border);}
+.hero-tag{font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:12px;}
+.hero-tag::before,.hero-tag::after{content:'';flex:1;max-width:50px;height:1px;background:linear-gradient(to right,transparent,var(--sage-mid));}
+.hero-tag::after{background:linear-gradient(to left,transparent,var(--sage-mid));}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,38px);font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:10px;}
+.hero h1 em{font-style:italic;color:var(--sage);}
+.hero-sub{font-size:14px;color:var(--ink-light);max-width:560px;margin:0 auto 20px;line-height:1.8;}
+.hero-code{display:inline-block;background:var(--sage-pale);border:1px solid var(--border);border-radius:6px;padding:10px 22px;font-size:13px;color:var(--ink-mid);}
+.hero-code strong{color:var(--honey);font-family:'DM Mono',monospace;font-size:14px;}
+body{padding-top:var(--nav-h);}
 
 /* PRINT + STICKY NAV */
 .print-bar{background:var(--bg-deep);border-bottom:1px solid var(--border-s);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 .print-bar p{font-size:12px;color:var(--ink-light);}
 .print-btn{background:var(--sage);color:#fff;border:none;padding:8px 18px;border-radius:4px;font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;}
 
-.phase-nav{background:var(--bg-nav);padding:10px 24px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.08);}
+.phase-nav{background:var(--bg-warm);border-bottom:1px solid var(--border-s);padding:10px 24px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;position:sticky;top:var(--nav-h);z-index:90;}
 .phase-nav a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:11px;font-weight:600;padding:5px 11px;border-radius:3px;border:1px solid rgba(255,255,255,0.1);transition:all 0.2s;}
 .phase-nav a:hover,.phase-nav a.active{background:var(--sage);color:#fff;border-color:var(--sage);}
 
@@ -113,32 +141,17 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
 .phase-summary-count{font-family:'DM Mono',monospace;font-size:14px;font-weight:700;}
 
 /* GRAND TOTAL BOX */
-.grand-total{background:var(--bg-nav);color:#fff;padding:28px;border-radius:8px;margin:32px 0;text-align:center;}
+.grand-total{background:var(--bg-deep);color:var(--ink);border:1px solid var(--border);padding:28px;border-radius:8px;margin:32px 0;text-align:center;}
 .grand-total h3{font-family:'Playfair Display',serif;font-size:20px;margin-bottom:12px;color:#fff;}
 .grand-total p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.8;}
 .grand-total .code{font-family:'DM Mono',monospace;font-size:16px;font-weight:700;color:var(--sage-nav);}
 .grand-iherb-btn{display:inline-block;margin-top:16px;background:var(--sage);color:#fff;padding:12px 28px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;}
 
-
-/* QUANTITY COLUMN */
-.col-qty{width:110px;}
-.qty-box{background:var(--honey-pale);border:1px solid rgba(160,120,48,0.2);border-radius:4px;padding:6px 8px;text-align:center;}
-.qty-main{font-family:'DM Mono',monospace;font-size:13px;font-weight:700;color:var(--honey);display:block;margin-bottom:2px;}
-.qty-sub{font-size:10px;color:var(--ink-light);line-height:1.5;display:block;}
-.qty-monthly{background:var(--sage-pale);border-color:rgba(61,107,74,0.2);}
-.qty-monthly .qty-main{color:var(--sage);}
-
-/* BUDGET BANNER */
-.budget-banner{background:var(--bg-nav);border-bottom:3px solid var(--honey);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
-.budget-banner-text{color:rgba(255,255,255,0.75);font-size:13px;line-height:1.7;max-width:560px;}
-.budget-banner-text strong{color:#fff;}
-.budget-banner-btn{background:var(--honey);color:#fff;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:10px 20px;border-radius:4px;white-space:nowrap;flex-shrink:0;}
-
 /* RESPONSIVE */
 @media(max-width:680px){
-  .col-why,.col-dose,.col-qty{display:none;}
-  .supp-table th:nth-child(3),.supp-table th:nth-child(4),.supp-table th:nth-child(6){display:none;}
-  .supp-table td:nth-child(3),.supp-table td:nth-child(4),.supp-table td:nth-child(6){display:none;}
+  .col-why,.col-dose{display:none;}
+  .supp-table th:nth-child(3),.supp-table th:nth-child(4){display:none;}
+  .supp-table td:nth-child(3),.supp-table td:nth-child(4){display:none;}
 }
 
 /* PRINT */
@@ -153,8 +166,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
   .phase-badge{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   a[href]::after{content:none!important;}
 }
-
-  body{padding-top:var(--nav-h);}</style>
+</style>
 </head>
 <body>
 
@@ -167,19 +179,35 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
         Protocols <svg viewBox="0 0 8 5" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l3 3 3-3"/></svg>
       </button>
       <div class="nav-dropdown-menu">
-        <a href="Full_Body_Detox_Protocol.html"><span class="dd-icon">🌿</span><span class="dd-label">Full Body Detox</span><span class="dd-tag">Start Here</span></a>
-        <a href="Brain_Protocol.html"><span class="dd-icon">🧠</span><span class="dd-label">Brain Protocol</span></a>
+        <div class="dd-group">
+          <a href="Full_Body_Detox_Protocol.html"><span class="dd-icon">🌿</span><span class="dd-label">Full Body Detox</span><span class="dd-tag">Start Here</span></a>
+          <div class="dd-subs">
+            <a href="Full_Body_Detox_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+            <a href="Full_Body_Detox_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+          </div>
+        </div>
+        <div class="dd-group">
+          <a href="Brain_Protocol.html"><span class="dd-icon">🧠</span><span class="dd-label">Brain Protocol</span></a>
+          <div class="dd-subs">
+            <a href="Brain_Protocol_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+            <a href="Brain_Protocol_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+          </div>
+        </div>
         <a href="DMSO_Oxygen_Therapy.html"><span class="dd-icon">⚗️</span><span class="dd-label">DMSO &amp; Oxygen</span></a>
         <a href="Hidden_Deficiencies.html"><span class="dd-icon">🔬</span><span class="dd-label">Hidden Deficiencies</span></a>
         <a href="Dr_Sebi_Alkaline_Protocol.html"><span class="dd-icon">🌱</span><span class="dd-label">Dr. Sebi Alkaline</span></a>
-        <a href="Parkinsons_Protocol.html"><span class="dd-icon">🧬</span><span class="dd-label">Parkinson's Protocol</span><span class="dd-tag">New</span></a>
-        <a href="Parkinsons_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">↳ Daily Schedule</span></a>
-        <a href="Parkinsons_Shopping_Table.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">↳ Shopping List</span></a>
-        <a href="Parkinsons_Must_Have.html" class="dd-sub"><span class="dd-icon">⭐</span><span class="dd-label">↳ Must-Have List</span></a>
+        <div class="dd-group">
+          <a href="Parkinsons_Protocol.html"><span class="dd-icon">🧬</span><span class="dd-label">Parkinson's Protocol</span></a>
+          <div class="dd-subs">
+            <a href="Parkinsons_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+            <a href="Parkinsons_Shopping_Table.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+            <a href="Parkinsons_Must_Have.html" class="dd-sub"><span class="dd-icon">⭐</span><span class="dd-label">Must-Have List</span></a>
+            <a href="Parkinsons_Symptoms.html" class="dd-sub"><span class="dd-icon">🔍</span><span class="dd-label">Symptom Guide</span></a>
+          </div>
+        </div>
         <a href="protocols.html" style="margin-top:4px;border-top:1px solid rgba(138,184,154,0.15);"><span class="dd-icon">☰</span><span class="dd-label">All Protocols</span></a>
       </div>
     </div>
-    <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank">iHerb — GUW6132</a>
   </div>
 </nav>
 
@@ -195,19 +223,13 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
   <button class="print-btn" onclick="window.print()">🖨 Print Shopping List</button>
 </div>
 
-
-<div class="budget-banner no-print">
-  <div class="budget-banner-text"><strong>Budget is tight?</strong> This is the full list — every supplement across all phases. If you cannot afford everything, start with the essentials. A separate page lists only the must-haves per phase, with clear reasoning for each.</div>
-  <a href="Parkinsons_Must_Have.html" class="budget-banner-btn">→ Must-Haves Only</a>
-</div>
-
 <nav class="phase-nav no-print">
-  <a href="#phase1">Phase 1</a>
-  <a href="#phase2">Phase 2</a>
-  <a href="#phase3">Phase 3</a>
-  <a href="#phase4">Phase 4</a>
-  <a href="#phase5">Phase 5</a>
-  <a href="#phase6">All Phases</a>
+  <a href="file:///C:/Users/sharondrn/Downloads/Parkinsons_Shopping_Table.html#phase1">Phase 1</a>
+  <a href="file:///C:/Users/sharondrn/Downloads/Parkinsons_Shopping_Table.html#phase2">Phase 2</a>
+  <a href="file:///C:/Users/sharondrn/Downloads/Parkinsons_Shopping_Table.html#phase3">Phase 3</a>
+  <a href="file:///C:/Users/sharondrn/Downloads/Parkinsons_Shopping_Table.html#phase4">Phase 4</a>
+  <a href="file:///C:/Users/sharondrn/Downloads/Parkinsons_Shopping_Table.html#phase5">Phase 5</a>
+  <a href="file:///C:/Users/sharondrn/Downloads/Parkinsons_Shopping_Table.html#phase6">All Phases</a>
 </nav>
 
 <div class="inner">
@@ -230,9 +252,8 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
       <tr style="color:var(--p1);">
         <th class="col-num">#</th>
         <th class="col-name">Supplement</th>
-        <th class="col-dose">Dose & Timing</th>
+        <th class="col-dose">Dose &amp; Timing</th>
         <th class="col-why">Why</th>
-        <th class="col-qty">How Many</th>
         <th class="col-buy">Buy</th>
       </tr>
     </thead>
@@ -242,121 +263,105 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
         <td><div class="prod-name">Celtic Sea Salt — Fine Ground</div><div class="prod-brand">Celtic Sea Salt · 1 lb</div></td>
         <td><div class="dose-amount">1 tsp sole solution</div><div class="dose-timing">Every morning before anything else</div></td>
         <td><div class="why-text">Full-spectrum trace minerals, adrenal support, primes digestion</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bag</span><span class="qty-sub">lasts 3–4 months</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/celtic-sea-salt-fine-ground-1-lb-454-g/40557?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/celtic-sea-salt-fine-ground-vital-mineral-blend-1-lb-454-g/40557?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">2</td>
         <td><div class="prod-name">Baking Soda — Food Grade</div><div class="prod-brand">Bob's Red Mill · 16 oz</div></td>
         <td><div class="dose-amount">¼ tsp in water</div><div class="dose-timing">Morning, 30 min before eating · Also in detox baths</div></td>
         <td><div class="why-text">Anti-inflammatory M1→M2 macrophage shift, alkalises system, neutralises chlorine in baths</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bag</span><span class="qty-sub">lasts 2–3 months</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/bob-s-red-mill-baking-soda-16-oz-454-g/89505?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/bob-s-red-mill-baking-soda-gluten-free-16-oz-454-g/89505?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">3</td>
         <td><div class="prod-name">Milk Thistle Extract</div><div class="prod-brand">CGN EuroHerbs · 175mg · 80% Silymarin · 60 caps</div></td>
         <td><div class="dose-amount">175mg · 1 cap</div><div class="dose-timing">Daily with food</div></td>
-        <td><div class="why-text">Protects and regenerates liver cells before the detox load increases</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">60 caps = 2 months</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/california-gold-nutrition-euroherbs-milk-thistle-extract-175-mg-60-veggie-capsules/70955?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="why-text">Triggers spleen-mediated anti-inflammatory response — shifting immune cells from pro-inflammatory M1 macrophages to anti-inflammatory M2 type. Also alkalises systemically, counteracting brain acidosis associated with astrocyte-driven alpha-synuclein aggregation. Evidence-backed for immune regulation. Avoid if on sodium-restricted diet or kidney disease. Do not use within 2 hours of medications.</div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/california-gold-nutrition-euroherbs-milk-thistle-extract-euromed-quality-175-mg-60-veggie-capsules/70955?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">4</td>
-        <td><div class="prod-name">Vitamin D3 + K2</div><div class="prod-brand">California Gold Nutrition · D3 + K2 as MK-7 · 180 veggie caps</div></td>
-        <td><div class="dose-amount">2 caps = 2,000 IU D3 + K2 MK-7</div><div class="dose-timing">Daily with fat-containing meal · always together</div></td>
+        <td><div class="prod-name">Vitamin D3 + K2</div><div class="prod-brand">NOW Foods · D3 1,000 IU / K2 45mcg · 120 caps</div></td>
+        <td><div class="dose-amount">5 caps = 5,000 IU D3 + 225mcg K2</div><div class="dose-timing">Daily with fat-containing meal · always together</div></td>
         <td><div class="why-text">D3 essential for brain and dopamine receptor function; K2 directs calcium to bones not soft tissue</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">180 caps = 3 months</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/california-gold-nutrition-vitamin-d3-k2-as-mk-7-180-veggie-capsules/124745?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-vitamin-d-3-k-2-120-veg-capsules/66218?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">5</td>
-        <td><div class="prod-name">Omega-3 Fish Oil</div><div class="prod-brand">NOW Foods · 1,000mg fish oil per softgel · 200 softgels</div></td>
-        <td><div class="dose-amount">2–3 softgels daily</div><div class="dose-timing">With meals</div></td>
-        <td><div class="why-text">Brain is 60% fat — DHA and EPA reduce neuroinflammation and support dopamine receptor integrity</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">200 caps = 2 months at 3/day</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-omega-3-fish-oil-200-softgels/323?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="prod-name">Omega-3 Fish Oil</div><div class="prod-brand">CGN Omega-800 · 800mg EPA/DHA per cap · 90 softgels</div></td>
+        <td><div class="dose-amount">2–3 caps daily</div><div class="dose-timing">With meals</div></td>
+        <td><div class="why-text">Vitamin D receptors are found throughout the brain including the substantia nigra. Deficiency is associated with increased Parkinson's risk and faster progression. D3 must always be taken with K2 — D3 without K2 causes calcium to deposit in soft tissue rather than bone.</div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/california-gold-nutrition-omega-800-ultra-concentrated-omega-3-fish-oil-kd-pur-triglyceride-form-90-fish-gelatin-softgels-1-000-mg-per-softgel/68796?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">6</td>
-        <td><div class="prod-name">Magnesium Glycinate</div><div class="prod-brand">NOW Foods · 100mg elemental · 180 tablets</div></td>
+        <td><div class="prod-name">Magnesium Glycinate</div><div class="prod-brand">Doctor's Best · 100mg elemental · 240 tablets</div></td>
         <td><div class="dose-amount">200mg morning + 400mg night</div><div class="dose-timing">With food · split dose</div></td>
-        <td><div class="why-text">Natural muscle relaxant, reduces tremor amplitude, improves sleep depth, supports dopamine synthesis</div></td>
-              <td><div class="qty-box qty-monthly"><span class="qty-main">2 bottles/month</span><span class="qty-sub">6 tabs/day ongoing</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-magnesium-glycinate-180-tablets-100-mg-per-tablet/88819?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="why-text">The brain is 60% fat, predominantly DHA. Reduces neuroinflammation, supports dopamine receptor integrity, and maintains cell membrane fluidity in neurons. Low omega-3 status is consistently associated with accelerated neurodegeneration.</div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/doctor-s-best-high-absorption-magnesium-lysinate-glycinate-chelated-albion-traacs-240-tablets-100-mg-per-tablet/85189?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">7</td>
         <td><div class="prod-name">Magnesium Citrate</div><div class="prod-brand">NOW Foods · 133mg · 120 veg caps</div></td>
         <td><div class="dose-amount">300–400mg</div><div class="dose-timing">Before bed every night · for bowel regularity</div></td>
-        <td><div class="why-text">Gently keeps the colon moving — daily elimination is mandatory throughout this protocol</div></td>
-              <td><div class="qty-box qty-monthly"><span class="qty-main">1 bottle/month</span><span class="qty-sub">3 caps/day = 40 days</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-magnesium-citrate-120-veg-capsules/698?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="why-text">Required for over 300 enzymatic reactions including dopamine synthesis, muscle relaxation, and neurological function. Most Parkinson's patients are severely deficient. Glycinate form crosses the blood-brain barrier most effectively and is the gentlest on digestion. Directly reduces muscle rigidity and cramps.</div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-magnesium-citrate-120-veg-capsules-133-mg-per-capsule/698?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">8</td>
-        <td><div class="prod-name">Psyllium Husk Powder</div><div class="prod-brand">NOW Foods · Whole Husks · 454g</div></td>
+        <td><div class="prod-name">Psyllium Husk Powder</div><div class="prod-brand">NOW Foods · 680g powder</div></td>
         <td><div class="dose-amount">1 tbsp twice daily</div><div class="dose-timing">In large glass of water · always with full glass</div></td>
         <td><div class="why-text">Sweeps colon, binds toxins, feeds gut bacteria — critical for gut-brain axis repair</div></td>
-              <td><div class="qty-box"><span class="qty-main">2 bags</span><span class="qty-sub">each lasts ~25 days</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-whole-psyllium-husks-16-oz-454-g/37841?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-psyllium-husk-powder-24-oz-680-g/733?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">9</td>
-        <td><div class="prod-name">Dandelion Root Tea</div><div class="prod-brand">Traditional Medicinals · Organic Leaf & Root · 16 bags</div></td>
+        <td><div class="prod-name">Dandelion Root Tea</div><div class="prod-brand">Traditional Medicinals · Organic Leaf &amp; Root · 16 bags</div></td>
         <td><div class="dose-amount">2 cups daily</div><div class="dose-timing">Morning and afternoon</div></td>
         <td><div class="why-text">Stimulates bile and supports kidney drainage simultaneously — liver + kidneys in one cup</div></td>
-              <td><div class="qty-box"><span class="qty-main">4 boxes</span><span class="qty-sub">2 cups/day = box lasts 8 days</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/traditional-medicinals-organic-dandelion-leaf-root-tea-caffeine-free-16-wrapped-tea-bags-0-99-oz-28-g/63384?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/traditional-medicinals-organic-dandelion-leaf-root-tea-caffeine-free-16-wrapped-tea-bags-0-99-oz-28-g/63384?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">10</td>
         <td><div class="prod-name">Castor Oil — Organic</div><div class="prod-brand">Heritage Store · Cold-pressed · 16 fl oz</div></td>
         <td><div class="dose-amount">Pack over liver area</div><div class="dose-timing">3–4× per week · 45 min · warm compress</div></td>
         <td><div class="why-text">Increases bile flow, lymphatic circulation, and liver enzyme activity — best passive liver support available</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">lasts 2–3 months</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/heritage-store-organic-castor-oil-16-fl-oz-473-ml/22831?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/heritage-store-organic-castor-oil-16-fl-oz-473-ml/22831?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">11</td>
         <td><div class="prod-name">Epsom Salt — USP Grade</div><div class="prod-brand">Epsoak · 5lb unscented · resealable bag</div></td>
         <td><div class="dose-amount">2 cups per bath</div><div class="dose-timing">3× per week minimum · 30–40 min hot bath</div></td>
         <td><div class="why-text">Transdermal magnesium into muscles; draws toxins out through skin</div></td>
-              <td><div class="qty-box"><span class="qty-main">2 bags</span><span class="qty-sub">each ~2.5 weeks at 3 baths/week</span></div></td>
-      <td><div class="qty-box"><span class="qty-main">2 bags</span><span class="qty-sub">each ~2.5 weeks at 3 baths/week</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-amazon" href="https://www.amazon.com/Epsoak-Magnesium-Resealable-Unscented-Cruelty-Free/dp/B004N79BYC" target="_blank">Amazon →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-amazon" href="https://www.amazon.com/Epsoak-Magnesium-Resealable-Unscented-Cruelty-Free/dp/B004N79BYC" target="_blank">Amazon →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">12</td>
         <td><div class="prod-name">Shower Filter</div><div class="prod-brand">AquaBliss SF100 · Vitamin C + KDF + calcium sulfite</div></td>
         <td><div class="dose-amount">Install once</div><div class="dose-timing">Replace cartridge every 3 months</div></td>
         <td><div class="why-text">10-min hot shower absorbs more chlorine than drinking 2L of same water — undoes filtration at the tap</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 filter</span><span class="qty-sub">one-time · replace cartridge every 3 months</span></div></td>
-      <td><div class="qty-box"><span class="qty-main">1 filter</span><span class="qty-sub">one-time · replace cartridge/3 months</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-amazon" href="https://www.amazon.com/AquaBliss-Output-12-Stage-Shower-Filter/dp/B01MUBU0YC" target="_blank">Amazon →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-amazon" href="https://www.amazon.com/AquaBliss-Output-12-Stage-Shower-Filter/dp/B01MUBU0YC" target="_blank">Amazon →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">13</td>
         <td><div class="prod-name">Activated Charcoal</div><div class="prod-brand">NOW Foods · 200mg · 100 veg caps</div></td>
         <td><div class="dose-amount">500–1,000mg</div><div class="dose-timing">As needed during die-off · 2+ hrs from all supplements</div></td>
         <td><div class="why-text">Broad-spectrum binder for die-off toxins and endotoxins — especially useful during Phases 2–3</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">100 caps · use as needed</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-activated-charcoal-200-veg-capsules/708?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-activated-charcoal-200-mg-capsules-100-veg-capsules/708?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">14</td>
         <td><div class="prod-name">Apple Cider Vinegar</div><div class="prod-brand">Bragg · Organic Raw · With Mother · 946ml</div></td>
         <td><div class="dose-amount">1 tbsp in water</div><div class="dose-timing">10 min before meals · use a straw · also in detox baths</div></td>
         <td><div class="why-text">Restores stomach acid for proper protein digestion — essential for Mucuna absorption in Phase 2+</div></td>
-              <td><div class="qty-box"><span class="qty-main">2 bottles</span><span class="qty-sub">each lasts ~3 weeks</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/bragg-organic-apple-cider-vinegar-with-the-mother-16-fl-oz-473-ml/1864?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/bragg-organic-raw-apple-cider-vinegar-32-fl-oz-946-ml/1864?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
     </tbody>
   </table>
 
   <div class="phase-summary" style="border-left:4px solid var(--p1);">
     <div><span class="phase-summary-label">Phase 1 products: </span><span class="phase-summary-count" style="color:var(--p1);">14 items</span></div>
-    <div><span class="phase-summary-label">Also needed: </span><span style="font-size:12px;color:var(--ink-light);">Volvic or Fiji water 1L/day (or Eidon Ionic Silica iHerb if unavailable) · sauerkraut (refrigerated) · bone broth · dry skin brush</span></div>
+    <div><span class="phase-summary-label">Also needed: </span><span style="font-size:12px;color:var(--ink-light);">Volvic or Fiji water 1L/day · sauerkraut (refrigerated) · bone broth · dry skin brush</span></div>
   </div>
 </div>
 
@@ -378,9 +383,8 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
       <tr style="color:var(--p2);">
         <th class="col-num">#</th>
         <th class="col-name">Supplement</th>
-        <th class="col-dose">Dose & Timing</th>
+        <th class="col-dose">Dose &amp; Timing</th>
         <th class="col-why">Why</th>
-        <th class="col-qty">How Many</th>
         <th class="col-buy">Buy</th>
       </tr>
     </thead>
@@ -394,8 +398,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
         </td>
         <td><div class="dose-amount">500mg · 2–3× daily</div><div class="dose-timing">30 min before each meal · empty stomach · away from protein</div></td>
         <td><div class="why-text">Natural levodopa — the direct dopamine precursor. Most important supplement in the entire protocol.</div></td>
-              <td><div class="qty-box qty-monthly"><span class="qty-main">2 bottles/month</span><span class="qty-sub">3 caps/day ongoing</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-dopa-mucuna-90-veg-capsules/8673?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-dopa-mucuna-90-veg-capsules/8673?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">2</td>
@@ -404,101 +407,88 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
           <div class="prod-brand">Host Defense · Organic Mycelium · 120 caps · 500mg each</div>
         </td>
         <td><div class="dose-amount">1,000mg morning + 500mg night</div><div class="dose-timing">With food</div></td>
-        <td><div class="why-text">Only natural substance that stimulates Nerve Growth Factor (NGF) — promotes neuron repair and dopaminergic protection</div></td>
-              <td><div class="qty-box qty-monthly"><span class="qty-main">1 bottle/month</span><span class="qty-sub">120 caps = 40 days at 3/day</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/host-defense-lion-s-mane-capsules-120-count/61802?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="why-text">Stimulates production of Nerve Growth Factor (NGF) — the compound that promotes growth, maintenance, and repair of neurons. The only natural substance with documented ability to stimulate NGF production in the brain. Research shows neuroprotection in dopaminergic neurons specifically. Also supports the myelin sheath — the protective coating of every nerve in the body.</div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/host-defense-mushrooms-lion-s-mane-120-capsules-0-5-g-per-capsule/61802?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">3</td>
         <td>
-          <div class="prod-name">CoQ10 Ubiquinol + PQQ <span class="new-badge" style="background:var(--p2-pale);color:var(--p2);">KEY</span></div>
-          <div class="prod-brand">California Gold Nutrition · Ubiquinol 100mg + PQQ · 120 veggie caps</div>
+          <div class="prod-name">CoQ10 Ubiquinol <span class="new-badge" style="background:var(--p2-pale);color:var(--p2);">KEY</span></div>
+          <div class="prod-brand">Jarrow QH-Absorb · 100mg · 120 softgels</div>
         </td>
         <td><div class="dose-amount">200–400mg daily</div><div class="dose-timing">With fat-containing meal · ubiquinol form only</div></td>
-        <td><div class="why-text">Ubiquinol (active form) + PQQ in one capsule. Ubiquinol powers mitochondrial energy production — severely depleted in Parkinson's. PQQ creates new mitochondria. Combined, these are the most important mitochondrial support available.</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">120 caps = 2–4 months</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/california-gold-nutrition-coq10-ubiquinol-pqq-combo/143326?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="why-text">Mitochondrial energy production collapses in dopaminergic neurons before they die — CoQ10 is the central cofactor for mitochondrial function. Ubiquinol is the active, pre-reduced form — the only form the body can use directly. Studies show significantly lower CoQ10 levels in Parkinson's patients. At high doses (1,200mg), a landmark clinical trial showed slowing of functional decline.</div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/jarrow-formulas-ubiquinol-qh-absorb-100-mg-120-softgels/4694?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">4</td>
         <td><div class="prod-name">NAC — N-Acetyl Cysteine</div><div class="prod-brand">NOW Foods · 600mg · 250 caps</div><div class="prod-warn">Do not use with nitroglycerin or blood pressure medications without guidance</div></td>
         <td><div class="dose-amount">600mg twice daily</div><div class="dose-timing">Between meals</div></td>
-        <td><div class="why-text">Raises glutathione — the brain's primary antioxidant, severely depleted in the substantia nigra in Parkinson's</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">250 caps = 4 months at 2/day</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-nac-n-acetyl-cysteine-600-mg-100-veg-capsules/694?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="why-text">Raises glutathione — the brain's primary antioxidant and detoxification molecule. Glutathione is severely depleted in the substantia nigra in Parkinson's. NAC is the most effective oral method to restore it. Also disrupts biofilm and supports mitochondrial function.</div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-nac-600-mg-250-capsules/694?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">5</td>
         <td><div class="prod-name">NMN — Nicotinamide Mononucleotide</div><div class="prod-brand">ProHealth Longevity NMN Pro · Pure Powder · 30g</div></td>
         <td><div class="dose-amount">500mg daily</div><div class="dose-timing">Morning · fasted</div></td>
         <td><div class="why-text">NAD+ drops 50% between ages 40–60; restoring it supports mitochondrial function and neuronal DNA repair</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">30g = 2 months at 500mg/day</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/prohealth-longevity-pure-nmn-powder-30-grams/114175?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/prohealth-longevity-nmn-pro-pure-nmn-powder-1-000-mg-30-g/114175?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">6</td>
-        <td><div class="prod-name">PQQ — Pyrroloquinoline Quinone <span class="new-badge" style="background:#e8f2ec;color:#3d6b4a;">included in CoQ10 above</span></div><div class="prod-brand">Doctor's Best · 20mg · 30 veggie caps</div></td>
+        <td><div class="prod-name">PQQ — Pyrroloquinoline Quinone</div><div class="prod-brand">Jarrow Formulas · 20mg · 30 caps</div></td>
         <td><div class="dose-amount">20mg daily</div><div class="dose-timing">With CoQ10 (synergistic)</div></td>
-        <td><div class="why-text">Only compound known to promote creation of new mitochondria in neurons. Already included in the CGN Ubiquinol+PQQ combo above — buy one product for both. Only purchase separately if you need a higher PQQ dose.</div></td>
-              <td><div class="qty-box"><span class="qty-main">—</span><span class="qty-sub">included in CoQ10 combo above</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/doctor-s-best-pqq-20-mg-30-veggie-caps/49081?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="why-text">NAD+ — the cellular energy and DNA repair molecule — drops up to 50% between ages 40 and 60. In Parkinson's, NAD+ depletion in neurons accelerates degeneration. NMN is the most direct NAD+ precursor. Supports mitochondrial function, sirtuin activation, and neuronal resilience at the cellular level.</div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/jarrow-formulas-pqq-pyrroloquinoline-quinone-20-mg-30-capsules/4698?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">7</td>
-        <td><div class="prod-name">Berberine HCl</div><div class="prod-brand">Natural Factors WellBetX · 500mg · 60 veggie caps</div><div class="prod-warn">Interacts with metformin and cyclosporine</div></td>
+        <td><div class="prod-name">Berberine HCl</div><div class="prod-brand">Doctor's Best · 500mg · 90 caps</div><div class="prod-warn">Interacts with metformin and cyclosporine</div></td>
         <td><div class="dose-amount">500mg twice daily</div><div class="dose-timing">With meals</div></td>
-        <td><div class="why-text">Disrupts biofilm quorum sensing, direct antimicrobial activity, supports gut microbiome restoration</div></td>
-              <td><div class="qty-box qty-monthly"><span class="qty-main">2 bottles/month</span><span class="qty-sub">2 caps/day = 30 days/bottle</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/natural-factors-wellbetx-berberine-60-vegetarian-capsules-500-mg-per-capsule/65987?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="why-text">Promotes mitochondrial biogenesis — the creation of new mitochondria in neurons. The only compound known to do this. Works synergistically with CoQ10. Also activates nerve growth factor and has antioxidant activity 5,000× greater than Vitamin C in some pathways.</div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/doctor-s-best-berberine-hcl-500-mg-90-veggie-caps/84753?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">8</td>
         <td><div class="prod-name">Serrapeptase — High Potency</div><div class="prod-brand">Doctor's Best · 120,000 SPU · 270 caps</div><div class="prod-warn">Do not use with blood-thinning medications or before surgery</div></td>
         <td><div class="dose-amount">120,000 SPU daily</div><div class="dose-timing">Empty stomach · 45 min before food</div></td>
         <td><div class="why-text">Breaks down the protein matrix of biofilm — the protective shell that makes pathogens invisible to the immune system</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">270 caps = 9 months at 1/day</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/doctor-s-best-serrapeptase-120-000-spu-90-veggie-caps/51946?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/doctor-s-best-high-potency-serrapeptase-120-000-spu-270-veggie-caps/51946?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">9</td>
         <td><div class="prod-name">Nattokinase</div><div class="prod-brand">NOW Foods · 100mg · 2,000 FU · 120 veg caps</div><div class="prod-warn">Do not combine with warfarin or aspirin without guidance</div></td>
         <td><div class="dose-amount">2,000 FU twice daily</div><div class="dose-timing">Empty stomach</div></td>
         <td><div class="why-text">Breaks down fibrin — the structural scaffolding of biofilm — and supports blood flow</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">120 caps = 2 months at 2/day</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-nattokinase-2-000-fu-90-veg-capsules/11904?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-nattokinase-100-mg-120-veg-capsules/11904?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">10</td>
-        <td><div class="prod-name">Passionflower Extract</div><div class="prod-brand">California Gold Nutrition EuroHerbs · Standardised Extract · 250mg · 60 veggie caps</div></td>
+        <td><div class="prod-name">Passionflower Extract</div><div class="prod-brand">NOW Foods · 350mg · 90 veg caps</div></td>
         <td><div class="dose-amount">250–500mg</div><div class="dose-timing">30 min before bed · as needed for sleep</div></td>
         <td><div class="why-text">Increases GABA activity — calms REM sleep disruption and nocturnal excitability without pharmaceutical side effects</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">60 caps = 2 months as needed</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/california-gold-nutrition-euroherbs-passion-flower-extract-euromed-quality-250-mg-60-veggie-capsules/72084?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-passion-flower-350-mg-90-veg-capsules/727?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">11</td>
         <td><div class="prod-name">Mannitol Powder <span class="new-badge" style="background:var(--p2-pale);color:var(--p2);">KEY</span></div><div class="prod-brand">Food-grade powder · various brands</div></td>
         <td><div class="dose-amount">5–10g daily</div><div class="dose-timing">Afternoon · in water · away from meals</div></td>
         <td><div class="why-text">Inhibits alpha-synuclein fibril formation — the most direct natural intervention on Parkinson's core pathology. Phase IIa trial confirmed safety.</div></td>
-              <td><div class="qty-box qty-monthly"><span class="qty-main">1 x 250g/month</span><span class="qty-sub">5–10g/day = 25–50 days</span></div></td>
-      <td><div class="qty-box qty-monthly"><span class="qty-main">1 x 250g/month</span><span class="qty-sub">5–10g/day = 25–50 days</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-amazon" href="https://www.amazon.com/s?k=mannitol+powder+food+grade" target="_blank">Amazon Search →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-amazon" href="https://www.amazon.com/s?k=mannitol+powder+food+grade" target="_blank">Amazon Search →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">12</td>
-        <td><div class="prod-name">Saffron Extract</div><div class="prod-brand">California Gold Nutrition · Affron® Extract · 28mg · 60 veggie caps</div></td>
+        <td><div class="prod-name">Saffron Extract</div><div class="prod-brand">Jarrow Formulas · 30mg · Safr'Inside · 60 caps</div></td>
         <td><div class="dose-amount">30mg daily</div><div class="dose-timing">With food</div></td>
-        <td><div class="why-text">Multiple clinical trials show Affron saffron extract equals antidepressants for mild-moderate depression — addresses Parkinson's neurochemical mood deficit</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">60 caps = 2 months at 1/day</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/california-gold-nutrition-saffron-extract-with-affron-28-mg-60-veggie-capsules/102196?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="why-text">A natural sugar alcohol that inhibits alpha-synuclein fibril formation — the specific protein aggregation that drives dopaminergic neuron loss. In animal models, mannitol reversed motor impairments and reduced brain alpha-synuclein burden. A Phase IIa clinical trial (2024) confirmed safety and tolerability in Parkinson's patients. Of all natural compounds, mannitol has the most direct mechanistic action on the core pathology.</div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/jarrow-formulas-saffron-30-20-mg-60-capsules/73847?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">13</td>
-        <td><div class="prod-name">SBO Probiotics</div><div class="prod-brand">Ancient Nutrition SBO Probiotics · 25 Billion CFU · 60 caps</div></td>
+        <td><div class="prod-name">SBO Probiotics</div><div class="prod-brand">Garden of Life Primal Defense Ultra · 216 caps</div></td>
         <td><div class="dose-amount">As directed · build slowly</div><div class="dose-timing">With meals · build dose over 2 weeks</div></td>
-        <td><div class="why-text">Restores gut bacteria depleted in Parkinson's — directly supports the gut-brain axis, the origin point of alpha-synuclein pathology</div></td>
-              <td><div class="qty-box qty-monthly"><span class="qty-main">1 bottle/month</span><span class="qty-sub">60 caps = 30 days</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/ancient-nutrition-sbo-probiotics-25-billion-cfu-60-capsules/105816?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="why-text">The gut-brain axis is central to Parkinson's pathology — alpha-synuclein aggregation begins in the gut years before reaching the brain. Restoring beneficial bacteria directly reduces the inflammatory load on the vagus nerve pathway. Specific strains depleted in Parkinson's patients support dopamine production and reduce intestinal inflammation.</div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/garden-of-life-primal-defense-ultra-ultimate-probiotic-formula-216-ugam-capsules/52?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
     </tbody>
   </table>
@@ -527,53 +517,46 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
       <tr style="color:var(--p3);">
         <th class="col-num">#</th>
         <th class="col-name">Supplement</th>
-        <th class="col-dose">Dose & Rotation</th>
+        <th class="col-dose">Dose &amp; Rotation</th>
         <th class="col-why">Why</th>
-        <th class="col-qty">How Many</th>
         <th class="col-buy">Buy</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td class="col-num">1</td>
-        <td><div class="prod-name">Black Walnut + Wormwood + Cloves</div><div class="prod-brand">NOW Foods Black Walnut &amp; Wormwood Complex</div><div class="prod-note">Contains: Green Black Walnut Hulls (<em>Juglans nigra</em>), Wormwood (<em>Artemisia absinthium</em>) &amp; Clove Bud (<em>Syzygium aromaticum</em>) — the complete Clark Triad in one product.</div><div class="prod-warn">Not during pregnancy. Avoid with liver concerns.</div></td>
+        <td><div class="prod-name">Black Walnut + Wormwood + Cloves</div><div class="prod-brand">NOW Foods Green Black Walnut Wormwood Complex · 2 fl oz tincture</div><div class="prod-warn">Not during pregnancy. Avoid with liver concerns.</div></td>
         <td><div class="dose-amount">½–2 droppersful 2× daily</div><div class="dose-timing">Rotation Week 1 and 3 · in juice or water before meals</div></td>
         <td><div class="why-text">The Clark Triad — covers all parasite life stages. Cloves are the only compound that kills eggs and larvae. All three must work together.</div></td>
-              <td><div class="qty-box"><span class="qty-main">2 bottles</span><span class="qty-sub">each lasts ~2 weeks of rotation</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-black-walnut-hull-and-wormwood-complex-100-veg-capsules/591?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-green-black-walnut-wormwood-complex-2-fl-oz-59-ml/591?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">2</td>
         <td><div class="prod-name">Oregano Oil — Enteric Coated</div><div class="prod-brand">NOW Foods · High Potency · 90 softgels</div></td>
         <td><div class="dose-amount">1–2 caps twice daily</div><div class="dose-timing">Rotation Week 2 · with food or between meals</div></td>
         <td><div class="why-text">Carvacrol and thymol provide broad-spectrum antimicrobial, antifungal, and antiparasitic action — enteric coating prevents stomach acid destruction</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">90 caps lasts 1 full rotation</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-oregano-oil-90-softgels/731?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-oregano-oil-90-softgels/721?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">3</td>
         <td><div class="prod-name">Mimosa Pudica Seed</div><div class="prod-brand">Microbe Formulas or similar · powder or capsule</div></td>
         <td><div class="dose-amount">1g daily</div><div class="dose-timing">Rotation Week 4 · away from food</div></td>
         <td><div class="why-text">Forms a sticky gel in the gut that physically traps and removes parasites and biofilm — mechanical action, not chemical</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">lasts 1 rotation week</span></div></td>
-      <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">lasts 1 rotation week</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-amazon" href="https://www.amazon.com/s?k=mimosa+pudica+seed+capsules" target="_blank">Amazon Search →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-amazon" href="https://www.amazon.com/s?k=mimosa+pudica+seed+capsules" target="_blank">Amazon Search →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">4</td>
         <td><div class="prod-name">Raw Pumpkin Seeds</div><div class="prod-brand">Raw, unsalted · any brand · buy in bulk</div></td>
         <td><div class="dose-amount">Large handful every morning</div><div class="dose-timing">Empty stomach · chew well · every day this phase</div></td>
         <td><div class="why-text">Cucurbitacin paralyses parasites and prevents intestinal adhesion — safe for continuous daily use, inexpensive</div></td>
-              <td><div class="qty-box"><span class="qty-main">500g every 3 weeks</span><span class="qty-sub">large handful/day</span></div></td>
-      <td><div class="qty-box"><span class="qty-main">500g bag / 3 weeks</span><span class="qty-sub">large handful/day · buy in bulk</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-local">Local market</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-local">Local market</a></div></td>
       </tr>
     </tbody>
   </table>
 
   <div class="phase-summary" style="border-left:4px solid var(--p3);">
     <span><span class="phase-summary-label">New in Phase 3: </span><span class="phase-summary-count" style="color:var(--p3);">4 new items</span></span>
-    <span style="font-size:12px;color:var(--ink-light);">+ Continue all Phases 1 & 2</span>
+    <span style="font-size:12px;color:var(--ink-light);">+ Continue all Phases 1 &amp; 2</span>
   </div>
 </div>
 
@@ -588,16 +571,15 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
     <span style="font-size:12px;color:var(--p4);font-weight:700;">Heavy Metal Clearing — Aluminium Out</span>
   </div>
   <h2 class="phase-title">Pull the Metals From Deep Tissue</h2>
-  <p class="phase-desc">All binders must be taken 2+ hours away from food, supplements, and medications. Never mobilise metals without binders present. Silica (Volvic/Fiji water or Eidon Ionic Silica supplement) continues permanently from Phase 1 onward — not just Phase 4.</p>
+  <p class="phase-desc">All binders must be taken 2+ hours away from food, supplements, and medications. Never mobilise metals without binders present. Silica water (Volvic/Fiji 1L daily) continues permanently from this phase onward.</p>
 
   <table class="supp-table" style="border-top:2px solid var(--p4);">
     <thead>
       <tr style="color:var(--p4);">
         <th class="col-num">#</th>
         <th class="col-name">Supplement</th>
-        <th class="col-dose">Dose & Timing</th>
+        <th class="col-dose">Dose &amp; Timing</th>
         <th class="col-why">Why</th>
-        <th class="col-qty">How Many</th>
         <th class="col-buy">Buy</th>
       </tr>
     </thead>
@@ -607,42 +589,35 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
         <td><div class="prod-name">Zeolite — Clinoptilolite <span class="new-badge" style="background:var(--p4-pale);color:var(--p4);">ALUMINIUM</span></div><div class="prod-brand">Pure Planet Fulvic Zeolite · 1 fl oz liquid drops</div></td>
         <td><div class="dose-amount">1–2g daily</div><div class="dose-timing">Away from supplements · morning and night</div></td>
         <td><div class="why-text">Crystalline cage structure traps heavy metals including aluminium — one of the few binders that enters bloodstream to pull metals from tissue, not just the gut</div></td>
-              <td><div class="qty-box"><span class="qty-main">2 bottles</span><span class="qty-sub">1oz each · 1–2g/day for 4 weeks</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/pure-planet-fulvic-zeolite-1-fl-oz-30-ml/39558?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/pure-planet-fulvic-zeolite-1-fl-oz-30-ml/39558?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">2</td>
         <td><div class="prod-name">Modified Citrus Pectin (MCP)</div><div class="prod-brand">Econugenics PectaSol · 454g powder</div></td>
         <td><div class="dose-amount">5g · 3× daily</div><div class="dose-timing">Between meals · in water or juice</div></td>
         <td><div class="why-text">Enters bloodstream to pull lead, arsenic, cadmium, and mercury from tissue — most comprehensively researched natural chelation agent available</div></td>
-              <td><div class="qty-box"><span class="qty-main">2 bags</span><span class="qty-sub">each 454g = ~30 days at 15g/day</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/econugenics-pectasol-c-modified-citrus-pectin-454-g/15379?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/econugenics-pectasol-modified-citrus-pectin-16-oz-454-g/15379?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">3</td>
-        <td><div class="prod-name">Chlorella — Broken Cell Wall</div><div class="prod-brand">NOW Foods · 1g per tablet · 120 tablets</div></td>
+        <td><div class="prod-name">Chlorella — Broken Cell Wall</div><div class="prod-brand">NOW Foods · 1,000mg · 120 tablets</div></td>
         <td><div class="dose-amount">Start 500mg · build to 2–4g</div><div class="dose-timing">With food · always with cilantro if using cilantro</div></td>
         <td><div class="why-text">Strong chelator of mercury specifically — broken cell wall essential for absorption. Always pair with cilantro if using cilantro as a mobiliser.</div></td>
-              <td><div class="qty-box"><span class="qty-main">2 bottles</span><span class="qty-sub">120 tabs · 2–4/day for 4 weeks</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-chlorella-120-tablets-1-g-per-tablet/512?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-chlorella-1-000-mg-120-tablets/702?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">4</td>
-        <td><div class="prod-name">Silica — Ionic Liquid + Tablets <span class="new-badge" style="background:var(--p4-pale);color:var(--p4);">If Volvic/Fiji unavailable</span></div><div class="prod-brand">Eidon Ionic Silica 18oz (ID 25998) · + NOW Foods Silica Complex 180 tabs (ID 799)</div></td>
-        <td><div class="dose-amount">1 tbsp Eidon liquid · morning · + 2 NOW tabs at lunch</div><div class="dose-timing">Start Phase 1 · permanent — never stop · 1 bottle Eidon lasts ~35 days · buy 4 for Phase 4, then monthly reorder</div></td>
-        <td><div class="why-text">Silica binds aluminium in the blood and removes it via urine — the only method confirmed in peer-reviewed human trials to reduce brain aluminium load. Aluminium in the substantia nigra is directly linked to Parkinson's. If Volvic or Fiji are not available locally, these two iHerb supplements deliver the same bioavailable silicic acid form. Start from Phase 1, not Phase 4. Never stop.</div></td>
-              <td><div class="qty-box qty-monthly"><span class="qty-main">1 bottle/month</span><span class="qty-sub">18oz = ~35 days · start Phase 1</span></div></td>
-      <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">180 tabs = 3 months at 2/day</span></div></td>
-      <td><div class="qty-box qty-monthly"><span class="qty-main">1 bottle/month</span><span class="qty-sub">18oz = ~35 days</span></div></td>
-      <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">180 tabs = 3 months at 2/day</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/eidon-ionic-minerals-silica-18-oz-533-ml/25998?rcode=GUW6132" target="_blank">Eidon Silica iHerb →</a><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-silica-complex-with-horsetail-extract-180-tablets/799?rcode=GUW6132" target="_blank" style="margin-top:4px;">NOW Silica iHerb →</a></div></td>
+        <td><div class="prod-name">Silica-Rich Water</div><div class="prod-brand">Volvic or Fiji Water · 1 litre daily · permanent</div></td>
+        <td><div class="dose-amount">1 litre daily</div><div class="dose-timing">Sip through the morning · in addition to filtered water · permanent — never stop</div></td>
+        <td><div class="why-text">Silica binds aluminium in the blood and removes it via urine — the only method confirmed in peer-reviewed human trials to reduce brain aluminium load. Aluminium in the substantia nigra is directly linked to Parkinson's.</div></td>
+        <td><div class="buy-links"><a class="buy-link buy-local">Supermarket</a><br><a class="buy-link buy-amazon" href="https://www.amazon.com/s?k=volvic+water+case" target="_blank" style="margin-top:4px;">Amazon (case) →</a></div></td>
       </tr>
     </tbody>
   </table>
 
   <div class="phase-summary" style="border-left:4px solid var(--p4);">
     <span><span class="phase-summary-label">New in Phase 4: </span><span class="phase-summary-count" style="color:var(--p4);">4 new items</span></span>
-    <span style="font-size:12px;color:var(--ink-light);">+ Continue all Phases 1, 2 & 3</span>
+    <span style="font-size:12px;color:var(--ink-light);">+ Continue all Phases 1, 2 &amp; 3</span>
   </div>
 </div>
 
@@ -664,36 +639,32 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
       <tr style="color:var(--p5);">
         <th class="col-num">#</th>
         <th class="col-name">Supplement</th>
-        <th class="col-dose">Dose & Timing</th>
+        <th class="col-dose">Dose &amp; Timing</th>
         <th class="col-why">Why</th>
-        <th class="col-qty">How Many</th>
         <th class="col-buy">Buy</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td class="col-num">1</td>
-        <td><div class="prod-name">L-Glutamine Powder</div><div class="prod-brand">Doctor's Best · Pure Powder · 300g</div></td>
+        <td><div class="prod-name">L-Glutamine Powder</div><div class="prod-brand">NOW Foods · Pure Powder · 454g</div></td>
         <td><div class="dose-amount">5–10g morning + 5g night</div><div class="dose-timing">Empty stomach</div></td>
         <td><div class="why-text">Primary fuel for gut lining cells — directly rebuilds the one-cell-thick barrier that separates gut from bloodstream</div></td>
-              <td><div class="qty-box"><span class="qty-main">2 bags</span><span class="qty-sub">300g · 10–20g/day = 15–30 days each</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/doctor-s-best-pure-l-glutamine-powder-10-6-oz-300-g/85597?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-l-glutamine-pure-powder-1-lb-454-g/737?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">2</td>
-        <td><div class="prod-name">Aloe Vera — Inner Leaf Gel</div><div class="prod-brand">NOW Foods · Inner Leaf · 50mg per softgel · 100 softgels</div></td>
-        <td><div class="dose-amount">3–4 softgels daily</div><div class="dose-timing">In water · empty stomach</div></td>
-        <td><div class="why-text">Inner leaf aloe vera — acemannan coats and protects the gut lining. Softgel form is convenient and effective. Take 3–4 softgels per dose for therapeutic benefit — the 50mg per softgel is a concentrated extract.</div></td>
-              <td><div class="qty-box"><span class="qty-main">2 bottles</span><span class="qty-sub">100 softgels · 3–4/day = 25 days each</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-aloe-vera-gels-100-softgels-50-mg-per-softgel/381?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="prod-name">Aloe Vera — Inner Leaf Gel</div><div class="prod-brand">George's Always Active · 473ml</div></td>
+        <td><div class="dose-amount">1–2 tbsp daily</div><div class="dose-timing">In water · empty stomach</div></td>
+        <td><div class="why-text">Acemannan coats and protects the gut lining, reduces inflammation, and supports tight junction repair between gut wall cells</div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/george-s-always-active-aloe-vera-16-oz-473-ml/14880?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">3</td>
-        <td><div class="prod-name">Zinc Carnosine</div><div class="prod-brand">Doctor's Best PepZin GI · Zinc-L-Carnosine · 120 veggie caps</div><div class="prod-warn">Long-term zinc supplementation depletes copper — monitor with Hidden Deficiencies protocol</div></td>
+        <td><div class="prod-name">Zinc Carnosine</div><div class="prod-brand">Doctor's Best PepZin GI · 120 veggie caps</div><div class="prod-warn">Long-term zinc supplementation depletes copper — monitor with Hidden Deficiencies protocol</div></td>
         <td><div class="dose-amount">75mg twice daily</div><div class="dose-timing">With food</div></td>
         <td><div class="why-text">Stabilises gut lining, reduces inflammation, accelerates intestinal wall healing — documented in clinical trials for gut integrity</div></td>
-              <td><div class="qty-box"><span class="qty-main">1 bottle</span><span class="qty-sub">120 caps = 2 months at 2/day</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/doctor-s-best-pepzin-gi-zinc-l-carnosine-120-veggie-caps/2467?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/doctor-s-best-pepszcin-gi-zinc-l-carnosine-complex-120-veggie-caps/67695?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
     </tbody>
   </table>
@@ -711,7 +682,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
 <div class="phase-block">
   <div class="phase-head">
     <span class="phase-badge" style="background:var(--p6);">All Phases</span>
-    <span class="phase-weeks">Week 1 & Forever</span>
+    <span class="phase-weeks">Week 1 &amp; Forever</span>
     <span style="font-size:12px;color:var(--p6);font-weight:700;">These never stop</span>
   </div>
   <h2 class="phase-title">Bedside Kit + Permanent Staples</h2>
@@ -724,7 +695,6 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
         <th class="col-name">Item</th>
         <th class="col-dose">Use</th>
         <th class="col-why">Why</th>
-        <th class="col-qty">How Many</th>
         <th class="col-buy">Buy</th>
       </tr>
     </thead>
@@ -740,25 +710,22 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
         <td class="col-num">★</td>
         <td><div class="prod-name">Magnesium Glycinate — Bedside</div><div class="prod-brand">Doctor's Best · same bottle</div></td>
         <td><div class="dose-amount">200–400mg</div><div class="dose-timing">On bedside table permanently — for night tremor and sleep</div></td>
-        <td><div class="why-text">For nighttime tremor relief, muscle relaxation, and restoring sleep after waking — works within 20–30 minutes</div></td>
-        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/now-foods-magnesium-glycinate-180-tablets-100-mg-per-tablet/88819?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
+        <td><div class="why-text">Contains natural levodopa — the direct dopamine precursor. More than 3,000 years of use in Ayurvedic medicine for movement disorders. Multiple clinical trials show comparable efficacy to pharmaceutical levodopa, with faster onset and longer duration. Natural levodopa is better tolerated and does not cause the dyskinesia associated with synthetic levodopa over time. If on pharmaceutical levodopa — discuss dose adjustment with doctor. Do not combine without guidance.</div></td>
+        <td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/doctor-s-best-high-absorption-magnesium-lysinate-glycinate-chelated-albion-traacs-240-tablets-100-mg-per-tablet/85189?rcode=GUW6132" target="_blank">iHerb →</a></div></td>
       </tr>
       <tr>
         <td class="col-num">★</td>
         <td><div class="prod-name">Bone Broth / Collagen Powder</div><div class="prod-brand">Any quality brand · homemade is best</div></td>
         <td><div class="dose-amount">1–2 cups daily</div><div class="dose-timing">Morning and evening · permanent</div></td>
-        <td><div class="why-text">Glycine and collagen for gut lining, myelin sheath, joint tissue — irreplaceable traditional healing food</div></td>
-              <td><div class="qty-box qty-monthly"><span class="qty-main">2 containers/month</span><span class="qty-sub">567g = ~19–38 days</span></div></td>
-      <td><div class="qty-box qty-monthly"><span class="qty-main">2 containers/month</span><span class="qty-sub">567g = ~19–38 days</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-iherb" href="https://www.iherb.com/pr/vital-proteins-collagen-peptides-unflavored-20-oz-567-g/71356?rcode=GUW6132" target="_blank">iHerb →</a><br><a class="buy-link buy-local" style="margin-top:4px;">Local butcher (broth)</a></div></td>
+        <td><div class="why-text">Required for over 300 enzymatic reactions including dopamine synthesis, muscle relaxation, and neurological function. Most Parkinson's patients are severely deficient. Glycinate form crosses the blood-brain barrier most effectively and is the gentlest on digestion. Directly reduces muscle rigidity and cramps.</div></td>
+        <td><div class="buy-links"><a class="buy-link buy-amazon" href="https://www.amazon.com/s?k=bone+broth+powder+collagen" target="_blank">Amazon Search →</a><br><a class="buy-link buy-local" style="margin-top:4px;">Local butcher / supermarket</a></div></td>
       </tr>
       <tr>
         <td class="col-num">★</td>
         <td><div class="prod-name">Sauerkraut — Refrigerated Live</div><div class="prod-brand">Any brand · must be refrigerated · NOT pasteurised · NOT from a jar on shelf</div></td>
         <td><div class="dose-amount">2 tbsp every meal</div><div class="dose-timing">With every single meal · permanent · non-negotiable</div></td>
         <td><div class="why-text">More live bacteria per serving than most commercial probiotics — restores the exact gut microbiome depleted in Parkinson's</div></td>
-              <td><div class="qty-box"><span class="qty-main">Weekly</span><span class="qty-sub">2 tbsp every meal · buy fresh always</span></div></td>
-<td><div class="buy-links"><a class="buy-link buy-local">Refrigerated section of supermarket or health shop</a></div></td>
+        <td><div class="buy-links"><a class="buy-link buy-local">Refrigerated section of supermarket or health shop</a></div></td>
       </tr>
     </tbody>
   </table>
@@ -771,12 +738,12 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
 <!-- ══════════════════════════════════════════ -->
 <!-- GRAND TOTAL + CTA -->
 <!-- ══════════════════════════════════════════ -->
-<div class="grand-total">
-  <h3>Complete Protocol — 39 Products Total</h3>
+<div class="grand-total" style="background:var(--bg-deep);color:var(--ink);">
+  <h3>Complete Protocol — 38 Products Total</h3>
   <p>
-    <strong>iHerb (27 products):</strong> Use code <span class="code">GUW6132</span> at checkout — 10% off for new customers, 5% for returning.<br>
+    <strong>iHerb (26 products):</strong> Use code <span class="code">GUW6132</span> at checkout — 10% off for new customers, 5% for returning.<br>
     <strong>Amazon (5 products):</strong> Epsom salt · Shower filter · Mannitol · Mimosa pudica · Silica water (bulk)<br>
-    <strong>Local (3 items):</strong> Sauerkraut (refrigerated) · Bone broth · Raw pumpkin seeds<br><strong>Silica Option B (if Volvic/Fiji unavailable):</strong> Eidon Ionic Silica iHerb ID 25998 · NOW Foods Silica Complex iHerb ID 799<br><br>
+    <strong>Local (4 items):</strong> Sauerkraut (refrigerated) · Bone broth · Raw pumpkin seeds · Volvic/Fiji water (daily)<br><br>
     Buy Phase 1 first. Add Phase 2 products at Week 3. Do not buy everything at once.
   </p>
   <a class="grand-iherb-btn" href="https://www.iherb.com/?rcode=GUW6132" target="_blank">Shop iHerb · Code GUW6132</a>
@@ -784,14 +751,539 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
 
 </div><!-- end inner -->
 
-<footer style="background:var(--bg-footer);padding:28px 24px;text-align:center;">
-  <p style="font-family:'Playfair Display',serif;font-size:16px;color:#fff;margin-bottom:8px;">Heal Yourself</p>
-  <p style="font-size:12px;color:rgba(255,255,255,0.4);">This guide is free and always will be. Support it by using iHerb code <strong style="color:var(--sage-nav);">GUW6132</strong>.</p>
-  <div style="margin-top:14px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-    <a href="Parkinsons_Protocol.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">← Full Protocol</a>
-    <a href="Parkinsons_Daily_Schedule.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">Daily Schedule →</a>
+
+<section style="background:var(--bg-deep);border-top:1px solid var(--border);">
+  <div class="inner" style="max-width:740px;padding-top:52px;padding-bottom:52px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:18px;">About This Guide</div>
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:16px;">This guide was built from thousands of hours of independent research — peer-reviewed studies, suppressed clinical trials, and ancient healing traditions that predate the pharmaceutical model. The author spent years as a Pharmaceutical QA Internal Auditor before leaving to find the answers the system was not asking for.</p>
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:20px;">Every protocol here is free — because health knowledge should not be a luxury. If this guide helps you, the only thing asked in return is that you buy your supplements through iHerb using code <strong style="font-family:'DM Mono',monospace;color:var(--honey);">GUW6132</strong> at checkout. You save money. This guide stays alive.</p>
+    <a href="index.html#about" style="font-size:13px;font-weight:600;color:var(--sage);text-decoration:underline;text-underline-offset:3px;">Read the full story →</a>
+  </div>
+</section>
+
+<footer>
+  <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+    <div>
+      <div style="font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;">Heal Yourself</div>
+      <p style="font-size:12px;color:rgba(212,201,168,0.5);line-height:1.7;">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
+      <a href="index.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;">Home</a>
+    </div>
   </div>
 </footer>
 
-</body>
-</html>
+
+
+</body><div id="aiFabShadowRoot" data-fab-type="react" style="opacity: 1;"><template shadowrootmode="open"><div id="fab-react-root"><div class="fab-root"><div class="acrobat-button-container " style="bottom: 36px;"><div class="acrobat-button " role="button" aria-label="Get summaries and key insights using AI Assistant"><button class="close-btn  "><svg class="close-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_8552_7892" maskUnits="userSpaceOnUse" x="0" y="0" width="14" height="14" style="mask-type: alpha;"><path d="M7.82482 7.00034L10.6374 4.18778C10.7893 4.03592 10.7893 3.78969 10.6374 3.63783L10.3625 3.36292C10.2106 3.21106 9.96446 3.21106 9.81255 3.36292L6.99995 6.17548L4.18734 3.36292C4.03543 3.21106 3.78933 3.21106 3.63743 3.36292L3.36247 3.63783C3.21056 3.78969 3.21056 4.03592 3.36247 4.18778L6.17507 7.00034L3.36247 9.81295C3.21056 9.96481 3.21056 10.2111 3.36247 10.3629L3.63743 10.6378C3.78933 10.7897 4.03543 10.7897 4.18734 10.6378L6.99995 7.82526L9.81255 10.6378C9.96446 10.7897 10.2106 10.7897 10.3625 10.6378L10.6374 10.3629C10.7893 10.2111 10.7893 9.96481 10.6374 9.81295L7.82482 7.00034Z" fill="#222222"></path></mask><g mask="url(#mask0_8552_7892)"><rect width="14" height="14"></rect></g></svg><svg class="burger-icon" width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_12188_28876" maskUnits="userSpaceOnUse" x="3" y="3" width="15" height="14" style="mask-type: alpha;"><path d="M15.1285 12.8008H6.37852C6.08867 12.8008 5.85352 13.0359 5.85352 13.3258C5.85352 13.6156 6.08867 13.8508 6.37852 13.8508H15.1285C15.4184 13.8508 15.6535 13.6156 15.6535 13.3258C15.6535 13.0359 15.4184 12.8008 15.1285 12.8008Z" fill="#292929"></path><path d="M6.37852 6.85078H15.1285C15.4184 6.85078 15.6535 6.61562 15.6535 6.32578C15.6535 6.03594 15.4184 5.80078 15.1285 5.80078H6.37852C6.08867 5.80078 5.85352 6.03594 5.85352 6.32578C5.85352 6.61562 6.08867 6.85078 6.37852 6.85078Z" fill="#292929"></path><path d="M15.1285 9.30078H6.37852C6.08867 9.30078 5.85352 9.53594 5.85352 9.82578C5.85352 10.1156 6.08867 10.3508 6.37852 10.3508H15.1285C15.4184 10.3508 15.6535 10.1156 15.6535 9.82578C15.6535 9.53594 15.4184 9.30078 15.1285 9.30078Z" fill="#292929"></path></mask><g mask="url(#mask0_12188_28876)"><rect x="3.75391" y="3" width="14" height="14" fill="#464646"></rect></g></svg></button><div class="icon-container" role="button" tabindex="0" aria-label="Open AI Assistant"><svg id="ImportedIcons" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" class="fab-svg-icon"><path d="m6.21661,16.39534c-1.35034,2.23499-2.67933,3.64758-3.45616,3.64758-.12795.00539-.25276-.04056-.34667-.12762-.14818-.12483-.21629-.32065-.17758-.5105.14764-.80079,1.68628-1.95576,3.98041-3.00946Zm6.49075-3.19656c-.57993.12528-1.1792.27056-1.78689.43544-.4366.11893-.87951.24862-1.32255.38729.23541-.4949.4515-.98554.6398-1.452.24831-.6159.48156-1.232.69564-1.83456.18831.30354.38304.59839.58195.88207.39375.56092.81787,1.09736,1.19205,1.58176Zm-2.99822-10.63684c.08814-.18001.26644-.29855.46653-.31016.51149,0,.62276.63358.62276,1.1638-.06787,1.25011-.29293,2.48669-.66988,3.68055-.85816-2.33642-.73831-3.97319-.41942-4.53419h.00001Zm9.60883,12.20974c-.13359.4402-.56725.71808-1.023.6555-.15594-.00061-.3112-.02054-.46224-.05933-1.07834-.28263-2.07953-.80363-2.92976-1.5246.71719-.11267,1.44198-.17001,2.16797-.17149.48402-.00813.96771.03017,1.44442.11438.43447.09244.92449.33873.80261.98554Zm1.45515-1.0537c-1.01837-.83309-2.33117-1.21735-3.63802-1.06487-.98482.00983-1.96732.09739-2.93836.26187-.62354-.62512-1.19003-1.30467-1.69272-2.03054-.38314-.54455-.73672-1.10931-1.05923-1.69182.54287-1.57384.85986-3.2167.94151-4.87953,0-1.49369-.57564-3.09087-2.19132-3.09087-.56296.01952-1.07528.33036-1.35261.82066-.68906,1.2165-.41298,3.72002.68705,6.26756-.38306,1.17041-.80046,2.31007-1.31196,3.57265-.43687,1.08123-.93191,2.13803-1.48293,3.16579-1.64775.68213-5.15115,2.33642-5.48494,4.16456-.10306.53569.0783,1.08658.47942,1.45629.39145.35044.90217.53779,1.42737.5236,2.10998,0,4.21366-3.003,5.63044-5.58789.80461-.2816,1.62641-.53671,2.44391-.759.8967-.24407,1.76345-.44427,2.58082-.594,1.39014,1.39224,3.25004,2.21523,5.21531,2.30773,1.36751,0,1.87887-.60942,2.06516-1.122.20733-.5893.08589-1.24438-.3189-1.72019Z" fill="var(--iconRed, #d31510)" fill-rule="evenodd"></path></svg></div></div><div class="draggable-handle "><svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.60039 13.0699C5.26313 13.0699 5.80039 12.5327 5.80039 11.8699C5.80039 11.2072 5.26313 10.6699 4.60039 10.6699C3.93765 10.6699 3.40039 11.2072 3.40039 11.8699C3.40039 12.5327 3.93765 13.0699 4.60039 13.0699Z" fill="#292929"></path><path d="M4.60039 8.27109C5.26313 8.27109 5.80039 7.73384 5.80039 7.07109C5.80039 6.40835 5.26313 5.87109 4.60039 5.87109C3.93765 5.87109 3.40039 6.40835 3.40039 7.07109C3.40039 7.73384 3.93765 8.27109 4.60039 8.27109Z" fill="#292929"></path><path d="M4.60039 3.47031C5.26313 3.47031 5.80039 2.93305 5.80039 2.27031C5.80039 1.60757 5.26313 1.07031 4.60039 1.07031C3.93765 1.07031 3.40039 1.60757 3.40039 2.27031C3.40039 2.93305 3.93765 3.47031 4.60039 3.47031Z" fill="#292929"></path><path d="M9.4002 13.0699C10.0629 13.0699 10.6002 12.5327 10.6002 11.8699C10.6002 11.2072 10.0629 10.6699 9.4002 10.6699C8.73745 10.6699 8.2002 11.2072 8.2002 11.8699C8.2002 12.5327 8.73745 13.0699 9.4002 13.0699Z" fill="#292929"></path><path d="M9.4002 8.27109C10.0629 8.27109 10.6002 7.73384 10.6002 7.07109C10.6002 6.40835 10.0629 5.87109 9.4002 5.87109C8.73745 5.87109 8.2002 6.40835 8.2002 7.07109C8.2002 7.73384 8.73745 8.27109 9.4002 8.27109Z" fill="#292929"></path><path d="M9.4002 3.47031C10.0629 3.47031 10.6002 2.93305 10.6002 2.27031C10.6002 1.60757 10.0629 1.07031 9.4002 1.07031C8.73745 1.07031 8.2002 1.60757 8.2002 2.27031C8.2002 2.93305 8.73745 3.47031 9.4002 3.47031Z" fill="#292929"></path></svg></div></div></div></div><style>
+    .acrobat-button-container {
+        position: fixed;
+        right: 0;
+        bottom: 36px;
+        z-index: 2147483646;
+        visibility: visible !important;
+        pointer-events: all;
+        opacity: 1;
+        display: flex;
+        align-items: center;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    @media print {
+        .acrobat-button-container {
+            display: none !important;
+        }
+    }
+
+    .acrobat-button {
+        position: relative;
+        background: white;
+        display: flex;
+        align-items: center;
+        pointer-events: all;
+        touch-action: none;
+        box-shadow: 0px 2px 8px 0px #00000029;
+        height: 34px;
+        width: 34px;
+        border: 1px solid transparent;
+        background-clip: padding-box, border-box;
+        background-origin: border-box;
+        background-image: linear-gradient(white, white),
+                        linear-gradient(95.85deg, #D73220 0%, #D92361 33%, #7155FA 100%);
+        border-radius: 18px;
+        justify-content: right;
+        margin-right: var(--fab-margin-right, 28px);
+        overflow: hidden;
+    }
+
+    .acrobat-button-container-transparent {
+        opacity: 0.4 !important;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .acrobat-button-container-transparent:hover,
+    .acrobat-button-container-transparent:focus,
+    .acrobat-button-container-transparent:active {
+        opacity: 1;
+    }
+
+    .acrobat-button > svg {
+        flex-shrink: 0;
+        margin: 4px 5px 5px 5px;
+        width: 22px;
+        height: 22px;
+        pointer-events: none;
+        fill: #b40000;
+    }
+    .acrobat-button:has(.close-btn.open),
+    .expand-acrobat-button {
+        width: 64px;
+    }
+
+    .disabled {
+        background: #B1B1B1;
+    }
+
+    .tooltip-text {
+        width: 160px;
+        visibility: hidden;
+        opacity: 0;
+        background-color: #FFFFFF;
+        color: #292929;
+        border-radius: 7px;
+        padding: 4px 1px 5px 9px;
+        position: absolute;
+        z-index: 1;
+        right: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-right: 10px;
+        transition: opacity 0.3s, visibility 0s linear 2s;
+        font-size: 12px;
+        line-height: 15px;
+        font-family: 'adobe-clean', Adobe Clean, sans-serif;
+        filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.12));
+    }
+
+    .tooltip-text::after {
+       content: '';
+       position: absolute;
+       top: 50%;
+       left: 100%;
+       transform: translateY(-50%);
+       border-width: 6px;
+       border-style: solid;
+       border-color: transparent transparent transparent #fff;
+    }
+
+    .show-tooltip {
+        visibility: visible;
+        opacity: 1;
+        line-height: 1.5;
+        font-family: 'adobe-clean', Adobe Clean, sans-serif;
+        transition: opacity 0.3s;
+        transition-delay: 500ms;
+    }
+
+    .close-btn {
+        position: relative;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .close-btn svg {
+        fill: #464646;
+    }
+
+    .close-btn.showCloseButton {
+        opacity: 1;
+        display: flex;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        padding: 2px;
+    }
+
+    .fab-view-settings-dialog {
+        display: none;
+        position: absolute;
+        bottom: 40px;
+        z-index: 1;
+    }
+
+    .close-btn:hover {
+        background: #E6E6E6;
+        border-radius: 50%; /* Keep original circular hover */
+        cursor: pointer;
+    }
+
+    .fab-view-settings-dialog.showDialog {
+        display: block;
+    }
+    .close-btn .burger-icon {
+        display: inline;
+        margin-bottom: 2px;
+    }
+    .close-btn .close-icon {
+        display: none;
+    }
+    .close-btn.open .burger-icon {
+        display: none;
+    }
+    .close-btn.open .close-icon {
+        display: inline;
+    }
+    .tooltip-text .tooltip-text-content {
+        font-weight: bold;
+    }
+    .tooltip-text .tooltip-sub-text-text {
+        font-style: italic;
+        font-size: 11px;
+    }
+
+    /* Icon container styles - replaces iframe */
+    .icon-container {
+        width: 33px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: grab;
+        pointer-events: all;
+        flex-shrink: 0;
+        background: transparent;
+        border: none;
+    }
+
+    .icon-container:active {
+        cursor: grabbing;
+    }
+
+    .fab-svg-icon {
+        width: 22px;
+        height: 22px;
+        padding: 5px 5px 5px 6px;
+        pointer-events: none;
+        fill: #b40000;
+    }
+
+    .draggable-handle {
+        display: none;
+        position: absolute;
+        right: var(--drag-handle-right, 12px);
+        cursor: grab;
+    }
+    .draggable-handle-visible {
+        display: flex;
+    }
+
+    /* Font face declarations - for proper font loading in Shadow DOM */
+    @font-face {
+        font-family: 'adobe-clean';
+        font-weight: 400;
+        src: url('chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/browser/css/fonts/AdobeClean-Regular.otf') format('opentype');
+    }
+    @font-face {
+        font-family: 'adobe-clean';
+        font-weight: 700;
+        src: url('chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/browser/css/fonts/AdobeClean-Bold.otf') format('opentype');
+    }
+    @font-face {
+        font-family: 'AdobeClean-Regular';
+        src: url('chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/browser/css/fonts/AdobeClean-Regular.otf') format('opentype');
+    }
+    @font-face {
+        font-family: 'AdobeClean-Bold';
+        src: url('chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/browser/css/fonts/AdobeClean-Bold.otf') format('opentype');
+    }
+    body {
+        font-family: 'AdobeClean-Regular', adobe-clean, "Adobe Clean", sans-serif;
+    }
+
+    .dialog-container {
+        width: 166px;
+        background-color: #ffffff;
+        border-radius: 4px;
+        border: 1px solid #B1B1B1;
+        box-shadow: 0px 1px 4px 0px #00000026;
+        z-index: 1000;
+        padding: 4px;
+        position: relative;
+        margin: 4px 0px;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu .menu_item {
+        cursor: pointer;
+        font-family: 'AdobeClean-Regular', adobe-clean, "Adobe Clean", sans-serif;
+        align-content: center;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18.2px;
+        text-align: left;
+        color: #222222;
+        padding: 0px 12px;
+        height: 32px;
+        width: 140px;
+    }
+
+    .menu .menu_item:hover {
+        background-color: #eaeaea;
+    }
+
+    .preferences {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18.2px;
+        text-align: left;
+        color: #464646;
+    }
+
+    .divider {
+        border-top: 1px solid #E6E6E6;
+    }
+
+    /* React-specific wrappers - minimal */
+    .fab-root {
+        font-family: 'adobe-clean', Adobe Clean, sans-serif;
+    }
+
+    button.close-btn {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 10; /* Ensure clickable above all other elements */
+        pointer-events: auto;
+    }
+
+    /* FAB Action Pills - From Figma Design */
+    .fab-pills-container {
+        position: absolute;
+        bottom: 42px; /* FAB height (34px) + gap (8px) = 42px */
+        right: var(--fab-margin-right, 28px);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-end;
+        width: 142px;
+        z-index: 1;
+    }
+
+    .fab-pills-container.pills-below {
+        bottom: auto;
+        top: 42px; /* Same gap when positioned below */
+    }
+
+    /* Extend hover area using ::after pseudo-element - doesn't affect visual layout */
+    .fab-pills-container::after {
+        content: '';
+        position: absolute;
+        top: 100%; /* Start right after the pills content */
+        left: 0;
+        right: 0;
+        height: 8px;
+        background: transparent;
+        pointer-events: auto;
+    }
+
+    .fab-pills-container.pills-below::after {
+        top: auto;
+        bottom: 100%; /* Start right before the pills when positioned below */
+    }
+
+    /* FTE Header - First Time Experience (56px with close button) */
+    .fab-fte-header {
+        position: relative;
+        width: 142px;
+        min-height: 56px;
+        background: #FFFFFF;
+        border-radius: 12px;
+        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.08), 0px 2px 6px 0px rgba(0, 0, 0, 0.04), 0px 0px 2px 0px rgba(0, 0, 0, 0.12);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+
+    .fab-fte-background {
+        position: absolute;
+        left: -13px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 183.33px;
+        height: 126.82px;
+        background: url('chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/browser/images/fab-header-background.svg') no-repeat center;
+        background-size: cover;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .fab-fte-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 2;
+        color: #222222;
+        padding: 0;
+    }
+
+    .fab-fte-close:hover {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+    }
+
+    .fab-fte-close svg {
+        width: 8px;
+        height: 8px;
+    }
+
+    .fab-fte-text {
+        position: relative;
+        width: 102px;
+        font-family: 'AdobeClean-Bold', adobe-clean, sans-serif;
+        font-weight: 400; /* Use Bold font file directly, not synthetic bold */
+        font-size: 12px;
+        line-height: 16px;
+        color: #222222; /* Figma spec color */
+        z-index: 1;
+        white-space: normal;
+        word-wrap: break-word;
+        margin-left: 16px;
+        margin-right: auto;
+        box-sizing: border-box;
+        -webkit-font-smoothing: subpixel-antialiased; /* Better font rendering */
+        -moz-osx-font-smoothing: auto;
+    }
+
+    /* Hover Header - Normal state (24px without close button) */
+    .fab-hover-header {
+        position: relative;
+        width: 142px;
+        min-height: 24px;
+        background: #FFFFFF; /* White background to show the colorful SVG and text */
+        border-radius: 12px;
+        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.08), 0px 2px 6px 0px rgba(0, 0, 0, 0.04), 0px 0px 2px 0px rgba(0, 0, 0, 0.12);
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .fab-hover-background {
+        position: absolute;
+        left: -27px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 212.63px;
+        height: 147.09px;
+        background: url('chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/browser/images/fab-header-background.svg') no-repeat center;
+        background-size: cover;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .fab-hover-text {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'AdobeClean-Bold', adobe-clean, sans-serif;
+        font-weight: 400; /* Use Bold font file directly, not synthetic bold */
+        font-size: 12px;
+        line-height: 15px;
+        color: #222222; /* Figma spec color */
+        z-index: 1;
+        white-space: normal;
+        padding: 4px 9px;
+        box-sizing: border-box;
+        -webkit-font-smoothing: subpixel-antialiased; /* Better font rendering */
+        -moz-osx-font-smoothing: auto;
+    }
+
+    /* Individual Pill Buttons */
+    .fab-pill-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0;
+        width: 142px;
+        min-height: 24px; /* Min height, allows growth with content */
+        background: #FFFFFF;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.08), 0px 2px 6px 0px rgba(0, 0, 0, 0.04), 0px 0px 2px 0px rgba(0, 0, 0, 0.12);
+        cursor: pointer;
+        padding: 0;
+        transition: background 0.2s ease;
+        overflow: visible;
+    }
+
+    .fab-pill-button:hover {
+        background: #D5D5D5;
+    }
+
+    .fab-pill-button:hover .fab-pill-label,
+    .fab-pill-button:hover .fab-pill-icon {
+        color: #000000; /* Hover state color from Figma Alias/content/neutral/hover */
+    }
+
+    .fab-pill-button:active {
+        background: #F4F4F4;
+    }
+
+    .fab-pill-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 7px 4px 10px; /* Exact Figma specs: top right bottom left */
+        flex-shrink: 0;
+        box-sizing: border-box;
+    }
+
+    .fab-pill-icon img {
+        width: 16px;
+        height: 16px;
+        display: block;
+        flex-shrink: 0;
+        /* SVG icons with currentColor fill will inherit color from parent */
+        filter: brightness(0) saturate(100%) invert(13%) sepia(0%) saturate(0%) hue-rotate(196deg) brightness(97%) contrast(97%); /* #222222 */
+    }
+
+    .fab-pill-button:hover .fab-pill-icon img {
+        filter: brightness(0) saturate(100%); /* #000000 on hover */
+    }
+
+    .fab-pill-label {
+        display: flex;
+        align-items: center;
+        font-family: 'AdobeClean-Bold', adobe-clean, sans-serif;
+        font-weight: 400; /* Use Bold font file directly, not synthetic bold */
+        font-size: 12px;
+        line-height: 15px; /* 1.252 * 12px = 15.024px */
+        color: #222222; /* Default text color from Figma Alias/content/neutral/default */
+        padding: 4px 9px 5px 0; /* Reduced right padding to prevent wrapping */
+        text-align: left;
+        white-space: normal; /* Allow text wrapping for multi-line content */
+        box-sizing: border-box;
+        flex: 1;
+        overflow: visible;
+        -webkit-font-smoothing: subpixel-antialiased; /* Better font rendering */
+        -moz-osx-font-smoothing: auto;
+    }
+</style></template></div></html>

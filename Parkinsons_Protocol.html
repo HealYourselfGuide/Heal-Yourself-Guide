@@ -8,27 +8,53 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;--bg-nav:#2c3a2e;--bg-footer:#263028;--ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;--ink-ghost:#a89e8e;--sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-light:#7aac8a;--sage-pale:#e4f0e8;--sage-nav:#8ab89a;--terra:#8c5a3c;--terra-light:#b07a58;--terra-pale:#f5ede6;--honey:#a07830;--honey-pale:#f5eddb;--border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);}
+:root{--nav-h:56px;--bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;--bg-nav:#2c3a2e;--bg-footer:#263028;--ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;--ink-ghost:#a89e8e;--sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-light:#7aac8a;--sage-pale:#e4f0e8;--sage-nav:#8ab89a;--terra:#8c5a3c;--terra-light:#b07a58;--terra-pale:#f5ede6;--honey:#a07830;--honey-pale:#f5eddb;--border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);overflow-x:hidden;}
 
-/* NAV */
-.topnav{background:var(--bg-nav);padding:0 24px;display:flex;align-items:center;gap:0;border-bottom:1px solid rgba(255,255,255,0.06);}
-.topnav a{color:var(--sage-nav);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 16px;display:block;transition:color 0.2s;}
-.topnav a:hover{color:#fff;}
-.topnav .brand{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;letter-spacing:0.01em;margin-right:20px;padding:14px 0;text-transform:none;}
-
+/* TOP NAV */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-nav);border-bottom:1px solid rgba(138,184,154,0.12);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 28px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#d4c9a8;text-decoration:none;letter-spacing:0.02em;}
+.nav-center{display:flex;align-items:center;}
+.nav-center a{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;white-space:nowrap;}
+.nav-center a:hover{color:var(--sage-nav);border-bottom-color:rgba(138,184,154,0.3);}
+.nav-center a.active{color:var(--sage-nav);border-bottom-color:var(--sage-mid);}
+@media(max-width:400px){.nav-center{display:none;}}
+.nav-dropdown{position:relative;display:flex;align-items:center;height:var(--nav-h);}
+.nav-dropdown-toggle{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;white-space:nowrap;cursor:pointer;gap:5px;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;}
+.nav-dropdown-toggle:hover,.nav-dropdown:hover .nav-dropdown-toggle{color:var(--sage-nav);border-bottom-color:rgba(138,184,154,0.3);}
+.nav-dropdown-toggle svg{width:8px;height:8px;transition:transform 0.2s;opacity:0.5;}
+.nav-dropdown.open .nav-dropdown-toggle svg{transform:rotate(180deg);}
+.nav-dropdown-menu{position:absolute;top:calc(var(--nav-h) - 1px);right:0;background:var(--bg-nav);border:1px solid rgba(138,184,154,0.15);border-top:2px solid var(--sage-mid);border-radius:0 0 8px 8px;min-width:250px;padding:6px 0;z-index:200;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity 0.18s,transform 0.18s,visibility 0.18s;}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:11px;font-weight:500;letter-spacing:0.05em;color:rgba(212,201,168,0.7);text-decoration:none;text-transform:uppercase;transition:all 0.15s;border-bottom:1px solid rgba(138,184,154,0.07);}
+.nav-dropdown-menu a:last-child{border-bottom:none;}
+.nav-dropdown-menu a:hover{color:#d4c9a8;background:rgba(138,184,154,0.08);padding-left:22px;}
+.nav-dropdown-menu a .dd-icon{font-size:13px;flex-shrink:0;}
+.nav-dropdown-menu a .dd-label{flex:1;}
+.nav-dropdown-menu a .dd-tag{font-size:9px;font-weight:700;letter-spacing:0.1em;color:var(--sage-nav);background:rgba(90,140,106,0.2);padding:2px 7px;border-radius:3px;white-space:nowrap;}
+.dd-group{position:relative;}
+.dd-group>a{position:relative;padding-right:28px;border-bottom:1px solid rgba(138,184,154,0.07);}
+.dd-group>a::after{content:'›';position:absolute;right:14px;top:50%;transform:translateY(-50%);opacity:0.35;font-size:13px;transition:all 0.15s;}
+.dd-group:hover>a::after{opacity:0.9;color:var(--sage-nav);}
+.dd-group:hover>a{color:#d4c9a8;background:rgba(138,184,154,0.06);}
+.dd-subs{display:none;background:rgba(0,0,0,0.18);padding:2px 0;}
+.dd-group:hover .dd-subs{display:block;}
+.nav-dropdown-menu .dd-subs a.dd-sub{display:flex;align-items:center;gap:8px;padding:7px 12px 7px 24px;font-size:10px;font-weight:500;letter-spacing:0.05em;color:rgba(212,201,168,0.55);text-transform:uppercase;border:none;height:auto;min-height:0;border-left:1px solid rgba(138,184,154,0.25);margin-left:18px;transition:all 0.15s;}
+.nav-dropdown-menu .dd-subs a.dd-sub .dd-icon{font-size:10px;opacity:0.7;}
+.nav-dropdown-menu .dd-subs a.dd-sub .dd-label{font-size:10px;}
+.nav-dropdown-menu .dd-subs a.dd-sub:hover{color:rgba(212,201,168,0.85);padding-left:28px;background:none;border-left-color:var(--sage-nav);}
 /* HERO */
-.hero{background:var(--bg-nav);padding:72px 24px 56px;text-align:center;position:relative;overflow:hidden;}
+.hero{background:var(--bg-warm);padding:72px 24px 56px;text-align:center;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(138,184,154,0.08) 0%,transparent 70%);pointer-events:none;}
-.hero-tag{font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage-nav);margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:12px;}
-.hero-tag::before,.hero-tag::after{content:'';width:40px;height:1px;background:rgba(138,184,154,0.4);}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,52px);font-weight:700;color:#fff;line-height:1.15;margin-bottom:14px;}
+.hero-tag{font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:12px;}
+.hero-tag::before,.hero-tag::after{content:'';flex:1;max-width:60px;height:1px;background:var(--sage-mid);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,52px);font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:14px;}
 .hero h1 em{font-style:italic;color:var(--sage-nav);}
-.hero-sub{font-size:clamp(13px,2vw,15px);color:rgba(255,255,255,0.55);font-weight:300;max-width:520px;margin:0 auto 36px;line-height:1.9;}
-.hero-note{display:inline-block;background:rgba(138,184,154,0.12);border:1px solid rgba(138,184,154,0.2);border-radius:6px;padding:10px 20px;font-size:12px;color:rgba(255,255,255,0.6);max-width:560px;line-height:1.7;}
-.hero-note strong{color:rgba(255,255,255,0.85);}
+.hero-sub{font-size:clamp(13px,2vw,15px);color:var(--ink-light);font-weight:300;max-width:520px;margin:0 auto 36px;line-height:1.9;}
+.hero-note{display:inline-block;background:var(--sage-pale);border:1px solid var(--border);border-radius:6px;padding:12px 22px;font-size:13px;color:var(--ink-mid);max-width:580px;line-height:1.8;margin-top:8px;}
+.hero-note strong{color:var(--sage);}
 
 /* PRINT BUTTON */
 .print-bar{background:var(--bg-deep);border-bottom:1px solid var(--border-s);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
@@ -176,7 +202,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);ove
   .topnav,.print-bar,.no-print{display:none !important;}
   .hero{background:#2c3a2e !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:28px 20px !important;}
   .hero h1{font-size:22px !important;}
-  .hero-sub,.hero-note{font-size:11px !important;}
+  .hero-sub,.hero-note{font-size:10px !important;}
   .sec,.sec-warm,.sec-deep,.sec-stone,.sec-sage,.sec-terra,.sec-honey{padding:16px 20px !important;background:#fff !important;}
   .sec-dark{background:#2c3a2e !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:16px 20px !important;}
   .tl-col-head.detox{background:#3d6b4a !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
@@ -216,19 +242,34 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);ove
         Protocols <svg viewBox="0 0 8 5" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l3 3 3-3"/></svg>
       </button>
       <div class="nav-dropdown-menu">
-        <a href="Full_Body_Detox_Protocol.html"><span class="dd-icon">🌿</span><span class="dd-label">Full Body Detox</span><span class="dd-tag">Start Here</span></a>
-        <a href="Brain_Protocol.html"><span class="dd-icon">🧠</span><span class="dd-label">Brain Protocol</span></a>
+        <div class="dd-group">
+          <a href="Full_Body_Detox_Protocol.html"><span class="dd-icon">🌿</span><span class="dd-label">Full Body Detox</span><span class="dd-tag">Start Here</span></a>
+          <div class="dd-subs">
+            <a href="Full_Body_Detox_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+            <a href="Full_Body_Detox_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+          </div>
+        </div>
+        <div class="dd-group">
+          <a href="Brain_Protocol.html"><span class="dd-icon">🧠</span><span class="dd-label">Brain Protocol</span></a>
+          <div class="dd-subs">
+            <a href="Brain_Protocol_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+            <a href="Brain_Protocol_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+          </div>
+        </div>
         <a href="DMSO_Oxygen_Therapy.html"><span class="dd-icon">⚗️</span><span class="dd-label">DMSO &amp; Oxygen</span></a>
         <a href="Hidden_Deficiencies.html"><span class="dd-icon">🔬</span><span class="dd-label">Hidden Deficiencies</span></a>
         <a href="Dr_Sebi_Alkaline_Protocol.html"><span class="dd-icon">🌱</span><span class="dd-label">Dr. Sebi Alkaline</span></a>
-        <a href="Parkinsons_Protocol.html"><span class="dd-icon">🧬</span><span class="dd-label">Parkinson's Protocol</span><span class="dd-tag">New</span></a>
-        <a href="Parkinsons_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">↳ Daily Schedule</span></a>
-        <a href="Parkinsons_Shopping_Table.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">↳ Shopping List</span></a>
-        <a href="Parkinsons_Must_Have.html" class="dd-sub"><span class="dd-icon">⭐</span><span class="dd-label">↳ Must-Have List</span></a>
+        <div class="dd-group">
+          <a href="Parkinsons_Protocol.html"><span class="dd-icon">🧬</span><span class="dd-label">Parkinson's Protocol</span></a>
+          <div class="dd-subs">
+            <a href="Parkinsons_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+            <a href="Parkinsons_Shopping_Table.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+            <a href="Parkinsons_Must_Have.html" class="dd-sub"><span class="dd-icon">⭐</span><span class="dd-label">Must-Have List</span></a>
+          </div>
+        </div>
         <a href="protocols.html" style="margin-top:4px;border-top:1px solid rgba(138,184,154,0.15);"><span class="dd-icon">☰</span><span class="dd-label">All Protocols</span></a>
       </div>
     </div>
-    <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank">iHerb — GUW6132</a>
   </div>
 </nav>
 
@@ -245,6 +286,208 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);ove
   <p>This page is designed to print cleanly. Print and give directly to your person.</p>
   <button class="print-btn" onclick="window.print()">🖨 Print This Protocol</button>
 </div>
+
+
+<!-- UNDERSTANDING PARKINSON'S — THE FULL PICTURE -->
+<section class="sec sec-warm" id="understanding">
+  <div class="inner">
+    <div class="kicker">Before the Protocol</div>
+    <h2 class="sec-title">What Is Actually Happening in the Body</h2>
+    <p class="sec-sub">The diagnosis is the beginning, not the answer. To reverse something, you need to understand what it is. Most people with Parkinson's have never been told any of this — not because it isn't known, but because knowing it doesn't sell anything.</p>
+  </div>
+</section>
+
+<!-- ANGLE 1: THE SILENT DECADE -->
+<section class="sec sec-deep" id="silent-decade">
+  <div class="inner">
+    <div class="kicker">The Silent Decade</div>
+    <h2 class="sec-title">The Disease Started 10–20 Years Before the Tremor</h2>
+    <p class="sec-sub">By the time a neurologist makes a diagnosis, most of the damage is already done.</p>
+
+    <div class="highlight-box" style="margin-bottom:28px;">
+      <div class="h-title">The Number Nobody Tells You</div>
+      <p>When motor symptoms first appear — the tremor, the stiffness, the slowness — between 60% and 80% of the dopamine-producing neurons in the substantia nigra are already dead. According to the National Institute of Neurological Disorders and Stroke, "by the time PD symptoms appear, most people have lost 60 to 80% or more of the dopamine-producing cells." The brain compensated for years. It rerouted, recruited backup circuits, pushed harder with fewer cells. Then one day it could no longer hide it. That is the day of diagnosis. Not the beginning.</p>
+    </div>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:16px;">The prodromal phase — the silent period of neurodegeneration before motor diagnosis — lasts on average 10 to 20 years. Research confirms that 98.8% of people with Parkinson's experienced prodromal symptoms beforehand. They averaged 7.6 different symptoms over a 10-year window before receiving a diagnosis. The body was speaking the whole time. Nobody was listening.</p>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:24px;">The prodromal signs are not subtle. They include: constipation for years or decades before tremor appears, loss of smell (hyposmia), REM sleep behavior disorder (acting out dreams), depression, fatigue, and pain. Every one of these is a sign of the neurodegeneration already underway — spreading up through the brainstem, long before it reaches the substantia nigra.</p>
+
+    <div class="phase-block" style="background:var(--terra-pale);border:1px solid rgba(140,90,60,0.15);border-radius:10px;padding:22px 24px;margin-bottom:0;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;">What This Means for Recovery</div>
+      <p style="font-size:14px;line-height:1.85;color:var(--ink-mid);margin:0;">The damage is extensive — but the timeline also means the brain had remarkable plasticity for years before it gave out. That plasticity does not disappear at diagnosis. Neuroplasticity, neurogenesis, and mitochondrial recovery are all possible at any stage. The protocol is built on this. The goal is not to mourn the neurons already lost — it is to protect every neuron still alive, rebuild the environment around them, and trigger the brain's own repair mechanisms.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLE 2: ALPHA-SYNUCLEIN — THE PRION-LIKE PROTEIN -->
+<section class="sec sec-a" id="alpha-syn">
+  <div class="inner">
+    <div class="kicker">The Protein That Spreads</div>
+    <h2 class="sec-title">Alpha-Synuclein — What It Is and Why It Becomes a Weapon</h2>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:20px;">Alpha-synuclein is a normal protein. Every neuron in your body makes it. In healthy cells, it floats freely, helps regulate dopamine release, and gets cleared away by the cell's waste disposal system. In Parkinson's disease, something goes wrong at the folding stage. The protein misfolds — twisting into an abnormal shape instead of its correct one. Misfolded proteins clump together. The clumps grow into fibrils. The fibrils accumulate into what are called Lewy bodies: dense, toxic protein deposits inside neurons.</p>
+
+    <div class="highlight-box" style="margin-bottom:24px;">
+      <div class="h-title">Why It Spreads Like an Infection</div>
+      <p>The most alarming finding in Parkinson's research is that alpha-synuclein behaves like a prion — a misfolded protein that forces neighbouring proteins to misfold too. Once the pattern starts, it propagates. It spreads cell to cell, neuron to neuron, region to region. This is not cancer. It is not inflammation. It is a protein conformation that is essentially contagious within the nervous system. A 2024 review in Neurochemistry International confirmed: misfolded alpha-synuclein forms fibrils, then Lewy bodies, and the pathological process "tends to occur predominantly in neurons with high energy demands and low myelination" — exactly the profile of dopaminergic neurons in the substantia nigra.</p>
+    </div>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:16px;">What triggers the first misfold? The research points to a convergence of factors: mitochondrial dysfunction (generating the oxidative stress that damages the protein), environmental toxins (paraquat, rotenone, pesticides), impaired protein clearance systems (the ubiquitin-proteasome system and the lysosomal pathway — the cell's own rubbish disposal becoming overwhelmed), and gut dysbiosis allowing misfolded protein to enter the vagus nerve and travel directly to the brainstem.</p>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:24px;">Critically, abnormal phosphorylation at serine 129 — a chemical modification that happens under oxidative stress and pesticide exposure — accelerates aggregation. This is why reducing oxidative load, supporting mitochondrial function, and eliminating toxin exposure are not soft lifestyle advice. They are direct interventions at the molecular trigger of the disease.</p>
+
+    <div class="phase-block" style="background:var(--sage-pale);border:1px solid var(--border);border-radius:10px;padding:22px 24px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-bottom:14px;">Protocol Response</div>
+      <p style="font-size:14px;line-height:1.85;color:var(--ink-mid);margin:0;">Mannitol has been studied specifically for its ability to prevent alpha-synuclein aggregation — animal studies showed it prevented clumping and improved motor function. Curcumin directly inhibits alpha-synuclein aggregation (Pandey et al., Acta Neuropathologica 2008). Berberine inhibits aggregation in Parkinson's models. NAC (N-acetylcysteine) reduces the oxidative modification that triggers misfolding. The protocol addresses the root molecular event, not just its downstream symptoms.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLE 3: MITOCHONDRIA — THE ENERGY CRISIS -->
+<section class="sec sec-deep" id="mitochondria">
+  <div class="inner">
+    <div class="kicker">The Energy Crisis</div>
+    <h2 class="sec-title">Mitochondrial Collapse — Why the Substantia Nigra Dies First</h2>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:20px;">Dopaminergic neurons in the substantia nigra are among the most metabolically demanding cells in the human body. They fire constantly — not in response to signals, but spontaneously, as a pacemaker. This autonomous firing requires enormous amounts of ATP. ATP is made by mitochondria. And mitochondria in Parkinson's disease are failing.</p>
+
+    <div class="highlight-box" style="margin-bottom:24px;">
+      <div class="h-title">Complex I — The Primary Failure Point</div>
+      <p>In 1989, researchers discovered a consistent finding in the substantia nigra of Parkinson's patients: Complex I of the mitochondrial electron transport chain was significantly deficient. This was not a random finding — it has been replicated in dozens of studies over 35 years. Complex I is the entry point of the chain that produces ATP. When it fails, energy production collapses. Reactive oxygen species (ROS) flood the cell. The neuron, already operating at maximum metabolic load, cannot sustain itself. It begins to die. This same mechanism is how the pesticides paraquat and rotenone cause Parkinson's — both are Complex I inhibitors. The disease and the pesticide converge on the same molecular target.</p>
+    </div>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:16px;">The substantia nigra is particularly vulnerable because its neurons have long, highly branched axons — more branches means more surface area, more mitochondria required, more energy demanded. A 2023 study in npj Parkinson's Disease found "a generalised and synergistic reduction in mitochondrial quality control proteins in dopaminergic neurons" from Parkinson's patients. The cells are not just running low on energy — they have lost the mechanisms to repair and replace damaged mitochondria.</p>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:24px;">There is also a vicious feedback loop: mitochondrial dysfunction produces oxidative stress → oxidative stress damages alpha-synuclein → damaged alpha-synuclein aggregates → Lewy bodies → more mitochondrial dysfunction. Once this loop is running, it accelerates itself. Breaking any link in the chain slows the whole process.</p>
+
+    <div class="phase-block" style="background:var(--sage-pale);border:1px solid var(--border);border-radius:10px;padding:22px 24px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-bottom:14px;">Protocol Response</div>
+      <p style="font-size:14px;line-height:1.85;color:var(--ink-mid);margin:0;">CoQ10 Ubiquinol directly supports electron transport chain function — it is the electron carrier between Complex I/II and Complex III. NMN and NR restore NAD+ levels, which are essential for Complex I to function. PQQ stimulates mitochondrial biogenesis — the creation of new mitochondria. NAC restores glutathione, the primary antioxidant that neutralises the ROS cascade. These are not general "antioxidants." They are targeted interventions at the exact points where the mitochondrial system breaks down in Parkinson's.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLE 4: THE GUT ORIGIN -->
+<section class="sec sec-warm" id="gut-origin">
+  <div class="inner">
+    <div class="kicker">Where It Starts</div>
+    <h2 class="sec-title">The Gut-Brain Highway — How Parkinson's Likely Begins</h2>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:20px;">In 2003, German neuropathologist Heiko Braak proposed something radical: Parkinson's does not begin in the brain. It begins in the gut — or in the nose — and travels upward. After two decades of research, the evidence is substantial enough that the Parkinson's Foundation now describes this as a mainstream hypothesis. The disease, in the body-first subtype, starts in the enteric nervous system and spreads to the brain via the vagus nerve.</p>
+
+    <div class="highlight-box" style="margin-bottom:24px;">
+      <div class="h-title">Braak Staging — The Road Map of the Disease's Spread</div>
+      <p>Braak described six stages of Parkinson's pathology based on where Lewy body deposits appear in the nervous system. In Stages 1 and 2, the damage is entirely peripheral — in the gut, the olfactory bulb, and the lower brainstem. The substantia nigra — the region responsible for movement — is not affected until Stage 3. This staging explains why constipation, smell loss, and sleep disorders (REM behaviour disorder) appear years before a single tremor. The motor symptoms are not the disease. They are the disease's announcement that it has reached the brain.</p>
+    </div>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:16px;">The vagus nerve is the highway. It is the longest nerve in the body — running directly from the gut's enteric nervous system up through the diaphragm, chest, and neck, into the brainstem. Research from Neuron (2019) confirmed that alpha-synuclein travels this route. Truncal vagotomy studies — where the vagus nerve was surgically cut — showed reduced Parkinson's risk: a 2017 study by Liu et al. in Neurology and a 2015 study by Svensson et al. in Annals of Neurology both found that people who had vagotomies decades earlier had significantly lower Parkinson's rates. This is not coincidence — it is causal evidence.</p>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:24px;">A 2024 paper published on World Parkinson's Day united the brain-first and body-first models with environmental toxins: the hypothesis is that inhaled or ingested toxins — pesticides, herbicides, heavy metals — trigger the first misfold in either the olfactory bulb (brain-first) or the gut neurons (body-first), and the spread follows from there. The entry point determines the subtype. The mechanism is the same.</p>
+
+    <div class="phase-block" style="background:var(--sage-pale);border:1px solid var(--border);border-radius:10px;padding:22px 24px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-bottom:14px;">Protocol Response</div>
+      <p style="font-size:14px;line-height:1.85;color:var(--ink-mid);margin:0;">The Full Body Detox runs first precisely because the gut is the origin. Rebuilding the gut wall (L-Glutamine, zinc carnosine, aloe), restoring depleted strains (Faecalibacterium prausnitzii, Roseburia, Blautia — all depleted in Parkinson's), removing glyphosate and heavy metals that disrupt gut neurons, and healing the intestinal microbiome is not supportive care. It is addressing the most likely site of origin of the disease itself. The SymPD trial (2025) confirmed a 4-strain probiotic produced positive motor outcomes in a randomised controlled trial. The GUT-PARFECT trial (Lancet eClinicalMedicine 2024) showed FMT improved motor scores. The gut is not peripheral to Parkinson's. For most people, it is where it started.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLE 5: THE TOXIN STORY -->
+<section class="sec sec-deep" id="toxins">
+  <div class="inner">
+    <div class="kicker">The Environmental Evidence</div>
+    <h2 class="sec-title">Pesticides, Herbicides, and the Rise of a Pandemic</h2>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:20px;">Parkinson's disease is increasing. It is not genetics — genetics accounts for only 5–10% of cases. Something in the modern environment is driving the epidemic. The evidence points to a small group of agricultural chemicals with a specific mechanism of action: they destroy dopaminergic neurons the same way Parkinson's does.</p>
+
+    <div class="highlight-box" style="margin-bottom:24px;">
+      <div class="h-title">Paraquat and Rotenone — The Smoking Gun</div>
+      <p>A landmark study by the National Institute of Environmental Health Sciences found that people who used paraquat or rotenone developed Parkinson's approximately 2.5 times more often than non-users. Rotenone is a mitochondrial Complex I inhibitor — it causes Parkinson's in animals by the exact same mechanism seen in human disease. Rats exposed to rotenone develop Lewy body-like inclusions in the substantia nigra. This is not correlation. This is experimental replication of the disease using a pesticide as the trigger. Paraquat has been banned in the EU and China but remains in use in many countries. Prof. E. Ray Dorsey named Syngenta directly in Movement Disorders (2023), documenting a lobbying campaign to maintain paraquat's approval despite the evidence. In 2025, Syngenta settled approximately 6,500 paraquat lawsuits. In March 2026, Syngenta announced the end of global paraquat production by June 2026.</p>
+    </div>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:16px;">A 2025 study published in Nature's npj Parkinson's Disease journal found that rotenone triggers lasting alterations in brain gene activity — specifically in the substantia nigra — weeks after exposure stopped. Genes related to inflammation and immune activation were permanently switched on. The molecular memory of the toxin persists long after the chemical has left the body. This has enormous implications for anyone who has lived near agricultural land, eaten non-organic food for decades, or worked in an environment with pesticide exposure.</p>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:24px;">Trichloroethylene (TCE), a common industrial solvent and dry-cleaning chemical found in groundwater across the world, has also been linked to Parkinson's with an approximately 2.5-fold increased risk. Heavy metals — particularly aluminium and mercury — accumulate in the substantia nigra and directly promote alpha-synuclein aggregation. Glyphosate (Roundup) disrupts gut bacteria, depletes the specific bacterial strains that produce butyrate and short-chain fatty acids, and has been detected at over 1,000 ppb in commonly consumed foods.</p>
+
+    <div class="phase-block" style="background:var(--terra-pale);border:1px solid rgba(140,90,60,0.15);border-radius:10px;padding:22px 24px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;">The Uncomfortable Truth</div>
+      <p style="font-size:14px;line-height:1.85;color:var(--ink-mid);margin:0;">The regulatory agencies knew. The studies existed. The mechanisms were understood. But the chemicals stayed on the market while millions of people were exposed. Parkinson's has a 10–20 year latency. By the time symptoms appeared, the exposure was decades old, the link unprovable in court, and the company legally protected. This is not a conspiracy theory — it is documented agnotology: the deliberate manufacture of doubt. Prof. Dorsey named it directly in peer-reviewed literature. The settlement in 2025 confirmed it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLE 6: NEUROINFLAMMATION AND THE GLYMPHATIC SYSTEM -->
+<section class="sec sec-warm" id="inflammation">
+  <div class="inner">
+    <div class="kicker">The Brain on Fire</div>
+    <h2 class="sec-title">Neuroinflammation and the Brain's Broken Waste System</h2>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:20px;">The brain has its own waste disposal system. It was only discovered in 2013. It is called the glymphatic system — a network of channels around blood vessels that flushes cerebrospinal fluid through the brain during deep sleep, clearing out toxic proteins, debris, and metabolic waste. When this system works, misfolded alpha-synuclein and other neurotoxic proteins are cleared every night. When it fails — or when sleep is disrupted — they accumulate.</p>
+
+    <div class="highlight-box" style="margin-bottom:24px;">
+      <div class="h-title">Sleep Is Not Recovery. Sleep Is Surgery.</div>
+      <p>Glymphatic clearance occurs predominantly during deep, slow-wave sleep. Research published in Sleep (2024) confirmed: "the efficacy of glymphatic clearance relies on the depth of sleep stage — decrease of deep sleep, frequent interruptions of lighter sleep stages, and shorter total sleep time all lead to decreased glymphatic activity." In Parkinson's disease, sleep is severely disrupted — REM behaviour disorder, insomnia, frequent waking. Every disrupted night is a night the brain failed to flush its waste. The accumulated toxins accelerate the neurodegeneration. The neurodegeneration further disrupts sleep. This is a loop that, once established, tightens itself.</p>
+    </div>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:16px;">Microglia are the brain's immune cells — its resident macrophages. The substantia nigra has a higher density of microglia than any other brain region, which is part of why it is so vulnerable. Under normal conditions, microglia clean up debris, produce neurotrophic factors, and protect neurons. When they become chronically activated — by Lewy bodies, by toxins, by gut-derived lipopolysaccharides crossing a leaky blood-brain barrier — they switch into a pro-inflammatory mode. They release cytokines that damage the very neurons they are meant to protect. This is neuroinflammation. It is self-perpetuating: inflammation activates more microglia, which produce more inflammation.</p>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:24px;">The feedback loop is three-way: impaired glymphatic clearance → alpha-synuclein accumulates → microglia activate → neuroinflammation → AQP4 channels (the water channels that drive glymphatic flow) become dysregulated → glymphatic clearance further impaired. Each element makes the others worse. Addressing only one without the others produces limited results.</p>
+
+    <div class="phase-block" style="background:var(--sage-pale);border:1px solid var(--border);border-radius:10px;padding:22px 24px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-bottom:14px;">Protocol Response</div>
+      <p style="font-size:14px;line-height:1.85;color:var(--ink-mid);margin:0;">Sleep is a non-negotiable pillar of this protocol — not for rest, but for glymphatic clearance. Passionflower and saffron support deep sleep architecture. Lion's Mane stimulates NGF (Nerve Growth Factor), which modulates microglial activation. Curcumin directly suppresses neuroinflammatory pathways (NF-κB). Omega-3 fatty acids reduce pro-inflammatory cytokines. Magnesium glycinate supports sleep depth and reduces neuroinflammatory markers. The detox protocols — binders, castor oil packs, drainage support — reduce the systemic inflammatory load that crosses into the brain and triggers microglial activation in the first place.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLE 7: THE DOPAMINE SYSTEM — WHAT'S REALLY HAPPENING -->
+<section class="sec sec-deep" id="dopamine">
+  <div class="inner">
+    <div class="kicker">What You Were Never Told About Dopamine</div>
+    <h2 class="sec-title">Why Levodopa Is a Patch — and Why the Patch Stops Working</h2>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:20px;">Dopamine is not just the "movement chemical." It is the currency of motivation, reward, decision-making, and emotion. Parkinson's strips all of it. But the loss of dopamine is not the disease. It is the consequence of the disease — the downstream result of decades of neuronal death. Levodopa replaces the dopamine those dead neurons can no longer make. It does not address why they died. It does not slow the dying. It manages the symptom while the cause continues unimpeded.</p>
+
+    <div class="highlight-box" style="margin-bottom:24px;">
+      <div class="h-title">The Wearing-Off Problem and What It Really Means</div>
+      <p>Levodopa works by being converted to dopamine in the brain. In the early stages, surviving neurons do this conversion and buffer the dopamine — releasing it steadily. Over time, as more neurons die, there is less buffering capacity. The dopamine spikes and crashes with each dose. The "on" window shrinks. "Wearing off" begins — the return of symptoms before the next dose. Within 5 years, up to 50% of people on levodopa experience wearing-off. After 10 years, the majority do. The drug that was managing the condition begins to generate its own complications: dyskinesias (involuntary movements from too much dopamine), "on-off" fluctuations, and increasingly severe "off" states. A 2025 paper in Journal of Neural Transmission confirmed: as neurons continue dying, serotonergic neurons begin releasing levodopa-derived dopamine as a "false neurotransmitter" — with no buffering capacity and no regulation. This is the mechanism of late-stage motor complications.</p>
+    </div>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:16px;">This does not mean levodopa is wrong. For many people, it remains essential for quality of life, and Mucuna Pruriens — a plant-based natural source of L-dopa — shows consistent improvements in motor symptoms with fewer dyskinesias than pharmaceutical levodopa in multiple clinical studies, including a 2025 systematic review. But the important understanding is this: levodopa does not change the trajectory of the disease. The neurons are still dying. The protein is still misfolding. The mitochondria are still failing. The medication buys time. The protocol is what you do with that time.</p>
+
+    <div class="phase-block" style="background:var(--terra-pale);border:1px solid rgba(140,90,60,0.15);border-radius:10px;padding:22px 24px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;">The Honest Picture</div>
+      <p style="font-size:14px;line-height:1.85;color:var(--ink-mid);margin:0;">If you are on levodopa and following this protocol, the goal is to slow the progression enough that the medication continues to work — and to give the surviving neurons the conditions to function optimally. Mucuna Pruriens can potentially extend the effective window and reduce dyskinesias. But any change to pharmaceutical medication must be done in consultation with a neurologist. The protocol works alongside medication — it does not replace it. What it does replace is the passive acceptance that nothing else can be done.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLE 8: NEUROPLASTICITY AND THE CASE FOR HOPE -->
+<section class="sec sec-warm" id="hope">
+  <div class="inner">
+    <div class="kicker">The Science of Recovery</div>
+    <h2 class="sec-title">The Brain Can Grow. It Can Repair. Here Is the Evidence.</h2>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:20px;">For most of the 20th century, science believed adult brains could not generate new neurons. That belief is now known to be wrong. Neurogenesis — the birth of new neurons — occurs in the adult brain, including in regions critical to dopaminergic function. Neuroplasticity — the rewiring of existing circuits — occurs throughout life and accelerates with the right inputs. This is not optimism. It is biology. And it is the scientific foundation of every intervention in this protocol.</p>
+
+    <div class="highlight-box" style="margin-bottom:24px;">
+      <div class="h-title">Lion's Mane, NGF, and BDNF — The Repair Signals</div>
+      <p>Lion's Mane mushroom (Hericium erinaceus) contains two unique compounds — hericenones and erinacines — that cross the blood-brain barrier and stimulate the synthesis of Nerve Growth Factor (NGF) and Brain-Derived Neurotrophic Factor (BDNF). NGF supports the survival and maintenance of cholinergic neurons. BDNF is the primary signal for neuroplasticity and neurogenesis — it tells neurons to survive, grow new connections, and the brain to generate new cells. In Parkinson's disease, both NGF and BDNF are depleted. Lion's Mane directly addresses this depletion. It does not repair dead neurons — but it creates the chemical environment in which surviving neurons grow, branch, and compensate.</p>
+    </div>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:16px;">Exercise is the single most evidence-backed intervention for Parkinson's — not as gentle movement but as a medical necessity. Vigorous aerobic exercise raises BDNF levels, stimulates dopamine synthesis in surviving neurons, triggers neuroplasticity in the motor cortex, and has been shown to slow progression in multiple human studies. Tango dancing specifically has been studied in Parkinson's patients for its unique combination of rhythmic movement, music, social engagement, and cognitive challenge — each of which independently stimulates BDNF production and dopaminergic function.</p>
+
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:24px;">NMN (Nicotinamide Mononucleotide) and NR (Nicotinamide Riboside) restore NAD+ — a coenzyme that declines dramatically with age and Parkinson's progression, and which is required for the sirtuins (longevity proteins) that regulate mitochondrial repair, DNA repair, and neuronal survival. PQQ stimulates mitochondrial biogenesis. Every new mitochondrion built is increased energy capacity for neurons that were starving. These are not supplements in the casual sense. They are targeted molecular interventions at documented failure points in Parkinson's pathology.</p>
+
+    <div class="phase-block" style="background:var(--sage-pale);border:1px solid var(--border);border-radius:10px;padding:22px 24px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-bottom:14px;">The Summary of Everything Above</div>
+      <p style="font-size:14px;line-height:1.85;color:var(--ink-mid);margin:0;">Parkinson's is not a dopamine deficiency. It is a decades-long cascade: environmental toxins trigger mitochondrial failure and oxidative stress → alpha-synuclein misfolds and spreads prion-like from gut to brain → the glymphatic system, overwhelmed and sleep-deprived, fails to clear the accumulation → microglia activate and drive neuroinflammation → the ubiquitin-proteasome system collapses under protein load → neurons in the substantia nigra die. By the time the tremor appears, the cascade has been running for a decade or more. The protocol below addresses every stage of that cascade. Not one thing. All of it. At the same time.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 
 <!-- PARALLEL TREATMENT OVERVIEW -->
 <section class="sec sec-dark">
@@ -339,1181 +582,44 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);ove
 
 <div class="divider"></div>
 
-<!-- SYMPTOM GUIDE -->
-<section class="sec sec-terra">
+
+<!-- LINK CARDS — SUBPAGES -->
+<section style="background:var(--bg-warm);padding:48px 24px;">
   <div class="inner">
-    <div class="kicker kicker-terra">Symptom-by-Symptom</div>
-    <h2 class="sec-title">What To Do When It Happens</h2>
-    <p class="sec-sub">Every symptom has a mechanism. Every mechanism has a natural intervention. This section is practical — what to do right now, not just what to take every day.</p>
+    <div class="kicker">Everything You Need</div>
+    <h2 class="sec-title">The Protocol Lives Across These Pages</h2>
+    <p class="sec-sub" style="margin-bottom:36px;">Each page is focused, printable, and complete. Use them together.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;">
+
+      <a href="Parkinsons_Daily_Schedule.html" style="display:block;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:24px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--sage-mid)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:28px;margin-bottom:12px;">📋</div>
+        <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--ink);margin-bottom:8px;">Daily Schedule</div>
+        <p style="font-size:13px;color:var(--ink-light);line-height:1.7;margin:0;">The full step-by-step protocol — every phase from Week 1 through maintenance. What to do each morning, afternoon, evening, and bedtime. Integrated with the Full Body Detox.</p>
+        <div style="margin-top:14px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);">Open page →</div>
+      </a>
+
+      <a href="Parkinsons_Shopping_Table.html" style="display:block;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:24px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--sage-mid)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:28px;margin-bottom:12px;">🛒</div>
+        <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--ink);margin-bottom:8px;">Shopping List</div>
+        <p style="font-size:13px;color:var(--ink-light);line-height:1.7;margin:0;">Every supplement for every phase — with full reasoning, exact doses, and verified iHerb links. The complete stack in one place. Use code GUW6132 at checkout.</p>
+        <div style="margin-top:14px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);">Open page →</div>
+      </a>
+
+      <a href="Parkinsons_Symptoms.html" style="display:block;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:24px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--terra-light)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:28px;margin-bottom:12px;">🔍</div>
+        <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--ink);margin-bottom:8px;">Symptom Guide</div>
+        <p style="font-size:13px;color:var(--ink-light);line-height:1.7;margin:0;">Tremor, freezing, rigidity, sleep disturbance, constipation, fatigue, depression — each symptom explained with its mechanism and specific natural interventions. What to do right now.</p>
+        <div style="margin-top:14px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);">Open page →</div>
+      </a>
+
+      <a href="Parkinsons_Must_Have.html" style="display:block;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:24px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--honey)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:28px;margin-bottom:12px;">⭐</div>
+        <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--ink);margin-bottom:8px;">Must-Have List</div>
+        <p style="font-size:13px;color:var(--ink-light);line-height:1.7;margin:0;">If budget is tight or you don't know where to start — the 7 things that matter most. The minimum effective protocol, prioritised and explained.</p>
+        <div style="margin-top:14px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--honey);">Open page →</div>
+      </a>
 
-    <!-- NOCTURNAL TREMOR -->
-    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
-      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
-        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
-        <span class="detox-phase-name">Night Tremor — Waking Shaking at 3am</span>
-      </div>
-
-      <div class="highlight-box" style="margin-bottom:16px;">
-        <div class="h-title">What Is Actually Happening</div>
-        <p>Parkinson's tremor is a resting tremor — it lessens during sleep, but wakes people when dopamine medication wears off overnight (typically 3–5am). At this hour, dopamine levels are at their lowest. The body is also most acidic, most dehydrated, and most magnesium-depleted after a night of metabolism. All three of these amplify tremor severity. The shaking is the nervous system screaming for dopamine support it no longer has.</p>
-      </div>
-
-      <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--terra);margin-bottom:12px;">Immediate Actions — When She Wakes Shaking</div>
-
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">1</span>
-        <div>
-          <div class="detox-name">Do not panic — warmth and stillness first</div>
-          <div class="detox-why">Anxiety amplifies tremor immediately through adrenaline release. Warm blankets, slow breathing, and conscious muscle relaxation reduce the tremor loop within minutes.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">2</span>
-        <div>
-          <div class="detox-name">Mucuna Pruriens — emergency bedside dose</div>
-          <div class="detox-how">Keep 250–500mg capsules on the bedside table. Take immediately with a glass of water.</div>
-          <div class="detox-why">Natural levodopa takes 30–45 minutes to cross the blood-brain barrier — the sooner it is taken, the sooner the tremor begins to ease. This is the single most important bedside intervention.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">3</span>
-        <div>
-          <div class="detox-name">Magnesium glycinate — bedside</div>
-          <div class="detox-how">200–400mg in water, immediately</div>
-          <div class="detox-why">Magnesium directly relaxes muscle tension, reduces nerve excitability, and supports GABAergic calming — it works within 20–30 minutes and directly reduces tremor amplitude.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">4</span>
-        <div>
-          <div class="detox-name">4:8 breathing — immediately</div>
-          <div class="detox-how">Inhale for 4 counts, exhale slowly for 8 counts. Repeat 10 times.</div>
-          <div class="detox-why">Extended exhale activates the parasympathetic nervous system within seconds — directly opposing the sympathetic (fight-or-flight) state that amplifies tremor. This is free and works immediately.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">5</span>
-        <div>
-          <div class="detox-name">Warm foot bath or warm water bottle on feet</div>
-          <div class="detox-how">Feet in warm water with Epsom salt · or warm water bottle under feet</div>
-          <div class="detox-why">Warmth draws blood and nervous system attention to the periphery, away from the tremor-generating brain circuits. Epsom salt transdermally delivers magnesium within minutes.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">6</span>
-        <div>
-          <div class="detox-name">Gentle rhythmic music — turn it on</div>
-          <div class="detox-how">Calm, rhythmic music at low volume. Something familiar and loved.</div>
-          <div class="detox-why">Rhythm gives the nervous system an external beat to synchronise to — bypassing the disrupted internal timing circuits. Even during tremor, the auditory system can entrain the motor system.</div>
-        </div>
-      </div>
-
-      <div class="caution-box" style="margin-top:12px;">
-        <p><strong>Prevention — the nightly setup:</strong> Take magnesium glycinate 400mg before bed every night. Take a Mucuna Pruriens dose at bedtime if nocturnal tremor is frequent — this extends dopamine precursor availability into the early morning hours. Keep a glass of water, Mucuna capsules, and magnesium on the bedside table permanently.</p>
-      </div>
-    </div>
-
-    <!-- FREEZING OF GAIT -->
-    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
-      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
-        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
-        <span class="detox-phase-name">Freezing — Feet Won't Move, Body Locked</span>
-      </div>
-
-      <div class="highlight-box" style="margin-bottom:16px;">
-        <div class="h-title">What Is Actually Happening</div>
-        <p>Freezing of gait happens when the basal ganglia — the brain's internal movement-initiation system — loses the dopamine signal needed to start a movement. The legs know what to do. The signal never arrives. An external cue (sound, sight, touch) can bypass the damaged internal circuit entirely and restart movement immediately.</p>
-      </div>
-
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">1</span>
-        <div>
-          <div class="detox-name">March to a beat — count out loud or clap</div>
-          <div class="detox-how">"One-two, one-two" out loud. Clap hands in rhythm. Or play music immediately.</div>
-          <div class="detox-why">Rhythmic auditory cueing activates an intact alternative motor pathway that bypasses the frozen basal ganglia circuit — this is documented in multiple clinical trials as the most effective immediate freezing intervention.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">2</span>
-        <div>
-          <div class="detox-name">Step over an imaginary line or a real object</div>
-          <div class="detox-how">Place a strip of tape on common freeze spots. Visualise stepping over a laser. Look at a target ahead.</div>
-          <div class="detox-why">Visual cues provide the external trigger the internal system cannot generate — the brain responds to perceived obstacles differently than to open space, reactivating the movement programme.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">3</span>
-        <div>
-          <div class="detox-name">Rock weight side to side first</div>
-          <div class="detox-how">Shift weight slowly left-right several times before attempting to step.</div>
-          <div class="detox-why">Weight shift activates the proprioceptive and vestibular systems, which can initiate motor output even when the basal ganglia pathway is blocked.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">4</span>
-        <div>
-          <div class="detox-name">Wear a metronome watch or use a metronome app daily</div>
-          <div class="detox-how">Set to 10% above natural walking cadence. Walk to the beat every day.</div>
-          <div class="detox-why">Daily rhythmic auditory stimulation training improves stride length, reduces freezing frequency, and builds the alternative neural pathway — effects persist for months after training stops.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">5</span>
-        <div>
-          <div class="detox-name">Stick tape lines on floors at home</div>
-          <div class="detox-how">Horizontal strips of coloured tape across doorways and narrow passages — common freeze trigger spots.</div>
-          <div class="detox-why">Pre-placed visual cues remove the cognitive load of generating a cue during freezing — the line is already there, the foot steps over it automatically.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- RIGIDITY & MUSCLE STIFFNESS -->
-    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
-      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
-        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
-        <span class="detox-phase-name">Rigidity — Stiffness, Pain, Can't Turn in Bed</span>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Magnesium glycinate — highest priority</div>
-          <div class="detox-how">400–600mg daily — morning and night split</div>
-          <div class="detox-why">Magnesium is the body's natural muscle relaxant — it directly opposes calcium-driven muscle contraction. Deficiency is near-universal in Parkinson's and makes rigidity significantly worse.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Warm Epsom salt bath — every evening if possible</div>
-          <div class="detox-how">2 cups Epsom salt + 1 cup baking soda in hot bath · 30 min</div>
-          <div class="detox-why">Transdermal magnesium absorption directly into muscles bypasses digestive absorption limits — the fastest way to get magnesium into tight, rigid tissue.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Tai Chi or yoga — every morning</div>
-          <div class="detox-how">20–30 minutes · slow, deliberate movement through full range</div>
-          <div class="detox-why">Morning movement before rigidity sets in prevents the progressive locking that worsens through the day — use it or lose it is never more literally true than with Parkinson's rigidity.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Silk or satin bedsheets</div>
-          <div class="detox-how">Replace cotton bedding with satin or silk fitted sheet and pillowcase</div>
-          <div class="detox-why">Rigid patients cannot turn in cotton sheets — the friction makes it impossible. Satin reduces friction to near zero, dramatically improving ability to reposition during the night independently.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Turmeric + black pepper — daily in food</div>
-          <div class="detox-how">1 tsp turmeric + pinch of black pepper in cooking or golden milk</div>
-          <div class="detox-why">Curcumin reduces neuroinflammation that directly contributes to muscle rigidity — black pepper increases curcumin absorption by 2,000%.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SLEEP DISTURBANCE -->
-    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
-      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
-        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
-        <span class="detox-phase-name">Sleep Disturbance — Acting Out Dreams, Insomnia, REM Disorder</span>
-      </div>
-
-      <div class="highlight-box" style="margin-bottom:14px;">
-        <div class="h-title">What Is Actually Happening</div>
-        <p>REM Sleep Behaviour Disorder — physically acting out dreams, shouting, thrashing — is one of the earliest signs of Parkinson's, sometimes appearing a decade before motor symptoms. The brain stem circuits that normally paralyse the body during dreams are damaged. Sleep fragmentation in Parkinson's is also caused by rigidity (can't turn over), pain, and the progressive loss of sleep-regulating brain structures. Poor sleep accelerates neurodegeneration — this is not a secondary concern.</p>
-      </div>
-
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Magnesium glycinate — 400mg before bed, non-negotiable</div>
-          <div class="detox-why">Calms neural excitability, reduces REM behaviour disorder severity, and dramatically improves sleep quality — the single most evidence-backed natural sleep intervention for Parkinson's.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">No screens after sunset — strict</div>
-          <div class="detox-why">Blue light suppresses melatonin, and the Parkinson's brain already produces less melatonin than healthy brains — any additional suppression destroys the circadian rhythm needed for dopamine recovery during sleep.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Satin sheets — immediately</div>
-          <div class="detox-why">Inability to turn over in bed is a primary cause of nocturnal awakening in Parkinson's — removing the friction removes the waking.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Passionflower extract — before bed</div>
-          <div class="detox-how">250–500mg standardised extract · 30 min before sleep</div>
-          <div class="detox-why">Passionflower increases GABA activity — the calming neurotransmitter that opposes the excitatory state causing REM disruption — without pharmaceutical side effects.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Morning sunlight — 10–20 min, every single morning</div>
-          <div class="detox-why">The circadian clock is set by morning light — it regulates melatonin production 14–16 hours later at night. Missing morning sunlight is the most common reason for poor sleep that people overlook.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Partner or caregiver awareness — safety first</div>
-          <div class="detox-how">Remove sharp objects from bedside. Consider a bed rail. Sleep in same room.</div>
-          <div class="detox-why">REM sleep behaviour disorder creates real injury risk — physical safety preparation is essential before any other sleep intervention.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CONSTIPATION -->
-    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
-      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
-        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
-        <span class="detox-phase-name">Constipation — Critical, Not Minor</span>
-      </div>
-
-      <div class="highlight-box" style="margin-bottom:14px;">
-        <div class="h-title">Why This Is Urgent, Not Incidental</div>
-        <p>Alpha-synuclein begins accumulating in the enteric nervous system of the gut years before it appears in the brain. A constipated gut is a stagnant environment where alpha-synuclein aggregates, pathogenic bacteria thrive, and toxins recirculate into the bloodstream and toward the brain. Constipation in Parkinson's is not a comfort issue — it is a disease-progression issue. Daily elimination is mandatory.</p>
-      </div>
-
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Magnesium citrate — every night</div>
-          <div class="detox-how">300–400mg before bed</div>
-          <div class="detox-why">Draws water into the colon, softens stool, and stimulates gentle peristaltic movement — safe for permanent daily use without dependency.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Psyllium husk — twice daily</div>
-          <div class="detox-how">1 tbsp in a large glass of water · always with a full glass · never without water</div>
-          <div class="detox-why">Bulking fibre that physically moves contents through the colon and feeds the gut bacteria that produce butyrate — dual action on both gut motility and microbiome.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Squatty Potty or foot stool under feet when toileting</div>
-          <div class="detox-how">Any step that raises the knees above hip level while sitting on the toilet</div>
-          <div class="detox-why">The squatting position straightens the anorectal angle and reduces straining to near zero — Parkinson's patients who strain can suffer dangerous vagal nerve responses.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Castor oil pack over abdomen — 2× per week</div>
-          <div class="detox-why">Directly stimulates lymphatic drainage and gut motility through the abdominal wall — the most effective passive intervention for gut movement.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Sauerkraut with every meal + prebiotic foods daily</div>
-          <div class="detox-why">Restores the specific gut bacteria depleted in Parkinson's that regulate gut motility — addressing the root of the problem, not just the symptom.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DEPRESSION & ANXIETY -->
-    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
-      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
-        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
-        <span class="detox-phase-name">Depression & Anxiety — This Is Neurological, Not Emotional Weakness</span>
-      </div>
-
-      <div class="highlight-box" style="margin-bottom:14px;">
-        <div class="h-title">What Is Actually Happening</div>
-        <p>Dopamine is not just a movement chemical — it is a motivation, reward, and mood chemical. As dopamine-producing neurons die, depression and anxiety are neurological consequences, not psychological ones. They are not a response to the diagnosis — they precede it. This must be treated as a biological deficiency, not a character issue.</p>
-      </div>
-
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Mucuna Pruriens — the primary intervention</div>
-          <div class="detox-why">Natural levodopa restores dopamine precursor levels — addressing the actual neurochemical root of Parkinson's-related depression more directly than any antidepressant.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Saffron extract</div>
-          <div class="detox-how">30mg standardised extract daily</div>
-          <div class="detox-why">Multiple clinical trials show saffron at 30mg equals pharmaceutical antidepressants in mild-to-moderate depression — without side effects. Likely mechanism involves serotonin and dopamine reuptake inhibition.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Exercise — every day without exception</div>
-          <div class="detox-why">Exercise is the most powerful natural antidepressant that exists — it directly increases dopamine, serotonin, and BDNF simultaneously, and is the only intervention shown to create new neurons.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Omega-3 (EPA specifically) — 2–3g daily</div>
-          <div class="detox-why">EPA fraction of omega-3 has the strongest antidepressant evidence — the brain requires DHA for structure and EPA for mood regulation.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Social connection — non-negotiable</div>
-          <div class="detox-why">Isolation accelerates neurodegeneration measurably. Social engagement activates dopamine and oxytocin pathways. Being with loved ones is literally neuroprotective.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DROOLING -->
-    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
-      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
-        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
-        <span class="detox-phase-name">Drooling & Swallowing Difficulty</span>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Conscious swallowing practice — 10 min daily</div>
-          <div class="detox-how">Deliberate swallowing every 30 seconds · chin slightly down when swallowing</div>
-          <div class="detox-why">Parkinson's reduces automatic swallowing frequency — the problem is not excess saliva but reduced reflexive clearing. Conscious practice rebuilds the habit and reduces drooling immediately.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Singing and humming — daily</div>
-          <div class="detox-how">Any singing, 10+ minutes daily — even just humming while walking</div>
-          <div class="detox-why">Singing exercises the same muscles involved in swallowing and directly trains the oro-pharyngeal coordination that breaks down in Parkinson's — it also stimulates the vagus nerve simultaneously.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Speech and swallowing exercises — LSVT LOUD</div>
-          <div class="detox-how">LSVT LOUD programme · speech therapist referral · or YouTube-guided exercises</div>
-          <div class="detox-why">Lee Silverman Voice Treatment is the most evidence-backed speech and swallowing intervention for Parkinson's — clinically proven to improve voice, speech clarity, and swallowing function.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Upright posture during all meals</div>
-          <div class="detox-how">Sit fully upright, never eat lying or reclined · take small bites · eat slowly</div>
-          <div class="detox-why">Aspiration risk is real in Parkinson's — food and liquid entering the airways causes pneumonia, which is a leading cause of death in advanced disease. This is a safety intervention.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FATIGUE -->
-    <div class="detox-phase" style="border-left:4px solid var(--terra);padding-left:18px;margin-bottom:32px;">
-      <div class="detox-phase-head" style="border-bottom-color:rgba(140,90,60,0.2);">
-        <span class="detox-phase-tag" style="background:var(--terra);">Symptom</span>
-        <span class="detox-phase-name">Fatigue — Profound Exhaustion</span>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">CoQ10 Ubiquinol — 400mg with breakfast</div>
-          <div class="detox-why">Mitochondrial dysfunction is a primary cause of Parkinson's fatigue — CoQ10 is the central cofactor for cellular energy production and is severely depleted in Parkinson's patients.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">NMN or NR — morning</div>
-          <div class="detox-how">NMN 500mg or NR 300mg, fasted, morning</div>
-          <div class="detox-why">NAD+ depletion is a second major driver of neurological fatigue — restoring it supports mitochondrial function, DNA repair, and neuronal resilience simultaneously.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">MCT oil or coconut oil — 1–2 tbsp daily in food</div>
-          <div class="detox-why">Provides ketones — an alternative brain fuel that bypasses impaired glucose metabolism in Parkinson's neurons — reducing the brain energy deficit that drives both fatigue and cognitive fog.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Exercise — even when exhausted, 20 min minimum</div>
-          <div class="detox-why">Counter-intuitive but evidence-backed: exercise reduces Parkinson's fatigue over time by improving mitochondrial function, sleep quality, and dopamine pathway efficiency — rest does not.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check" style="color:var(--terra);">✓</span>
-        <div>
-          <div class="detox-name">Iron and B12 check — blood test</div>
-          <div class="detox-why">Iron deficiency and B12 deficiency both mimic and amplify Parkinson's fatigue — they are common, completely treatable, and frequently missed.</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- FULL BODY DETOX SUMMARY -->
-
-<section class="sec sec-warm">
-  <div class="inner">
-    <div class="kicker">Track 1 — Start Here</div>
-    <h2 class="sec-title">The Full Body Detox — Summarised</h2>
-    <p class="sec-sub">The complete 90-day detox distilled to its essential actions. One sentence of reasoning per item. Follow the sequence — it is not arbitrary.</p>
-
-    <div class="caution-box" style="margin-bottom:28px;">
-      <p><strong>The sequence matters:</strong> You cannot effectively kill parasites in a congested body. You cannot detox heavy metals without open drainage pathways. You cannot rebuild the gut while still feeding what damaged it. Each phase prepares the conditions for the next. Do not skip ahead.</p>
-    </div>
-
-    <!-- PHASE 1 -->
-    <div class="detox-phase">
-      <div class="detox-phase-head">
-        <span class="detox-phase-tag">Phase 1</span>
-        <span class="detox-phase-name">Open the Drainage Doors</span>
-        <span class="detox-phase-days">Days 1–14</span>
-      </div>
-
-      <p style="font-size:13px;color:var(--ink-light);margin-bottom:16px;line-height:1.7;">Before any supplement or cleanse — the body's five exit routes must be open. If toxins are mobilised but cannot exit, they recirculate and cause more damage.</p>
-
-      <div style="margin-bottom:18px;">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-bottom:10px;">The Five Doors — Open All Five Before Moving to Phase 2</div>
-        <div class="door-grid">
-          <div class="door-card">
-            <div class="door-title">🚪 Door 1 — Colon</div>
-            <div class="door-body">At least one full bowel movement daily. If the colon is blocked, everything released in the cleanse recirculates into the blood.</div>
-          </div>
-          <div class="door-card">
-            <div class="door-title">🚪 Door 2 — Liver & Bile</div>
-            <div class="door-body">The liver processes all toxins for removal. It must be actively producing bile before you load it with more work.</div>
-          </div>
-          <div class="door-card">
-            <div class="door-title">🚪 Door 3 — Kidneys</div>
-            <div class="door-body">Kidneys filter the blood 40× per day — they need hydration and herbal support before the toxic load increases.</div>
-          </div>
-          <div class="door-card">
-            <div class="door-title">🚪 Door 4 — Lymph</div>
-            <div class="door-body">The lymphatic system has no pump — it moves only through movement, breathing, and manual stimulation. Most people's lymph is stagnant.</div>
-          </div>
-          <div class="door-card" style="grid-column:span 2;">
-            <div class="door-title">🚪 Door 5 — Skin</div>
-            <div class="door-body">The skin is the largest detox organ. Sweating excretes heavy metals, BPA, and phthalates. Most modern people barely sweat. Detox baths and dry brushing reactivate this route.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Filtered water — 2+ litres daily</div>
-          <div class="detox-how">Filtered only — ZeroWater pitcher minimum, reverse osmosis ideal</div>
-          <div class="detox-why">Tap water contains fluoride, chlorine, pharmaceutical residues, and heavy metals that directly block the healing you are trying to create.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Morning Sole drink</div>
-          <div class="detox-how">1 tsp saturated Celtic sea salt solution in a glass of filtered water — every morning before anything else</div>
-          <div class="detox-why">Provides full-spectrum trace minerals, supports adrenal function, and primes the digestive system for the day.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Warm lemon water</div>
-          <div class="detox-how">Juice of ½ lemon in warm filtered water, 5 min after sole water, use a straw</div>
-          <div class="detox-why">Stimulates bile production and gently alkalises the body before the day's metabolic demands begin.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Magnesium citrate — before bed</div>
-          <div class="detox-how">300–400mg capsule or powder · every night</div>
-          <div class="detox-why">Gently moves the colon without dependency — the minimum effective intervention for daily bowel regularity, which is non-negotiable throughout the protocol.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Psyllium husk</div>
-          <div class="detox-how">1 tbsp in a large glass of water, twice daily · always with a full glass</div>
-          <div class="detox-why">Sweeps the colon, binds toxins, and feeds beneficial gut bacteria — particularly important for the gut-brain axis.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Milk Thistle</div>
-          <div class="detox-how">175mg (80% silymarin) · with food · daily</div>
-          <div class="detox-why">Protects and regenerates liver cells — the liver is the primary detox organ and must be supported before it is asked to process more load.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Dandelion root tea</div>
-          <div class="detox-how">2 cups daily — Traditional Medicinals Organic Dandelion Leaf & Root</div>
-          <div class="detox-why">Stimulates bile production and supports kidney drainage simultaneously — one of the safest and most effective liver and kidney herbs available.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Nettle leaf tea</div>
-          <div class="detox-how">1–2 cups daily</div>
-          <div class="detox-why">Gentle kidney tonic and diuretic — supports the kidneys in clearing the increased load as detox begins.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Castor oil pack — over liver area</div>
-          <div class="detox-how">Cold-pressed castor oil on cloth over right abdomen · warm compress · 45 min · 3–4× per week</div>
-          <div class="detox-why">Increases bile flow, lymphatic circulation, and liver enzyme activity — the most effective passive liver and lymph support technique available.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Dry skin brushing</div>
-          <div class="detox-how">Every morning before shower · always toward the heart · 3–5 min · natural bristle brush</div>
-          <div class="detox-why">Activates lymphatic circulation under the skin and opens skin pores for better toxin excretion through one of the body's most underused detox routes.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Shower filter — installed</div>
-          <div class="detox-how">AquaBliss SF100 · Vitamin C + KDF · replace cartridge every 3 months</div>
-          <div class="detox-why">A 10-minute hot shower exposes you to more chlorine absorption than drinking 2 litres of the same water — undoing the filtration work at the tap.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Hot-cold shower contrast</div>
-          <div class="detox-how">End every shower with 30 seconds cold — non-negotiable</div>
-          <div class="detox-why">Temperature contrast pumps the lymphatic and vascular system, and triggers norepinephrine release — which has documented neuroprotective effects.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Rebounding — mini trampoline</div>
-          <div class="detox-how">10–20 minutes daily · gentle bouncing, feet need not leave the surface</div>
-          <div class="detox-why">The up-down G-force is the single most effective lymphatic drainage practice — opens and closes lymphatic valves with every bounce.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Detox bath or foot soak</div>
-          <div class="detox-how">3× per week minimum: 2 cups Epsom salt + 1 cup baking soda + ½ cup Celtic salt + 1 cup ACV + ½ cup bentonite clay + 2 tbsp ground ginger · 30–40 min</div>
-          <div class="detox-why">Each ingredient serves a specific function: Epsom salt for magnesium absorption, baking soda to neutralise chlorine and alkalise, clay to bind heavy metals transdermally, ginger to open pores and induce sweating.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Remove from kitchen</div>
-          <div class="detox-how">Immediately: seed oils (canola, sunflower, corn, soybean), non-stick cookware, tap water for cooking</div>
-          <div class="detox-why">You cannot detox effectively while continuously reloading the same toxins — these three items are the highest-priority removals.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PHASE 2 -->
-    <div class="detox-phase">
-      <div class="detox-phase-head">
-        <span class="detox-phase-tag">Phase 2</span>
-        <span class="detox-phase-name">Biofilm Disruption & Antiparasitic Rotation</span>
-        <span class="detox-phase-days">Days 15–45</span>
-      </div>
-
-      <p style="font-size:13px;color:var(--ink-light);margin-bottom:16px;line-height:1.7;">Most cleanses fail because they try to kill parasites hidden behind biofilm — a hardened protective matrix the pathogens construct around themselves. Break the biofilm first. Then rotate antiparasitic herbs so pathogens cannot adapt.</p>
-
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Serrapeptase</div>
-          <div class="detox-how">120,000–250,000 SPU · empty stomach · 45 min before food</div>
-          <div class="detox-why">Breaks down the protein matrix of biofilm — the shell that makes pathogens invisible to your immune system and resistant to every herb you take.</div>
-          <div class="detox-warn">Do not use with blood-thinning medications.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Nattokinase</div>
-          <div class="detox-how">2,000 FU twice daily · empty stomach</div>
-          <div class="detox-why">Breaks down fibrin — the structural scaffolding of biofilm — and supports cardiovascular health by reducing excessive clotting factors.</div>
-          <div class="detox-warn">Do not combine with warfarin or aspirin therapy without medical guidance.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Raw garlic — daily</div>
-          <div class="detox-how">2–4 cloves · crush and wait 10 minutes before eating · every day</div>
-          <div class="detox-why">The 10-minute wait allows allicin to form — the compound that disrupts parasite quorum sensing and kills bacteria, fungi, and parasites. The cheapest effective antimicrobial that exists.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Berberine</div>
-          <div class="detox-how">500mg twice daily · with meals</div>
-          <div class="detox-why">Disrupts the chemical signalling system pathogens use to rebuild biofilm — and has direct antimicrobial activity against Candida and pathogenic bacteria.</div>
-          <div class="detox-warn">Interacts with metformin and cyclosporine.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Antiparasitic rotation — from Week 5</div>
-          <div class="detox-how">Rotate every 7–10 days: Black Walnut Hull tincture · Wormwood 200–300mg · Cloves 500mg (always with wormwood) · Oregano Oil enteric coated · Mimosa Pudica seed</div>
-          <div class="detox-why">Parasites have 2–3 week life cycles and adapt to a single herb. Rotating 3–4 herbs in cycles addresses every life stage and prevents resistance. Cloves are non-negotiable with wormwood — they are the only compound that addresses eggs and larvae.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Raw pumpkin seeds — every morning</div>
-          <div class="detox-how">Large handful · raw and unsalted only · empty stomach</div>
-          <div class="detox-why">Cucurbitacin paralyses parasites and prevents them adhering to intestinal walls — inexpensive, safe for continuous daily use, and used across traditional cultures for millennia.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PHASE 3 -->
-    <div class="detox-phase">
-      <div class="detox-phase-head">
-        <span class="detox-phase-tag">Phase 3</span>
-        <span class="detox-phase-name">Bind & Drain — Heavy Metal Clearing</span>
-        <span class="detox-phase-days">Days 46–75</span>
-      </div>
-
-      <p style="font-size:13px;color:var(--ink-light);margin-bottom:16px;line-height:1.7;">Binders capture and carry toxins out of the body through the stool — preventing them from being reabsorbed. All binders must be taken at least 2 hours away from food, supplements, and medications.</p>
-
-      <div class="highlight-box" style="margin-bottom:16px;">
-        <div class="h-title">Critical for Parkinson'ss — Aluminium</div>
-        <p>Aluminium accumulation in the substantia nigra — the exact region that degenerates in Parkinson'ss — is documented in post-mortem studies. Silica-rich water (1 litre of Volvic or Fiji daily) is the safest and most effective aluminium chelation method confirmed in peer-reviewed research. This continues throughout the protocol indefinitely.</p>
-      </div>
-
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Silica-rich water — daily, permanent</div>
-          <div class="detox-how">1 litre of Volvic or Fiji water daily · in addition to regular filtered water</div>
-          <div class="detox-why">Silica binds aluminium in the blood and removes it via urine — the only method confirmed in peer-reviewed human trials to reduce brain aluminium load.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Activated charcoal</div>
-          <div class="detox-how">500–1,000mg · 2+ hours from all food and supplements · during die-off symptoms</div>
-          <div class="detox-why">Broad-spectrum binder for die-off toxins, gases, and endotoxins — most useful during strong Herxheimer reactions when pathogens are dying in high numbers.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Zeolite (clinoptilolite)</div>
-          <div class="detox-how">1–2g daily · away from supplements</div>
-          <div class="detox-why">Crystalline cage structure traps heavy metals and microplastics — one of the few binders that enters the bloodstream to pull metals from tissue, not just the gut.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Chlorella — broken cell wall</div>
-          <div class="detox-how">Start at 500mg · build to 2–4g over 2 weeks · with food · broken cell wall only</div>
-          <div class="detox-why">Strong chelator of mercury specifically — always pair with cilantro if using cilantro as a mobiliser. Never use cilantro to mobilise metals without a binder present.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Modified Citrus Pectin (MCP)</div>
-          <div class="detox-how">5g powder 3× daily · between meals</div>
-          <div class="detox-why">Small enough to enter the bloodstream and pull lead, arsenic, cadmium, and mercury from tissue — the most comprehensively researched natural chelation agent available.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PHASE 4 -->
-    <div class="detox-phase">
-      <div class="detox-phase-head">
-        <span class="detox-phase-tag">Phase 4</span>
-        <span class="detox-phase-name">Rebuild — Gut Repair & Microbiome Restoration</span>
-        <span class="detox-phase-days">Days 76–90+</span>
-      </div>
-
-      <p style="font-size:13px;color:var(--ink-light);margin-bottom:16px;line-height:1.7;">After the clearing, the gut lining is exposed and needs active rebuilding. This phase directly repairs the gut-brain axis — the origin point of Parkinson's pathology.</p>
-
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">L-Glutamine</div>
-          <div class="detox-how">5–10g powder · empty stomach every morning</div>
-          <div class="detox-why">The primary fuel for gut lining cells — directly rebuilds the one-cell-thick barrier that separates the gut from the bloodstream.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Bone broth or collagen</div>
-          <div class="detox-how">1–2 cups daily OR collagen powder in warm water</div>
-          <div class="detox-why">Rich in glycine, proline, and collagen — the structural matrix of the gut lining, joint tissue, and myelin sheath. One of the most ancient healing foods across every traditional culture.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Aloe vera inner leaf gel</div>
-          <div class="detox-how">1–2 tablespoons in water · empty stomach</div>
-          <div class="detox-why">Contains acemannan, which coats and protects the gut lining, reduces inflammation, and supports tight junction repair between gut wall cells.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Zinc carnosine</div>
-          <div class="detox-how">75mg twice daily · with food</div>
-          <div class="detox-why">Stabilises gut lining, reduces inflammation, and accelerates healing of the intestinal wall — documented in multiple clinical trials for gut lining integrity.</div>
-          <div class="detox-warn">Long-term zinc supplementation depletes copper — monitor with Hidden Deficiencies protocol.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Sauerkraut — homemade</div>
-          <div class="detox-how">2 tablespoons with every meal · homemade or refrigerated only · never pasteurised</div>
-          <div class="detox-why">More beneficial bacteria per serving than most commercial probiotic capsules — and these are the same bacteria depleted in Parkinson's patients that produce the gut neurotransmitters the brain depends on.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">SBO Probiotics</div>
-          <div class="detox-how">As directed · with meals · build dose slowly over 2 weeks</div>
-          <div class="detox-why">Soil-based spore-forming bacteria survive stomach acid intact and recolonise the gut with the organisms humans ingested for millennia — more resilient than standard lactobacillus supplements.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Prebiotic foods — daily</div>
-          <div class="detox-how">Cooked and cooled potatoes or green banana · Jerusalem artichoke · raw garlic and onion · asparagus</div>
-          <div class="detox-why">Probiotics without prebiotics are like planting seeds in empty soil — these foods feed the restored bacteria and allow them to produce butyrate, which directly protects the gut-brain axis.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Apple cider vinegar</div>
-          <div class="detox-how">1 tbsp in water · 10 min before meals · raw, unfiltered with the mother · use straw</div>
-          <div class="detox-why">Restores stomach acid — most digestive problems are caused by too little acid, not too much. Proper stomach acid is essential for breaking down proteins that feed the gut bacteria being restored.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PHASE 5 -->
-    <div class="detox-phase">
-      <div class="detox-phase-head">
-        <span class="detox-phase-tag">Phase 5</span>
-        <span class="detox-phase-name">Daily Maintenance — Permanent</span>
-        <span class="detox-phase-days">Day 91 & Beyond</span>
-      </div>
-
-      <p style="font-size:13px;color:var(--ink-light);margin-bottom:16px;line-height:1.7;">These continue every day, permanently. The world has not changed. Toxic exposure is ongoing. These are not protocol practices — they are permanent life practices.</p>
-
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Sole water + lemon water — every morning</div>
-          <div class="detox-why">Morning mineral replenishment and bile stimulation. Takes 3 minutes. Do this for the rest of your life.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Filtered water always</div>
-          <div class="detox-why">Fluoride and chlorine do not stop when the protocol ends.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Magnesium glycinate nightly</div>
-          <div class="detox-why">The soil is permanently depleted — you cannot get adequate magnesium from food alone.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Vitamin D3 + K2 daily</div>
-          <div class="detox-why">Deficiency is universal in the modern world — D3 without K2 causes calcium to deposit in soft tissue rather than bone.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Omega-3 daily</div>
-          <div class="detox-why">The brain is 60% fat — DHA is continuously consumed and must be continuously replaced.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Sauerkraut with every meal</div>
-          <div class="detox-why">The gut microbiome requires daily maintenance — the bacteria you restored will die without consistent replenishment.</div>
-        </div>
-      </div>
-      <div class="detox-item">
-        <span class="detox-check">✓</span>
-        <div>
-          <div class="detox-name">Annual 30-day repeat — Phases 1 & 2</div>
-          <div class="detox-why">Parasitic and toxic re-exposure is ongoing. Annual clearing acknowledges this reality and prevents accumulation.</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- BAKING SODA RESEARCH -->
-
-<section class="sec sec-sage">
-  <div class="inner">
-    <div class="kicker">Track 2 Begins Week 3</div>
-    <h2 class="sec-title">Baking Soda & Neuroinflammation</h2>
-    <p class="sec-sub">What the research actually shows — and how it applies here.</p>
-
-    <div class="highlight-box">
-      <div class="h-title">The Anti-Inflammatory Evidence (Journal of Immunology, 2018)</div>
-      <p>Researchers at Augusta University found that drinking a daily solution of baking soda (sodium bicarbonate) in water triggers a system-wide shift in the immune response. Macrophages — the immune cells that drive inflammation — switch from the inflammatory M1 type to the anti-inflammatory M2 type. This shift was observed in the kidneys, spleen, and peripheral blood, and was sustained for at least four hours in humans. Regulatory T cells also increased, which suppresses autoimmune activity and prevents the immune system from attacking the body's own tissue.</p>
-    </div>
-
-    <div class="highlight-box">
-      <div class="h-title">Why This Matters for Parkinson'ss</div>
-      <p>Neuroinflammation — specifically the chronic activation of microglia and inflammatory macrophages in the midbrain — is now understood as a central driver of dopaminergic neuron loss. Separately, a 2026 pre-print study found that reactive astrocytes create an acidic microenvironment in the brain that activates acid-sensing ion channels (ASIC1), directly triggering alpha-synuclein aggregation and neuronal death. Alkalising the body systemically may help counteract both mechanisms — reducing the inflammatory load and the acidic conditions that accelerate protein misfolding.</p>
-    </div>
-
-    <div class="caution-box">
-      <p><strong>Honest limitation:</strong> These are mechanistic findings, not Parkinson's clinical trials. No direct human trial on sodium bicarbonate for Parkinson'ss exists yet. This is used here as a low-risk, low-cost adjunct intervention based on documented anti-inflammatory and alkalising mechanisms — not as a primary treatment. The dose is small. The risk is negligible. The rationale is sound.</p>
-    </div>
-
-    <div class="caution-box" style="margin-top:12px;">
-      <p><strong>Important DMSO note:</strong> A 2022 peer-reviewed study (Scientific Reports) found that low-dose DMSO accelerates alpha-synuclein oligomerization in vitro — the exact protein aggregation process driving this condition. DMSO is valuable for pain, inflammation, and as a carrier — but it is <strong>not recommended</strong> as a direct neurological intervention here until more in-vivo data exists. It remains in the protocol for joint/muscle symptoms and topical pain relief only.</p>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- DAILY SCHEDULE -->
-<section class="sec sec-warm">
-  <div class="inner">
-    <div class="kicker">Daily Protocol</div>
-    <h2 class="sec-title">What To Do — Every Day</h2>
-    <p class="sec-sub">Print this table. Tick each item. Follow the time sequence — it matters.</p>
-
-    <table class="schedule">
-      <thead>
-        <tr>
-          <th style="width:110px;">Time</th>
-          <th>Action</th>
-          <th style="width:80px;">Category</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="time">On waking<br>Before anything</td>
-          <td>
-            <span class="action">Sole water + lemon water</span>
-            <span class="detail">1 tsp saturated Celtic sea salt solution in a full glass of filtered water. Wait 5 min. Then juice of ½ lemon in warm filtered water. Use a straw.</span>
-          </td>
-          <td><span class="tag">Minerals</span></td>
-        </tr>
-        <tr>
-          <td class="time">Waking<br>+10 min</td>
-          <td>
-            <span class="action">Baking soda drink <span class="badge badge-new">New</span></span>
-            <span class="detail">¼ tsp food-grade baking soda (aluminum-free) in a full glass of filtered water. Drink slowly. Wait 30 min before eating. <em>Anti-inflammatory, alkalises the system, shifts macrophages to M2.</em></span>
-          </td>
-          <td><span class="tag tag-new">Anti-inflam</span></td>
-        </tr>
-        <tr>
-          <td class="time">Waking<br>+15 min</td>
-          <td>
-            <span class="action">Mucuna Pruriens — morning dose</span>
-            <span class="detail">500mg standardised extract (15% L-DOPA) on empty stomach. Take 30 min before breakfast. This is the primary dopamine support — natural levodopa. <em>If currently on pharmaceutical levodopa — discuss with doctor before adding.</em></span>
-          </td>
-          <td><span class="tag tag-terra">Dopamine</span></td>
-        </tr>
-        <tr>
-          <td class="time">Morning</td>
-          <td>
-            <span class="action">Sunlight — 10–20 minutes outside, face and arms</span>
-            <span class="detail">Circadian regulation, Vitamin D synthesis, dopamine pathway activation. Non-negotiable. Morning light is the single most powerful neurological regulator available for free.</span>
-          </td>
-          <td><span class="tag">Neuro</span></td>
-        </tr>
-        <tr>
-          <td class="time">Morning<br>Exercise</td>
-          <td>
-            <span class="action">Movement — minimum 30 minutes</span>
-            <span class="detail">Walking, dancing, Tai Chi, cycling, or boxing. See exercise section below. Exercise is the most evidence-backed intervention for slowing motor symptom progression. Do not skip.</span>
-          </td>
-          <td><span class="tag">Movement</span></td>
-        </tr>
-        <tr>
-          <td class="time">Breakfast<br>With food</td>
-          <td>
-            <span class="action">Core morning supplements with food</span>
-            <span class="detail">Lion's Mane 1,000mg · CoQ10 Ubiquinol 200–400mg · NAC 600mg · Milk Thistle 175mg · Omega-3 2–3g · Vitamin D3 5,000 IU + K2 200mcg. Take all with a fat-containing meal for absorption.</span>
-          </td>
-          <td><span class="tag">Supplements</span></td>
-        </tr>
-        <tr>
-          <td class="time">Mid-morning</td>
-          <td>
-            <span class="action">Silica-rich water (Volvic or Fiji) — 1 litre</span>
-            <span class="detail">Silica specifically binds and removes aluminium from brain tissue. Aluminium accumulation in the substantia nigra is documented in Parkinson's pathology. 1 litre of silica-rich water daily is the safest and most effective aluminium chelation method available. Continue filtered water for rest of daily intake.</span>
-          </td>
-          <td><span class="tag">Detox</span></td>
-        </tr>
-        <tr>
-          <td class="time">Midday<br>Before lunch</td>
-          <td>
-            <span class="action">Mucuna Pruriens — midday dose</span>
-            <span class="detail">500mg, 30 minutes before lunch. Consistent spacing maintains stable dopamine precursor levels. Do not take with protein-heavy meals — protein competes with levodopa for absorption across the blood-brain barrier.</span>
-          </td>
-          <td><span class="tag tag-terra">Dopamine</span></td>
-        </tr>
-        <tr>
-          <td class="time">Lunch<br>With food</td>
-          <td>
-            <span class="action">Midday supplements</span>
-            <span class="detail">Magnesium glycinate 200mg · Berberine 500mg · Sauerkraut 2 tbsp (homemade or refrigerated only — not pasteurised).</span>
-          </td>
-          <td><span class="tag">Supplements</span></td>
-        </tr>
-        <tr>
-          <td class="time">Afternoon</td>
-          <td>
-            <span class="action">Vagus nerve practice — 10 minutes</span>
-            <span class="detail">Humming or singing (5 min) + 4:8 breathing — inhale 4 counts, exhale 8 counts (5 min). Gargling with cold water daily also strengthens vagal tone. The vagus nerve is the highway from gut to brain — and the pathway by which alpha-synuclein travels upward. Direct stimulation supports neurological regulation.</span>
-          </td>
-          <td><span class="tag">Neuro</span></td>
-        </tr>
-        <tr>
-          <td class="time">Afternoon</td>
-          <td>
-            <span class="action">Mannitol — if available</span>
-            <span class="detail">5–10g mannitol powder in water. Mannitol inhibits alpha-synuclein fibril formation and has shown motor improvement in animal models and patient reports. Phase IIa clinical trial confirmed safety and tolerability. A natural sugar alcohol found in many vegetables — highest evidence base of any natural anti-aggregation agent.</span>
-          </td>
-          <td><span class="tag tag-new">Alpha-syn</span></td>
-        </tr>
-        <tr>
-          <td class="time">Evening<br>Before dinner</td>
-          <td>
-            <span class="action">Mucuna Pruriens — evening dose (if needed)</span>
-            <span class="detail">500mg, 30 min before dinner. Omit if symptoms are well-managed on two doses. Always take away from protein-heavy meals.</span>
-          </td>
-          <td><span class="tag tag-terra">Dopamine</span></td>
-        </tr>
-        <tr>
-          <td class="time">Evening<br>3× per week</td>
-          <td>
-            <span class="action">Detox bath or foot soak</span>
-            <span class="detail">Epsom salt 2 cups + baking soda 1 cup + Celtic sea salt ½ cup + ACV 1 cup + bentonite clay ½ cup + ginger 2 tbsp. Soak 30–40 min. <em>Baking soda in the bath neutralises chlorine AND alkalises transdermally — doubles its value here.</em></span>
-          </td>
-          <td><span class="tag">Detox</span></td>
-        </tr>
-        <tr>
-          <td class="time">Before bed</td>
-          <td>
-            <span class="action">Night supplements</span>
-            <span class="detail">Magnesium glycinate 400mg · NMN 250–500mg (or NR 300mg) · Lion's Mane second dose 500–1,000mg · PQQ 20mg.</span>
-          </td>
-          <td><span class="tag">Neuro</span></td>
-        </tr>
-        <tr>
-          <td class="time">Before bed</td>
-          <td>
-            <span class="action">Castor oil pack over abdomen — 2×/week</span>
-            <span class="detail">Cold-pressed castor oil on cloth over the lower abdomen. Warm compress on top. 45 minutes. Supports lymphatic drainage, liver function, and gut motility — all directly linked to the gut-brain axis and alpha-synuclein transit.</span>
-          </td>
-          <td><span class="tag">Lymph</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- SUPPLEMENTS -->
-<section class="sec sec-deep">
-  <div class="inner">
-    <div class="kicker">Complete Supplement Stack</div>
-    <h2 class="sec-title">Every Supplement — With Reasoning</h2>
-    <p class="sec-sub">Sorted by priority. Start with the first four. Add the rest as you build the routine.</p>
-
-    <!-- PRIORITY 1 -->
-    <div class="phase-header">
-      <span class="phase-num">PRIORITY 1</span>
-      <span class="phase-title">Dopamine & Nerve Repair</span>
-    </div>
-
-    <div class="supp-grid">
-      <div class="supp-row">
-        <span class="supp-check">✓</span>
-        <div class="supp-body">
-          <div class="supp-name">Mucuna Pruriens <span class="badge badge-key">Most Important</span></div>
-          <div class="supp-dose">500mg · 15% L-DOPA standardised · 2–3× daily · 30 min before meals · away from protein</div>
-          <div class="supp-why">Contains natural levodopa — the direct dopamine precursor. More than 3,000 years of use in Ayurvedic medicine for Parkinson'ss. Multiple clinical trials show comparable efficacy to pharmaceutical levodopa, with faster onset and longer duration. Patented by neurologists for its advantages. Natural levodopa is better tolerated and does not cause the dyskinesia associated with synthetic Sinemet over time.</div>
-          <div class="supp-warn">If on pharmaceutical levodopa — discuss dose adjustment with doctor. Do not combine without guidance.</div>
-        </div>
-        <a href="https://www.iherb.com/pr/now-foods-dopa-mucuna-90-vcaps/714?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
-      </div>
-
-      <div class="supp-row">
-        <span class="supp-check">✓</span>
-        <div class="supp-body">
-          <div class="supp-name">Lion's Mane Mushroom <span class="badge badge-key">Most Important</span></div>
-          <div class="supp-dose">1,000mg twice daily · with meals · extract standardised to beta-glucans</div>
-          <div class="supp-why">Stimulates production of Nerve Growth Factor (NGF) — the compound that promotes growth, maintenance, and repair of neurons. The only natural substance with documented ability to stimulate NGF production in the brain. Research shows neuroprotection in dopaminergic neurons specifically. Also supports the myelin sheath — the protective coating of every nerve in the body.</div>
-        </div>
-        <a href="https://www.iherb.com/pr/host-defense-lion-s-mane-memory-nerve-support-120-vegetarian-capsules/59092?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
-      </div>
-
-      <div class="supp-row">
-        <span class="supp-check">✓</span>
-        <div class="supp-body">
-          <div class="supp-name">CoQ10 Ubiquinol <span class="badge badge-key">Most Important</span></div>
-          <div class="supp-dose">200–400mg daily · with fat-containing meal · ubiquinol form only (not ubiquinone)</div>
-          <div class="supp-why">Mitochondrial energy production collapses in dopaminergic neurons before they die — CoQ10 is the central cofactor for mitochondrial function. Ubiquinol is the active, pre-reduced form — the only form the body can use directly. Studies show significantly lower CoQ10 levels in Parkinson's patients. At high doses (1,200mg), a landmark clinical trial showed slowing of functional decline.</div>
-        </div>
-        <a href="https://www.iherb.com/pr/california-gold-nutrition-coq10-ubiquinol-pqq-combo/143326?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
-      </div>
-
-      <div class="supp-row">
-        <span class="supp-check">✓</span>
-        <div class="supp-body">
-          <div class="supp-name">NMN (Nicotinamide Mononucleotide)</div>
-          <div class="supp-dose">500mg daily · morning · fasted · or NR 300mg as alternative</div>
-          <div class="supp-why">NAD+ — the cellular energy and DNA repair molecule — drops up to 50% between ages 40 and 60. In Parkinson'ss, NAD+ depletion in neurons accelerates degeneration. NMN is the most direct NAD+ precursor. Supports mitochondrial function, sirtuin activation, and neuronal resilience at the cellular level.</div>
-        </div>
-        <a href="https://www.iherb.com/pr/prohealth-longevity-nmn-pro-500-500-mg-30-capsules/114170?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
-      </div>
-    </div>
-
-    <!-- PRIORITY 2 -->
-    <div class="phase-header" style="margin-top:24px;">
-      <span class="phase-num">PRIORITY 2</span>
-      <span class="phase-title">Neuroprotection & Detox</span>
-    </div>
-
-    <div class="supp-grid">
-      <div class="supp-row">
-        <span class="supp-check">✓</span>
-        <div class="supp-body">
-          <div class="supp-name">NAC — N-Acetyl Cysteine</div>
-          <div class="supp-dose">600mg twice daily · between meals</div>
-          <div class="supp-why">Raises glutathione — the brain's primary antioxidant and detoxification molecule. Glutathione is severely depleted in the substantia nigra in Parkinson'ss. NAC is the most effective oral method to restore it. Also disrupts biofilm and supports mitochondrial function.</div>
-          <div class="supp-warn">Do not use with nitroglycerin or blood pressure medications without guidance.</div>
-        </div>
-        <a href="https://www.iherb.com/pr/now-foods-nac-n-acetyl-cysteine-600-mg-100-veg-capsules/694?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
-      </div>
-
-      <div class="supp-row">
-        <span class="supp-check">✓</span>
-        <div class="supp-body">
-          <div class="supp-name">PQQ — Pyrroloquinoline Quinone</div>
-          <div class="supp-dose">20mg daily · with CoQ10 for synergistic effect</div>
-          <div class="supp-why">Promotes mitochondrial biogenesis — the creation of new mitochondria in neurons. The only compound known to do this. Works synergistically with CoQ10. Also activates nerve growth factor and has antioxidant activity 5,000× greater than Vitamin C in some pathways.</div>
-        </div>
-        <a href="https://www.iherb.com/pr/doctor-s-best-pqq-20-mg-30-veggie-caps/49081?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
-      </div>
-
-      <div class="supp-row">
-        <span class="supp-check">✓</span>
-        <div class="supp-body">
-          <div class="supp-name">Mannitol <span class="badge badge-new">Emerging Evidence</span></div>
-          <div class="supp-dose">5–10g powder daily · in water · afternoon · away from meals</div>
-          <div class="supp-why">A natural sugar alcohol that inhibits alpha-synuclein fibril formation — the specific protein aggregation that drives dopaminergic neuron loss. In animal models, mannitol reversed motor impairments and reduced brain alpha-synuclein burden. A Phase IIa clinical trial (2024) confirmed safety and tolerability in Parkinson's patients. Of all natural compounds, mannitol has the most direct mechanistic action on the core pathology.</div>
-        </div>
-        <a href="https://www.amazon.com/s?k=mannitol+powder+food+grade" target="_blank" class="supp-link">Search →</a>
-      </div>
-
-      <div class="supp-row">
-        <span class="supp-check">✓</span>
-        <div class="supp-body">
-          <div class="supp-name">Vitamin D3 + K2</div>
-          <div class="supp-dose">D3 5,000 IU + K2 MK-7 200mcg daily · with fat-containing meal · always together</div>
-          <div class="supp-why">Vitamin D receptors are found throughout the brain including the substantia nigra. Deficiency is associated with increased Parkinson's risk and faster progression. D3 must always be taken with K2 — D3 without K2 causes calcium to deposit in soft tissue rather than bone.</div>
-        </div>
-        <a href="https://www.iherb.com/pr/california-gold-nutrition-vitamin-d3-k2-as-mk-7-180-veggie-capsules/124745?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
-      </div>
-
-      <div class="supp-row">
-        <span class="supp-check">✓</span>
-        <div class="supp-body">
-          <div class="supp-name">Omega-3 (EPA + DHA)</div>
-          <div class="supp-dose">2–3g combined EPA+DHA daily · with meals · wild-caught fish oil or algae-based</div>
-          <div class="supp-why">The brain is 60% fat, predominantly DHA. Reduces neuroinflammation, supports dopamine receptor integrity, and maintains cell membrane fluidity in neurons. Low omega-3 status is consistently associated with accelerated neurodegeneration.</div>
-        </div>
-        <a href="https://www.iherb.com/pr/now-foods-omega-3-fish-oil-200-softgels/323?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
-      </div>
-
-      <div class="supp-row">
-        <span class="supp-check">✓</span>
-        <div class="supp-body">
-          <div class="supp-name">Magnesium Glycinate</div>
-          <div class="supp-dose">400–600mg daily · split morning and night</div>
-          <div class="supp-why">Required for over 300 enzymatic reactions including dopamine synthesis, muscle relaxation, and neurological function. Most Parkinson's patients are severely deficient. Glycinate form crosses the blood-brain barrier most effectively and is the gentlest on digestion. Directly reduces muscle rigidity and cramps — two of the most debilitating daily symptoms.</div>
-        </div>
-        <a href="https://www.iherb.com/pr/now-foods-magnesium-glycinate-180-tablets-100-mg-per-tablet/88819?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
-      </div>
-
-      <div class="supp-row">
-        <span class="supp-check">✓</span>
-        <div class="supp-body">
-          <div class="supp-name">Probiotics — Soil-Based Organisms</div>
-          <div class="supp-dose">As directed · with meals · build slowly</div>
-          <div class="supp-why">The gut-brain axis is now understood as central to Parkinson's pathology — alpha-synuclein aggregation begins in the gut (enteric nervous system) years before it reaches the brain. Restoring beneficial gut bacteria directly reduces the inflammatory load on the vagus nerve pathway. Specific strains (Lactobacillus acidophilus, Bifidobacterium) are depleted in Parkinson's patients and support dopamine production.</div>
-        </div>
-        <a href="https://www.iherb.com/pr/ancient-nutrition-sbo-probiotics-25-billion-cfu-60-capsules/105816?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
-      </div>
-
-      <div class="supp-row">
-        <span class="supp-check">✓</span>
-        <div class="supp-body">
-          <div class="supp-name">Baking Soda Drink <span class="badge badge-new">Anti-inflammatory</span></div>
-          <div class="supp-dose">¼ tsp in full glass filtered water · once daily · morning · 30 min before eating</div>
-          <div class="supp-why">Triggers spleen-mediated anti-inflammatory response — shifting immune cells from pro-inflammatory M1 macrophages to anti-inflammatory M2. Also alkalises the body systemically, which may counteract the brain acidosis associated with astrocyte-driven alpha-synuclein aggregation. Cheap, safe, and evidence-backed for immune regulation. Start with ⅛ tsp and build up.</div>
-          <div class="supp-warn">Avoid if on sodium-restricted diet, have kidney disease, or are taking prescription antacids. Do not use within 2 hours of other medications.</div>
-        </div>
-        <a href="https://www.iherb.com/pr/bob-s-red-mill-baking-soda-16-oz-454-g/89505?rcode=GUW6132" target="_blank" class="supp-link">iHerb →</a>
-      </div>
     </div>
   </div>
 </section>
@@ -1742,16 +848,25 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);ove
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer style="background:var(--bg-footer);padding:28px 24px;text-align:center;">
-  <p style="font-family:'Playfair Display',serif;font-size:16px;color:#fff;margin-bottom:8px;">Heal Yourself</p>
-  <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:16px;">This guide is free and will always remain free.</p>
-  <p style="font-size:12px;color:rgba(255,255,255,0.4);">Support this guide: buy supplements on iHerb using code <strong style="color:var(--sage-nav);">GUW6132</strong> — you get a discount, this guide stays alive.</p>
-  <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" style="display:inline-block;margin-top:14px;background:var(--sage);color:#fff;padding:10px 24px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;">Shop iHerb · Code GUW6132</a>
-  <div style="margin-top:20px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-    <a href="Parkinsons_Daily_Schedule.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">📋 Daily Schedule →</a>
-    <a href="Parkinsons_Shopping_Table.html" style="color:var(--sage-nav);font-size:12px;text-decoration:none;">🛒 Shopping List →</a>
-    <a href="index.html" style="color:rgba(255,255,255,0.35);font-size:12px;text-decoration:none;">Home</a>
+
+<section style="background:var(--bg-deep);border-top:1px solid var(--border);">
+  <div class="inner" style="max-width:740px;padding-top:52px;padding-bottom:52px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:18px;">About This Guide</div>
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:16px;">This guide was built from thousands of hours of independent research — peer-reviewed studies, suppressed clinical trials, and ancient healing traditions that predate the pharmaceutical model. The author spent years as a Pharmaceutical QA Internal Auditor before leaving to find the answers the system was not asking for.</p>
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:20px;">Every protocol here is free — because health knowledge should not be a luxury. If this guide helps you, the only thing asked in return is that you buy your supplements through iHerb using code <strong style="font-family:'DM Mono',monospace;color:var(--honey);">GUW6132</strong> at checkout. You save money. This guide stays alive.</p>
+    <a href="index.html#about" style="font-size:13px;font-weight:600;color:var(--sage);text-decoration:underline;text-underline-offset:3px;">Read the full story →</a>
+  </div>
+</section>
+
+<footer>
+  <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+    <div>
+      <div style="font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;">Heal Yourself</div>
+      <p style="font-size:12px;color:var(--ink-ghost);line-height:1.7;">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
+      <a href="index.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;">Home</a>
+    </div>
   </div>
 </footer>
 
