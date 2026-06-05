@@ -757,6 +757,21 @@ footer a:hover{color:#d4c9a8;}
 })();
 </script>
 
+<!-- EMAIL SIGNUP -->
+<section style="background:var(--bg-deep);padding:48px 24px;border-top:1px solid var(--border-s);">
+  <div style="max-width:480px;margin:0 auto;text-align:center;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;">New protocols · New research</div>
+    <h3 style="font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--ink);margin-bottom:10px;">Be the first to know when new protocols are added</h3>
+    <p style="font-size:14px;color:var(--ink-light);line-height:1.7;margin-bottom:24px;">No algorithms. No ads. Just the information that matters, when it matters.</p>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <input type="email" id="mc-email-oxygen" placeholder="Your email address" style="width:100%;padding:14px 18px;border-radius:6px;border:1px solid var(--border);background:var(--bg-warm);color:var(--ink);font-size:15px;font-family:'Jost',sans-serif;outline:none;" />
+      <button onclick="mcSubmit_oxygen()" style="width:100%;padding:14px;background:var(--sage);color:#fff;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border:none;border-radius:6px;cursor:pointer;font-family:'Jost',sans-serif;">Join the Community →</button>
+      <p id="mc-msg-oxygen" style="font-size:13px;color:var(--sage);min-height:18px;margin:0;"></p>
+    </div>
+    <p style="font-size:11px;color:var(--ink-ghost);margin-top:12px;">Free · No spam · Unsubscribe anytime</p>
+  </div>
+</section>
+
 <footer>
   <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;">
     <div>
@@ -774,6 +789,17 @@ document.addEventListener('click',function(e){
   const drop=document.getElementById('mainDrop');
   if(drop&&!drop.contains(e.target))drop.classList.remove('open');
 });
+</script>
+<script id="mcjs-oxygen">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/c3e0fa55054efc8787d2cd7c6/47c72440170a91d68e1cc233b.js");</script>
+<script>
+function mcSubmit_oxygen(){
+  var email=document.getElementById('mc-email-oxygen').value.trim();
+  var msg=document.getElementById('mc-msg-oxygen');
+  if(!email||!email.includes('@')){msg.style.color='#e88a7a';msg.textContent='Please enter a valid email address.';return;}
+  msg.style.color='var(--sage)';msg.textContent='Thank you — look out for updates soon.';
+  document.getElementById('mc-email-oxygen').value='';
+  if(window.MailchimpSubscribe){MailchimpSubscribe({EMAIL:email});}
+}
 </script>
 </body>
 </html>
