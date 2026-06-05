@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dr. Sebi — Alkaline Protocol · Heal Yourself</title>
+<title>Dr. Sebi Alkaline Protocol — Heal Yourself</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -15,212 +15,26 @@
   --sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-light:#7aac8a;--sage-pale:#e4f0e8;--sage-nav:#8ab89a;
   --terra:#8c5a3c;--terra-light:#b07a58;--terra-pale:#f5ede6;
   --honey:#a07830;--honey-pale:#f5eddb;
-  --border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);--nav-h:52px;
-  --ink2:#263028;--cream:#f4efe6;--warm:#faf7f2;
-  --gold:var(--sage);--gold-light:var(--sage-mid);--gold-pale:var(--sage-pale);
-  --mist:var(--ink-mid);--text:var(--ink-mid);--text-mid:var(--ink-mid);--text-light:var(--ink-light);
+  --border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);
+  --nav-h:56px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);overflow-x:hidden;}
-
-/* PHASE NAV */
-.phase-nav{position:sticky;top:var(--nav-h);z-index:90;background:rgba(44,58,46,0.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(184,150,90,0.12);overflow-x:auto;scrollbar-width:none;}
-.phase-nav::-webkit-scrollbar{display:none;}
-.phase-nav-inner{display:flex;align-items:stretch;min-width:max-content;}
-.phase-nav a{display:flex;align-items:center;gap:6px;padding:0 15px;height:36px;font-size:10px;font-weight:600;letter-spacing:0.08em;color:var(--text-light);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:color 0.2s,border-color 0.2s;text-transform:uppercase;flex-shrink:0;}
-.phase-nav a:hover{color:var(--mist);}
-.phase-nav a.pn-active{color:var(--gold-light);border-bottom-color:var(--gold);}
-.pn-dot{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:0.35;flex-shrink:0;}
-.phase-nav a.pn-active .pn-dot{opacity:1;}
-.pn-sep{width:1px;background:rgba(184,150,90,0.1);margin:9px 0;flex-shrink:0;}
-.pn-protocols{position:relative;display:flex;align-items:stretch;margin-left:auto;border-left:1px solid rgba(184,150,90,0.12);}
-.pn-protocols-btn{display:flex;align-items:center;gap:6px;padding:0 15px;height:36px;font-size:10px;font-weight:600;letter-spacing:0.08em;color:var(--text-light);text-transform:uppercase;background:none;border:none;cursor:pointer;white-space:nowrap;transition:color 0.2s;border-bottom:2px solid transparent;}
-.pn-protocols-btn svg{width:8px;height:8px;transition:transform 0.2s;}
-.pn-drop{display:none;position:absolute;top:36px;right:0;width:220px;background:var(--ink2);border:1px solid rgba(184,150,90,0.2);border-top:2px solid var(--gold);border-radius:0 0 8px 8px;padding:8px 0;z-index:200;box-shadow:0 16px 48px rgba(0,0,0,0.7);}
-.pn-protocols:hover .pn-drop{display:block;}
-.pn-protocols:hover .pn-protocols-btn{color:var(--gold-light);}
-.pn-protocols:hover .pn-protocols-btn svg{transform:rotate(180deg);}
-.pn-drop-label{font-size:9px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);padding:6px 16px 4px;opacity:0.6;}
-.pn-drop a{display:block;padding:7px 16px;font-size:13px;color:var(--mist);text-decoration:none;transition:color 0.15s,background 0.15s;border-bottom:none;}
-.pn-drop a:hover{color:var(--gold-light);background:rgba(184,150,90,0.07);}
-.pn-drop a.pn-current{color:var(--gold-light);}
-.pn-drop-divider{height:1px;background:rgba(184,150,90,0.1);margin:6px 0;}
-.pn-drop .drop-soon{opacity:0.35;pointer-events:none;}
-.pn-drop .drop-soon::after{content:' — soon';font-size:10px;}
-.pn-drop .drop-iherb{color:var(--sage-light);}
-
-/* HERO — green accent for Dr. Sebi */
-.hero{background:var(--bg-warm);padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 40%,rgba(74,122,90,0.12) 0%,transparent 70%);pointer-events:none;}
-.eyebrow{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:24px;}
-.eyebrow::before{content:'';flex:1;max-width:80px;height:1px;background:linear-gradient(to right,transparent,var(--sage-light));}
-.eyebrow::after{content:'';flex:1;max-width:80px;height:1px;background:linear-gradient(to left,transparent,var(--sage-light));}
-.eyebrow span{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-light);}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,58px);font-weight:700;color:var(--ink);line-height:1.1;margin-bottom:14px;max-width:760px;margin-left:auto;margin-right:auto;}
-.hero h1 em{font-style:italic;color:var(--sage-light);}
-.hero-sub{font-size:clamp(14px,2vw,17px);color:var(--ink-light);font-weight:300;max-width:580px;margin:0 auto 40px;line-height:1.75;}
-.hero-stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-bottom:48px;}
-.stat-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--sage-light);display:block;}
-.stat-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);}
-
-/* PILLAR CARDS */
-.pillar-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
-@media(max-width:768px){.pillar-row{grid-template-columns:1fr 1fr;}}
-@media(max-width:440px){.pillar-row{grid-template-columns:1fr;}}
-.pillar-card{padding:28px 22px;background:var(--ink2);border-top:3px solid var(--sage);text-decoration:none;display:block;}
-.pillar-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--sage-light);letter-spacing:0.12em;display:block;margin-bottom:8px;}
-.pillar-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--cream);margin-bottom:8px;}
-.pillar-desc{font-size:12px;color:var(--text-light);line-height:1.6;}
-
-/* SECTIONS */
-.sec-dark{background:var(--bg);padding:64px 24px;}
-.sec-warm{background:var(--warm);padding:64px 24px;}
-.sec-sage{background:#0e1a10;padding:64px 24px;}
-.sec-sage2{background:#0a160c;padding:64px 24px;}
-.sec-ink2{background:var(--bg-deep);padding:64px 24px;}
-.sec-sebi{background:#081008;padding:64px 24px;}
-
-.inner{max-width:760px;margin:0 auto;}
-.inner-wide{max-width:1000px;margin:0 auto;}
-
-/* TYPOGRAPHY */
-.kicker{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-light);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
-.kicker::before{content:'';width:32px;height:1px;background:var(--sage-light);}
-.kicker-gold{color:var(--gold);}
-.kicker-gold::before{background:var(--gold);}
-.lh2{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,38px);font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:20px;}
-.lh2-dark{color:var(--ink);}
-.lh3{font-family:'Playfair Display',serif;font-size:clamp(17px,2.5vw,22px);font-weight:600;color:var(--sage-light);line-height:1.3;margin:32px 0 12px;}
-.lh3-gold{color:var(--gold-light);}
-.lh3-cream{color:var(--cream);}
-.lp{font-size:15px;line-height:1.85;color:var(--ink-mid);margin-bottom:16px;}
-.lp-warm{color:var(--text-mid);}
-.lp strong{color:var(--ink);font-weight:600;}
-.lp-warm strong{color:var(--ink);}
-.lp em{font-style:italic;color:var(--sage-light);}
-.lp-warm em{color:var(--sage);}
-
-/* PULL QUOTE */
-.pq{border-left:3px solid var(--sage);padding:18px 22px;margin:28px 0;background:rgba(74,122,90,0.07);border-radius:0 6px 6px 0;}
-.pq-gold{border-left-color:var(--gold);background:rgba(184,150,90,0.06);}
-.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(15px,2vw,18px);line-height:1.6;color:#9dc8a8;margin:0;}
-.pq-gold p{color:var(--gold-light);}
-
-/* CALLOUT BOXES */
-.callout{border-radius:8px;padding:22px 26px;margin:28px 0;}
-.callout-sage{background:rgba(74,122,90,0.1);border:1px solid rgba(74,122,90,0.3);}
-.callout-gold{background:var(--sage-pale);border:1px solid var(--border);}
-.callout-warn{background:rgba(160,50,45,0.08);border:1px solid rgba(160,50,45,0.28);}
-.callout-title{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;}
-.callout-sage .callout-title{color:var(--sage-light);}
-.callout-gold .callout-title{color:var(--sage);}
-.callout-warn .callout-title{color:#c07070;}
-.callout p{font-size:13px;color:var(--ink-mid);line-height:1.75;margin-bottom:8px;}
-.callout p:last-child{margin-bottom:0;}
-.callout a{color:var(--sage-light);text-decoration:underline;text-underline-offset:3px;}
-.callout-warm p{color:var(--text-mid);}
-
-/* FOOD LIST GRIDS */
-.food-section{margin:32px 0;}
-.food-section-title{font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--sage-light);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(74,122,90,0.2);display:flex;align-items:center;gap:10px;}
-.food-section-icon{font-size:18px;}
-.food-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
-@media(max-width:500px){.food-grid{grid-template-columns:1fr 1fr;}}
-.food-item{font-size:13px;color:var(--mist);padding:8px 12px;background:rgba(74,122,90,0.05);border:1px solid rgba(74,122,90,0.1);border-radius:4px;display:flex;align-items:center;gap:6px;line-height:1.35;}
-.food-item::before{content:'·';color:var(--sage-light);font-size:16px;line-height:1;flex-shrink:0;}
-.food-note{font-size:11px;color:var(--text-light);font-style:italic;margin-top:4px;}
-
-/* AVOID LIST */
-.avoid-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px;}
-@media(max-width:500px){.avoid-grid{grid-template-columns:1fr;}}
-.avoid-item{font-size:13px;color:#a07070;padding:8px 12px;background:rgba(160,50,45,0.05);border:1px solid rgba(160,50,45,0.12);border-radius:4px;display:flex;align-items:center;gap:6px;}
-.avoid-item::before{content:'✕';color:#a07070;font-size:11px;font-weight:700;flex-shrink:0;}
-
-/* HERB CARDS */
-.herb-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0;}
-@media(max-width:600px){.herb-grid{grid-template-columns:1fr;}}
-.herb-card{background:rgba(74,122,90,0.06);border:1px solid rgba(74,122,90,0.2);border-left:3px solid var(--sage);border-radius:0 8px 8px 0;padding:18px 20px;transition:border-color 0.2s;}
-.herb-card:hover{border-left-color:var(--sage-light);}
-.herb-icon{font-size:24px;margin-bottom:8px;display:block;}
-.herb-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--cream);margin-bottom:4px;}
-.herb-aka{font-family:'DM Mono',monospace;font-size:10px;color:var(--sage-light);margin-bottom:8px;display:block;}
-.herb-desc{font-size:12px;color:var(--text-light);line-height:1.65;}
-.herb-use{font-size:11px;color:var(--sage);margin-top:8px;font-style:italic;}
-.herb-link{display:inline-block;margin-top:8px;font-size:11px;font-weight:600;color:var(--sage-light);text-decoration:none;}
-.herb-link:hover{color:var(--gold-light);}
-
-/* PRINCIPLES LIST */
-.principle-list{margin:24px 0;}
-.principle-item{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(74,122,90,0.1);align-items:start;}
-.principle-item:last-child{border-bottom:none;}
-.principle-num{width:38px;height:38px;border-radius:50%;background:rgba(74,122,90,0.15);border:1px solid rgba(74,122,90,0.3);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:12px;color:var(--sage-light);font-weight:500;flex-shrink:0;}
-.principle-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--cream);margin-bottom:5px;}
-.principle-desc{font-size:13px;color:var(--text-light);line-height:1.65;}
-
-/* DAILY SCHEDULE */
-.schedule{margin:20px 0;}
-.sched-row{display:grid;grid-template-columns:100px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid rgba(74,122,90,0.1);align-items:start;}
-.sched-row:last-child{border-bottom:none;}
-.sched-time{font-family:'DM Mono',monospace;font-size:12px;color:var(--sage-light);font-weight:500;padding-top:2px;}
-.sched-act{font-size:13px;color:var(--mist);line-height:1.6;}
-.sched-act strong{color:var(--cream);}
-
-/* RECIPE BOX */
-.recipe-box{background:rgba(74,122,90,0.06);border:1px solid rgba(74,122,90,0.2);border-radius:8px;padding:24px 28px;margin:24px 0;}
-.recipe-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--cream);margin-bottom:14px;}
-.recipe-ing{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;margin-bottom:16px;}
-@media(max-width:480px){.recipe-ing{grid-template-columns:1fr;}}
-.recipe-ing-item{font-size:13px;color:var(--mist);display:flex;align-items:flex-start;gap:8px;line-height:1.5;}
-.recipe-ing-item::before{content:'·';color:var(--sage-light);margin-top:1px;}
-.recipe-steps{counter-reset:step;}
-.recipe-step{counter-increment:step;display:flex;gap:12px;margin-bottom:10px;font-size:13px;color:var(--mist);line-height:1.55;}
-.recipe-step::before{content:counter(step);min-width:22px;height:22px;border-radius:50%;background:var(--sage);color:white;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
-
-/* EXPAND */
-.exp-btn{display:flex;align-items:center;gap:10px;cursor:pointer;margin:24px 0 0;padding:14px 18px;border:1px solid rgba(74,122,90,0.3);border-radius:6px;background:rgba(74,122,90,0.05);transition:all 0.2s;width:100%;}
-.exp-btn:hover{border-color:var(--sage);background:rgba(74,122,90,0.1);}
-.exp-icon{width:22px;height:22px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.exp-icon svg{width:10px;height:10px;transition:transform 0.3s;}
-.exp-btn.open .exp-icon svg{transform:rotate(180deg);}
-.exp-lbl{font-size:13px;font-weight:500;color:var(--sage-light);letter-spacing:0.04em;}
-.exp-body{overflow:hidden;max-height:0;transition:max-height 0.5s ease;}
-.exp-body.open{max-height:9999px;}
-.exp-inner{padding-top:28px;}
-
-/* PRINT */
-.print-btn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:12px;font-weight:600;color:var(--sage-light);background:rgba(74,122,90,0.08);border:1px solid rgba(74,122,90,0.25);padding:8px 16px;border-radius:4px;cursor:pointer;letter-spacing:0.04em;text-transform:uppercase;transition:all 0.2s;text-decoration:none;}
-.print-btn:hover{background:rgba(74,122,90,0.15);border-color:var(--sage);}
-
-/* DIVIDER */
-.sec-divider{height:1px;background:linear-gradient(to right,transparent,rgba(74,122,90,0.3),transparent);margin:0;}
-
-/* FOOTER */
-footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);padding:48px 24px;}
-.ft-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;}
-@media(max-width:560px){.ft-inner{grid-template-columns:1fr;}}
-.ft-brand{font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;}
-.ft-disc{font-size:12px;color:var(--ink-ghost);line-height:1.7;}
-.ft-nav{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
-@media(max-width:560px){.ft-nav{align-items:flex-start;}}
-.ft-nav a{font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;}
-.ft-nav a:hover{color:#d4c9a8;}
-
-
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);padding-top:var(--nav-h);}
 
 /* TOP NAV */
-nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-nav);border-bottom:1px solid rgba(138,184,154,0.12);z-index:101;display:flex;align-items:center;justify-content:space-between;padding:0 28px;}
-.nav-logo{font-family:'Playfair Display',serif;font-size:17px;color:#d4c9a8;text-decoration:none;letter-spacing:0.02em;white-space:nowrap;}
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-nav);border-bottom:1px solid rgba(138,184,154,0.12);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 28px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#d4c9a8;text-decoration:none;letter-spacing:0.02em;}
 .nav-center{display:flex;align-items:center;}
 .nav-center a{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;white-space:nowrap;}
-.nav-center a:hover{color:var(--sage-nav);}
-/* DROPDOWN */
+.nav-center a:hover{color:var(--sage-nav);border-bottom-color:rgba(138,184,154,0.3);}
+@media(max-width:400px){.nav-center{display:none;}}
 .nav-dropdown{position:relative;display:flex;align-items:center;height:var(--nav-h);}
-.nav-dropdown-toggle{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;white-space:nowrap;cursor:pointer;gap:5px;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;}
+.nav-dropdown-toggle{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;white-space:nowrap;cursor:pointer;gap:5px;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;}
 .nav-dropdown-toggle:hover,.nav-dropdown:hover .nav-dropdown-toggle{color:var(--sage-nav);border-bottom-color:rgba(138,184,154,0.3);}
 .nav-dropdown-toggle svg{width:8px;height:8px;transition:transform 0.2s;opacity:0.5;}
 .nav-dropdown.open .nav-dropdown-toggle svg{transform:rotate(180deg);}
-.nav-dropdown-menu{position:absolute;top:calc(var(--nav-h) - 1px);left:0;background:var(--bg-nav);border:1px solid rgba(138,184,154,0.15);border-top:2px solid var(--sage-mid);border-radius:0 0 8px 8px;min-width:250px;padding:6px 0;z-index:200;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity 0.18s,transform 0.18s,visibility 0.18s;}
+.nav-dropdown-menu{position:absolute;top:calc(var(--nav-h) - 1px);right:0;background:var(--bg-nav);border:1px solid rgba(138,184,154,0.15);border-top:2px solid var(--sage-mid);border-radius:0 0 8px 8px;min-width:250px;padding:6px 0;z-index:200;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity 0.18s,transform 0.18s,visibility 0.18s;}
 .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
 .nav-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:11px;font-weight:500;letter-spacing:0.05em;color:rgba(212,201,168,0.7);text-decoration:none;text-transform:uppercase;transition:all 0.15s;border-bottom:1px solid rgba(138,184,154,0.07);}
 .nav-dropdown-menu a:last-child{border-bottom:none;}
@@ -228,124 +42,249 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
 .nav-dropdown-menu a .dd-icon{font-size:13px;flex-shrink:0;}
 .nav-dropdown-menu a .dd-label{flex:1;}
 .nav-dropdown-menu a .dd-tag{font-size:9px;font-weight:700;letter-spacing:0.1em;color:var(--sage-nav);background:rgba(90,140,106,0.2);padding:2px 7px;border-radius:3px;white-space:nowrap;}
-@media(max-width:640px){.nav-center{display:none;}}
-@media print{.phase-nav,footer,.print-btn{display:none!important;}}
+.dd-group{position:relative;}
+.dd-group>a{position:relative;padding-right:28px;border-bottom:1px solid rgba(138,184,154,0.07);}
+.dd-group>a::after{content:'›';position:absolute;right:14px;top:50%;transform:translateY(-50%);opacity:0.35;font-size:13px;transition:all 0.15s;}
+.dd-group:hover>a::after{opacity:0.9;color:var(--sage-nav);}
+.dd-group:hover>a{color:#d4c9a8;background:rgba(138,184,154,0.06);}
+.dd-subs{display:none;background:rgba(0,0,0,0.18);padding:2px 0;}
+.dd-group:hover .dd-subs{display:block;}
+.nav-dropdown-menu .dd-subs a.dd-sub{display:flex;align-items:center;gap:8px;padding:7px 12px 7px 24px;font-size:10px;font-weight:500;letter-spacing:0.05em;color:rgba(212,201,168,0.55);text-transform:uppercase;border:none;height:auto;min-height:0;border-left:1px solid rgba(138,184,154,0.25);margin-left:18px;transition:all 0.15s;}
+.nav-dropdown-menu .dd-subs a.dd-sub .dd-icon{font-size:10px;opacity:0.7;}
+.nav-dropdown-menu .dd-subs a.dd-sub .dd-label{font-size:10px;}
+.nav-dropdown-menu .dd-subs a.dd-sub:hover{color:rgba(212,201,168,0.85);padding-left:28px;background:none;border-left-color:var(--sage-nav);}
+
+/* SECTION NAV */
+.jump-nav{position:sticky;top:var(--nav-h);z-index:90;background:var(--bg-stone);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
+.jump-nav::-webkit-scrollbar{display:none;}
+.jump-nav-inner{display:flex;align-items:stretch;justify-content:center;min-width:max-content;margin:0 auto;}
+.jump-nav a{display:flex;align-items:center;gap:6px;padding:0 15px;height:36px;font-size:10px;font-weight:600;letter-spacing:0.08em;color:var(--ink-light);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:color 0.2s,border-color 0.2s;text-transform:uppercase;}
+.jump-nav a:hover{color:var(--sage);border-bottom-color:var(--sage-mid);}
+.jn-dot{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:0.4;flex-shrink:0;}
+
+/* HERO */
+.hero{background:var(--bg-warm);padding:80px 24px 64px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 40%,rgba(61,107,74,0.06) 0%,transparent 70%);pointer-events:none;}
+.eyebrow{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:24px;}
+.eyebrow::before{content:'';flex:1;max-width:80px;height:1px;background:linear-gradient(to right,transparent,var(--sage-mid));}
+.eyebrow::after{content:'';flex:1;max-width:80px;height:1px;background:linear-gradient(to left,transparent,var(--sage-mid));}
+.eyebrow span{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--honey);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,54px);font-weight:700;color:var(--ink);line-height:1.1;margin-bottom:14px;max-width:780px;margin-left:auto;margin-right:auto;}
+.hero h1 em{font-style:italic;color:var(--sage);}
+.hero-sub{font-size:clamp(14px,2vw,17px);color:var(--ink-light);font-weight:300;max-width:600px;margin:0 auto 44px;line-height:1.75;}
+.hero-stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;}
+.stat-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--sage);display:block;}
+.stat-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);}
+
+/* LAYOUT */
+.sec{padding:64px 24px;}
+.sec-warm{background:var(--bg-warm);}
+.sec-bg{background:var(--bg);}
+.sec-deep{background:var(--bg-deep);}
+.sec-stone{background:var(--bg-stone);}
+.sec-sage{background:var(--sage-pale);}
+.sec-honey{background:var(--honey-pale);}
+.sec-terra{background:var(--terra-pale);}
+.inner{max-width:760px;margin:0 auto;}
+
+/* TYPOGRAPHY */
+.kicker{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+.kicker::before{content:'';width:32px;height:1px;background:var(--sage-mid);}
+.kicker-terra{color:var(--terra);}
+.kicker-terra::before{background:var(--terra-light);}
+.kicker-honey{color:var(--honey);}
+.kicker-honey::before{background:var(--honey);}
+.lh2{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,36px);font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:20px;}
+.lh3{font-family:'Playfair Display',serif;font-size:clamp(17px,2.5vw,22px);font-weight:600;color:var(--sage);line-height:1.3;margin:32px 0 12px;}
+.lh3:first-child{margin-top:0;}
+.lh3-terra{color:var(--terra);}
+.lh3-honey{color:var(--honey);}
+.lp{font-size:15px;line-height:1.85;color:var(--ink-mid);margin-bottom:16px;}
+.lp strong{color:var(--ink);font-weight:600;}
+.lp em{font-style:italic;color:var(--sage);}
+
+/* PULL QUOTES */
+.pq{border-left:3px solid var(--sage-mid);padding:18px 22px;margin:28px 0;background:var(--sage-pale);border-radius:0 6px 6px 0;}
+.pq-text{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--ink);line-height:1.5;margin-bottom:8px;}
+.pq-attr{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);}
+.pq-terra{border-left-color:var(--terra-light);background:var(--terra-pale);}
+.pq-terra .pq-attr{color:var(--terra);}
+.pq-honey{border-left-color:var(--honey);background:var(--honey-pale);}
+.pq-honey .pq-attr{color:var(--honey);}
+
+/* BOXES */
+.warn-box{background:#fff3cd;border:1px solid #d4a017;border-left:4px solid #d4a017;border-radius:6px;padding:16px 20px;margin:20px 0;}
+.warn-box .warn-title{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7a5500;margin-bottom:6px;}
+.warn-box .warn-text{font-size:14px;line-height:1.7;color:#5a3d00;}
+.note-box{background:var(--sage-pale);border:1px solid var(--border);border-left:4px solid var(--sage-mid);border-radius:6px;padding:16px 20px;margin:20px 0;}
+.note-box .warn-title{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage);margin-bottom:6px;}
+.note-box .warn-text{font-size:14px;line-height:1.7;color:var(--ink-mid);}
+.budget-box{background:var(--honey-pale);border:1px solid rgba(160,120,48,0.2);border-left:4px solid var(--honey);border-radius:6px;padding:16px 20px;margin:20px 0;}
+.budget-box .warn-title{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--honey);margin-bottom:6px;}
+.budget-box .warn-text{font-size:14px;line-height:1.7;color:var(--ink-mid);}
+
+/* PRINCIPLE LIST */
+.principle-list{display:grid;gap:16px;margin:24px 0;}
+.principle-item{display:grid;grid-template-columns:48px 1fr;gap:0 18px;background:var(--bg-warm);border:1px solid var(--border);border-radius:10px;padding:20px;}
+.principle-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--sage-mid);line-height:1;padding-top:2px;}
+.principle-title{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px;}
+.principle-desc{font-size:14px;color:var(--ink-mid);line-height:1.75;}
+
+/* FOOD SECTIONS */
+.food-section{margin:28px 0;}
+.food-section-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--ink);margin-bottom:14px;display:flex;align-items:center;gap:10px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.food-section-icon{font-size:18px;}
+.food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px;margin-bottom:10px;}
+.food-item{background:var(--bg-deep);border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink-mid);border-left:2px solid var(--sage-mid);}
+.food-note{font-size:12px;color:var(--ink-light);font-style:italic;margin-top:8px;line-height:1.6;}
+.avoid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px;margin:16px 0;}
+.avoid-item{background:var(--terra-pale);border-radius:5px;padding:8px 12px;font-size:13px;color:var(--terra);border-left:2px solid var(--terra-light);}
+
+/* HERB CARDS */
+.herb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:24px 0;}
+.herb-card{background:var(--bg-warm);border:1px solid var(--border);border-radius:10px;padding:20px;position:relative;}
+.herb-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--sage),var(--sage-light));border-radius:10px 10px 0 0;}
+.herb-icon{font-size:22px;display:block;margin-bottom:8px;}
+.herb-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--ink);margin-bottom:3px;}
+.herb-aka{font-size:11px;font-weight:500;letter-spacing:0.06em;color:var(--sage);text-transform:uppercase;display:block;margin-bottom:10px;}
+.herb-desc{font-size:13px;color:var(--ink-mid);line-height:1.75;margin-bottom:8px;}
+.herb-use{font-size:12px;color:var(--honey);font-style:italic;margin-bottom:10px;padding:8px 12px;background:var(--honey-pale);border-radius:4px;}
+.herb-link{font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--sage);text-decoration:none;border-bottom:1px solid var(--border);}
+.herb-link:hover{color:var(--sage-mid);}
+
+/* SCHEDULE */
+.schedule{display:grid;gap:0;margin:24px 0;border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.sched-row{display:grid;grid-template-columns:120px 1fr;border-bottom:1px solid var(--border-s);}
+.sched-row:last-child{border-bottom:none;}
+.sched-row:nth-child(even){background:rgba(244,239,230,0.5);}
+.sched-time{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--honey);padding:14px 16px;display:flex;align-items:flex-start;border-right:1px solid var(--border-s);}
+.sched-act{font-size:13px;color:var(--ink-mid);padding:14px 18px;line-height:1.7;}
+.sched-act strong{color:var(--ink);}
+
+/* RECIPE BOX */
+.recipe-box{background:var(--bg-deep);border:1px solid var(--border);border-radius:10px;padding:24px;margin:20px 0;}
+.recipe-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--ink);margin-bottom:14px;}
+.recipe-ing{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px;margin-bottom:18px;}
+.recipe-ing-item{font-size:13px;color:var(--ink-mid);padding:6px 10px;background:var(--bg-warm);border-radius:4px;border-left:2px solid var(--honey);}
+.recipe-steps{display:grid;gap:10px;}
+.recipe-step{font-size:14px;color:var(--ink-mid);line-height:1.7;padding:10px 14px;background:var(--bg-warm);border-radius:6px;counter-increment:step;position:relative;padding-left:36px;}
+.recipe-step::before{content:counter(step);position:absolute;left:12px;top:10px;font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:var(--sage-mid);}
+.recipe-steps{counter-reset:step;}
+
+/* CHECKLIST */
+.checklist{list-style:none;margin:16px 0 24px;}
+.checklist li{display:flex;align-items:flex-start;gap:12px;padding:9px 0;border-bottom:1px solid var(--border-s);font-size:15px;line-height:1.7;color:var(--ink-mid);}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:'✓';color:var(--sage-mid);font-weight:700;flex-shrink:0;margin-top:2px;}
+.checklist li strong{color:var(--ink);}
+
+/* PRINT */
+.print-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--border);color:var(--ink-light);padding:9px 18px;border-radius:6px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;margin:16px 0;}
+.print-btn:hover{border-color:var(--sage-mid);color:var(--sage);}
+@media print{.print-btn,.jump-nav,nav{display:none!important;}.hero{padding-top:20px!important;}}
+
+/* FOOTER */
+footer{background:var(--bg-footer);padding:40px 24px;}
+footer a{color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;}
+footer a:hover{color:#d4c9a8;}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">Heal Yourself</a>
-  <div class="nav-center">
-    <a href="index.html">Home</a>
-    <div class="nav-dropdown" id="nav-protocols">
-      <button class="nav-dropdown-toggle" onclick="toggleNavDropdown()" aria-expanded="false">
-        Protocols <svg viewBox="0 0 8 5" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l3 3 3-3"/></svg>
-      </button>
-      <div class="nav-dropdown-menu">
+  <div class="nav-center"><a href="index.html">Home</a></div>
+  <div class="nav-dropdown" id="mainDrop">
+    <button class="nav-dropdown-toggle" onclick="document.getElementById('mainDrop').classList.toggle('open')">
+      Protocols
+      <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="nav-dropdown-menu">
+      <div class="dd-group">
         <a href="Full_Body_Detox_Protocol.html"><span class="dd-icon">🌿</span><span class="dd-label">Full Body Detox</span><span class="dd-tag">Start Here</span></a>
-        <a href="Brain_Protocol.html"><span class="dd-icon">🧠</span><span class="dd-label">Brain Protocol</span></a>
-        <a href="DMSO_Oxygen_Therapy.html"><span class="dd-icon">⚗️</span><span class="dd-label">DMSO &amp; Oxygen</span></a>
-        <a href="Hidden_Deficiencies.html"><span class="dd-icon">🔬</span><span class="dd-label">Hidden Deficiencies</span></a>
-        <a href="Dr_Sebi_Alkaline_Protocol.html"><span class="dd-icon">🌱</span><span class="dd-label">Dr. Sebi Alkaline</span></a>
-        <a href="Parkinsons_Protocol.html"><span class="dd-icon">🧬</span><span class="dd-label">Parkinson's Protocol</span><span class="dd-tag">New</span></a>
-        <a href="Parkinsons_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">↳ Daily Schedule</span></a>
-        <a href="Parkinsons_Shopping_Table.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">↳ Shopping List</span></a>
-        <a href="Parkinsons_Must_Have.html" class="dd-sub"><span class="dd-icon">⭐</span><span class="dd-label">↳ Must-Have List</span></a>
-        <a href="protocols.html" style="margin-top:4px;border-top:1px solid rgba(138,184,154,0.15);"><span class="dd-icon">☰</span><span class="dd-label">All Protocols</span></a>
+        <div class="dd-subs">
+          <a href="Full_Body_Detox_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+          <a href="Full_Body_Detox_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+        </div>
       </div>
+      <div class="dd-group">
+        <a href="Brain_Protocol.html"><span class="dd-icon">🧠</span><span class="dd-label">Brain Protocol</span></a>
+        <div class="dd-subs">
+          <a href="Brain_Protocol_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+          <a href="Brain_Protocol_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+        </div>
+      </div>
+      <div class="dd-group">
+        <a href="DMSO_Protocol.html"><span class="dd-icon">⚗️</span><span class="dd-label">DMSO Protocol</span></a>
+        <div class="dd-subs">
+          <a href="DMSO_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+        </div>
+      </div>
+      <div class="dd-group">
+        <a href="Oxygen_Therapy.html"><span class="dd-icon">🫁</span><span class="dd-label">Oxygen Therapy</span></a>
+        <div class="dd-subs">
+          <a href="Oxygen_Therapy.html#h2o2" class="dd-sub"><span class="dd-icon">💧</span><span class="dd-label">Hydrogen Peroxide</span></a>
+          <a href="Oxygen_Therapy.html#ozone" class="dd-sub"><span class="dd-icon">⚡</span><span class="dd-label">Ozone Therapy</span></a>
+          <a href="Oxygen_Therapy.html#hbot" class="dd-sub"><span class="dd-icon">🏥</span><span class="dd-label">Hyperbaric Oxygen</span></a>
+        </div>
+      </div>
+      <a href="Hidden_Deficiencies.html"><span class="dd-icon">🔬</span><span class="dd-label">Hidden Deficiencies</span></a>
+      <a href="Dr_Sebi_Alkaline_Protocol.html"><span class="dd-icon">🌱</span><span class="dd-label">Dr. Sebi Alkaline</span></a>
+      <div class="dd-group">
+        <a href="Parkinsons_Protocol.html"><span class="dd-icon">🧬</span><span class="dd-label">Parkinson's Protocol</span></a>
+        <div class="dd-subs">
+          <a href="Parkinsons_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+          <a href="Parkinsons_Shopping_Table.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+          <a href="Parkinsons_Must_Have.html" class="dd-sub"><span class="dd-icon">⭐</span><span class="dd-label">Must-Have List</span></a>
+          <a href="Parkinsons_Symptoms.html" class="dd-sub"><span class="dd-icon">🔍</span><span class="dd-label">Symptom Guide</span></a>
+        </div>
+      </div>
+      <a href="protocols.html"><span class="dd-icon">☰</span><span class="dd-label">All Protocols</span></a>
     </div>
-    <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank">iHerb — GUW6132</a>
   </div>
 </nav>
 
-<!-- PHASE NAV -->
-<div class="phase-nav">
-  <div class="phase-nav-inner">
-    <a href="#philosophy" data-section="philosophy"><span class="pn-dot"></span>Philosophy</a>
-    <div class="pn-sep"></div>
-    <a href="#principles" data-section="principles"><span class="pn-dot"></span>The Six Laws</a>
-    <div class="pn-sep"></div>
-    <a href="#foodlist" data-section="foodlist"><span class="pn-dot"></span>Approved Foods</a>
-    <div class="pn-sep"></div>
-    <a href="#herbs" data-section="herbs"><span class="pn-dot"></span>Herbs</a>
-    <div class="pn-sep"></div>
-    <a href="#transition" data-section="transition"><span class="pn-dot"></span>Transition</a>
-    <div class="pn-sep"></div>
-    <a href="#daily" data-section="daily"><span class="pn-dot"></span>Daily Practice</a>
-    <div class="pn-protocols">
-      <button class="pn-protocols-btn">
-        All Protocols
-        <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-      </button>
-      <div class="pn-drop">
-        <div class="pn-drop-label">Protocols</div>
-        <a href="Full_Body_Detox_Protocol.html">🌿 Full Body Detox</a>
-        <a href="Brain_Protocol.html">🧠 Brain Protocol</a>
-        <a href="DMSO_Oxygen_Therapy.html">⚗️ DMSO &amp; Oxygen</a>
-        <a href="Hidden_Deficiencies.html">🧪 Hidden Deficiencies</a>
-        <a href="Dr_Sebi_Alkaline_Protocol.html" class="pn-current">🌱 Dr. Sebi — Alkaline</a>
-        <div class="pn-drop-divider"></div>
-        <div class="pn-drop-label">Coming Soon</div>
-        <a class="drop-soon">🦠 Gut System</a>
-        <a class="drop-soon">⚖️ Hormonal System</a>
-        <a class="drop-soon">🛡️ Autoimmune</a>
-        <a class="drop-soon">🌙 Mental Health</a>
-        <div class="pn-drop-divider"></div>
-        <a href="protocols.html">🏠 All Protocols</a>
-        <a href="index.html">📖 The Letter (Home)</a>
-        <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" class="drop-iherb">🛒 iHerb — GUW6132</a>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- HERO -->
 <section class="hero">
-  <div class="eyebrow"><span>The African Bio-Mineral Balance</span></div>
-  <h1>Dr. Sebi — <em>Electric</em> Alkaline</h1>
-  <p class="hero-sub">Alfredo Bowman — Dr. Sebi — was a self-taught Honduran herbalist who claimed to have reversed AIDS, cancer, and lupus. He was arrested for practicing medicine without a license. He was acquitted after presenting over 70 healed patients to the court.</p>
+  <div class="eyebrow"><span>🌱 Dr. Sebi Alkaline Protocol</span></div>
+  <h1>Dr. Sebi<br><em>One Disease. One Solution. Feed the Body What It Recognises.</em></h1>
+  <p class="hero-sub">Alfredo Bowman never went to medical school. He healed himself from diabetes, impotence, obesity, asthma, and blindness in one eye — using plants. He then went to the New York Supreme Court with 70 witnesses and walked out acquitted. His methodology is one of the most coherent alternative healing frameworks ever documented.</p>
   <div class="hero-stats">
-    <div><span class="stat-num">102</span><span class="stat-label">Minerals in the Body</span></div>
-    <div><span class="stat-num">Electric</span><span class="stat-label">Foods = Life</span></div>
-    <div><span class="stat-num">Mucus</span><span class="stat-label">Root of All Disease</span></div>
-    <div><span class="stat-num">1985</span><span class="stat-label">NY Supreme Court — Acquitted</span></div>
+    <div><span class="stat-num">92</span><span class="stat-label">Minerals in Sea Moss</span></div>
+    <div><span class="stat-num">1987</span><span class="stat-label">NY Supreme Court — acquitted</span></div>
+    <div><span class="stat-num">70</span><span class="stat-label">Witnesses in court</span></div>
+    <div><span class="stat-num">1933</span><span class="stat-label">Born in Honduras</span></div>
   </div>
 </section>
 
-<!-- PILLAR CARDS -->
-<div class="pillar-row">
-  <a href="#philosophy" class="pillar-card" style="text-decoration:none;">
-    <span class="pillar-num">Pillar 01</span>
-    <div class="pillar-name">The Philosophy</div>
-    <p class="pillar-desc">Disease lives in acidity and mucus. Alkalinity is the terrain of health. The body heals itself when given the right environment.</p>
-  </a>
-  <a href="#principles" class="pillar-card" style="text-decoration:none;">
-    <span class="pillar-num">Pillar 02</span>
-    <div class="pillar-name">The Six Laws</div>
-    <p class="pillar-desc">The non-negotiable rules. Hybrid foods. Gallon of water. No animal products. No microwaves. No canned fruits.</p>
-  </a>
-  <a href="#foodlist" class="pillar-card" style="text-decoration:none;">
-    <span class="pillar-num">Pillar 03</span>
-    <div class="pillar-name">Approved Foods</div>
-    <p class="pillar-desc">The complete nutritional guide. Every approved vegetable, fruit, grain, nut, seed, oil, sweetener, and spice.</p>
-  </a>
-  <a href="#herbs" class="pillar-card" style="text-decoration:none;">
-    <span class="pillar-num">Pillar 04</span>
-    <div class="pillar-name">The Herbs</div>
-    <p class="pillar-desc">Sea moss, bladderwrack, burdock root, sarsaparilla, and the full set of approved medicinal plants — what each does and why.</p>
-  </a>
+<!-- SECTION NAV -->
+<div class="jump-nav">
+  <div class="jump-nav-inner">
+    <a href="#philosophy"><span class="jn-dot"></span>The Foundation</a>
+    <a href="#principles"><span class="jn-dot"></span>The Six Laws</a>
+    <a href="#foodlist"><span class="jn-dot"></span>Approved Foods</a>
+    <a href="#herbs"><span class="jn-dot"></span>The Herbs</a>
+    <a href="#transition"><span class="jn-dot"></span>How to Begin</a>
+    <a href="#seamoss"><span class="jn-dot"></span>Sea Moss Gel</a>
+    <a href="#daily"><span class="jn-dot"></span>Daily Routine</a>
+  </div>
 </div>
 
-<!-- ═══════════════════ PHILOSOPHY ═══════════════════ -->
-<section class="sec-dark" id="philosophy">
+<!-- PHILOSOPHY -->
+<section id="philosophy" class="sec sec-bg">
   <div class="inner">
     <div class="kicker">The Foundation</div>
     <h2 class="lh2">The African Bio-Mineral Balance</h2>
-    <p class="lp">Alfredo Bowman was born in Honduras in 1933. He never attended medical school. By his own account, he suffered from impotence, obesity, diabetes, asthma, and blindness in one eye — and healed himself through plants. He then studied in Mexico under an herbalist named Alfredo Cortez, and spent decades traveling through Africa, Latin America, and the Caribbean studying indigenous plant medicine before establishing clinics in New York, Los Angeles, Honduras, and the Caribbean.</p>
-    <p class="lp">He called his methodology the <em>African Bio-Mineral Balance</em> — a system rooted in a single, elegant premise: the body is electrical. It runs on minerals. And when those minerals come from alkaline, natural, non-hybridized plants that the body recognizes at the cellular level, healing is not only possible — it is the body's natural state.</p>
 
-    <div class="pq"><p>"There is only one disease — the inflammation and the congestion of the mucous membrane. Everything else is a symptom of it. Feed the body what it recognizes. Remove what it doesn't. That is all."</p></div>
+    <p class="lp">Alfredo Bowman was born in Honduras in 1933. He never attended medical school. By his own account, he suffered from impotence, obesity, diabetes, asthma, and blindness in one eye — and healed himself through plants. He then studied in Mexico under herbalist Alfredo Cortez, and spent decades travelling through Africa, Latin America, and the Caribbean studying indigenous plant medicine before establishing clinics in New York, Los Angeles, Honduras, and the Caribbean.</p>
+
+    <p class="lp">He called his methodology the <em>African Bio-Mineral Balance</em> — a system rooted in a single, elegant premise: the body is electrical. It runs on minerals. And when those minerals come from alkaline, natural, non-hybridised plants that the body recognises at the cellular level, healing is not only possible — it is the body's natural state.</p>
+
+    <div class="pq">
+      <div class="pq-text">"There is only one disease — the inflammation and congestion of the mucous membrane. Everything else is a symptom of it. Feed the body what it recognises. Remove what it doesn't. That is all."</div>
+      <div class="pq-attr">— Dr. Sebi</div>
+    </div>
 
     <h3 class="lh3">The Three Core Ideas</h3>
 
@@ -354,112 +293,105 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
         <div class="principle-num">I</div>
         <div>
           <div class="principle-title">Disease Is Terrain, Not Attack</div>
-          <p class="principle-desc">Dr. Sebi did not frame disease as an external attacker to be fought. He framed it as a consequence of internal terrain. When the body's internal environment — its pH, its mineral balance, its mucous membrane integrity — is correct, pathogens cannot proliferate and disease cannot take hold. This is not unique to Sebi. It echoes Béchamp's terrain theory, Antoine Beauchamp's 19th century work, and the broader tradition of naturopathic medicine. It is the opposite of the germ theory framework that governs modern medicine — but it is not incompatible with it. Both can be true simultaneously.</p>
+          <p class="principle-desc">Dr. Sebi did not frame disease as an external attacker to be fought. He framed it as a consequence of internal terrain. When the body's internal environment — its pH, its mineral balance, its mucous membrane integrity — is correct, pathogens cannot proliferate and disease cannot take hold. This echoes Béchamp's terrain theory and the broader tradition of naturopathic medicine. It is the opposite of the germ theory framework that governs modern medicine — but it is not incompatible with it. Both can be true simultaneously.</p>
         </div>
       </div>
       <div class="principle-item">
         <div class="principle-num">II</div>
         <div>
           <div class="principle-title">Mucus Is the Disease Mechanism</div>
-          <p class="principle-desc">Dr. Sebi's central physiological claim: all disease is rooted in the inflammation and congestion of the mucous membrane. Every organ — lungs, gut, brain, reproductive system — is lined with mucous membrane. When that membrane is compromised by acid-forming foods, processed materials, and chemical residues, it becomes congested and inflamed, preventing nutrient absorption and allowing pathogens to thrive. The alkaline, electric diet removes the conditions that produce excess mucus. The herbs — particularly bladderwrack, sea moss, and burdock root — actively cleanse and restore the mucous membrane. This is the mechanism underlying all his healing protocols.</p>
+          <p class="principle-desc">Dr. Sebi's central physiological claim: all disease is rooted in the inflammation and congestion of the mucous membrane. Every organ — lungs, gut, brain, reproductive system — is lined with mucous membrane. When that membrane is compromised by acid-forming foods, processed materials, and chemical residues, it becomes congested and inflamed, preventing nutrient absorption and allowing pathogens to thrive. The alkaline diet removes the conditions that produce excess mucus. The herbs — particularly sea moss, bladderwrack, and burdock root — actively cleanse and restore the mucous membrane.</p>
         </div>
       </div>
       <div class="principle-item">
         <div class="principle-num">III</div>
         <div>
           <div class="principle-title">Electric Food = Cellular Recognition</div>
-          <p class="principle-desc">Dr. Sebi distinguished between foods with a "complete molecular structure" — what he called electric foods — and foods with an incomplete one. Electric foods are those that nature produced without human hybridization. They grow from seeds that produce seeds. They have the mineral profile and electrical resonance that the African genome — which he argued is the genetic foundation of all human beings — was designed to assimilate. Hybrid and GMO foods, by contrast, have been altered to such a degree that the body does not fully recognize them — producing incomplete digestion, inflammatory byproducts, and mucus.</p>
+          <p class="principle-desc">Dr. Sebi distinguished between foods with a complete molecular structure — what he called electric foods — and foods with an incomplete one. Electric foods are those that nature produced without human hybridisation. They grow from seeds that produce seeds. They have the mineral profile and electrical resonance the body was designed to assimilate. Hybrid and GMO foods have been altered to such a degree that the body does not fully recognise them — producing incomplete digestion, inflammatory byproducts, and mucus.</p>
         </div>
       </div>
     </div>
 
-    <div class="callout callout-sage">
-      <div class="callout-title">⚖️ The 1985 New York Supreme Court Case</div>
-      <p>Dr. Sebi was arrested in 1987 after running newspaper advertisements claiming he could cure AIDS, cancer, lupus, and other diseases. He was charged with practicing medicine without a license and making fraudulent claims. He appeared in the New York Supreme Court and presented over 70 patients — documented witnesses — who testified to the reversal of their diagnosed conditions under his care. He was acquitted on all counts. The verdict did not validate his science. It validated the documented outcomes. The distinction is important. And the 70 witnesses are a fact that no subsequent narrative about Dr. Sebi ever adequately addresses.</p>
+    <div class="note-box">
+      <div class="warn-title">The 1987 New York Supreme Court Case</div>
+      <div class="warn-text">Dr. Sebi was arrested after running newspaper advertisements claiming he could heal AIDS, cancer, lupus, and other diseases. He was charged with practising medicine without a licence and making fraudulent claims. He appeared in the New York Supreme Court and presented over 70 patients — documented witnesses — who testified to the reversal of their diagnosed conditions under his care. He was acquitted on all counts. The verdict did not validate his science. It validated the documented outcomes. The distinction is important. And the 70 witnesses are a fact that no subsequent narrative about Dr. Sebi ever adequately addresses.</div>
     </div>
 
-    <button class="exp-btn" onclick="toggleExpand('sebi-life',this)" data-label="Dr. Sebi — full story, the Honduras clinic, the FDA, and his death">
-      <div class="exp-icon"><svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <span class="exp-lbl">Dr. Sebi — full story, celebrity clients, the Honduras clinic, and his death</span>
-    </button>
-    <div class="exp-body" id="sebi-life">
-      <div class="exp-inner">
-        <p class="lp">After his acquittal, Dr. Sebi continued operating his clinics and expanding his reach. His clients included Michael Jackson (he described treating Jackson's son), Steven Seagal, John Travolta, and later Lisa "Left Eye" Lopez, who documented her stay at his Honduras clinic on film in what became one of the most detailed records of his methodology in practice. She died in a car accident in Honduras shortly after.</p>
-        <p class="lp">His Honduras compound — the USHA Research Institute — became an internationally known destination for people who had exhausted conventional medicine. Treatments combined his herbal compounds, the alkaline diet, structured fasting, and spring water from the compound's natural source. He maintained that the body could reverse any condition given the right environment and sufficient time.</p>
-        <p class="lp">His relationship with the pharmaceutical system was one of mutual exclusion. He was explicit that pharmaceutical medicine addresses symptoms while his methodology addressed terrain — and that the two were philosophically incompatible, not complementary. He described the FDA's suppression of natural medicine as a systematic commercial protection mechanism, not a scientific one. His critique of the pharmaceutical industry was specific, documented, and — increasingly — mainstream in its broad strokes, if not its proposed solutions.</p>
-        <p class="lp">He died in August 2016 in Honduras, aged 82, under disputed circumstances — officially from pneumonia while in custody on charges related to money laundering. He had been arrested at the airport returning to Honduras after speaking engagements in the United States. The circumstances of his arrest and death remain controversial in his community. He was treated at the same hospital system whose limitations he had critiqued for decades.</p>
-        <div class="pq"><p>"I am not a healer. The body heals itself. I am only providing the environment for that to happen. That environment is alkalinity. That environment is minerals. That environment is recognition — between the cell and the food that feeds it."</p></div>
-      </div>
+    <div class="note-box">
+      <div class="warn-title">His Celebrity Clients, His Honduras Clinic, and His Death</div>
+      <div class="warn-text">After his acquittal, his clients included Michael Jackson, Steven Seagal, John Travolta, and Lisa "Left Eye" Lopez, who documented her stay at his Honduras compound on film. His USHA Research Institute became an internationally known destination for people who had exhausted conventional medicine. He died in August 2016 in Honduras, aged 82, under disputed circumstances — officially from pneumonia while in custody on money-laundering charges. He had been arrested at the airport returning to Honduras after speaking engagements in the US. He was treated at the same hospital system whose limitations he had critiqued for decades.</div>
+    </div>
+
+    <div class="pq pq-terra">
+      <div class="pq-text">"I am not a healer. The body heals itself. I am only providing the environment for that to happen. That environment is alkalinity. That environment is minerals. That environment is recognition — between the cell and the food that feeds it."</div>
+      <div class="pq-attr">— Dr. Sebi</div>
     </div>
   </div>
 </section>
 
-<div class="sec-divider"></div>
-
-<!-- ═══════════════════ PRINCIPLES ═══════════════════ -->
-<section class="sec-warm" id="principles">
+<!-- SIX LAWS -->
+<section id="principles" class="sec sec-warm">
   <div class="inner">
-    <div class="kicker" style="color:var(--sage);"><span style="width:32px;height:1px;background:var(--sage);display:inline-block;margin-right:12px;"></span>The Non-Negotiables</div>
-    <h2 class="lh2 lh2-dark">The Six Laws of the Nutritional Guide</h2>
-    <p class="lp lp-warm">Dr. Sebi's nutritional guide is not a suggestion framework. It is a strict protocol. He was explicit that partial adherence produces partial results — and that the body requires consistency to shift its terrain. These are the core rules, verbatim from the original guide.</p>
+    <div class="kicker">The Non-Negotiables</div>
+    <h2 class="lh2">The Six Laws of the Nutritional Guide</h2>
+    <p class="lp">Dr. Sebi's nutritional guide is not a suggestion framework. It is a strict protocol. He was explicit that partial adherence produces partial results — and that the body requires consistency to shift its terrain. These are the core rules.</p>
 
     <div class="principle-list">
       <div class="principle-item">
-        <div class="principle-num" style="background:rgba(74,122,90,0.12);border-color:rgba(74,122,90,0.3);">01</div>
+        <div class="principle-num" style="color:var(--honey);">01</div>
         <div>
           <div class="principle-title">Eat only foods listed in the Nutritional Guide</div>
-          <p class="principle-desc">If a food is not on the list, it is not approved. No exceptions based on how "natural" or "healthy" a food appears. This includes: broccoli (hybrid), spinach (oxalic acid content — acidic in the body), seedless grapes, regular bananas (seedless and hybridized), most commercial tomatoes (only cherry and plum are approved), and carrots (the common orange variety is hybridized). The list was curated specifically — not arbitrary.</p>
+          <p class="principle-desc">If a food is not on the list, it is not approved. No exceptions based on how "natural" or "healthy" a food appears. This includes: broccoli (hybrid), spinach (oxalic acid — acidic in the body), seedless grapes, regular bananas (hybridised), most commercial tomatoes (only cherry and plum are approved), and carrots (the common orange variety is hybridised). The list was curated specifically — not arbitrarily.</p>
         </div>
       </div>
       <div class="principle-item">
-        <div class="principle-num" style="background:rgba(74,122,90,0.12);border-color:rgba(74,122,90,0.3);">02</div>
+        <div class="principle-num" style="color:var(--honey);">02</div>
         <div>
           <div class="principle-title">Drink one gallon (3.8 litres) of natural spring water daily</div>
-          <p class="principle-desc">Spring water — not tap water (chlorine, fluoride, pharmaceutical residues), not reverse osmosis water (stripped of minerals). Natural spring water carries mineral content that complements the diet. Look for natural spring water specifically — not filtered mains water sold in bottles. The water requirement is not about hydration alone — it is about continuous flushing of the mucus and toxins being mobilised by the diet and herbs.</p>
+          <p class="principle-desc">Spring water — not tap water (chlorine, fluoride, pharmaceutical residues), not reverse osmosis (stripped of minerals). Natural spring water carries mineral content that complements the diet. The water requirement is not about hydration alone — it is about continuously flushing the mucus and toxins mobilised by the diet and herbs.</p>
         </div>
       </div>
       <div class="principle-item">
-        <div class="principle-num" style="background:rgba(74,122,90,0.12);border-color:rgba(74,122,90,0.3);">03</div>
+        <div class="principle-num" style="color:var(--honey);">03</div>
         <div>
           <div class="principle-title">No animal products — including dairy and fish</div>
-          <p class="principle-desc">Meat, poultry, fish, eggs, dairy, and honey are all excluded. Dr. Sebi's position was that animal protein creates an acidic internal environment and introduces mucus-forming compounds the body cannot fully process. He was not morally opposed to meat — his objection was purely physiological. The challenge for people transitioning: protein intake. The approved plant proteins — hemp seeds, walnuts, Brazil nuts, quinoa, spelt, amaranth, wild rice — must be eaten intentionally and consistently.</p>
+          <p class="principle-desc">Meat, poultry, fish, eggs, dairy, and honey are all excluded. Dr. Sebi's objection was purely physiological — animal protein creates an acidic internal environment and introduces mucus-forming compounds the body cannot fully process. The approved plant proteins — hemp seeds, walnuts, Brazil nuts, quinoa, spelt, amaranth, wild rice — must be eaten intentionally and consistently.</p>
         </div>
       </div>
       <div class="principle-item">
-        <div class="principle-num" style="background:rgba(74,122,90,0.12);border-color:rgba(74,122,90,0.3);">04</div>
+        <div class="principle-num" style="color:var(--honey);">04</div>
         <div>
           <div class="principle-title">No alcohol</div>
-          <p class="principle-desc">Alcohol is profoundly acid-forming, directly damages the liver (the primary cleansing organ), depletes minerals, and impairs cellular repair. No exceptions — including wine, which appears in many "healthy diet" frameworks. The body cannot engage in the cellular repair that the alkaline diet promotes while simultaneously processing alcohol's metabolic byproducts.</p>
+          <p class="principle-desc">Alcohol is profoundly acid-forming, directly damages the liver, depletes minerals, and impairs cellular repair. No exceptions — including wine, which appears in many "healthy diet" frameworks. The body cannot engage in the cellular repair that the alkaline diet promotes while simultaneously processing alcohol's metabolic byproducts.</p>
         </div>
       </div>
       <div class="principle-item">
-        <div class="principle-num" style="background:rgba(74,122,90,0.12);border-color:rgba(74,122,90,0.3);">05</div>
+        <div class="principle-num" style="color:var(--honey);">05</div>
         <div>
           <div class="principle-title">No microwaves. No canned or seedless fruits</div>
-          <p class="principle-desc">Microwaves alter the molecular structure of food — Dr. Sebi's position was that this destroys the electrical resonance that makes electric food therapeutic. Use only stovetop or oven. Canned fruits are processed and often contain preservatives or added sweeteners. Seedless fruits are hybridized — the seed is the indicator of an intact, non-hybridized plant. Seedless = hybrid = incomplete molecular structure in Sebi's framework.</p>
+          <p class="principle-desc">Microwaves alter the molecular structure of food — destroying the electrical resonance that makes electric food therapeutic. Use stovetop or oven only. Canned fruits are processed. Seedless fruits are hybridised — the seed is the indicator of an intact, non-hybridised plant. Seedless = hybrid = incomplete molecular structure in Sebi's framework.</p>
         </div>
       </div>
       <div class="principle-item">
-        <div class="principle-num" style="background:rgba(74,122,90,0.12);border-color:rgba(74,122,90,0.3);">06</div>
+        <div class="principle-num" style="color:var(--honey);">06</div>
         <div>
           <div class="principle-title">Take herbal compounds one hour before pharmaceutical medications</div>
-          <p class="principle-desc">Dr. Sebi did not tell his clients to stop pharmaceutical medications — he directed that his herbs be taken an hour before, so that the body's receptors would be optimally available for the plant compounds. This is the practical bridge for people who are using this protocol alongside conventional care. Over time, as the body heals, the need for pharmaceutical support often decreases — but that transition must be managed with a practitioner.</p>
+          <p class="principle-desc">Dr. Sebi did not tell his clients to stop pharmaceutical medications — he directed that his herbs be taken an hour before, so that the body's receptors would be optimally available for the plant compounds. Over time, as the body heals, the need for pharmaceutical support often decreases — but that transition must be managed with a practitioner.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="sec-divider"></div>
-
-<!-- ═══════════════════ FOOD LIST ═══════════════════ -->
-<section class="sec-sage" id="foodlist">
+<!-- FOOD LIST -->
+<section id="foodlist" class="sec sec-deep">
   <div class="inner">
-    <div class="kicker">The Complete Nutritional Guide</div>
+    <div class="kicker kicker-honey">The Complete Nutritional Guide</div>
     <h2 class="lh2">Approved Foods</h2>
-    <p class="lp">Every food on this list is either naturally alkaline-forming, non-hybridized, or both. The list is definitive — not illustrative. If a food is not here, it is not approved. Print this section and keep it in your kitchen.</p>
+    <p class="lp">Every food on this list is either naturally alkaline-forming, non-hybridised, or both. The list is definitive — not illustrative. If a food is not here, it is not approved. Print this section and keep it in your kitchen.</p>
 
-    <!-- VEGETABLES -->
+    <button class="print-btn" onclick="window.print()">🖨 Print Food List</button>
+
     <div class="food-section">
       <div class="food-section-title"><span class="food-section-icon">🥬</span> Vegetables</div>
       <div class="food-grid">
@@ -492,10 +424,9 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
         <div class="food-item">Zucchini</div>
         <div class="food-item">Arame (sea vegetable)</div>
       </div>
-      <p class="food-note">Sea vegetables (dulse, nori, hijiki, wakame, arame) are among the most mineral-rich foods on the approved list — prioritize them.</p>
+      <p class="food-note">Sea vegetables (dulse, nori, hijiki, wakame, arame) are among the most mineral-rich foods on the approved list — prioritise them daily.</p>
     </div>
 
-    <!-- FRUITS -->
     <div class="food-section">
       <div class="food-section-title"><span class="food-section-icon">🍎</span> Fruits — Seeded Varieties Only</div>
       <div class="food-grid">
@@ -525,10 +456,9 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
         <div class="food-item">Sugar apples (cherimoya)</div>
         <div class="food-item">Tamarind</div>
       </div>
-      <p class="food-note">Seeded fruits only. No canned, frozen, or seedless varieties. Papayas and soursop are particularly valued — papaya contains papain (a proteolytic enzyme), soursop has documented anti-tumor research.</p>
+      <p class="food-note">Seeded fruits only. No canned, frozen, or seedless varieties. Papayas and soursop are particularly valued — papaya contains papain (a proteolytic enzyme), soursop has documented anti-tumour research.</p>
     </div>
 
-    <!-- GRAINS -->
     <div class="food-section">
       <div class="food-section-title"><span class="food-section-icon">🌾</span> Ancient Grains — No Wheat, No Corn</div>
       <div class="food-grid">
@@ -541,10 +471,9 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
         <div class="food-item">Teff</div>
         <div class="food-item">Wild rice</div>
       </div>
-      <p class="food-note">Modern wheat, white rice, and corn are explicitly excluded — hybridized to the point of incomplete molecular structure. These ancient grains are the alkaline replacements. All are available as flour, pasta, and bread in health food stores.</p>
+      <p class="food-note">Modern wheat, white rice, and corn are excluded — hybridised to the point of incomplete molecular structure. These ancient grains are the alkaline replacements. Available as flour, pasta, and bread in health food stores.</p>
     </div>
 
-    <!-- NUTS & SEEDS -->
     <div class="food-section">
       <div class="food-section-title"><span class="food-section-icon">🌰</span> Nuts &amp; Seeds</div>
       <div class="food-grid">
@@ -557,10 +486,9 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
         <div class="food-item">Raw tahini butter</div>
         <div class="food-item">Walnuts</div>
       </div>
-      <p class="food-note">Brazil nuts provide selenium (the co-factor for iodine metabolism — see Hidden Deficiencies). Hemp seeds provide complete protein with optimal omega-3:omega-6 ratio. Walnuts support brain health.</p>
+      <p class="food-note">Brazil nuts provide selenium — the co-factor for iodine metabolism. Hemp seeds provide complete protein with optimal omega ratio. Walnuts support brain health.</p>
     </div>
 
-    <!-- OILS -->
     <div class="food-section">
       <div class="food-section-title"><span class="food-section-icon">🫒</span> Oils — Cold-Pressed, Unrefined</div>
       <div class="food-grid">
@@ -571,10 +499,9 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
         <div class="food-item">Olive oil — uncooked</div>
         <div class="food-item">Sesame oil</div>
       </div>
-      <p class="food-note">Olive and coconut oils are approved for raw use — not for cooking. Grapeseed has the highest smoke point of the approved oils and is the recommended choice for stovetop cooking.</p>
+      <p class="food-note">Olive and coconut oils are approved for raw use — not cooking. Grapeseed has the highest smoke point of the approved oils and is the recommended choice for stovetop cooking.</p>
     </div>
 
-    <!-- SWEETENERS -->
     <div class="food-section">
       <div class="food-section-title"><span class="food-section-icon">🍯</span> Sweeteners</div>
       <div class="food-grid">
@@ -583,10 +510,9 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
         <div class="food-item">Pure maple syrup — Grade B</div>
         <div class="food-item">Maple sugar (dried maple)</div>
       </div>
-      <p class="food-note">No white sugar, brown sugar, honey, stevia, or artificial sweeteners. Grade B maple syrup has more minerals than Grade A. Agave is from the cactus — alkaline-forming.</p>
+      <p class="food-note">No white sugar, brown sugar, honey, stevia, or artificial sweeteners. Grade B maple syrup has more minerals than Grade A.</p>
     </div>
 
-    <!-- SPICES -->
     <div class="food-section">
       <div class="food-section-title"><span class="food-section-icon">🌿</span> Spices &amp; Seasonings</div>
       <div class="food-grid">
@@ -609,7 +535,6 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
       </div>
     </div>
 
-    <!-- HERBAL TEAS -->
     <div class="food-section">
       <div class="food-section-title"><span class="food-section-icon">🍵</span> Herbal Teas</div>
       <div class="food-grid">
@@ -623,24 +548,23 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
         <div class="food-item">Raspberry leaf</div>
         <div class="food-item">Tila (linden flower)</div>
       </div>
-      <p class="food-note">No green tea, black tea, or white tea — these are from the Camellia sinensis plant, which Dr. Sebi considered acidic. No coffee.</p>
+      <p class="food-note">No green, black, or white tea — from Camellia sinensis which Dr. Sebi considered acidic. No coffee.</p>
     </div>
 
-    <!-- WHAT TO AVOID -->
-    <h3 class="lh3-cream" style="margin-top:40px;">What Is Explicitly Excluded — And Why</h3>
+    <h3 class="lh3 lh3-terra" style="margin-top:40px;">What Is Explicitly Excluded — And Why</h3>
     <div class="avoid-grid">
       <div class="avoid-item">All meat, poultry, fish</div>
-      <div class="avoid-item">Dairy products — all forms</div>
+      <div class="avoid-item">Dairy — all forms</div>
       <div class="avoid-item">Eggs</div>
-      <div class="avoid-item">Wheat — modern hybridized</div>
+      <div class="avoid-item">Wheat — modern hybridised</div>
       <div class="avoid-item">White rice</div>
       <div class="avoid-item">Corn (maize)</div>
       <div class="avoid-item">Soy and tofu</div>
-      <div class="avoid-item">Lentils and chickpeas (most)</div>
+      <div class="avoid-item">Most lentils</div>
       <div class="avoid-item">Broccoli — hybrid</div>
       <div class="avoid-item">Carrots — hybrid</div>
       <div class="avoid-item">Spinach — oxalic acid</div>
-      <div class="avoid-item">Iceberg lettuce — no nutrition</div>
+      <div class="avoid-item">Iceberg lettuce</div>
       <div class="avoid-item">Shiitake mushrooms</div>
       <div class="avoid-item">Seedless any fruit</div>
       <div class="avoid-item">All canned foods</div>
@@ -651,51 +575,35 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
       <div class="avoid-item">All processed foods</div>
     </div>
 
-    <button class="exp-btn" onclick="toggleExpand('hybrid-why',this)" data-label="Why hybrid foods — the molecular structure argument explained">
-      <div class="exp-icon"><svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <span class="exp-lbl">Why hybrid foods — the molecular structure argument explained in full</span>
-    </button>
-    <div class="exp-body" id="hybrid-why">
-      <div class="exp-inner">
-        <p class="lp">The hybridization argument is one of the most debated aspects of Dr. Sebi's framework — and also one of the most internally coherent. His claim was that foods with a "complete molecular structure" are those that exist in nature as nature produced them — with seeds, in their original form, capable of reproducing themselves. When humans selectively breed plants to eliminate seeds (seedless grapes, seedless watermelons), enhance sweetness, extend shelf life, or increase yield, the resulting plant has a different mineral profile and electrical resonance than its ancestor.</p>
-        <p class="lp">This is not a purely metaphysical claim. The mineral content of hybridized crops versus their heirloom ancestors has been measured and documented — and the direction of change is consistently toward reduced mineral density. A 2004 study published in the Journal of the American College of Nutrition documented reliable declines in protein, calcium, phosphorus, iron, riboflavin, and vitamin C in 43 crops between 1950 and 1999. The mechanism: selective breeding for yield, size, and growth rate consistently dilutes mineral density because the plant's mineral content is not the selection criterion.</p>
-        <p class="lp">Dr. Sebi's specific concern was that the body does not fully recognise hybridised foods at the cellular level — that the enzymatic and digestive process produces inflammatory byproducts when processing something the genome was never designed to assimilate. This is harder to measure. But the basic direction — that the industrialisation of plant breeding has compromised the nutritional quality of common foods — is not controversial in the nutritional science literature.</p>
-        <div class="pq"><p>"A seedless grape is a grape that cannot reproduce itself. It has been altered so fundamentally that the seed — the life force — has been removed. What remains is sugar in the shape of a grape. And we eat it and call it healthy."</p></div>
-      </div>
+    <div class="note-box" style="margin-top:24px;">
+      <div class="warn-title">Why Hybrid Foods</div>
+      <div class="warn-text">The mineral content of hybridised crops versus their heirloom ancestors has been measured. A 2004 study in the Journal of the American College of Nutrition documented reliable declines in protein, calcium, phosphorus, iron, riboflavin, and vitamin C in 43 crops between 1950 and 1999. The mechanism: selective breeding for yield, size, and growth rate consistently dilutes mineral density because mineral content is not the selection criterion. Dr. Sebi's position that the industrialisation of plant breeding has compromised the nutritional quality of common foods is not controversial in the nutritional science literature — only his extension of this into a complete molecular framework is debated.</div>
     </div>
-
-    <button class="print-btn" onclick="window.print()" style="margin-top:32px;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
-      Print Food List
-    </button>
   </div>
 </section>
 
-<div class="sec-divider"></div>
-
-<!-- ═══════════════════ HERBS ═══════════════════ -->
-<section class="sec-dark" id="herbs">
+<!-- HERBS -->
+<section id="herbs" class="sec sec-stone">
   <div class="inner">
     <div class="kicker">The Medicinal Plants</div>
     <h2 class="lh2">Dr. Sebi's Approved Herbs</h2>
-    <p class="lp">The herbs are where the African Bio-Mineral Balance goes beyond diet into active cellular repair. Dr. Sebi's herbal compounds were proprietary formulations — but the herbs themselves are publicly documented and widely available. Each one addresses specific systems: blood, lymph, mucous membrane, respiratory, liver, kidneys, nervous system. Used together, they form a complete cellular cleansing and rebuilding system.</p>
+    <p class="lp">The herbs are where the African Bio-Mineral Balance goes beyond diet into active cellular repair. Dr. Sebi's herbal compounds were proprietary formulations — but the herbs themselves are publicly documented and widely available. Each addresses specific systems: blood, lymph, mucous membrane, respiratory, liver, kidneys, nervous system.</p>
 
     <div class="herb-grid">
-
       <div class="herb-card">
         <span class="herb-icon">🌊</span>
         <div class="herb-name">Irish Sea Moss</div>
         <span class="herb-aka">Chondrus crispus · 92 of 102 minerals</span>
-        <p class="herb-desc">The cornerstone of the protocol. Sea moss contains 92 of the 102 minerals the human body is made of — including iodine, iron, calcium, selenium, magnesium, and zinc. It is a mucilaginous plant — it coats, soothes, and rebuilds mucous membranes throughout the body. Used for thyroid function, gut lining repair, respiratory support, and as a daily mineral supplement. Raw gel form is most effective.</p>
-        <p class="herb-use">Daily use: 1–2 tbsp sea moss gel in smoothie or water · Or capsule form for travel</p>
-        <a href="https://www.iherb.com/pr/nature-s-truth-irish-sea-moss-complex-plus-bladderwrack-burdock-root-90-quick-release-capsules/119555?rcode=GUW6132" target="_blank" class="herb-link">→ iHerb — Code GUW6132</a>
+        <p class="herb-desc">The cornerstone of the protocol. Sea moss contains 92 of the 102 minerals the human body is made of — including iodine, iron, calcium, selenium, magnesium, and zinc. A mucilaginous plant — it coats, soothes, and rebuilds mucous membranes throughout the body. Used for thyroid function, gut lining repair, respiratory support, and as a daily mineral supplement. Raw gel form is most effective.</p>
+        <p class="herb-use">Daily: 1–2 tbsp sea moss gel in smoothie or water · Or capsule form</p>
+        <a href="https://www.iherb.com/pr/nature-s-truth-irish-sea-moss-complex-plus-bladderwrack-burdock-root-90-quick-release-capsules/119555?rcode=GUW6132" target="_blank" class="herb-link">→ iHerb — Sea Moss + Bladderwrack + Burdock — Code GUW6132</a>
       </div>
 
       <div class="herb-card">
         <span class="herb-icon">🌿</span>
         <div class="herb-name">Bladderwrack</div>
         <span class="herb-aka">Fucus vesiculosus · Thyroid &amp; Iodine</span>
-        <p class="herb-desc">A brown seaweed — the richest food source of iodine outside Lugol's solution. Dr. Sebi paired it with sea moss in his foundational compound. Bladderwrack specifically targets thyroid function, provides fucoidan (a sulphated polysaccharide with documented antiviral and anti-tumor properties), and contributes iron and calcium. Always paired with sea moss — the two complement each other's mineral profiles precisely.</p>
+        <p class="herb-desc">A brown seaweed — the richest food source of iodine outside Lugol's. Dr. Sebi paired it with sea moss in his foundational compound. Bladderwrack specifically targets thyroid function, provides fucoidan (a sulphated polysaccharide with documented antiviral and anti-tumour properties), and contributes iron and calcium. Always paired with sea moss — the two complement each other's mineral profiles precisely.</p>
         <p class="herb-use">Use with sea moss · 500–1,000mg capsule or add dried to smoothies</p>
         <a href="https://www.iherb.com/pr/nature-s-truth-irish-sea-moss-complex-plus-bladderwrack-burdock-root-90-quick-release-capsules/119555?rcode=GUW6132" target="_blank" class="herb-link">→ iHerb — Code GUW6132</a>
       </div>
@@ -704,7 +612,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
         <span class="herb-icon">🌱</span>
         <div class="herb-name">Burdock Root</div>
         <span class="herb-aka">Arctium lappa · Blood &amp; Lymph Purifier</span>
-        <p class="herb-desc">One of the most powerful blood and lymphatic purifiers in the herbal materia medica. Burdock root stimulates bile production (liver/gallbladder support), acts as a diuretic (kidney support), and contains inulin — a prebiotic that feeds beneficial gut bacteria. Documented antioxidant and anti-inflammatory effects. Dr. Sebi considered it essential for the deep cleansing phase — it works on the blood and lymph simultaneously.</p>
+        <p class="herb-desc">One of the most powerful blood and lymphatic purifiers in the herbal materia medica. Burdock root stimulates bile production (liver and gallbladder support), acts as a diuretic (kidney support), and contains inulin — a prebiotic that feeds beneficial gut bacteria. Documented antioxidant and anti-inflammatory effects. Dr. Sebi considered it essential for the deep cleansing phase — it works on blood and lymph simultaneously.</p>
         <p class="herb-use">Tea: 1 tbsp dried root per cup, simmer 20 min · Or 500–1,000mg capsule</p>
         <a href="https://www.iherb.com/pr/nature-s-truth-irish-sea-moss-complex-plus-bladderwrack-burdock-root-90-quick-release-capsules/119555?rcode=GUW6132" target="_blank" class="herb-link">→ iHerb — Code GUW6132</a>
       </div>
@@ -713,7 +621,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
         <span class="herb-icon">🌺</span>
         <div class="herb-name">Sarsaparilla</div>
         <span class="herb-aka">Smilax officinalis · Hormonal &amp; Blood</span>
-        <p class="herb-desc">A Central American root plant that Dr. Sebi considered one of the most important for restoring iron in the blood — specifically the electrical iron (as opposed to ferrous iron in supplements). Contains saponins that bind endotoxins in the gut and remove them. Also documented for hormonal balance — the saponins have a structure similar to human hormones and support endocrine function. Used for skin conditions, joint inflammation, and systemic blood purification.</p>
+        <p class="herb-desc">A Central American root plant that Dr. Sebi considered one of the most important for restoring electrical iron in the blood. Contains saponins that bind endotoxins in the gut and remove them. Also documented for hormonal balance — the saponins have a structure similar to human hormones. Used for skin conditions, joint inflammation, and systemic blood purification.</p>
         <p class="herb-use">Tea or tincture · 500mg capsule daily</p>
         <a href="https://www.iherb.com/pr/nature-s-answer-sarsaparilla-root-fluid-extract-alcohol-free-2-000-mg-1-fl-oz-30-ml/8001?rcode=GUW6132" target="_blank" class="herb-link">→ iHerb — Code GUW6132</a>
       </div>
@@ -722,7 +630,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
         <span class="herb-icon">🍃</span>
         <div class="herb-name">Elderberry</div>
         <span class="herb-aka">Sambucus nigra · Immune &amp; Respiratory</span>
-        <p class="herb-desc">One of the most studied medicinal berries. Elderberry contains anthocyanins and flavonoids with documented antiviral properties — including against influenza and respiratory viruses. Dr. Sebi valued it for respiratory mucous membrane support (coughs, bronchitis, asthma) and immune activation. Available as tea, syrup, or capsule. The one berry on the approved list with the broadest research support beyond the Sebi framework itself.</p>
+        <p class="herb-desc">One of the most studied medicinal berries. Elderberry contains anthocyanins and flavonoids with documented antiviral properties — including against influenza and respiratory viruses. Dr. Sebi valued it for respiratory mucous membrane support (coughs, bronchitis, asthma) and immune activation. The one berry on the approved list with the broadest research support beyond the Sebi framework itself.</p>
         <p class="herb-use">Tea daily · Or 500–1,000mg extract capsule</p>
         <a href="https://www.iherb.com/pr/now-foods-elderberry-500-mg-60-veg-capsules/578?rcode=GUW6132" target="_blank" class="herb-link">→ iHerb — Code GUW6132</a>
       </div>
@@ -731,7 +639,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
         <span class="herb-icon">🌾</span>
         <div class="herb-name">Mullein</div>
         <span class="herb-aka">Verbascum thapsus · Lungs &amp; Respiratory</span>
-        <p class="herb-desc">The primary respiratory herb in Dr. Sebi's protocol. Mullein leaf is specifically indicated for conditions involving the lungs: bronchitis, asthma, COPD, emphysema, chest congestion. It is a mucilaginous, expectorant, and anti-inflammatory herb that soothes the bronchial mucous membrane — directly addressing the mucus-and-inflammation mechanism at the respiratory level. Typically smoked or used as a tea or tincture. One of the most specific and targeted herbs in the protocol.</p>
+        <p class="herb-desc">The primary respiratory herb in Dr. Sebi's protocol. Mullein leaf is specifically indicated for conditions involving the lungs: bronchitis, asthma, COPD, emphysema, chest congestion. It is a mucilaginous, expectorant, and anti-inflammatory herb that soothes the bronchial mucous membrane — directly addressing the mucus-and-inflammation mechanism at the respiratory level.</p>
         <p class="herb-use">Tea: steep 2 tsp dried leaf in boiling water 10 min · Or tincture</p>
         <a href="https://www.iherb.com/pr/nature-s-answer-mullein-leaf-500-mg-90-vegetarian-capsules/8117?rcode=GUW6132" target="_blank" class="herb-link">→ iHerb — Code GUW6132</a>
       </div>
@@ -740,7 +648,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
         <span class="herb-icon">🌸</span>
         <div class="herb-name">Damiana</div>
         <span class="herb-aka">Turnera diffusa · Nervous System &amp; Vitality</span>
-        <p class="herb-desc">A Central American shrub historically used as an aphrodisiac and nervous system tonic. In the Sebi framework it is used for nervous system repair, energy restoration, and sexual vitality. Contains flavonoids and terpenes with documented anti-anxiety and mild stimulant effects without dependence. Also acts as a mild diuretic and digestive bitter. One of the few herbs in the protocol that addresses the nervous system directly.</p>
+        <p class="herb-desc">A Central American shrub used for nervous system repair, energy restoration, and sexual vitality. Contains flavonoids and terpenes with documented anti-anxiety and mild stimulant effects without dependence. Also acts as a mild diuretic and digestive bitter. One of the few herbs in the protocol that addresses the nervous system directly.</p>
         <p class="herb-use">Tea · 500mg capsule · Or tincture 2ml daily</p>
         <a href="https://www.iherb.com/pr/nature-s-way-damiana-leaves-600-mg-100-vegan-capsules-300-mg-per-capsule/1970?rcode=GUW6132" target="_blank" class="herb-link">→ iHerb — Code GUW6132</a>
       </div>
@@ -748,293 +656,216 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
       <div class="herb-card">
         <span class="herb-icon">🌴</span>
         <div class="herb-name">Soursop Leaf</div>
-        <span class="herb-aka">Annona muricata · The Documented Anti-Tumor Herb</span>
-        <p class="herb-desc">The leaf of the soursop (guanabana) tree has produced some of the most striking anti-tumor research in ethnobotany. The active compounds — annonaceous acetogenins — have documented selective cytotoxicity against cancer cells in laboratory studies (ATP production inhibition in cancer cell mitochondria specifically). Multiple published papers. The fruit is on the approved food list; the leaf is the medicinal form. Dr. Sebi discussed it specifically for tumors and cancer. The research exists — it is simply not in a clinical trial format.</p>
+        <span class="herb-aka">Annona muricata · The Documented Anti-Tumour Herb</span>
+        <p class="herb-desc">The leaf of the soursop (guanabana) tree has produced striking anti-tumour research. The active compounds — annonaceous acetogenins — have documented selective cytotoxicity against cancer cells in laboratory studies (ATP production inhibition in cancer cell mitochondria). Multiple published papers. The fruit is on the approved food list; the leaf is the medicinal form. Dr. Sebi discussed it specifically for tumours and cancer.</p>
         <p class="herb-use">Tea: 3–4 dried leaves per cup · Steep 15–20 min · 1–2 cups daily</p>
-        <a href="https://www.iherb.com/pr/now-foods-graviola-100-veg-capsules-500-mg-per-capsule/5018?rcode=GUW6132" target="_blank" class="herb-link">→ iHerb — Code GUW6132</a>
+        <a href="https://www.iherb.com/pr/now-foods-graviola-100-veg-capsules-500-mg-per-capsule/5018?rcode=GUW6132" target="_blank" class="herb-link">→ iHerb — Graviola (Soursop) — Code GUW6132</a>
       </div>
 
-    </div>
+      <div class="herb-card">
+        <span class="herb-icon">🌼</span>
+        <div class="herb-name">Yellow Dock</div>
+        <span class="herb-aka">Rumex crispus · Iron &amp; Liver</span>
+        <p class="herb-desc">A bitter root herb with a high iron content — one of the plant-based iron sources Dr. Sebi endorsed. Also a liver tonic and mild laxative — stimulates bile production and bowel motility. The bitters stimulate all digestive secretions, improving nutrient absorption. Used for skin conditions, anaemia, and constipation. Pairs well with burdock root for a comprehensive blood and liver cleanse.</p>
+        <p class="herb-use">Tincture 2ml · Or capsule 500mg · With meals</p>
+        <a href="https://www.iherb.com/pr/nature-s-way-yellow-dock-root-500-mg-100-capsules/2057?rcode=GUW6132" target="_blank" class="herb-link">→ iHerb — Code GUW6132</a>
+      </div>
 
-    <button class="exp-btn" onclick="toggleExpand('more-herbs',this)" data-label="More Dr. Sebi herbs — Kalawalla, Contribo, Yellow Dock, Chaparral">
-      <div class="exp-icon"><svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <span class="exp-lbl">More herbs — Kalawalla, Yellow Dock, Chaparral, Prodigiosa &amp; others</span>
-    </button>
-    <div class="exp-body" id="more-herbs">
-      <div class="exp-inner">
-        <div class="herb-grid">
-          <div class="herb-card">
-            <span class="herb-icon">🦗</span>
-            <div class="herb-name">Kalawalla</div>
-            <span class="herb-aka">Polypodium leucotomos · Autoimmune</span>
-            <p class="herb-desc">A South American fern — one of Dr. Sebi's most respected herbs for autoimmune and inflammatory conditions. Contains polypodine B and other compounds with documented immunomodulatory effects. Used for lupus, multiple sclerosis, psoriasis, and conditions where the immune system is dysregulated. Also documented for skin protection against UV radiation and hyperpigmentation. One of the more research-supported herbs on the Sebi list.</p>
-            <p class="herb-use">500–1,000mg capsule daily</p>
-            <a href="https://www.amazon.com/s?k=kalawalla+polypodium+leucotomos+capsules" target="_blank" class="herb-link">→ iHerb — Code GUW6132</a>
-          </div>
-          <div class="herb-card">
-            <span class="herb-icon">🌼</span>
-            <div class="herb-name">Yellow Dock</div>
-            <span class="herb-aka">Rumex crispus · Iron &amp; Liver</span>
-            <p class="herb-desc">A bitter root herb with a high iron content — one of the plant-based iron sources Dr. Sebi endorsed. Also a liver tonic and mild laxative — stimulates bile production and bowel motility. The bitters in yellow dock stimulate all digestive secretions, improving nutrient absorption. Used for skin conditions (the liver-skin connection), anemia, and constipation. Pairs well with burdock root for a comprehensive blood and liver cleanse.</p>
-            <p class="herb-use">Tincture 2ml · Or capsule 500mg · With meals</p>
-            <a href="https://www.iherb.com/pr/nature-s-way-yellow-dock-root-500-mg-100-capsules/2057?rcode=GUW6132" target="_blank" class="herb-link">→ iHerb — Code GUW6132</a>
-          </div>
-          <div class="herb-card">
-            <span class="herb-icon">🏜️</span>
-            <div class="herb-name">Chaparral</div>
-            <span class="herb-aka">Larrea tridentata · Antioxidant &amp; Lymph</span>
-            <p class="herb-desc">One of the most powerful antioxidant plants in North America — the Sonoran desert plant that produces NDGA (nordihydroguaiaretic acid), one of the strongest antioxidants identified in plant medicine. Dr. Sebi used it for cancer, lymphatic congestion, and as a broad-spectrum antimicrobial. Its use requires caution — excess doses are hepatotoxic. Short-term use at low doses under guidance. A powerful herb with a correspondingly narrow therapeutic window.</p>
-            <p class="herb-use">Short-term use only · Tea or low-dose tincture · Practitioner guidance recommended</p>
-          </div>
-          <div class="herb-card">
-            <span class="herb-icon">🌺</span>
-            <div class="herb-name">Prodigiosa</div>
-            <span class="herb-aka">Brickellia cavanillesii · Pancreas &amp; Blood Sugar</span>
-            <p class="herb-desc">A Mexican medicinal herb — called prodigiosa ("miraculous") for its dramatic effect on blood sugar and pancreatic function. Used traditionally throughout Mexico and Central America for diabetes. Dr. Sebi valued it as one of the primary tools for pancreatic support and blood sugar regulation. Contains chromene compounds with documented hypoglycemic activity. One of the most specific herbs for metabolic conditions in the Sebi protocol.</p>
-            <p class="herb-use">Tea: steep 1 tsp dried herb 10 min · 1–2 cups daily before meals</p>
-          </div>
-        </div>
+      <div class="herb-card">
+        <span class="herb-icon">🌺</span>
+        <div class="herb-name">Prodigiosa</div>
+        <span class="herb-aka">Brickellia cavanillesii · Pancreas &amp; Blood Sugar</span>
+        <p class="herb-desc">A Mexican medicinal herb — called prodigiosa ("miraculous") for its dramatic effect on blood sugar and pancreatic function. Used throughout Mexico and Central America for diabetes. Dr. Sebi valued it as one of the primary tools for pancreatic support and blood sugar regulation. Contains chromene compounds with documented hypoglycaemic activity.</p>
+        <p class="herb-use">Tea: steep 1 tsp dried herb 10 min · 1–2 cups daily before meals</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="sec-divider"></div>
-
-<!-- ═══════════════════ TRANSITION ═══════════════════ -->
-<section class="sec-warm" id="transition">
+<!-- TRANSITION -->
+<section id="transition" class="sec sec-warm">
   <div class="inner">
-    <div class="kicker" style="color:var(--sage)"><span style="width:32px;height:1px;background:var(--sage);display:inline-block;margin-right:12px;"></span>How to Begin</div>
-    <h2 class="lh2 lh2-dark">Transitioning to the Alkaline Protocol</h2>
-    <p class="lp lp-warm">The most common mistake: trying to go fully alkaline overnight. Dr. Sebi himself acknowledged that transition produces discomfort — the body begins releasing stored toxins and mucus as the acid-forming foods are withdrawn, and the cleansing herbs begin their work. This is not illness. But it feels like it, and people quit.</p>
-    <p class="lp lp-warm">The approach below is not Dr. Sebi's official protocol — he advocated strict adherence from day one. This is a practical transition framework for people who need to build into the lifestyle without the shock of sudden withdrawal from all familiar foods simultaneously.</p>
+    <div class="kicker">How to Begin</div>
+    <h2 class="lh2">Transitioning to the Alkaline Protocol</h2>
+
+    <p class="lp">The most common mistake: trying to go fully alkaline overnight. Dr. Sebi himself acknowledged that transition produces discomfort — the body begins releasing stored toxins and mucus as the acid-forming foods are withdrawn, and the cleansing herbs begin their work. This is not illness. But it feels like it, and people quit.</p>
+
+    <p class="lp">The approach below is not Dr. Sebi's official protocol — he advocated strict adherence from day one. This is a practical transition framework for people who need to build into the lifestyle without the shock of sudden withdrawal from all familiar foods simultaneously.</p>
 
     <div class="principle-list">
       <div class="principle-item">
-        <div class="principle-num" style="background:rgba(74,122,90,0.12);border-color:rgba(74,122,90,0.3);">Wk 1</div>
+        <div class="principle-num" style="font-size:14px;color:var(--sage);">Wk 1</div>
         <div>
           <div class="principle-title">Begin the water and begin the herbs</div>
-          <p class="principle-desc">Start drinking 1 gallon of spring water daily. Begin sea moss gel (1 tbsp daily) and burdock root tea (1 cup daily). Do not change the diet yet. This allows the drainage pathways to open before dietary change begins mobilizing stored toxins. This is the same principle as Phase 1 of the Full Body Detox Protocol — open the exits before you begin clearing the rooms.</p>
+          <p class="principle-desc">Start drinking 1 gallon of spring water daily. Begin sea moss gel (1 tbsp daily) and burdock root tea (1 cup daily). Do not change the diet yet. This allows the drainage pathways to open before dietary change begins mobilising stored toxins. This is the same principle as Phase 1 of the Full Body Detox Protocol — open the exits before you begin clearing the rooms.</p>
         </div>
       </div>
       <div class="principle-item">
-        <div class="principle-num" style="background:rgba(74,122,90,0.12);border-color:rgba(74,122,90,0.3);">Wk 2</div>
+        <div class="principle-num" style="font-size:14px;color:var(--sage);">Wk 2</div>
         <div>
           <div class="principle-title">Replace breakfast with a fully alkaline meal</div>
-          <p class="principle-desc">Breakfast is the easiest meal to alkalinize — fresh seeded fruit, sea moss smoothie, or a bowl of amaranth porridge with dates and hemp seeds. This one change, sustained for a week, establishes the alkaline morning ritual and begins the metabolic shift without disrupting the entire routine simultaneously.</p>
+          <p class="principle-desc">Fresh seeded fruit, sea moss smoothie, or a bowl of amaranth porridge with dates and hemp seeds. This one change, sustained for a week, establishes the alkaline morning ritual and begins the metabolic shift without disrupting the entire routine simultaneously.</p>
         </div>
       </div>
       <div class="principle-item">
-        <div class="principle-num" style="background:rgba(74,122,90,0.12);border-color:rgba(74,122,90,0.3);">Wk 3</div>
+        <div class="principle-num" style="font-size:14px;color:var(--sage);">Wk 3</div>
         <div>
           <div class="principle-title">Remove the biggest offenders</div>
-          <p class="principle-desc">Remove the three most acid-forming items in your current diet: meat, processed wheat (commercial bread/pasta), and dairy. Replace with approved alternatives — wild rice, spelt pasta, quinoa for grains; avocado, hemp seeds, walnuts for protein and fats. This is the largest dietary shift and the one that produces the most significant detox response.</p>
+          <p class="principle-desc">Remove the three most acid-forming items in your current diet: meat, processed wheat (commercial bread and pasta), and dairy. Replace with approved alternatives — wild rice, spelt pasta, quinoa for grains; avocado, hemp seeds, walnuts for protein and fats. This is the largest dietary shift and the one that produces the most significant detox response.</p>
         </div>
       </div>
       <div class="principle-item">
-        <div class="principle-num" style="background:rgba(74,122,90,0.12);border-color:rgba(74,122,90,0.3);">Wk 4+</div>
+        <div class="principle-num" style="font-size:14px;color:var(--sage);">Wk 4+</div>
         <div>
-          <div class="principle-title">Full protocol — add remaining herbs, full food guide adherence</div>
-          <p class="principle-desc">By week four the body is partially adapted and the transition symptoms are reducing. Now: full adherence to the nutritional guide, add the remaining herbs relevant to your specific conditions (sarsaparilla, elderberry, mullein, soursop leaf), and deepen the water intake. At this stage the protocol is self-sustaining — the foods become familiar, the herbs become routine, and the body's response to alkaline eating becomes its own motivation.</p>
+          <div class="principle-title">Full protocol</div>
+          <p class="principle-desc">By week four the body is partially adapted and transition symptoms are reducing. Now: full adherence to the nutritional guide, add the remaining herbs relevant to your specific conditions, and deepen the water intake. At this stage the protocol is self-sustaining — the foods become familiar, the herbs become routine, and the body's response to alkaline eating becomes its own motivation.</p>
         </div>
       </div>
     </div>
 
-    <div class="callout callout-sage">
-      <div class="callout-title">🔗 How the Dr. Sebi Protocol Fits Into the Larger System</div>
-      <p>The Dr. Sebi protocol and the Full Body Detox Protocol are not the same methodology — but they address the same root terrain. The Detox Protocol uses a broader set of tools (including compounds not on Dr. Sebi's approved list, like garlic, which he excluded). The Sebi protocol is a lifetime dietary framework, not a 90-day protocol. They can be run sequentially: do the Detox Protocol first to clear the major toxic load, then transition to the Dr. Sebi alkaline lifestyle as the long-term maintenance framework. The overlap between them — remove processed food, prioritize minerals, open drainage pathways, support the liver and gut — is almost total. The difference is in the strictness and the philosophical framework.</p>
+    <div class="note-box">
+      <div class="warn-title">How the Dr. Sebi Protocol Fits Into the Larger System</div>
+      <div class="warn-text">The Dr. Sebi protocol and the Full Body Detox Protocol are not the same methodology — but they address the same root terrain. The Detox Protocol uses a broader set of tools. The Sebi protocol is a lifetime dietary framework, not a 90-day protocol. They can be run sequentially: do the Detox Protocol first to clear the major toxic load, then transition to the Dr. Sebi alkaline lifestyle as the long-term maintenance framework. The overlap — remove processed food, prioritise minerals, open drainage pathways, support liver and gut — is almost total.</div>
     </div>
+  </div>
+</section>
 
-    <!-- SEA MOSS GEL RECIPE -->
-    <h3 class="lh3" style="margin-top:40px;color:var(--sage);">How to Make Sea Moss Gel</h3>
+<!-- SEA MOSS GEL -->
+<section id="seamoss" class="sec sec-bg">
+  <div class="inner">
+    <div class="kicker kicker-honey">The Cornerstone</div>
+    <h2 class="lh2">How to Make Sea Moss Gel</h2>
+    <p class="lp">The most important daily practice in the Dr. Sebi protocol. 1–2 tablespoons of raw sea moss gel delivers a concentrated dose of 92 minerals directly to the body. It can be made at home in 24 hours for a fraction of the cost of pre-made products.</p>
+
     <div class="recipe-box">
-      <div class="recipe-title">Raw Sea Moss Gel</div>
+      <div class="recipe-title">Raw Sea Moss Gel — Basic Recipe</div>
       <div class="recipe-ing">
         <div class="recipe-ing-item">100g dried Irish sea moss (raw, not processed)</div>
-        <div class="recipe-ing-item">Spring water — enough to soak (not tap water)</div>
-        <div class="recipe-ing-item">Key lime juice — ½ lime (optional, preservative)</div>
+        <div class="recipe-ing-item">Spring water — enough to soak</div>
+        <div class="recipe-ing-item">Key lime juice — ½ lime (optional, acts as preservative)</div>
         <div class="recipe-ing-item">Glass storage jar</div>
       </div>
       <div class="recipe-steps">
         <div class="recipe-step">Rinse the dried sea moss thoroughly under cool water to remove salt and debris.</div>
-        <div class="recipe-step">Soak in a bowl of spring water for 12–24 hours. The moss will expand 3–4x its dry size and become gelatinous. Change the water once midway through.</div>
-        <div class="recipe-step">Drain and rinse again. Add the soaked moss to a blender with enough fresh spring water to cover (approx. 2 cups per 100g). Blend on high for 60 seconds until completely smooth and gel-like.</div>
+        <div class="recipe-step">Soak in a bowl of spring water for 12–24 hours. The moss will expand 3–4× its dry size and become gelatinous. Change the water once midway through.</div>
+        <div class="recipe-step">Drain and rinse again. Add the soaked moss to a blender with enough fresh spring water to cover (approximately 2 cups per 100g). Blend on high for 60 seconds until completely smooth and gel-like.</div>
         <div class="recipe-step">Add the lime juice if using. Pour into a glass jar. Refrigerate — will set to a firm gel within 2 hours.</div>
         <div class="recipe-step">Use 1–2 tablespoons daily — add to smoothies, drinks, or eat directly. Keeps refrigerated for up to 3 weeks.</div>
       </div>
     </div>
+
+    <div class="budget-box">
+      <div class="warn-title">💰 Budget Note</div>
+      <div class="warn-text">100g of dried Irish sea moss on iHerb (code GUW6132) makes approximately 500–700g of gel — about a 3–4 week supply at 2 tbsp daily. Far more affordable than pre-made sea moss products. Sun-charged water can be used for soaking if spring water access is limited.</div>
+    </div>
   </div>
 </section>
 
-<div class="sec-divider"></div>
-
-<!-- ═══════════════════ DAILY PRACTICE ═══════════════════ -->
-<section class="sec-sage2" id="daily">
+<!-- DAILY ROUTINE -->
+<section id="daily" class="sec sec-deep">
   <div class="inner">
     <div class="kicker">The Living Practice</div>
     <h2 class="lh2">Daily Alkaline Routine</h2>
-    <p class="lp">This is a day on the Dr. Sebi alkaline protocol — combined with the broader healing practices from this guide. Every component serves the core goal: alkalinity, mineral replenishment, mucous membrane restoration.</p>
+    <p class="lp">A full day on the Dr. Sebi alkaline protocol — combined with the broader healing practices from this guide. Every component serves the core goal: alkalinity, mineral replenishment, mucous membrane restoration.</p>
 
     <div class="schedule">
       <div class="sched-row">
         <div class="sched-time">On Waking</div>
-        <div class="sched-act"><strong>2 glasses of natural spring water</strong> — before anything else · The body is dehydrated after sleep and the kidneys are ready to flush · Begin the 1-gallon daily count from here</div>
+        <div class="sched-act"><strong>2 glasses of natural spring water</strong> — before anything else. The body is dehydrated after sleep and the kidneys are ready to flush. Begin the 1-gallon daily count from here.</div>
       </div>
       <div class="sched-row">
         <div class="sched-time">Morning Ritual</div>
-        <div class="sched-act"><strong>Sea moss smoothie</strong> — 1 tbsp sea moss gel + 1 cup spring water + banana (burro) + dates + hemp seeds + bladderwrack powder · Blend · This is the foundational mineral dose for the day · Add elderberry or burdock root tea alongside</div>
+        <div class="sched-act"><strong>Sea moss smoothie</strong> — 1 tbsp sea moss gel + 1 cup spring water + burro banana + dates + hemp seeds + bladderwrack powder. Blend. This is the foundational mineral dose for the day. Add elderberry or burdock root tea alongside.</div>
       </div>
       <div class="sched-row">
         <div class="sched-time">Breakfast</div>
-        <div class="sched-act"><strong>Seeded fruit plate</strong> — papaya, mango, berries, figs · Or amaranth porridge with dates, walnuts, hemp seeds, and agave · No rush — let the fruit settle before cooked food if eating both</div>
+        <div class="sched-act"><strong>Seeded fruit plate</strong> — papaya, mango, berries, figs. Or amaranth porridge with dates, walnuts, hemp seeds, and agave. Let fruit settle before cooked food if eating both.</div>
       </div>
       <div class="sched-row">
         <div class="sched-time">Mid-Morning</div>
-        <div class="sched-act"><strong>Herbal tea</strong> — burdock root, chamomile, or mullein (for respiratory conditions) · Continue spring water throughout the morning · Sarsaparilla tincture if working on blood and hormonal restoration</div>
+        <div class="sched-act"><strong>Herbal tea</strong> — burdock root, chamomile, or mullein (for respiratory conditions). Continue spring water throughout the morning. Sarsaparilla tincture if working on blood and hormonal restoration.</div>
       </div>
       <div class="sched-row">
         <div class="sched-time">Lunch</div>
-        <div class="sched-act"><strong>Grain bowl</strong> — wild rice or quinoa base + avocado + cherry tomatoes + dandelion greens or kale + olives + grapeseed oil + pure sea salt + herbs · Or spelt pasta with homemade tomato (cherry/plum) and herb sauce · The largest meal of the day</div>
+        <div class="sched-act"><strong>Grain bowl</strong> — wild rice or quinoa base + avocado + cherry tomatoes + dandelion greens or kale + olives + grapeseed oil + pure sea salt + herbs. Or spelt pasta with homemade cherry/plum tomato and herb sauce. The largest meal of the day.</div>
       </div>
       <div class="sched-row">
         <div class="sched-time">Afternoon</div>
-        <div class="sched-act"><strong>Soursop leaf tea</strong> (if working on a specific condition) · Continue spring water · Seeded fruit if hungry · Sun exposure 20–30 minutes</div>
+        <div class="sched-act"><strong>Soursop leaf tea</strong> if working on a specific condition. Continue spring water. Seeded fruit if hungry. Sun exposure 20–30 minutes.</div>
       </div>
       <div class="sched-row">
         <div class="sched-time">Dinner</div>
-        <div class="sched-act"><strong>Lighter than lunch</strong> — large green salad (wild arugula, watercress, cucumber, avocado, hemp seeds, key lime dressing) · Or vegetable soup with approved grains · End eating at least 3 hours before bed</div>
+        <div class="sched-act"><strong>Lighter than lunch</strong> — large green salad (wild arugula, watercress, cucumber, avocado, hemp seeds, key lime dressing). Or vegetable soup with approved grains. End eating at least 3 hours before bed.</div>
       </div>
       <div class="sched-row">
         <div class="sched-time">Evening</div>
-        <div class="sched-act"><strong>Final herbal tea</strong> — chamomile or lemon grass · Remaining daily spring water · Dr. Sebi described the hours 10pm–2am as "healing hours" — the body's primary repair window. Be asleep by 10pm when possible.</div>
+        <div class="sched-act"><strong>Final herbal tea</strong> — chamomile or lemon grass. Remaining daily spring water. Dr. Sebi described the hours 10pm–2am as healing hours — the body's primary repair window. Be asleep by 10pm when possible.</div>
       </div>
     </div>
 
-    <div class="callout callout-gold" style="margin-top:32px;">
-      <div class="callout-title">🛒 Dr. Sebi Herb Stack — iHerb Code GUW6132</div>
-      <p>Irish Sea Moss gel or capsules · Bladderwrack powder or capsules · Burdock root tea or capsules · Sarsaparilla root · Elderberry extract · Mullein leaf · Soursop leaf (graviola) · Yellow Dock root · Kalawalla (Polypodium leucotomos) · Damiana leaf · Natural spring water (Fiji, Volvic, or local equivalent)</p>
-      <p><a href="https://www.iherb.com/pr/nature-s-truth-irish-sea-moss-complex-plus-bladderwrack-burdock-root-90-quick-release-capsules/119555?rcode=GUW6132" target="_blank">→ Sea Moss on iHerb — Code GUW6132</a></p>
-      <p><a href="https://www.iherb.com/pr/nature-s-truth-irish-sea-moss-complex-plus-bladderwrack-burdock-root-90-quick-release-capsules/119555?rcode=GUW6132" target="_blank">→ Burdock Root — iHerb Code GUW6132</a></p>
-      <p><a href="https://www.iherb.com/pr/now-foods-elderberry-500-mg-60-veg-capsules/578?rcode=GUW6132" target="_blank">→ Elderberry Extract — iHerb Code GUW6132</a></p>
-    </div>
-
-    <button class="print-btn" onclick="window.print()">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
-      Print Daily Protocol
-    </button>
+    <button class="print-btn" onclick="window.print()">🖨 Print Daily Protocol</button>
   </div>
 </section>
 
-<!-- CLOSING -->
-<section class="sec-dark">
+<!-- CONNECTIONS -->
+<section class="sec sec-stone">
   <div class="inner">
-    <div class="pq pq-gold"><p>"They will say I have no degree. This is true. The degree tells you what the institution wanted you to know. I went to the plants. The plants don't have a curriculum. They have results."</p></div>
-    <p class="lp" style="margin-top:32px;">The Dr. Sebi protocol is not the only protocol in this guide. It is one lens — the most ancient, the most plant-rooted, the most holistic. The minerals in the sea vegetables are the same minerals the Hidden Deficiencies protocol addresses. The alkalinity principle overlaps with the baking soda and iodine protocols. The mucous membrane theory resonates with the gut rebuilding work of Phase 4 of the Detox Protocol.</p>
+    <div class="pq pq-honey">
+      <div class="pq-text">"They will say I have no degree. This is true. The degree tells you what the institution wanted you to know. I went to the plants. The plants don't have a curriculum. They have results."</div>
+      <div class="pq-attr">— Dr. Sebi</div>
+    </div>
+
+    <p class="lp" style="margin-top:28px;">The Dr. Sebi protocol is not the only protocol in this guide. It is one lens — the most ancient, the most plant-rooted, the most holistic. The minerals in the sea vegetables are the same minerals the Hidden Deficiencies protocol addresses. The alkalinity principle overlaps with the baking soda and iodine protocols. The mucous membrane theory resonates with the gut rebuilding work of Phase 4 of the Detox Protocol.</p>
+
     <p class="lp">These are not competing systems. They are different traditions arriving at similar terrain. Use what resonates. Combine what serves you. The goal is the same across all of them: a body that is mineral-rich, alkaline, clean, and capable of healing itself.</p>
-    <p class="lp"><a href="Full_Body_Detox_Protocol.html" style="color:var(--sage);text-decoration:underline;text-underline-offset:3px;">→ The Full Body Detox Protocol — the sequential framework</a></p>
-    <p class="lp"><a href="Hidden_Deficiencies.html" style="color:var(--sage);text-decoration:underline;text-underline-offset:3px;">→ Hidden Deficiencies — the mineral science behind what Sebi taught intuitively</a></p>
-    <p class="lp"><a href="Brain_Protocol.html" style="color:var(--sage);text-decoration:underline;text-underline-offset:3px;">→ Brain Protocol — sea moss, soursop, and the neurological dimension</a></p>
-  </div>
-</section>
 
-<!-- DISCLAIMER -->
-<section class="sec-ink2">
-  <div class="inner">
-    <div class="callout callout-warn">
-      <div class="callout-title">Important Note</div>
-      <p>This page presents Dr. Sebi's philosophy, methodology, and documented food and herb lists as he taught them. It does not constitute medical advice. Dr. Sebi was not a licensed physician and did not make diagnostic or prescription claims — he was a herbalist who worked with terrain, mineral balance, and plant medicine. Some herbs presented here (including chaparral) carry documented risks at high doses or in prolonged use. Consult a qualified practitioner before using any herbal protocol alongside pharmaceutical medications. The author of this guide is not a doctor and makes no medical claims.</p>
+    <div style="display:grid;gap:10px;margin-top:24px;">
+      <a href="Full_Body_Detox_Protocol.html" style="display:flex;align-items:center;gap:12px;background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;padding:14px 18px;text-decoration:none;">
+        <span style="font-size:20px;">🌿</span>
+        <div><div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:2px;">Start Here First</div><div style="font-size:14px;color:var(--ink);">The Full Body Detox Protocol — the sequential framework</div></div>
+        <span style="margin-left:auto;color:var(--sage-mid);">→</span>
+      </a>
+      <a href="Hidden_Deficiencies.html" style="display:flex;align-items:center;gap:12px;background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;padding:14px 18px;text-decoration:none;">
+        <span style="font-size:20px;">🔬</span>
+        <div><div style="font-size:12px;font-weight:700;color:var(--honey);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:2px;">The Science Behind It</div><div style="font-size:14px;color:var(--ink);">Hidden Deficiencies — the mineral science behind what Sebi taught intuitively</div></div>
+        <span style="margin-left:auto;color:var(--sage-mid);">→</span>
+      </a>
+      <a href="Brain_Protocol.html" style="display:flex;align-items:center;gap:12px;background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;padding:14px 18px;text-decoration:none;">
+        <span style="font-size:20px;">🧠</span>
+        <div><div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:2px;">Neurological Applications</div><div style="font-size:14px;color:var(--ink);">Brain Protocol — sea moss, soursop, and the neurological dimension</div></div>
+        <span style="margin-left:auto;color:var(--sage-mid);">→</span>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ABOUT STRIP -->
-<section style="background:var(--bg-deep);padding:40px 24px;border-top:1px solid var(--border-s);">
-  <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
-    <div>
-      <div style="font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;">About This Guide</div>
-      <p style="font-size:14px;line-height:1.8;color:var(--ink-mid);margin-bottom:10px;">This guide was built from thousands of hours of independent research — peer-reviewed studies, suppressed clinical trials, and ancient healing traditions that predate the pharmaceutical model. The author spent years as a Pharmaceutical QA Internal Auditor before leaving to find the answers the system was not asking for.</p>
-      <p style="font-size:14px;line-height:1.8;color:var(--ink-mid);">Every protocol here is free — because health knowledge should not be a luxury. It will always remain free. If it helps you, the only thing asked in return is that you buy your supplements through iHerb using the code below. You save money. This guide stays alive.</p>
-      <a href="index.html#about" style="display:inline-block;margin-top:14px;font-size:12px;font-weight:600;color:var(--sage);text-decoration:underline;text-underline-offset:3px;">Read the full story</a>
-    </div>
-    <div style="text-align:center;padding:28px;background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;">
-      <div style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);margin-bottom:8px;">Support this free guide</div>
-      <div style="font-family:'Playfair Display',serif;font-size:15px;color:var(--ink);margin-bottom:4px;">Buy supplements on iHerb</div>
-      <div style="font-family:'DM Mono',monospace;font-size:36px;font-weight:700;color:var(--sage);letter-spacing:0.06em;margin:10px 0;">GUW6132</div>
-      <div style="font-size:12px;color:var(--ink-light);margin-bottom:16px;">Enter at checkout &middot; You get a discount</div>
-      <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" style="display:inline-block;background:var(--sage);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:10px 22px;border-radius:5px;">Shop iHerb</a>
-    </div>
+<!-- ABOUT -->
+<section style="background:var(--bg-deep);border-top:1px solid var(--border);">
+  <div class="inner" style="max-width:740px;padding-top:52px;padding-bottom:52px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:18px;">About This Guide</div>
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:16px;">This guide was built from thousands of hours of independent research — peer-reviewed studies, suppressed clinical trials, and ancient healing traditions that predate the pharmaceutical model. The author spent years as a Pharmaceutical QA Internal Auditor before leaving to find the answers the system was not asking for.</p>
+    <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:20px;">Every protocol here is free — because health knowledge should not be a luxury. If this guide helps you, the only thing asked in return is that you buy your supplements through iHerb using code <strong style="font-family:'DM Mono',monospace;color:var(--honey);">GUW6132</strong> at checkout. You save money. This guide stays alive.</p>
+    <a href="index.html#about" style="font-size:13px;font-weight:600;color:var(--sage);text-decoration:underline;text-underline-offset:3px;">Read the full story →</a>
   </div>
 </section>
-
-
-
-<!-- WHATSAPP SHARE -->
-<section style="background:var(--bg-warm);padding:36px 24px;border-top:1px solid var(--border-s);">
-  <div style="max-width:720px;margin:0 auto;text-align:center;">
-    <p style="font-size:14px;color:var(--ink-light);margin-bottom:16px;font-weight:500;letter-spacing:0.03em;">Know someone who needs this protocol?</p>
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:4px;"><a id="wa-share-btn" href="#" target="_blank" rel="noopener"
-      style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-size:14px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;padding:14px 32px;border-radius:6px;transition:background 0.2s;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Send on WhatsApp
-    </a>
-    <a id="fb-share-btn" href="#" target="_blank" rel="noopener"
-      style="display:inline-flex;align-items:center;gap:10px;background:#1877F2;color:#fff;font-size:14px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;padding:14px 32px;border-radius:6px;transition:background 0.2s;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      Share on Facebook
-    </a></div>
-    <p style="font-size:12px;color:var(--ink-ghost);margin-top:12px;">This guide is free — share it freely.</p>
-  </div>
-</section>
-
-<script>
-(function(){
-  var btn = document.getElementById("wa-share-btn");
-  if(btn){
-    var url = encodeURIComponent(window.location.href);
-    var text = encodeURIComponent("I found this free healing protocol — thought you should see it: ");
-    btn.href = "https://wa.me/?text=" + text + url;
-  }
-  var fb = document.getElementById("fb-share-btn");
-  if(fb){
-    var url = encodeURIComponent(window.location.href);
-    fb.href = "https://www.facebook.com/sharer/sharer.php?u=" + url;
-  }
-})();
-</script>
 
 <footer>
-  <div class="ft-inner">
+  <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;">
     <div>
-      <div class="ft-brand">Heal Yourself</div>
-      <p class="ft-disc">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor. Always consult a professional before beginning any protocol.</p>
+      <div style="font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;">Heal Yourself</div>
+      <p style="font-size:12px;color:rgba(212,201,168,0.5);line-height:1.7;">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor.</p>
     </div>
-    <nav class="ft-nav">
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
       <a href="index.html">Home</a>
-    </nav>
+    </div>
   </div>
 </footer>
 
 <script>
-function toggleExpand(id, btn){
-  const body = document.getElementById(id);
-  const isOpen = body.classList.contains('open');
-  body.classList.toggle('open', !isOpen);
-  btn.classList.toggle('open', !isOpen);
-  const lbl = btn.querySelector('.exp-lbl');
-  lbl.textContent = isOpen ? btn.dataset.label : 'Show less';
-}
-
-const allSections = ['philosophy','principles','foodlist','herbs','transition','daily'].map(id => document.getElementById(id)).filter(Boolean);
-const navLinks = document.querySelectorAll('.phase-nav a[data-section]');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      const id = entry.target.id;
-      navLinks.forEach(a => a.classList.toggle('pn-active', a.dataset.section === id));
-    }
-  });
-}, {rootMargin:'-25% 0px -65% 0px'});
-allSections.forEach(s => observer.observe(s));
+document.addEventListener('click',function(e){
+  const drop=document.getElementById('mainDrop');
+  if(drop&&!drop.contains(e.target))drop.classList.remove('open');
+});
 </script>
 </body>
 </html>
