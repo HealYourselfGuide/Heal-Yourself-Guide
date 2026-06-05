@@ -102,6 +102,21 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
 .callout-title{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
 .callout-sage .callout-title{color:var(--sage);}
 .callout-terra .callout-title,.callout-warn .callout-title{color:var(--terra);}
+/* Symptom table */
+.supp-symptom-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+.supp-symptom-table th{background:var(--bg-nav);color:#d4c9a8;padding:10px 14px;text-align:left;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;}
+.supp-symptom-table td{padding:10px 14px;border-bottom:1px solid var(--border-s);color:var(--ink-mid);vertical-align:top;line-height:1.6;}
+.supp-symptom-table tr:last-child td{border-bottom:none;}
+.supp-symptom-table tr:nth-child(even) td{background:rgba(244,239,230,0.5);}
+.supp-symptom-table td:first-child{font-weight:500;color:var(--ink);}
+.supp-symptom-table a{color:var(--sage);text-decoration:none;border-bottom:1px solid var(--border);}
+/* Budget and note boxes */
+.note-box{background:var(--sage-pale);border:1px solid var(--border);border-left:4px solid var(--sage-mid);border-radius:6px;padding:16px 20px;margin:20px 0;}
+.note-box .warn-title{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage);margin-bottom:6px;}
+.note-box .warn-text{font-size:14px;line-height:1.7;color:var(--ink-mid);}
+.budget-box{background:var(--honey-pale);border:1px solid rgba(160,120,48,0.2);border-left:4px solid var(--honey);border-radius:6px;padding:16px 20px;margin:20px 0;}
+.budget-box .warn-title{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--honey);margin-bottom:6px;}
+.budget-box .warn-text{font-size:14px;line-height:1.7;color:var(--ink-mid);}
 .callout-honey .callout-title{color:var(--honey);}
 .callout-stone .callout-title{color:var(--ink-mid);}
 .callout-info .callout-title{color:#5060a0;}
@@ -255,16 +270,6 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
 
 
 @media(max-width:400px){}
-
-.phase-nav{position:sticky;top:var(--nav-h);z-index:90;background:var(--bg-stone);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-s);overflow-x:auto;scrollbar-width:none;}
-.phase-nav::-webkit-scrollbar{display:none;}
-.phase-nav-inner{display:flex;align-items:stretch;min-width:max-content;}
-.phase-nav a{display:flex;align-items:center;gap:6px;padding:0 15px;height:36px;font-size:10px;font-weight:600;letter-spacing:0.08em;color:var(--ink-light);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:color 0.2s,border-color 0.2s;text-transform:uppercase;flex-shrink:0;}
-.phase-nav a:hover{color:var(--ink-mid);}
-.phase-nav a.pn-active{color:var(--sage);border-bottom-color:var(--sage-mid);}
-.pn-dot{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:0.35;flex-shrink:0;}
-.phase-nav a.pn-active .pn-dot{opacity:1;}
-.pn-sep{width:1px;background:var(--border-s);margin:9px 0;flex-shrink:0;}
 
 .main{margin-top:var(--nav-h);}
 
@@ -431,7 +436,20 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
             <a href="Brain_Protocol_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
           </div>
         </div>
-        <a href="DMSO_Oxygen_Therapy.html"><span class="dd-icon">⚗️</span><span class="dd-label">DMSO &amp; Oxygen</span></a>
+              <div class="dd-group">
+        <a href="DMSO_Protocol.html"><span class="dd-icon">⚗️</span><span class="dd-label">DMSO Protocol</span></a>
+        <div class="dd-subs">
+          <a href="DMSO_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+        </div>
+      </div>
+      <div class="dd-group">
+        <a href="Oxygen_Therapy.html"><span class="dd-icon">🫁</span><span class="dd-label">Oxygen Therapy</span></a>
+        <div class="dd-subs">
+          <a href="Oxygen_Therapy.html#h2o2" class="dd-sub"><span class="dd-icon">💧</span><span class="dd-label">Hydrogen Peroxide</span></a>
+          <a href="Oxygen_Therapy.html#ozone" class="dd-sub"><span class="dd-icon">⚡</span><span class="dd-label">Ozone Therapy</span></a>
+          <a href="Oxygen_Therapy.html#hbot" class="dd-sub"><span class="dd-icon">🏥</span><span class="dd-label">Hyperbaric Oxygen</span></a>
+        </div>
+      </div>
         <a href="Hidden_Deficiencies.html"><span class="dd-icon">🔬</span><span class="dd-label">Hidden Deficiencies</span></a>
         <a href="Dr_Sebi_Alkaline_Protocol.html"><span class="dd-icon">🌱</span><span class="dd-label">Dr. Sebi Alkaline</span></a>
         <div class="dd-group">
@@ -450,7 +468,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
 <!-- HERO -->
 <section class="hero">
-  <div class="eyebrow"><span>The Brain Healing Protocol</span></div>
+  <div class="eyebrow"><span>🧠 The Brain Healing Protocol</span></div>
   <h1>The Brain <em>Can Heal</em></h1>
   <p class="hero-sub">Neuroplasticity is not a metaphor. The brain physically rewires itself in response to what you feed it, what you remove from it, and what you ask of it. This protocol addresses all three.</p>
   <div class="hero-stats">
@@ -461,25 +479,202 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
   </div>
 </section>
 
-<div class="chapter-row">
-  <a href="#foundations" class="chc"><span class="chc-tag">Part 01</span><div class="chc-name">Foundations</div><p class="chc-desc">The terrain. What the brain actually needs to function and regenerate.</p></a>
-  <a href="#aluminum" class="chc"><span class="chc-tag">Part 02</span><div class="chc-name">Aluminum &amp; Teeth</div><p class="chc-desc">The connection your dentist was never trained to make.</p></a>
-  <a href="#neuroprotection" class="chc"><span class="chc-tag">Part 03</span><div class="chc-name">Neuroprotection</div><p class="chc-desc">Compounds with documented evidence for protecting and repairing the nervous system.</p></a>
-  <a href="#neurogenesis" class="chc"><span class="chc-tag">Part 04</span><div class="chc-name">Neurogenesis</div><p class="chc-desc">Growing new neurons. The practices that stimulate new brain cell growth.</p></a>
-  <a href="#parkinsons" class="chc"><span class="chc-tag">Part 05</span><div class="chc-name">Neurological Conditions</div><p class="chc-desc">Specific protocol for Parkinson's and movement disorders.</p></a>
+<!-- STICKY JUMP NAV -->
+<div class="phase-nav no-print">
+  <div class="phase-nav-inner" style="justify-content:center;">
+    <a href="#whoisthisfor"><span class="pn-dot"></span>Who Is This For</a>
+    <a href="#symptoms"><span class="pn-dot"></span>Symptom Lookup</a>
+    <a href="#priority"><span class="pn-dot"></span>Where to Start</a>
+    <a href="#foundations"><span class="pn-dot"></span>Foundations</a>
+    <a href="#aluminum"><span class="pn-dot"></span>Aluminum</a>
+    <a href="#neuroprotection"><span class="pn-dot"></span>Neuroprotection</a>
+    <a href="#neurogenesis"><span class="pn-dot"></span>Neurogenesis</a>
+    <a href="#parkinsons"><span class="pn-dot"></span>Neurological</a>
+    <a href="#gut-brain"><span class="pn-dot"></span>Gut-Brain</a>
+  </div>
 </div>
 
 <div class="divider"></div>
 
-<!-- FOUNDATIONS -->
+<!-- WHO IS THIS FOR -->
+<section class="sec-b" id="whoisthisfor">
+  <div class="inner">
+    <div class="kicker">Is This For You</div>
+    <h2 class="lh2">Who This Protocol Is For</h2>
+    <p class="lp">This protocol is for anyone experiencing symptoms that the medical system has labelled, managed, or dismissed — but not resolved. It is not a replacement for emergency medical care. It is a framework for people who have already done the conventional route and are ready to address the terrain beneath the symptoms.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:24px 0;">
+      <div style="background:var(--bg-warm);border:1px solid var(--border);border-left:3px solid var(--sage-mid);border-radius:6px;padding:14px 16px;">
+        <div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Cognitive Decline</div>
+        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;">Memory loss · brain fog · word-finding problems · slow processing · confusion</p>
+      </div>
+      <div style="background:var(--bg-warm);border:1px solid var(--border);border-left:3px solid var(--sage-mid);border-radius:6px;padding:14px 16px;">
+        <div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Neurological Conditions</div>
+        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;">Movement disorders · tremor · Parkinson's · MS · neuropathy · balance problems</p>
+      </div>
+      <div style="background:var(--bg-warm);border:1px solid var(--border);border-left:3px solid var(--sage-mid);border-radius:6px;padding:14px 16px;">
+        <div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Mood &amp; Mental Health</div>
+        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;">Depression · anxiety · mood swings · emotional dysregulation · ADHD · OCD</p>
+      </div>
+      <div style="background:var(--bg-warm);border:1px solid var(--border);border-left:3px solid var(--sage-mid);border-radius:6px;padding:14px 16px;">
+        <div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Sleep &amp; Energy</div>
+        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;">Chronic fatigue · insomnia · waking unrefreshed · afternoon crashes · low drive</p>
+      </div>
+      <div style="background:var(--bg-warm);border:1px solid var(--border);border-left:3px solid var(--sage-mid);border-radius:6px;padding:14px 16px;">
+        <div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Prevention</div>
+        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;">Family history of neurological disease · over 45 · high toxic exposure · wanting to protect what you have</p>
+      </div>
+      <div style="background:var(--bg-warm);border:1px solid var(--border);border-left:3px solid var(--sage-mid);border-radius:6px;padding:14px 16px;">
+        <div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Recovery</div>
+        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;">Post-concussion · post-COVID brain fog · stroke recovery · post-chemotherapy cognitive effects</p>
+      </div>
+    </div>
+
+    <div class="callout callout-sage">
+      <div class="callout-title">Do the Full Body Detox First</div>
+      <p>This protocol works best after — or alongside — the Full Body Detox Protocol. Open drainage pathways first (Phase 1 of Detox) → eliminate pathogens (Phase 2) → begin this Brain Protocol alongside Phase 3. The neuroprotective compounds here work best once the body's toxic burden is actively reducing. If you are starting fresh, spend at least 4 weeks on the detox foundations before adding brain-specific compounds.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SYMPTOM LOOKUP -->
+<section class="sec-a" id="symptoms">
+  <div class="inner">
+    <div class="kicker kicker-terra">Find Your Starting Point</div>
+    <h2 class="lh2">Symptom → Supplement Lookup</h2>
+    <p class="lp">Start here if you have a specific symptom and want to know which compounds address it most directly. This tells you where to focus first — but read the full section for dosing and context.</p>
+
+    <table class="supp-symptom-table">
+      <tr><th>Symptom / Condition</th><th>Primary Compounds</th><th>Go To</th></tr>
+      <tr>
+        <td>Brain fog · slow thinking · poor concentration</td>
+        <td>Lion's Mane · Magnesium L-Threonate · Omega-3 DHA · B12 methylcobalamin</td>
+        <td><a href="#neuroprotection">Neuroprotection</a></td>
+      </tr>
+      <tr>
+        <td>Memory loss · word-finding problems</td>
+        <td>Lion's Mane · Bacopa Monnieri · Phosphatidylserine · Silica water</td>
+        <td><a href="#neuroprotection">Neuroprotection</a> · <a href="#aluminum">Aluminum</a></td>
+      </tr>
+      <tr>
+        <td>Depression · low mood · emotional flatness</td>
+        <td>Omega-3 EPA/DHA · Saffron · Magnesium Glycinate · Vitamin D3+K2 · B-complex</td>
+        <td><a href="#foundations">Foundations</a></td>
+      </tr>
+      <tr>
+        <td>Anxiety · nervous system hyperactivation</td>
+        <td>Magnesium Glycinate · Ashwagandha · L-Theanine · B6 (P-5-P form)</td>
+        <td><a href="#foundations">Foundations</a></td>
+      </tr>
+      <tr>
+        <td>Insomnia · poor sleep quality</td>
+        <td>Magnesium Glycinate · Melatonin low dose · L-Theanine · Ashwagandha</td>
+        <td><a href="#foundations">Foundations</a></td>
+      </tr>
+      <tr>
+        <td>Tremor · movement symptoms · Parkinson's</td>
+        <td>Mucuna Pruriens · CoQ10 ubiquinol · Magnesium L-Threonate · NAC · Glutathione · PQQ</td>
+        <td><a href="#parkinsons">Neurological</a></td>
+      </tr>
+      <tr>
+        <td>Chronic fatigue · no energy despite sleep</td>
+        <td>CoQ10 ubiquinol · PQQ · B12 · Magnesium Malate · Lion's Mane</td>
+        <td><a href="#neuroprotection">Neuroprotection</a></td>
+      </tr>
+      <tr>
+        <td>Numbness · tingling · nerve pain</td>
+        <td>B12 methylcobalamin · Alpha Lipoic Acid · Copper · Magnesium</td>
+        <td><a href="#foundations">Foundations</a></td>
+      </tr>
+      <tr>
+        <td>Head pressure · headaches · migraines</td>
+        <td>Magnesium Glycinate · CoQ10 · Silica water · Aluminium removal protocol</td>
+        <td><a href="#aluminum">Aluminum</a></td>
+      </tr>
+      <tr>
+        <td>Post-COVID brain fog</td>
+        <td>NAC · Quercetin · Lion's Mane · Omega-3 · Nattokinase · Magnesium L-Threonate</td>
+        <td><a href="#neuroprotection">Neuroprotection</a></td>
+      </tr>
+      <tr>
+        <td>Gut issues + neurological symptoms together</td>
+        <td>Lactobacillus rhamnosus · L. reuteri · Prebiotic · L-Glutamine · Resistant starch</td>
+        <td><a href="#gut-brain">Gut-Brain</a></td>
+      </tr>
+      <tr>
+        <td>Skin · hair · joints deteriorating alongside brain symptoms</td>
+        <td>Collagen peptides + Vitamin C · Silica · Omega-3</td>
+        <td><a href="#foundations">Foundations</a></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SUPPLEMENT PRIORITY -->
+<section class="sec-c" id="priority">
+  <div class="inner">
+    <div class="kicker kicker-honey">No — You Don't Need All of Them</div>
+    <h2 class="lh2">Where to Start — Three Tiers</h2>
+    <p class="lp">The full protocol lists over 20 compounds. No one should start all of them at once — you would not know what was working, what was causing a reaction, or what you actually need. Start with Tier 1. Stay there for at least 4 weeks. Then add from Tier 2 one at a time, spaced 1–2 weeks apart. Tier 3 is condition-specific — only if the symptom applies to you.</p>
+
+    <div style="display:grid;gap:14px;margin:24px 0;">
+      <div style="background:var(--sage-pale);border:1px solid var(--border);border-left:4px solid var(--sage-mid);border-radius:8px;padding:20px 22px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-bottom:10px;">⭐ Tier 1 — Must Have · Start Here · 4 weeks minimum</div>
+        <p style="font-size:14px;color:var(--ink-mid);line-height:1.7;margin-bottom:12px;">These four address the most universal brain deficiencies. Most people notice changes within 2–4 weeks. If budget is tight, these four are enough to begin.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px;">
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);font-weight:500;">🧠 Magnesium L-Threonate</div>
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);font-weight:500;">🐟 Omega-3 DHA/EPA</div>
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);font-weight:500;">🍄 Lion's Mane mushroom</div>
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);font-weight:500;">☀️ Vitamin D3 + K2</div>
+        </div>
+      </div>
+      <div style="background:var(--honey-pale);border:1px solid rgba(160,120,48,0.2);border-left:4px solid var(--honey);border-radius:8px;padding:20px 22px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--honey);margin-bottom:10px;">✦ Tier 2 — Should Have · Add after Week 4, one at a time</div>
+        <p style="font-size:14px;color:var(--ink-mid);line-height:1.7;margin-bottom:12px;">Strong evidence, more targeted. Add one every 1–2 weeks so you can track what each one does.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px;">
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);">⚡ CoQ10 (ubiquinol form)</div>
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);">🧬 PQQ</div>
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);">🌿 NAC (N-Acetyl Cysteine)</div>
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);">🍃 Bacopa Monnieri</div>
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);">💊 B12 methylcobalamin</div>
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);">🦴 Collagen Peptides + Vit C</div>
+        </div>
+      </div>
+      <div style="background:var(--terra-pale);border:1px solid rgba(140,90,60,0.15);border-left:4px solid var(--terra-light);border-radius:8px;padding:20px 22px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--terra);margin-bottom:10px;">◆ Tier 3 — Targeted · Only if this symptom applies to you</div>
+        <p style="font-size:14px;color:var(--ink-mid);line-height:1.7;margin-bottom:12px;">Condition-specific compounds. Do not add for general brain health — they are targeted.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px;">
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);">🌱 Mucuna Pruriens — tremor/movement</div>
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);">🧪 Glutathione — heavy metal/toxin load</div>
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);">💧 Silica water — aluminium removal</div>
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);">🦠 Specific probiotics — gut-brain link</div>
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);">🧠 Phosphatidylserine — severe memory</div>
+          <div style="background:white;border-radius:5px;padding:8px 12px;font-size:13px;color:var(--ink);">🌿 Ashwagandha — stress/cortisol dominant</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="budget-box">
+      <div class="warn-title">💰 Absolute Minimum — One Compound</div>
+      <div class="warn-text">If budget allows only one thing: Magnesium L-Threonate. It is the only magnesium form that crosses the blood-brain barrier in significant amounts. It addresses the most universal deficiency, improves sleep, reduces anxiety, and supports synaptic density. Everything else builds on a foundation that magnesium makes possible. Start there and only there if cost is the constraint.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
 
 <!-- SHOPPING LIST CALLOUT -->
 <div style="background:var(--honey-pale);border-top:1px solid rgba(160,120,48,0.15);border-bottom:1px solid rgba(160,120,48,0.15);padding:14px 24px;">
   <div style="max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-    <div style="font-size:13px;color:var(--ink-mid);">🛒 <strong>Want everything in one place?</strong> View the complete shopping list — all 24 products by phase with direct iHerb links.</div>
+    <div style="font-size:13px;color:var(--ink-mid);">🛒 <strong>Want everything in one place?</strong> View the complete shopping list — all products by tier with direct iHerb links.</div>
     <a href="Brain_Protocol_Shopping_List.html" style="display:inline-block;background:var(--sage);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;padding:9px 18px;border-radius:5px;white-space:nowrap;flex-shrink:0;">View Shopping List →</a>
   </div>
 </div>
+
 
 <section class="sec-b" id="foundations">
   <div class="inner">
@@ -491,7 +686,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
     <h3 class="lh3">What the Brain Runs On — And What It's Being Denied</h3>
     <p class="lp"><strong>Fat:</strong> The myelin sheath around every nerve fiber is approximately 70% fat. When dietary fat is chronically low or the wrong type, myelin integrity degrades — producing cognitive slowing, mood instability, and neurological symptoms that look like a dozen different diseases.</p>
     <p class="lp"><strong>Cholesterol:</strong> 25% of the body's total cholesterol is in the brain. Statins suppress cholesterol synthesis throughout the body including the brain. The documented cognitive side effects — memory loss, confusion, personality changes — are direct consequences. They appear in published research. They are largely ignored in clinical practice.</p>
-    <p class="lp"><strong>Oxygen:</strong> The brain uses 20% of the body's oxygen despite being 2% of body weight. Even subtle reductions in cerebral oxygenation produce measurable cognitive impairment. This is why the DMSO &amp; Oxygen protocol is part of this stack.</p>
+    <p class="lp"><strong>Oxygen:</strong> The brain uses 20% of the body's oxygen despite being 2% of body weight. Even subtle reductions in cerebral oxygenation produce measurable cognitive impairment. This is why the DMSO Protocol and Oxygen Therapy are both part of this stack.</p>
     <p class="lp"><strong>Minerals:</strong> Magnesium is required for every nerve firing. Zinc governs synaptic plasticity. Copper is required for myelin synthesis. Iodine governs thyroid hormones that regulate myelination throughout life. All four are commonly deficient. None appear on a standard neurological workup.</p>
     <div class="callout callout-sage">
       <div class="callout-title">📋 Sequence — Start Here</div>
@@ -580,6 +775,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
       <li><span class="sc">✓</span><span><span class="sn">Omega-3 (EPA + DHA)</span> <span class="sd">2–3g combined EPA+DHA daily · Triglyceride form · With fat-containing meal</span> <span class="sm">DHA is a literal structural component of neuron membranes — 40% of the brain's polyunsaturated fatty acids. EPA reduces neuroinflammation. Evidence base for omega-3 in depression, cognitive decline, and neurodegeneration is among the largest in nutritional neuroscience.</span> <a href="https://www.iherb.com/pr/california-gold-nutrition-omega-800-ultra-concentrated-omega-3-fish-oil-kd-pur-triglyceride-form-90-fish-gelatin-softgels-1-000-mg-per-softgel/68796?rcode=GUW6132" target="_blank" class="sl">→ iHerb GUW6132</a></span></li>
       <li><span class="sc">✓</span><span><span class="sn">NMN or NR (NAD+ Precursors)</span> <span class="sd">NMN: 500mg daily · NR: 300–500mg · Morning fasted</span> <span class="sm">NAD+ declines ~50% per decade after age 40. Every neuron runs on it. As NAD+ falls, neuronal energy metabolism falters — a documented mechanism in age-related cognitive decline. NMN and NR are the precursors the brain converts to NAD+.</span> <a href="https://www.iherb.com/pr/prohealth-longevity-nmn-pro-500-500-mg-30-capsules/114170?rcode=GUW6132" target="_blank" class="sl">→ iHerb GUW6132</a></span></li>
       <li><span class="sc">✓</span><span><span class="sn">Bacopa Monnieri</span> <span class="sd">300mg (50% bacosides) · With food · 8–12 weeks for full effect</span> <span class="sm">Increases cerebral blood flow, enhances acetylcholine signaling, reduces amyloid aggregation, reduces cortisol, increases synaptogenesis. Human trials document improvement in memory acquisition, processing speed, and anxiety. One of the most evidence-backed cognitive herbs in existence.</span> <a href="https://www.iherb.com/pr/himalaya-organic-bacopa-60-caplets/3687?rcode=GUW6132" target="_blank" class="sl">→ iHerb GUW6132</a></span></li>
+      <li><span class="sc">✓</span><span><span class="sn">🦴 Collagen Peptides + Vitamin C <span style="font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:var(--honey-pale);color:var(--honey);padding:2px 7px;border-radius:3px;margin-left:6px;">Tier 2</span></span> <span class="sd">10g hydrolyzed collagen peptides · With Vitamin C · Morning fasted or with a light meal</span> <span class="sm">Collagen is the most abundant protein in the body — it forms the structural matrix of every vessel that feeds the brain, every nerve sheath, and the gut lining that determines what reaches the bloodstream. Hydrolyzed peptides (broken down to amino acids) are absorbed and signal fibroblasts to produce new collagen. The brain-specific relevance: collagen supports blood-brain barrier integrity, vascular health feeding the brain, and the connective tissue of the spinal column. Vitamin C is a required co-factor for collagen synthesis — take together. Marine collagen (from fish) has smaller peptide chains and is generally considered more bioavailable than bovine.</span> <span class="sw">⚠️ Take on empty stomach or away from other protein sources — competing amino acids reduce absorption. Vitamin C is non-negotiable — collagen synthesis cannot proceed without it.</span> <a href="https://www.iherb.com/pr/california-gold-nutrition-collagenup-hydrolyzed-marine-collagen-peptides-with-hyaluronic-acid-and-vitamin-c-unflavored-7-26-oz-206-g/64903?rcode=GUW6132" target="_blank" class="sl">→ CalGold CollagenUP Marine — iHerb GUW6132</a></span></li>
     </ul>
 
     <button class="exp-btn" onclick="toggleExpand('advanced-neuro',this)" data-label="Advanced compounds — Ashwagandha, Ginkgo, PQQ, Phosphatidylserine">
@@ -727,7 +923,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
     <p class="lp" style="margin-top:28px;">The Brain Protocol works best as part of the complete system. The full-body detox creates the conditions for neurological healing. The hidden deficiencies provide the mineral foundation. DMSO and oxygen therapy extend the reach of neuroprotective compounds into the brain itself.</p>
     <p class="lp"><a href="Full_Body_Detox_Protocol.html" style="color:var(--sage);text-decoration:underline;text-underline-offset:3px;">→ The Full Body Detox Protocol — the foundation</a></p>
     <p class="lp"><a href="Hidden_Deficiencies.html" style="color:var(--sage);text-decoration:underline;text-underline-offset:3px;">→ Hidden Deficiencies — the mineral foundation for the nervous system</a></p>
-    <p class="lp"><a href="DMSO_Oxygen_Therapy.html" style="color:var(--sage);text-decoration:underline;text-underline-offset:3px;">→ DMSO Protocol — carrying neuroprotective compounds through the blood-brain barrier</a></p>
+    <p class="lp"><a href="DMSO_Protocol.html" style="color:var(--sage);text-decoration:underline;text-underline-offset:3px;">→ DMSO Protocol — carrying neuroprotective compounds through the blood-brain barrier</a></p>
   </div>
 </section>
 
@@ -753,41 +949,6 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
     <a href="index.html#about" style="font-size:13px;font-weight:600;color:var(--sage);text-decoration:underline;text-underline-offset:3px;">Read the full story →</a>
   </div>
 </section>
-
-
-<!-- WHATSAPP SHARE -->
-<section style="background:var(--bg-warm);padding:36px 24px;border-top:1px solid var(--border-s);">
-  <div style="max-width:720px;margin:0 auto;text-align:center;">
-    <p style="font-size:14px;color:var(--ink-light);margin-bottom:16px;font-weight:500;letter-spacing:0.03em;">Know someone who needs this protocol?</p>
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:4px;"><a id="wa-share-btn" href="#" target="_blank" rel="noopener"
-      style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-size:14px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;padding:14px 32px;border-radius:6px;transition:background 0.2s;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Send on WhatsApp
-    </a>
-    <a id="fb-share-btn" href="#" target="_blank" rel="noopener"
-      style="display:inline-flex;align-items:center;gap:10px;background:#1877F2;color:#fff;font-size:14px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;padding:14px 32px;border-radius:6px;transition:background 0.2s;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      Share on Facebook
-    </a></div>
-    <p style="font-size:12px;color:var(--ink-ghost);margin-top:12px;">This guide is free — share it freely.</p>
-  </div>
-</section>
-
-<script>
-(function(){
-  var btn = document.getElementById("wa-share-btn");
-  if(btn){
-    var url = encodeURIComponent(window.location.href);
-    var text = encodeURIComponent("I found this free healing protocol — thought you should see it: ");
-    btn.href = "https://wa.me/?text=" + text + url;
-  }
-  var fb = document.getElementById("fb-share-btn");
-  if(fb){
-    var url = encodeURIComponent(window.location.href);
-    fb.href = "https://www.facebook.com/sharer/sharer.php?u=" + url;
-  }
-})();
-</script>
 
 <footer>
   <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;">
