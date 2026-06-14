@@ -21,13 +21,14 @@
 :root{--nav-h:56px;--bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;--bg-nav:#2c3a2e;--bg-footer:#263028;--ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;--ink-ghost:#a89e8e;--sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-light:#7aac8a;--sage-pale:#e4f0e8;--sage-nav:#8ab89a;--terra:#8c5a3c;--terra-light:#b07a58;--terra-pale:#f5ede6;--honey:#a07830;--honey-pale:#f5eddb;--border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);overflow-x:hidden;}
+section[id]{scroll-margin-top:72px;}
 
 /* PHASE NAV */
 .phase-.phase-
 .phase-nav::-webkit-scrollbar{display:none;}
 .phase-nav{position:sticky;top:var(--nav-h);z-index:90;background:var(--bg-stone);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-s);overflow-x:auto;scrollbar-width:none;}
-.phase-nav-inner{display:flex;align-items:stretch;min-width:max-content;}
+.phase-nav-inner{display:flex;align-items:stretch;min-width:0;justify-content:center;margin:0 auto;}
 .phase-nav a{display:flex;align-items:center;gap:6px;padding:0 14px;height:38px;font-size:10px;font-weight:600;letter-spacing:0.07em;color:var(--ink-light);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:color 0.2s,border-color 0.2s;text-transform:uppercase;flex-shrink:0;}
 .phase-nav a:hover{color:var(--sage);}
 .phase-nav a.pn-active{color:var(--sage);border-bottom-color:var(--sage);}
@@ -270,12 +271,13 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
 .dd-group>a::after{content:'›';position:absolute;right:14px;top:50%;transform:translateY(-50%);opacity:0.35;font-size:13px;transition:all 0.15s;}
 .dd-group:hover>a::after{opacity:0.9;color:var(--sage-nav);}
 .dd-group:hover>a{color:#d4c9a8;background:rgba(138,184,154,0.06);}
-.dd-subs{display:none;background:rgba(0,0,0,0.18);padding:2px 0;}
-.dd-group:hover .dd-subs{display:block;}
-.nav-dropdown-menu .dd-subs a.dd-sub{display:flex;align-items:center;gap:8px;padding:7px 12px 7px 24px;font-size:10px;font-weight:500;letter-spacing:0.05em;color:rgba(212,201,168,0.55);text-transform:uppercase;border:none;height:auto;min-height:0;border-left:1px solid rgba(138,184,154,0.25);margin-left:18px;transition:all 0.15s;}
+.dd-subs{position:absolute;left:100%;top:0;min-width:200px;background:var(--bg-nav);border:1px solid rgba(138,184,154,0.15);border-top:2px solid var(--sage-mid);border-radius:0 0 8px 8px;padding:4px 0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.15s,visibility 0.15s;}
+.dd-group:hover .dd-subs{opacity:1;visibility:visible;pointer-events:auto;}
+.nav-dropdown-menu .dd-subs a.dd-sub{display:flex;align-items:center;gap:8px;padding:10px 16px;font-size:10px;font-weight:500;letter-spacing:0.05em;color:rgba(212,201,168,0.55);text-transform:uppercase;border:none;border-bottom:1px solid rgba(138,184,154,0.08);height:auto;transition:all 0.15s;}
+.nav-dropdown-menu .dd-subs a.dd-sub:last-child{border-bottom:none;}
 .nav-dropdown-menu .dd-subs a.dd-sub .dd-icon{font-size:10px;opacity:0.7;}
 .nav-dropdown-menu .dd-subs a.dd-sub .dd-label{font-size:10px;}
-.nav-dropdown-menu .dd-subs a.dd-sub:hover{color:rgba(212,201,168,0.85);padding-left:28px;background:none;border-left-color:var(--sage-nav);}
+.nav-dropdown-menu .dd-subs a.dd-sub:hover{color:rgba(212,201,168,0.85);background:rgba(138,184,154,0.08);}
 
 
 
@@ -432,7 +434,8 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 @media(max-width:768px){.share-float-label{display:none;}}
 
 /* CITATIONS */
-sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;line-height:0;margin-left:1px;cursor:default;}
+sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;line-height:0;margin-left:1px;cursor:pointer;border-bottom:1px dotted var(--sage-mid);}
+.cite-active{background:rgba(138,184,154,0.15);border-radius:4px;}
 
 /* SOURCE LIST */
 .source-section{background:var(--bg-warm);padding:56px 24px;}
@@ -474,6 +477,7 @@ sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;li
         <a href="DMSO_Protocol.html"><span class="dd-icon">⚗️</span><span class="dd-label">DMSO Protocol</span></a>
         <div class="dd-subs">
           <a href="DMSO_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+          <a href="DMSO_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
         </div>
       </div>
       <div class="dd-group">
@@ -484,7 +488,13 @@ sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;li
           <a href="Oxygen_Therapy.html#hbot" class="dd-sub"><span class="dd-icon">🏥</span><span class="dd-label">Hyperbaric Oxygen</span></a>
         </div>
       </div>
-        <a href="Hidden_Deficiencies.html"><span class="dd-icon">🔬</span><span class="dd-label">Hidden Deficiencies</span></a>
+        <div class="dd-group">
+          <a href="Hidden_Deficiencies.html"><span class="dd-icon">🔬</span><span class="dd-label">Hidden Deficiencies</span></a>
+          <div class="dd-subs">
+            <a href="Hidden_Deficiencies_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+            <a href="Hidden_Deficiencies_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+          </div>
+        </div>
         <a href="Dr_Sebi_Alkaline_Protocol.html"><span class="dd-icon">🌱</span><span class="dd-label">Dr. Sebi Alkaline</span></a>
         <div class="dd-group">
           <a href="Parkinsons_Protocol.html"><span class="dd-icon">🧬</span><span class="dd-label">Parkinson's Protocol</span></a>
@@ -492,6 +502,7 @@ sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;li
             <a href="Parkinsons_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
             <a href="Parkinsons_Shopping_Table.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
             <a href="Parkinsons_Must_Have.html" class="dd-sub"><span class="dd-icon">⭐</span><span class="dd-label">Must-Have List</span></a>
+            <a href="Parkinsons_Symptoms.html" class="dd-sub"><span class="dd-icon">🔍</span><span class="dd-label">Symptom Guide</span></a>
           </div>
         </div>
         <a href="protocols.html" style="margin-top:4px;border-top:1px solid rgba(138,184,154,0.15);"><span class="dd-icon">☰</span><span class="dd-label">All Protocols</span></a>
@@ -503,10 +514,10 @@ sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;li
 </nav>
 <div class="share-float" aria-label="Share this guide">
   <span class="share-float-label">Share</span>
-  <a class="share-pill wa" href="https://wa.me/?text=I%20found%20this%20free%20healing%20guide%20and%20had%20to%20share%20it.%20It%20covers%20everything%20the%20medical%20system%20never%20tells%20you%20%E2%80%94%20detox%2C%20gut%20health%2C%20brain%2C%20Parkinson%27s%20and%20more.%20Written%20by%20someone%20who%20worked%20inside%20pharma%20and%20walked%20away.%20Worth%20reading%3A%20https%3A%2F%2Fsharondrn-sys.github.io%2FHeal-Yourself-Guide%2F" target="_blank" rel="noopener" aria-label="Share on WhatsApp">
+  <a id="sf-wa" class="share-pill wa" href="#" target="_blank" rel="noopener" aria-label="Share on WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
-  <a class="share-pill fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsharondrn-sys.github.io%2FHeal-Yourself-Guide%2F" target="_blank" rel="noopener" aria-label="Share on Facebook">
+  <a id="sf-fb" class="share-pill fb" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">
     <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
   </a>
 </div>
@@ -546,6 +557,17 @@ sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;li
   <span style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;opacity:0.9;">Part A — Understand It · The Science · Root Causes · What to Expect</span>
 </div>
 
+<div style="height:8px;background:var(--bg);"></div>
+
+<!-- PART A CHAPTER NAV -->
+<div class="phase-nav" id="part-a-nav" style="background:var(--bg-deep);">
+  <div class="phase-nav-inner">
+    <a href="#whoisthisfor" data-section="whoisthisfor">Who It's For</a>
+    <a href="#symptoms" data-section="symptoms">Symptom Lookup</a>
+    <a href="#priority" data-section="priority">Where to Start</a>
+  </div>
+</div>
+
 <!-- WHO IS THIS FOR -->
 <section class="sec-b" id="whoisthisfor">
   <div class="inner">
@@ -553,30 +575,34 @@ sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;li
     <h2 class="lh2">Who This Protocol Is For</h2>
     <p class="lp">This protocol is for anyone experiencing symptoms that the medical system has labelled, managed, or dismissed — but not resolved. It is not a replacement for emergency medical care. It is a framework for people who have already done the conventional route and are ready to address the terrain beneath the symptoms.</p>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:24px 0;">
-      <div style="background:var(--bg-warm);border:1px solid var(--border);border-left:3px solid var(--sage-mid);border-radius:6px;padding:14px 16px;">
-        <div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Cognitive Decline</div>
-        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;">Memory loss · brain fog · word-finding problems · slow processing · confusion</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin:24px 0;">
+      <div style="background:var(--bg-warm);border:1px solid var(--border);border-left:3px solid var(--sage-mid);border-radius:6px;padding:20px 22px;">
+        <div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;">Symptoms This Protocol Addresses</div>
+        <ul style="margin:0;padding:0;list-style:none;font-size:13px;color:var(--ink-mid);line-height:1.5;display:flex;flex-direction:column;gap:10px;">
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>Brain fog — difficulty thinking clearly or finding words</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>Memory decline — short-term and long-term</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>Poor concentration and mental fatigue</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>Anxiety, low mood, emotional dysregulation</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>Sleep disturbances and poor recovery</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>Early cognitive decline or neurological deterioration</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>Post-viral cognitive symptoms (long COVID brain fog)</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>Movement disorders — tremor, rigidity, balance issues</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>Autism spectrum support (gut-brain connection)</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>ADD/ADHD — attention and executive function</span></li>
+        </ul>
       </div>
-      <div style="background:var(--bg-warm);border:1px solid var(--border);border-left:3px solid var(--sage-mid);border-radius:6px;padding:14px 16px;">
-        <div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Neurological Conditions</div>
-        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;">Movement disorders · tremor · Parkinson's · MS · neuropathy · balance problems</p>
-      </div>
-      <div style="background:var(--bg-warm);border:1px solid var(--border);border-left:3px solid var(--sage-mid);border-radius:6px;padding:14px 16px;">
-        <div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Mood &amp; Mental Health</div>
-        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;">Depression · anxiety · mood swings · emotional dysregulation · ADHD · OCD</p>
-      </div>
-      <div style="background:var(--bg-warm);border:1px solid var(--border);border-left:3px solid var(--sage-mid);border-radius:6px;padding:14px 16px;">
-        <div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Sleep &amp; Energy</div>
-        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;">Chronic fatigue · insomnia · waking unrefreshed · afternoon crashes · low drive</p>
-      </div>
-      <div style="background:var(--bg-warm);border:1px solid var(--border);border-left:3px solid var(--sage-mid);border-radius:6px;padding:14px 16px;">
-        <div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Prevention</div>
-        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;">Family history of neurological disease · over 45 · high toxic exposure · wanting to protect what you have</p>
-      </div>
-      <div style="background:var(--bg-warm);border:1px solid var(--border);border-left:3px solid var(--sage-mid);border-radius:6px;padding:14px 16px;">
-        <div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Recovery</div>
-        <p style="font-size:13px;color:var(--ink-mid);line-height:1.6;">Post-concussion · post-COVID brain fog · stroke recovery · post-chemotherapy cognitive effects</p>
+      <div style="background:var(--bg-warm);border:1px solid var(--border);border-left:3px solid var(--sage-mid);border-radius:6px;padding:20px 22px;">
+        <div style="font-size:12px;font-weight:700;color:var(--sage);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;">Who Benefits Most</div>
+        <ul style="margin:0;padding:0;list-style:none;font-size:13px;color:var(--ink-mid);line-height:1.5;display:flex;flex-direction:column;gap:10px;">
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>Anyone over 40 — neurodegeneration begins silently decades before symptoms</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>People with a family history of neurological conditions</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>Anyone who has had prolonged stress, trauma, or infection</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>People with amalgam fillings or known heavy metal exposure</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>Anyone who has been on long-term medication</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>Caregivers managing a neurological condition in a loved one</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>People who feel "not as sharp" as they used to be</span></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--sage);font-weight:700;flex-shrink:0;">✓</span><span>Those recovering from burnout or adrenal fatigue</span></li>
+        </ul>
       </div>
     </div>
 
@@ -722,6 +748,19 @@ sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;li
   <span style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;opacity:0.9;">Part B — Do It · Supplement Stacks · Daily Practices · Shopping List</span>
 </div>
 
+<div style="height:8px;background:var(--bg);"></div>
+
+<!-- PART B CHAPTER NAV -->
+<div class="phase-nav" id="part-b-nav">
+  <div class="phase-nav-inner">
+    <a href="#foundations" data-section="foundations">Foundations</a>
+    <a href="#aluminum" data-section="aluminum">Aluminum</a>
+    <a href="#neuroprotection" data-section="neuroprotection">Neuroprotection</a>
+    <a href="#neurogenesis" data-section="neurogenesis">Neurogenesis</a>
+    <a href="#gut-brain" data-section="gut-brain">Gut-Brain Axis</a>
+  </div>
+</div>
+
 
 <!-- PART B COMPANION LINKS -->
 <div style="background:var(--bg-deep);border-bottom:2px solid var(--border);">
@@ -753,12 +792,12 @@ sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;li
   <div class="inner">
     <div class="kicker">Part One</div>
     <h2 class="lh2">The Brain's Actual Needs</h2>
-    <p class="lp">The brain is 60% fat. It runs on glucose — or, when properly conditioned, ketones. It consumes 20% of the body's total oxygen supply despite being only 2% of body weight.<sup class="cite" title="Well-established neuroanatomical fact — see: Magistretti & Allaman, Neuron 2015; Attwell & Laughlin, Journal of Cerebral Blood Flow & Metabolism 2001">1</sup> It is protected by the most selective barrier in biology — the blood-brain barrier — and it is simultaneously the most vulnerable organ to the substances that can breach it.</p>
+    <p class="lp">The brain is 60% fat. It runs on glucose — or, when properly conditioned, ketones. It consumes 20% of the body's total oxygen supply despite being only 2% of body weight.<sup class="cite" onclick="openCitations(1)">1</sup> It is protected by the most selective barrier in biology — the blood-brain barrier — and it is simultaneously the most vulnerable organ to the substances that can breach it.</p>
     <p class="lp">Everything that reaches the brain does so either because the body designed it to cross, or because it shares enough chemical properties with something the body designed to cross that it slips through. Understanding this one fact changes everything about your neurological environment.</p>
     <div class="pq"><p>"The blood-brain barrier is not a wall. It is a selective gate. The tragedy is not that it fails completely — it is that it was never designed for the chemical environment of the 21st century."</p></div>
     <h3 class="lh3">What the Brain Runs On — And What It's Being Denied</h3>
-    <p class="lp"><strong>Fat:</strong> The myelin sheath around every nerve fiber is approximately 70% fat.<sup class="cite" title="Morell & Quarles, Basic Neurochemistry 1999; Simons & Nave, Cold Spring Harbor Perspectives in Biology 2015 — myelin lipid composition">2</sup> When dietary fat is chronically low or the wrong type, myelin integrity degrades — producing cognitive slowing, mood instability, and neurological symptoms that look like a dozen different diseases.</p>
-    <p class="lp"><strong>Cholesterol:</strong> 25% of the body's total cholesterol resides in the brain.<sup class="cite" title="Dietschy & Turley, Journal of Lipid Research 2004 — brain contains ~25% of total body cholesterol despite being 2% of body weight">3</sup> Statins suppress cholesterol synthesis throughout the body including the brain. The FDA added a cognitive warning to statin labels in 2012 after post-marketing reports of memory loss and confusion — effects that appear in published case literature and typically resolve after discontinuation. The overall evidence remains contested, with some studies showing neutral or protective effects and others documenting impairment, particularly in older adults with pre-existing cognitive vulnerability.<sup class="cite" title="FDA Drug Safety Communication, February 2012 — statin label update for cognitive side effects; PMC11550230 — narrative review of statins and cognitive health 2024; JACC 2021 — mixed findings in large cohort">4</sup></p>
+    <p class="lp"><strong>Fat:</strong> The myelin sheath around every nerve fiber is approximately 70% fat.<sup class="cite" onclick="openCitations(2)">2</sup> When dietary fat is chronically low or the wrong type, myelin integrity degrades — producing cognitive slowing, mood instability, and neurological symptoms that look like a dozen different diseases.</p>
+    <p class="lp"><strong>Cholesterol:</strong> 25% of the body's total cholesterol resides in the brain.<sup class="cite" onclick="openCitations(3)">3</sup> Statins suppress cholesterol synthesis throughout the body including the brain. The FDA added a cognitive warning to statin labels in 2012 after post-marketing reports of memory loss and confusion — effects that appear in published case literature and typically resolve after discontinuation. The overall evidence remains contested, with some studies showing neutral or protective effects and others documenting impairment, particularly in older adults with pre-existing cognitive vulnerability.<sup class="cite" onclick="openCitations(4)">4</sup></p>
     <p class="lp"><strong>Oxygen:</strong> The brain uses 20% of the body's oxygen despite being 2% of body weight. Even subtle reductions in cerebral oxygenation produce measurable cognitive impairment. This is why the DMSO Protocol and Oxygen Therapy are both part of this stack.</p>
     <p class="lp"><strong>Minerals:</strong> Magnesium is required for every nerve firing. Zinc governs synaptic plasticity. Copper is required for myelin synthesis. Iodine governs thyroid hormones that regulate myelination throughout life. All four are commonly deficient. None appear on a standard neurological workup.</p>
     <div class="callout callout-sage">
@@ -842,9 +881,9 @@ sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;li
 
     <h3 class="lh3">Foundations</h3>
     <ul class="supp-list">
-      <li><span class="sc">✓</span><span><span class="sn">Lion's Mane Mushroom</span> <span class="sd">500–1,000mg extract daily · 30%+ beta-glucan · Morning</span> <span class="sm">The only natural compounds identified to stimulate Nerve Growth Factor (NGF) production — via hericenones and erinacines unique to this mushroom.<sup class="cite" title="Mori et al. 2009 — double-blind placebo-controlled trial, 30 patients with mild cognitive impairment, 16 weeks, significant cognitive improvement. Published in Phytotherapy Research. PubMed PMID: 18844328">5</sup> NGF is essential for neuron survival and regeneration. Double-blind human trials document cognitive improvement in mild cognitive impairment. Results typically apparent at 4–8 weeks.</span> <a href="https://www.iherb.com/pr/real-mushrooms-lion-s-mane-mushroom-extract-powder-120-capsules/112246?rcode=GUW6132" target="_blank" class="sl">→ iHerb GUW6132</a></span></li>
-      <li><span class="sc">✓</span><span><span class="sn">Curcumin (High-Bioavailability)</span> <span class="sd">500–1,000mg · Liposomal, BCM-95, or with piperine · Twice daily with food</span> <span class="sm">Crosses the blood-brain barrier. Documented anti-neuroinflammatory effects. Published evidence for inhibiting protein aggregation in neurodegenerative tissue.<sup class="cite" title="Ringman et al. 2012 — curcumin crosses blood-brain barrier; multiple meta-analyses confirm anti-inflammatory and neuroprotective properties; Journal of Alzheimer's Disease">6</sup> Stimulates new brain cell growth. Standard curcumin has poor bioavailability — form matters enormously.</span> <a href="https://www.iherb.com/pr/jarrow-formulas-curcumin-phytosome-500-mg-60-tablets/13271?rcode=GUW6132" target="_blank" class="sl">→ iHerb GUW6132</a></span></li>
-      <li><span class="sc">✓</span><span><span class="sn">Magnesium L-Threonate</span> <span class="sd">2g daily (144mg elemental Mg) · Split morning + evening</span> <span class="sm">MIT-developed form (Slutsky et al., Neuron 2010).<sup class="cite" title="Slutsky et al. 2010, Neuron — MIT study: MgT increases brain magnesium 15% in CSF, enhances synaptic density and plasticity in rodents. doi:10.1016/j.neuron.2009.12.026">7</sup> The only magnesium form shown to significantly increase brain magnesium levels. Documented to increase synapse density, improve working memory, and slow age-related cognitive decline. For neurological conditions, this is the form to use.</span> <a href="https://www.iherb.com/pr/life-extension-neuro-mag-magnesium-l-threonate-90-vegetarian-capsules-48-mg-per-capsule/40244?rcode=GUW6132" target="_blank" class="sl">→ iHerb GUW6132</a></span></li>
+      <li><span class="sc">✓</span><span><span class="sn">Lion's Mane Mushroom</span> <span class="sd">500–1,000mg extract daily · 30%+ beta-glucan · Morning</span> <span class="sm">The only natural compounds identified to stimulate Nerve Growth Factor (NGF) production — via hericenones and erinacines unique to this mushroom.<sup class="cite" onclick="openCitations(5)">5</sup> NGF is essential for neuron survival and regeneration. Double-blind human trials document cognitive improvement in mild cognitive impairment. Results typically apparent at 4–8 weeks.</span> <a href="https://www.iherb.com/pr/real-mushrooms-lion-s-mane-mushroom-extract-powder-120-capsules/112246?rcode=GUW6132" target="_blank" class="sl">→ iHerb GUW6132</a></span></li>
+      <li><span class="sc">✓</span><span><span class="sn">Curcumin (High-Bioavailability)</span> <span class="sd">500–1,000mg · Liposomal, BCM-95, or with piperine · Twice daily with food</span> <span class="sm">Crosses the blood-brain barrier. Documented anti-neuroinflammatory effects. Published evidence for inhibiting protein aggregation in neurodegenerative tissue.<sup class="cite" onclick="openCitations(6)">6</sup> Stimulates new brain cell growth. Standard curcumin has poor bioavailability — form matters enormously.</span> <a href="https://www.iherb.com/pr/jarrow-formulas-curcumin-phytosome-500-mg-60-tablets/13271?rcode=GUW6132" target="_blank" class="sl">→ iHerb GUW6132</a></span></li>
+      <li><span class="sc">✓</span><span><span class="sn">Magnesium L-Threonate</span> <span class="sd">2g daily (144mg elemental Mg) · Split morning + evening</span> <span class="sm">MIT-developed form (Slutsky et al., Neuron 2010).<sup class="cite" onclick="openCitations(7)">7</sup> The only magnesium form shown to significantly increase brain magnesium levels. Documented to increase synapse density, improve working memory, and slow age-related cognitive decline. For neurological conditions, this is the form to use.</span> <a href="https://www.iherb.com/pr/life-extension-neuro-mag-magnesium-l-threonate-90-vegetarian-capsules-48-mg-per-capsule/40244?rcode=GUW6132" target="_blank" class="sl">→ iHerb GUW6132</a></span></li>
       <li><span class="sc">✓</span><span><span class="sn">Omega-3 (EPA + DHA)</span> <span class="sd">2–3g combined EPA+DHA daily · Triglyceride form · With fat-containing meal</span> <span class="sm">DHA is a literal structural component of neuron membranes — 40% of the brain's polyunsaturated fatty acids. EPA reduces neuroinflammation. Evidence base for omega-3 in depression, cognitive decline, and neurodegeneration is among the largest in nutritional neuroscience.</span> <a href="https://www.iherb.com/pr/california-gold-nutrition-omega-800-ultra-concentrated-omega-3-fish-oil-kd-pur-triglyceride-form-90-fish-gelatin-softgels-1-000-mg-per-softgel/68796?rcode=GUW6132" target="_blank" class="sl">→ iHerb GUW6132</a></span></li>
       <li><span class="sc">✓</span><span><span class="sn">NMN or NR (NAD+ Precursors)</span> <span class="sd">NMN: 500mg daily · NR: 300–500mg · Morning fasted</span> <span class="sm">NAD+ declines ~50% per decade after age 40. Every neuron runs on it. As NAD+ falls, neuronal energy metabolism falters — a documented mechanism in age-related cognitive decline. NMN and NR are the precursors the brain converts to NAD+.</span> <a href="https://www.iherb.com/pr/prohealth-longevity-nmn-pro-500-500-mg-30-capsules/114170?rcode=GUW6132" target="_blank" class="sl">→ iHerb GUW6132</a></span></li>
       <li><span class="sc">✓</span><span><span class="sn">Bacopa Monnieri</span> <span class="sd">300mg (50% bacosides) · With food · 8–12 weeks for full effect</span> <span class="sm">Increases cerebral blood flow, enhances acetylcholine signaling, reduces amyloid aggregation, reduces cortisol, increases synaptogenesis. Human trials document improvement in memory acquisition, processing speed, and anxiety. One of the most evidence-backed cognitive herbs in existence.</span> <a href="https://www.iherb.com/pr/himalaya-organic-bacopa-60-caplets/3687?rcode=GUW6132" target="_blank" class="sl">→ iHerb GUW6132</a></span></li>
@@ -912,8 +951,8 @@ sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;li
     <div class="kicker">Part Five — The Root</div>
     <h2 class="lh2">The Gut-Brain Axis — <em>Where It May Have Begun</em></h2>
 
-    <p class="lp">In 2003, German neuroanatomist Heiko Braak published a staging hypothesis that quietly changed everything — and then was quietly ignored. His finding: the misfolded protein at the center of Parkinson's and movement disorder decline appears first in the gut wall neurons and the olfactory system. It travels to the brain via the vagus nerve. By the time any motor symptom appears, the process has been underway for years — sometimes a decade or more.<sup class="cite" title="Braak et al. 2003 — Neurobiology of Aging; confirmed by Kim et al. 2019, Neuron — truncal vagotomy prevents α-synuclein spread from gut to brain in animal model">8</sup></p>
-    <p class="lp">Two large registry studies confirmed a striking finding: people who had undergone truncal vagotomy — surgical severing of the vagus nerve — showed significantly reduced risk of developing a movement disorder in the decades that followed. Liu et al. (Neurology, 2017)<sup class="cite" title="Liu et al. 2017, Neurology — Swedish registry: truncal vagotomy associated with reduced Parkinson's risk. doi:10.1212/WNL.0000000000003667">9</sup> using the Swedish registry. Svensson et al. (Annals of Neurology, 2015)<sup class="cite" title="Svensson et al. 2015, Annals of Neurology — Danish registry: truncal vagotomy associated with reduced Parkinson's risk. doi:10.1002/ana.24448">10</sup> using the Danish registry. Cut the highway — and the disease does not arrive.</p>
+    <p class="lp">In 2003, German neuroanatomist Heiko Braak published a staging hypothesis that quietly changed everything — and then was quietly ignored. His finding: the misfolded protein at the center of Parkinson's and movement disorder decline appears first in the gut wall neurons and the olfactory system. It travels to the brain via the vagus nerve. By the time any motor symptom appears, the process has been underway for years — sometimes a decade or more.<sup class="cite" onclick="openCitations(8)">8</sup></p>
+    <p class="lp">Two large registry studies confirmed a striking finding: people who had undergone truncal vagotomy — surgical severing of the vagus nerve — showed significantly reduced risk of developing a movement disorder in the decades that followed. Liu et al. (Neurology, 2017)<sup class="cite" onclick="openCitations(9)">9</sup> using the Swedish registry. Svensson et al. (Annals of Neurology, 2015)<sup class="cite" onclick="openCitations(10)">10</sup> using the Danish registry. Cut the highway — and the disease does not arrive.</p>
     <div class="pq"><p>"The brain did not start the disease. The research suggests the gut did. That changes what intervention means."</p></div>
     <p class="lp">Six bacterial strains are consistently depleted in people with movement disorders: <em>Faecalibacterium prausnitzii</em>, <em>Roseburia intestinalis</em>, <em>Blautia</em>, <em>Anaerostipes hadrus</em>, <em>Eubacterium rectale</em>, and <em>Coprococcus</em>. These are butyrate producers. Butyrate feeds the gut lining, dampens neuroinflammation, and governs vagal signalling the brain depends on.</p>
     <p class="lp">And then there is glyphosate. E. Ray Dorsey's 2023 paper in <em>Movement Disorders</em> (doi: 10.1002/mds.29371) names the lobbying firm, names the corporation, and documents how a leading EPA scientific advisor was removed from a review panel after her research connected pesticide exposure to neurological movement disorders. Syngenta entered settlement agreements for ~6,500 related lawsuits in April 2025 and announced the end of global paraquat production by June 2026.</p>
@@ -1018,11 +1057,11 @@ sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;li
   <div style="font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--ink);margin-bottom:8px;">Know someone who needs this protocol?</div>
   <p style="font-size:14px;color:var(--ink-light);line-height:1.7;max-width:500px;margin:0 auto 28px;">If this protocol helped you — or might help someone you love — share it. It costs nothing and could change everything for them.</p>
   <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
-    <a class="share-pill wa" href="https://wa.me/?text=I%20found%20this%20free%20healing%20guide%20and%20had%20to%20share%20it.%20It%20covers%20everything%20the%20medical%20system%20never%20tells%20you%20%E2%80%94%20detox%2C%20gut%20health%2C%20brain%2C%20Parkinson%27s%20and%20more.%20Written%20by%20someone%20who%20worked%20inside%20pharma%20and%20walked%20away.%20Worth%20reading%3A%20https%3A%2F%2Fsharondrn-sys.github.io%2FHeal-Yourself-Guide%2F" target="_blank" rel="noopener" style="width:auto;border-radius:6px;padding:14px 28px;display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:700;letter-spacing:0.04em;color:#fff;">
+    <a id="wa-share-btn" href="#" target="_blank" rel="noopener" style="width:auto;border-radius:6px;padding:14px 28px;display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:700;letter-spacing:0.04em;color:#fff;background:#25D366;">
       <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Share on WhatsApp
     </a>
-    <a class="share-pill fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsharondrn-sys.github.io%2FHeal-Yourself-Guide%2F" target="_blank" rel="noopener" style="width:auto;border-radius:6px;padding:14px 28px;display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:700;letter-spacing:0.04em;color:#fff;">
+    <a id="fb-share-btn" href="#" target="_blank" rel="noopener" style="width:auto;border-radius:6px;padding:14px 28px;display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:700;letter-spacing:0.04em;color:#fff;background:#1877F2;">
       <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;flex-shrink:0;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
       Share on Facebook
     </a>
@@ -1056,44 +1095,47 @@ sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;li
 
 <div class="divider"></div>
 
-<!-- SOURCES -->
-<section class="source-section">
-  <div class="inner">
-    <div class="kicker">Research & Sources</div>
-    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--ink);margin-bottom:18px;">Citations & Further Reading</h2>
-    <p class="lp" style="margin-bottom:28px;">Key claims in this protocol are grounded in peer-reviewed research. Numbers correspond to superscript citations in the text above.</p>
-    <ol class="source-list">
-      <li>Brain oxygen consumption — 20% of body's oxygen at 2% body weight. Magistretti PJ & Allaman I. 2015, Neuron — "A cellular perspective on brain energy metabolism." <a href="https://pubmed.ncbi.nlm.nih.gov/25892007/" target="_blank" rel="noopener">PubMed →</a></li>
-      <li>Myelin sheath composition — approximately 70% lipid. Morell P & Quarles RH. Basic Neurochemistry, 1999. Simons M & Nave KA. 2015, Cold Spring Harbor Perspectives in Biology — myelin lipid composition. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4772074/" target="_blank" rel="noopener">PMC →</a></li>
-      <li>Brain cholesterol — 25% of total body cholesterol. Dietschy JM & Turley SD. 2004, Journal of Lipid Research — "Thematic review series: Brain Lipids. Cholesterol metabolism in the central nervous system." <a href="https://pubmed.ncbi.nlm.nih.gov/14530299/" target="_blank" rel="noopener">PubMed →</a></li>
-      <li>Statins and cognitive effects — contested evidence. (a) FDA Drug Safety Communication, February 2012 — label update warning of memory/cognition side effects. <a href="https://www.fda.gov/drugs/drug-safety-and-availability/fda-drug-safety-communication-important-safety-label-changes-cholesterol-lowering-statin-drugs" target="_blank" rel="noopener">FDA.gov →</a> (b) PMC11550230 — narrative review 2024: "earlier studies suggested cognitive disturbances; recent evidence does not strongly support a link." <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11550230/" target="_blank" rel="noopener">PMC →</a></li>
-      <li>Lion's Mane — NGF stimulation, human trial. Mori K et al. 2009 — "Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment: a double-blind placebo-controlled clinical trial." Phytotherapy Research. PMID: 18844328. <a href="https://pubmed.ncbi.nlm.nih.gov/18844328/" target="_blank" rel="noopener">PubMed →</a></li>
-      <li>Curcumin — blood-brain barrier penetration, neuroprotection. Ringman JM et al. 2012 — curcumin in Alzheimer's disease. Journal of Alzheimer's Disease. <a href="https://pubmed.ncbi.nlm.nih.gov/22214004/" target="_blank" rel="noopener">PubMed →</a></li>
-      <li>Magnesium L-Threonate — MIT development, brain magnesium increase. Slutsky I et al. 2010 — "Enhancement of Learning and Memory by Elevating Brain Magnesium." Neuron. doi:10.1016/j.neuron.2009.12.026. <a href="https://pubmed.ncbi.nlm.nih.gov/20152124/" target="_blank" rel="noopener">PubMed →</a></li>
-      <li>Braak hypothesis — α-synuclein originates in gut. Braak H et al. 2003, Neurobiology of Aging. Confirmed by Kim S et al. 2019, Neuron — truncal vagotomy prevents spread. doi:10.1016/j.neuron.2019.05.035. <a href="https://www.cell.com/neuron/fulltext/S0896-6273(19)30488-X" target="_blank" rel="noopener">Neuron 2019 →</a></li>
-      <li>Vagotomy and reduced Parkinson's risk — Swedish registry. Liu B et al. 2017, Neurology. doi:10.1212/WNL.0000000000003667. <a href="https://pubmed.ncbi.nlm.nih.gov/27986875/" target="_blank" rel="noopener">PubMed →</a></li>
-      <li>Vagotomy and reduced Parkinson's risk — Danish registry. Svensson E et al. 2015, Annals of Neurology. doi:10.1002/ana.24448. <a href="https://pubmed.ncbi.nlm.nih.gov/26031848/" target="_blank" rel="noopener">PubMed →</a></li>
+<!-- CITATIONS DRAWER -->
+<div id="citations-overlay" onclick="closeCitations()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:199;"></div>
+<div id="citations-drawer" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--bg-nav);border-top:2px solid var(--sage-mid);padding:20px 24px 32px;max-height:60vh;overflow-y:auto;">
+  <div style="max-width:860px;margin:0 auto;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-nav);">Citations</span>
+      <button onclick="closeCitations()" style="background:none;border:none;color:rgba(212,201,168,0.6);font-size:20px;cursor:pointer;padding:0 4px;line-height:1;">×</button>
+    </div>
+    <ol id="citations-list" style="list-style:none;counter-reset:cite;margin:0;padding:0;">
+      <li id="cite-1" style="counter-increment:cite;padding:12px 0 12px 32px;border-bottom:1px solid rgba(138,184,154,0.1);font-size:13px;color:rgba(212,201,168,0.7);line-height:1.7;position:relative;"><span style="position:absolute;left:0;top:14px;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;color:var(--sage);">1</span>Brain oxygen consumption — 20% of body's oxygen at 2% body weight. Magistretti &amp; Allaman, Neuron 2015. <a href="https://pubmed.ncbi.nlm.nih.gov/25892007/" target="_blank" rel="noopener" style="color:var(--sage-nav);">PubMed →</a></li>
+      <li id="cite-2" style="counter-increment:cite;padding:12px 0 12px 32px;border-bottom:1px solid rgba(138,184,154,0.1);font-size:13px;color:rgba(212,201,168,0.7);line-height:1.7;position:relative;"><span style="position:absolute;left:0;top:14px;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;color:var(--sage);">2</span>Myelin sheath composition — approximately 70% lipid. Morell &amp; Quarles, Basic Neurochemistry 1999; Simons &amp; Nave, Cold Spring Harbor Perspectives in Biology 2015. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4772074/" target="_blank" rel="noopener" style="color:var(--sage-nav);">PMC →</a></li>
+      <li id="cite-3" style="counter-increment:cite;padding:12px 0 12px 32px;border-bottom:1px solid rgba(138,184,154,0.1);font-size:13px;color:rgba(212,201,168,0.7);line-height:1.7;position:relative;"><span style="position:absolute;left:0;top:14px;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;color:var(--sage);">3</span>Brain cholesterol — 25% of total body cholesterol. Dietschy &amp; Turley, Journal of Lipid Research 2004. <a href="https://pubmed.ncbi.nlm.nih.gov/14530299/" target="_blank" rel="noopener" style="color:var(--sage-nav);">PubMed →</a></li>
+      <li id="cite-4" style="counter-increment:cite;padding:12px 0 12px 32px;border-bottom:1px solid rgba(138,184,154,0.1);font-size:13px;color:rgba(212,201,168,0.7);line-height:1.7;position:relative;"><span style="position:absolute;left:0;top:14px;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;color:var(--sage);">4</span>Statins and cognitive effects — contested evidence. (a) FDA Drug Safety Communication, Feb 2012. <a href="https://www.fda.gov/drugs/drug-safety-and-availability/fda-drug-safety-communication-important-safety-label-changes-cholesterol-lowering-statin-drugs" target="_blank" rel="noopener" style="color:var(--sage-nav);">FDA.gov →</a> (b) PMC11550230 — narrative review 2024. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11550230/" target="_blank" rel="noopener" style="color:var(--sage-nav);">PMC →</a></li>
+      <li id="cite-5" style="counter-increment:cite;padding:12px 0 12px 32px;border-bottom:1px solid rgba(138,184,154,0.1);font-size:13px;color:rgba(212,201,168,0.7);line-height:1.7;position:relative;"><span style="position:absolute;left:0;top:14px;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;color:var(--sage);">5</span>Lion's Mane — NGF stimulation, human trial. Mori et al. 2009, Phytotherapy Research. PMID: 18844328. <a href="https://pubmed.ncbi.nlm.nih.gov/18844328/" target="_blank" rel="noopener" style="color:var(--sage-nav);">PubMed →</a></li>
+      <li id="cite-6" style="counter-increment:cite;padding:12px 0 12px 32px;border-bottom:1px solid rgba(138,184,154,0.1);font-size:13px;color:rgba(212,201,168,0.7);line-height:1.7;position:relative;"><span style="position:absolute;left:0;top:14px;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;color:var(--sage);">6</span>Curcumin — blood-brain barrier penetration, neuroprotection. Ringman et al. 2012, Journal of Alzheimer's Disease. <a href="https://pubmed.ncbi.nlm.nih.gov/22214004/" target="_blank" rel="noopener" style="color:var(--sage-nav);">PubMed →</a></li>
+      <li id="cite-7" style="counter-increment:cite;padding:12px 0 12px 32px;border-bottom:1px solid rgba(138,184,154,0.1);font-size:13px;color:rgba(212,201,168,0.7);line-height:1.7;position:relative;"><span style="position:absolute;left:0;top:14px;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;color:var(--sage);">7</span>Magnesium L-Threonate — MIT development, increases brain magnesium. Slutsky et al. 2010, Neuron. doi:10.1016/j.neuron.2009.12.026. <a href="https://pubmed.ncbi.nlm.nih.gov/20152124/" target="_blank" rel="noopener" style="color:var(--sage-nav);">PubMed →</a></li>
+      <li id="cite-8" style="counter-increment:cite;padding:12px 0 12px 32px;border-bottom:1px solid rgba(138,184,154,0.1);font-size:13px;color:rgba(212,201,168,0.7);line-height:1.7;position:relative;"><span style="position:absolute;left:0;top:14px;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;color:var(--sage);">8</span>Braak hypothesis — α-synuclein originates in gut. Braak et al. 2003, Neurobiology of Aging. Confirmed by Kim et al. 2019, Neuron — truncal vagotomy prevents spread. <a href="https://www.cell.com/neuron/fulltext/S0896-6273(19)30488-X" target="_blank" rel="noopener" style="color:var(--sage-nav);">Neuron 2019 →</a></li>
+      <li id="cite-9" style="counter-increment:cite;padding:12px 0 12px 32px;border-bottom:1px solid rgba(138,184,154,0.1);font-size:13px;color:rgba(212,201,168,0.7);line-height:1.7;position:relative;"><span style="position:absolute;left:0;top:14px;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;color:var(--sage);">9</span>Vagotomy and reduced Parkinson's risk — Swedish registry. Liu et al. 2017, Neurology. doi:10.1212/WNL.0000000000003667. <a href="https://pubmed.ncbi.nlm.nih.gov/27986875/" target="_blank" rel="noopener" style="color:var(--sage-nav);">PubMed →</a></li>
+      <li id="cite-10" style="counter-increment:cite;padding:12px 0 12px 32px;border-bottom:none;font-size:13px;color:rgba(212,201,168,0.7);line-height:1.7;position:relative;"><span style="position:absolute;left:0;top:14px;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;color:var(--sage);">10</span>Vagotomy and reduced Parkinson's risk — Danish registry. Svensson et al. 2015, Annals of Neurology. doi:10.1002/ana.24448. <a href="https://pubmed.ncbi.nlm.nih.gov/26031848/" target="_blank" rel="noopener" style="color:var(--sage-nav);">PubMed →</a></li>
     </ol>
-    <p style="font-size:12px;color:var(--ink-ghost);margin-top:20px;line-height:1.7;">This guide also cites: Exley C. — aluminum neurotoxicity research, Keele University; Fagan J et al. 2020 — organic diet reduces urinary glyphosate 70.93%; Dorsey ER et al. 2023, Movement Disorders — glyphosate and neurological disease (doi:10.1002/mds.29371); Leta V et al. 2025, Movement Disorders — SymPD probiotic RCT (doi:10.1002/mds.70047); Hirsch EC et al. 1991, Journal of Neurochemistry — aluminum and iron in substantia nigra.</p>
+    <p style="font-size:11px;color:rgba(212,201,168,0.4);margin-top:14px;line-height:1.6;">Also cited in this protocol: Exley C. — aluminum neurotoxicity, Keele University; Fagan et al. 2020 — organic diet reduces urinary glyphosate 70.93%; Dorsey et al. 2023, Movement Disorders — glyphosate and neurological disease; Leta et al. 2025, Movement Disorders — SymPD probiotic RCT; Hirsch et al. 1991, J. Neurochemistry — aluminum and iron in substantia nigra.</p>
+    <p style="margin-top:16px;padding-top:12px;border-top:1px solid rgba(138,184,154,0.1);"><a href="research.html" style="font-size:12px;color:var(--sage-nav);text-decoration:none;">View Full Research Library →</a></p>
   </div>
-</section>
+</div>
+
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/c3e0fa55054efc8787d2cd7c6/47c72440170a91d68e1cc233b.js");</script>
 
 <footer>
   <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;">
     <div>
       <div style="font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;">Heal Yourself</div>
-      <p style="font-size:12px;color:var(--ink-ghost);line-height:1.7;">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor.</p>
-      <p style="font-size:12px;color:var(--ink-ghost);margin-top:8px;">© 2025 Heal Yourself Guide. All rights reserved.</p>
+      <p style="font-size:12px;color:rgba(212,201,168,0.5);line-height:1.7;">Educational purposes only. Not a doctor. © 2025 Heal Yourself Guide. All rights reserved.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
-      <a href="index.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;">Home</a>
-      <a href="before-you-begin.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;">Before You Begin</a>
-      <a href="Full_Body_Detox_Protocol.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;">Full Body Detox</a>
-      <a href="protocols.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;">All Protocols</a>
-      <a href="research.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;">Research</a>
-      <a href="about.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;">About</a>
-      <a href="privacy-policy.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;">Privacy Policy</a>
-      <a href="mailto:healyourselfguide101@gmail.com" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;">Contact</a>
+      <a href="index.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">Home</a>
+      <a href="before-you-begin.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">Before You Begin</a>
+      <a href="protocols.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">All Protocols</a>
+      <a href="research.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">Research</a>
+      <a href="about.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">About</a>
+      <a href="privacy-policy.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">Privacy Policy</a>
+      <a href="mailto:healyourselfguide101@gmail.com" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">Contact</a>
     </div>
   </div>
 </footer>
@@ -1101,6 +1143,30 @@ sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;li
 
 
 <script>
+// Share URL wiring
+(function(){
+  var pageUrl=encodeURIComponent(window.location.href);
+  var msg=encodeURIComponent('I found this free healing guide and had to share it. It covers everything the medical system never tells you — detox, gut health, brain, Parkinson\'s and more. Written by someone who worked inside pharma and walked away. Worth reading: '+decodeURIComponent(pageUrl));
+  var waUrl='https://wa.me/?text='+msg;
+  var fbUrl='https://www.facebook.com/sharer/sharer.php?u='+pageUrl;
+  ['sf-wa','wa-share-btn'].forEach(function(id){var el=document.getElementById(id);if(el)el.href=waUrl;});
+  ['sf-fb','fb-share-btn'].forEach(function(id){var el=document.getElementById(id);if(el)el.href=fbUrl;});
+})();
+// Citations drawer
+function openCitations(num){
+  var drawer=document.getElementById('citations-drawer');
+  var overlay=document.getElementById('citations-overlay');
+  if(!drawer)return;
+  drawer.style.display='block';
+  overlay.style.display='block';
+  document.querySelectorAll('#citations-list li').forEach(function(li){li.classList.remove('cite-active');});
+  var target=document.getElementById('cite-'+num);
+  if(target){target.classList.add('cite-active');setTimeout(function(){target.scrollIntoView({behavior:'smooth',block:'nearest'});},50);}
+}
+function closeCitations(){
+  document.getElementById('citations-drawer').style.display='none';
+  document.getElementById('citations-overlay').style.display='none';
+}
 function toggleNavDropdown(){
   const d=document.getElementById('nav-protocols');
   const open=d.classList.toggle('open');
@@ -1120,17 +1186,29 @@ function toggleExpand(id, btn){
   lbl.textContent = isOpen ? btn.dataset.label : 'Show less';
 }
 
-const allSections = ['foundations','aluminum','neuroprotection','neurogenesis','parkinsons','gut-brain','daily'].map(id => document.getElementById(id)).filter(Boolean);
-const navLinks = document.querySelectorAll('.phase-nav a[data-section]');
-const observer = new IntersectionObserver((entries) => {
+// Part A chapter nav active tracking
+const chapterSectionsA = ['whoisthisfor','symptoms','priority'].map(id => document.getElementById(id)).filter(Boolean);
+const chapterLinksA = document.querySelectorAll('#part-a-nav a[data-section]');
+const observerA = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
-      navLinks.forEach(a => a.classList.toggle('pn-active', a.dataset.section === entry.target.id));
+      chapterLinksA.forEach(a => a.classList.toggle('pn-active', a.dataset.section === entry.target.id));
     }
   });
 }, {rootMargin:'-25% 0px -65% 0px'});
-allSections.forEach(s => observer.observe(s));
+chapterSectionsA.forEach(s => observerA.observe(s));
+
+// Part B chapter nav active tracking
+const chapterSectionsB = ['foundations','aluminum','neuroprotection','neurogenesis','gut-brain'].map(id => document.getElementById(id)).filter(Boolean);
+const chapterLinksB = document.querySelectorAll('#part-b-nav a[data-section]');
+const observerB = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      chapterLinksB.forEach(a => a.classList.toggle('pn-active', a.dataset.section === entry.target.id));
+    }
+  });
+}, {rootMargin:'-25% 0px -65% 0px'});
+chapterSectionsB.forEach(s => observerB.observe(s));
 </script>
-<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/c3e0fa55054efc8787d2cd7c6/47c72440170a91d68e1cc233b.js");</script>
 </body>
 </html>

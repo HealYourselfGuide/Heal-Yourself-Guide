@@ -11,6 +11,9 @@
 <meta property="og:url" content="https://sharondrn-sys.github.io/Heal-Yourself-Guide/Brain_Protocol_Daily_Schedule.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Heal Yourself Guide">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Brain Protocol — Daily Schedule | Heal Yourself">
+<meta name="twitter:description" content="Daily schedule for the Brain Healing Protocol. Morning through evening — supplement timing, doses, and neurological support practices.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -18,7 +21,8 @@
 :root{--nav-h:56px;--bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;--bg-nav:#2c3a2e;--bg-footer:#263028;--ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;--ink-ghost:#a89e8e;--sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-light:#7aac8a;--sage-pale:#e4f0e8;--sage-nav:#8ab89a;--terra:#8c5a3c;--terra-light:#b07a58;--terra-pale:#f5ede6;--honey:#a07830;--honey-pale:#f5eddb;--border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);overflow-x:hidden;}
+section[id]{scroll-margin-top:72px;}
 
 /* PHASE NAV */
 .phase-nav::-webkit-scrollbar{display:none;}
@@ -261,12 +265,13 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
 .dd-group>a::after{content:'›';position:absolute;right:14px;top:50%;transform:translateY(-50%);opacity:0.35;font-size:13px;transition:all 0.15s;}
 .dd-group:hover>a::after{opacity:0.9;color:var(--sage-nav);}
 .dd-group:hover>a{color:#d4c9a8;background:rgba(138,184,154,0.06);}
-.dd-subs{display:none;background:rgba(0,0,0,0.18);padding:2px 0;}
-.dd-group:hover .dd-subs{display:block;}
-.nav-dropdown-menu .dd-subs a.dd-sub{display:flex;align-items:center;gap:8px;padding:7px 12px 7px 24px;font-size:10px;font-weight:500;letter-spacing:0.05em;color:rgba(212,201,168,0.55);text-transform:uppercase;border:none;height:auto;min-height:0;border-left:1px solid rgba(138,184,154,0.25);margin-left:18px;transition:all 0.15s;}
+.dd-subs{position:absolute;left:100%;top:0;min-width:200px;background:var(--bg-nav);border:1px solid rgba(138,184,154,0.15);border-top:2px solid var(--sage-mid);border-radius:0 0 8px 8px;padding:4px 0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.15s,visibility 0.15s;}
+.dd-group:hover .dd-subs{opacity:1;visibility:visible;pointer-events:auto;}
+.nav-dropdown-menu .dd-subs a.dd-sub{display:flex;align-items:center;gap:8px;padding:10px 16px;font-size:10px;font-weight:500;letter-spacing:0.05em;color:rgba(212,201,168,0.55);text-transform:uppercase;border:none;border-bottom:1px solid rgba(138,184,154,0.08);height:auto;transition:all 0.15s;}
+.nav-dropdown-menu .dd-subs a.dd-sub:last-child{border-bottom:none;}
 .nav-dropdown-menu .dd-subs a.dd-sub .dd-icon{font-size:10px;opacity:0.7;}
 .nav-dropdown-menu .dd-subs a.dd-sub .dd-label{font-size:10px;}
-.nav-dropdown-menu .dd-subs a.dd-sub:hover{color:rgba(212,201,168,0.85);padding-left:28px;background:none;border-left-color:var(--sage-nav);}
+.nav-dropdown-menu .dd-subs a.dd-sub:hover{color:rgba(212,201,168,0.85);background:rgba(138,184,154,0.08);}
 
 
 
@@ -337,6 +342,7 @@ body{padding-top:56px;}
   <a href="index.html" class="nav-logo">Heal Yourself</a>
   <div class="nav-center">
     <a href="index.html">Home</a>
+    <a href="before-you-begin.html">Before You Begin</a>
     <div class="nav-dropdown" id="nav-protocols">
       <button class="nav-dropdown-toggle" onclick="toggleNavDropdown()" aria-expanded="false">
         Protocols <svg viewBox="0 0 8 5" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l3 3 3-3"/></svg>
@@ -356,9 +362,28 @@ body{padding-top:56px;}
             <a href="Brain_Protocol_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
           </div>
         </div>
-        <a href="DMSO_Protocol.html"><span class="dd-icon">⚗️</span><span class="dd-label">DMSO Protocol</span></a>
-        <a href="Oxygen_Therapy.html"><span class="dd-icon">🫁</span><span class="dd-label">Oxygen Therapy</span></a>
-        <a href="Hidden_Deficiencies.html"><span class="dd-icon">🔬</span><span class="dd-label">Hidden Deficiencies</span></a>
+        <div class="dd-group">
+          <a href="DMSO_Protocol.html"><span class="dd-icon">⚗️</span><span class="dd-label">DMSO Protocol</span></a>
+          <div class="dd-subs">
+            <a href="DMSO_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+            <a href="DMSO_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+          </div>
+        </div>
+        <div class="dd-group">
+          <a href="Oxygen_Therapy.html"><span class="dd-icon">🫁</span><span class="dd-label">Oxygen Therapy</span></a>
+          <div class="dd-subs">
+            <a href="Oxygen_Therapy.html#h2o2" class="dd-sub"><span class="dd-icon">💧</span><span class="dd-label">Hydrogen Peroxide</span></a>
+            <a href="Oxygen_Therapy.html#ozone" class="dd-sub"><span class="dd-icon">⚡</span><span class="dd-label">Ozone Therapy</span></a>
+            <a href="Oxygen_Therapy.html#hbot" class="dd-sub"><span class="dd-icon">🏥</span><span class="dd-label">Hyperbaric Oxygen</span></a>
+          </div>
+        </div>
+        <div class="dd-group">
+          <a href="Hidden_Deficiencies.html"><span class="dd-icon">🔬</span><span class="dd-label">Hidden Deficiencies</span></a>
+          <div class="dd-subs">
+            <a href="Hidden_Deficiencies_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
+            <a href="Hidden_Deficiencies_Shopping_List.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
+          </div>
+        </div>
         <a href="Dr_Sebi_Alkaline_Protocol.html"><span class="dd-icon">🌱</span><span class="dd-label">Dr. Sebi Alkaline</span></a>
         <div class="dd-group">
           <a href="Parkinsons_Protocol.html"><span class="dd-icon">🧬</span><span class="dd-label">Parkinson's Protocol</span></a>
@@ -366,12 +391,12 @@ body{padding-top:56px;}
             <a href="Parkinsons_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">Daily Schedule</span></a>
             <a href="Parkinsons_Shopping_Table.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">Shopping List</span></a>
             <a href="Parkinsons_Must_Have.html" class="dd-sub"><span class="dd-icon">⭐</span><span class="dd-label">Must-Have List</span></a>
+            <a href="Parkinsons_Symptoms.html" class="dd-sub"><span class="dd-icon">🔍</span><span class="dd-label">Symptom Guide</span></a>
           </div>
         </div>
         <a href="protocols.html" style="margin-top:4px;border-top:1px solid rgba(138,184,154,0.15);"><span class="dd-icon">☰</span><span class="dd-label">All Protocols</span></a>
       </div>
     </div>
-    <a href="before-you-begin.html">Before You Begin</a>
     <a href="research.html">Research</a>
     <a href="about.html">About</a>
   </div>
@@ -380,10 +405,10 @@ body{padding-top:56px;}
 <!-- FLOATING SHARE BAR -->
 <div class="share-float" aria-label="Share this guide">
   <span class="share-float-label">Share</span>
-  <a class="share-pill wa" href="https://wa.me/?text=I%20found%20this%20free%20healing%20guide%20and%20had%20to%20share%20it.%20Worth%20reading%3A%20https%3A%2F%2Fsharondrn-sys.github.io%2FHeal-Yourself-Guide%2F" target="_blank" rel="noopener" aria-label="Share on WhatsApp">
+  <a id="sf-wa" class="share-pill wa" href="#" target="_blank" rel="noopener" aria-label="Share on WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
-  <a class="share-pill fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsharondrn-sys.github.io%2FHeal-Yourself-Guide%2F" target="_blank" rel="noopener" aria-label="Share on Facebook">
+  <a id="sf-fb" class="share-pill fb" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">
     <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
   </a>
 </div>
@@ -407,40 +432,6 @@ body{padding-top:56px;}
   <div class="detox-notice">
     <div class="detox-notice-title">⚠️ Do the Full Body Detox First</div>
     <p>The Brain Protocol works significantly better after a Full Body Detox. When the gut is burdened with parasites, biofilm, and heavy metals, even the best brain supplements struggle to reach their target. The detox opens drainage pathways, clears the gut-brain axis, and removes the heavy metal load that drives neuroinflammation. If you have not done the <a href="Full_Body_Detox_Protocol.html">Full Body Detox Protocol</a>, start there. Return here after Phase 2 minimum — ideally after the full 90 days.</p>
-  </div>
-
-  <!-- WHO IS THIS FOR -->
-  <div class="sched-kicker">Who This Is For</div>
-  <div class="sched-section-title">This protocol is for anyone experiencing <em>cognitive or neurological symptoms</em></div>
-  <div class="intro-grid">
-    <div class="intro-card">
-      <div class="intro-card-title">Symptoms this protocol addresses</div>
-      <ul>
-        <li>Brain fog — difficulty thinking clearly or finding words</li>
-        <li>Memory decline — short-term and long-term</li>
-        <li>Poor concentration and mental fatigue</li>
-        <li>Anxiety, low mood, emotional dysregulation</li>
-        <li>Sleep disturbances and poor recovery</li>
-        <li>Early cognitive decline or neurological deterioration</li>
-        <li>Post-viral cognitive symptoms (long COVID brain fog)</li>
-        <li>Movement disorders — tremor, rigidity, balance issues</li>
-        <li>Autism spectrum support (gut-brain connection)</li>
-        <li>ADD/ADHD — attention and executive function</li>
-      </ul>
-    </div>
-    <div class="intro-card">
-      <div class="intro-card-title">Who benefits most</div>
-      <ul>
-        <li>Anyone over 40 — neurodegeneration begins silently decades before symptoms</li>
-        <li>People with a family history of neurological conditions</li>
-        <li>Anyone who has had prolonged stress, trauma, or infection</li>
-        <li>People with amalgam fillings or known heavy metal exposure</li>
-        <li>Anyone who has been on long-term medication</li>
-        <li>Caregivers managing a neurological condition in a loved one</li>
-        <li>People who feel "not as sharp" as they used to be</li>
-        <li>Those recovering from burnout or adrenal fatigue</li>
-      </ul>
-    </div>
   </div>
 
   <div class="budget-note">
@@ -689,30 +680,98 @@ body{padding-top:56px;}
     <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:18px;">About This Guide</div>
     <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:16px;">This guide was built from thousands of hours of independent research — peer-reviewed studies, suppressed clinical trials, and ancient healing traditions that predate the pharmaceutical model. The author spent years as a Pharmaceutical QA Internal Auditor before leaving to find the answers the system was not asking for.</p>
     <p style="font-size:15px;line-height:1.9;color:var(--ink-mid);margin-bottom:20px;">Every protocol here is free — because health knowledge should not be a luxury. If this guide helps you, the only thing asked in return is that you buy your supplements through iHerb using code <strong style="font-family:'DM Mono',monospace;color:var(--honey);">GUW6132</strong> at checkout. You save money. This guide stays alive.</p>
-    <a href="index.html#about" style="font-size:13px;font-weight:600;color:var(--sage);text-decoration:underline;text-underline-offset:3px;">Read the full story →</a>
+    <a href="about.html" style="font-size:13px;font-weight:600;color:var(--sage);text-decoration:underline;text-underline-offset:3px;">Read the full story →</a>
   </div>
 </section>
+
+<!-- COMPANION LINKS -->
+<section style="background:var(--bg-deep);padding:28px 24px;border-top:1px solid var(--border-s);">
+  <div style="max-width:720px;margin:0 auto;text-align:center;">
+    <p style="font-size:13px;color:var(--ink-mid);margin-bottom:12px;font-style:italic;">Back to the protocol or check the shopping list:</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
+      <a href="Brain_Protocol.html" style="display:inline-flex;align-items:center;gap:6px;background:rgba(138,184,154,0.12);border:1px solid rgba(138,184,154,0.25);border-radius:6px;padding:8px 14px;text-decoration:none;font-size:12px;font-weight:700;color:var(--sage);">🧠 Full Protocol</a>
+      <a href="Brain_Protocol_Shopping_List.html" style="display:inline-flex;align-items:center;gap:6px;background:rgba(138,184,154,0.12);border:1px solid rgba(138,184,154,0.25);border-radius:6px;padding:8px 14px;text-decoration:none;font-size:12px;font-weight:700;color:var(--sage);">🛒 Shopping List</a>
+    </div>
+  </div>
+</section>
+
+<!-- MEDICAL DISCLAIMER -->
+<section style="background:var(--terra-pale);padding:24px;border-top:2px solid rgba(140,90,60,0.2);">
+  <div style="max-width:720px;margin:0 auto;">
+    <p style="font-size:12px;font-weight:700;color:var(--terra);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">⚠️ Medical Disclaimer</p>
+    <p style="font-size:13px;color:var(--ink-mid);line-height:1.7;margin:0;">This page is for educational purposes only and does not replace the advice of a qualified healthcare practitioner. Consult your doctor before starting any supplement protocol, especially if you are pregnant, breastfeeding, under 18, undergoing cancer treatment, have kidney disease, or are taking prescription medications. Supplement interactions are possible — professional guidance is always recommended.</p>
+  </div>
+</section>
+
+<!-- SHARE BOTTOM -->
+<section style="background:var(--bg-deep);border-top:1px solid var(--border-s);border-bottom:1px solid var(--border-s);padding:44px 24px;text-align:center;">
+  <div style="font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--ink);margin-bottom:8px;">Know someone who needs this?</div>
+  <p style="font-size:14px;color:var(--ink-light);line-height:1.7;max-width:500px;margin:0 auto 28px;">If this helped you — or might help someone you love — share it. It costs nothing and could change everything for them.</p>
+  <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
+    <a id="wa-share-btn" href="#" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-size:14px;font-weight:700;letter-spacing:0.04em;text-decoration:none;padding:14px 28px;border-radius:6px;">
+      <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Share on WhatsApp
+    </a>
+    <a id="fb-share-btn" href="#" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#1877F2;color:#fff;font-size:14px;font-weight:700;letter-spacing:0.04em;text-decoration:none;padding:14px 28px;border-radius:6px;">
+      <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;flex-shrink:0;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Share on Facebook
+    </a>
+  </div>
+</section>
+
+<!-- EMAIL SIGNUP -->
+<section style="background:var(--bg-warm);padding:40px 24px;">
+  <div style="max-width:480px;margin:0 auto;background:#2c3a2e;border-radius:10px;padding:32px 36px;text-align:center;">
+    <h3 style="font-family:'Playfair Display',serif;font-size:clamp(17px,2.5vw,22px);font-weight:700;color:#f0ece2;margin-bottom:8px;">Stay connected as new protocols are added</h3>
+    <p style="font-size:13px;color:rgba(240,236,226,0.65);margin-bottom:20px;line-height:1.7;">New research. New protocols. New tools — delivered directly to you. No algorithms. No ads.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" id="mc-email-brainsched" placeholder="Your email address" style="flex:1;min-width:180px;padding:12px 16px;border-radius:6px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);color:#f0ece2;font-size:14px;font-family:'Jost',sans-serif;outline:none;" />
+      <button onclick="mcSubmit_brainsched()" style="background:var(--sage);color:#fff;border:none;border-radius:6px;padding:12px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Jost',sans-serif;">Join →</button>
+    </div>
+    <p id="mc-msg-brainsched" style="min-height:16px;font-size:12px;margin-top:8px;"></p>
+    <p style="font-size:11px;color:rgba(240,236,226,0.5);margin-top:8px;">Free · No spam · Unsubscribe anytime</p>
+  </div>
+</section>
+
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/c3e0fa55054efc8787d2cd7c6/47c72440170a91d68e1cc233b.js");</script>
 
 <footer>
   <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;">
     <div>
       <div style="font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;">Heal Yourself</div>
-      <p style="font-size:12px;color:var(--ink-ghost);line-height:1.7;">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor.</p>
-      <p style="font-size:12px;color:var(--ink-ghost);margin-top:8px;">© 2025 Heal Yourself Guide. All rights reserved.</p>
+      <p style="font-size:12px;color:rgba(212,201,168,0.5);line-height:1.7;">Educational purposes only. Not a doctor. © 2025 Heal Yourself Guide. All rights reserved.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
-      <a href="index.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;">Home</a>
-      <a href="before-you-begin.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;">Before You Begin</a>
-      <a href="Brain_Protocol.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;">Brain Protocol</a>
-      <a href="Brain_Protocol_Shopping_List.html" style="font-size:13px;color:var(--sage-nav);font-weight:600;text-decoration:none;">Shopping List →</a>
-      <a href="protocols.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;">All Protocols</a>
-      <a href="privacy-policy.html" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;">Privacy Policy</a>
-      <a href="mailto:healyourselfguide101@gmail.com" style="font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;">Contact</a>
+      <a href="index.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">Home</a>
+      <a href="before-you-begin.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">Before You Begin</a>
+      <a href="protocols.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">All Protocols</a>
+      <a href="research.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">Research</a>
+      <a href="about.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">About</a>
+      <a href="privacy-policy.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">Privacy Policy</a>
+      <a href="mailto:healyourselfguide101@gmail.com" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">Contact</a>
     </div>
   </div>
 </footer>
 
 <script>
+// Share URL wiring
+(function(){
+  var pageUrl=encodeURIComponent(window.location.href);
+  var msg=encodeURIComponent('I found this free healing guide and had to share it. It covers everything the medical system never tells you — detox, gut health, brain, Parkinson\'s and more. Written by someone who worked inside pharma and walked away. Worth reading: '+decodeURIComponent(pageUrl));
+  var waUrl='https://wa.me/?text='+msg;
+  var fbUrl='https://www.facebook.com/sharer/sharer.php?u='+pageUrl;
+  ['sf-wa','wa-share-btn'].forEach(function(id){var el=document.getElementById(id);if(el)el.href=waUrl;});
+  ['sf-fb','fb-share-btn'].forEach(function(id){var el=document.getElementById(id);if(el)el.href=fbUrl;});
+})();
+// Email signup
+function mcSubmit_brainsched(){
+  var email=document.getElementById('mc-email-brainsched').value.trim();
+  var msg=document.getElementById('mc-msg-brainsched');
+  if(!email||!email.includes('@')){msg.style.color='#e88a7a';msg.textContent='Please enter a valid email address.';return;}
+  msg.style.color='#9ab89e';
+  msg.textContent='Thank you \u2014 you\'re on the list!';
+  document.getElementById('mc-email-brainsched').value='';
+}
 function toggleNavDropdown(){
   const d=document.getElementById('nav-protocols');
   const open=d.classList.toggle('open');
