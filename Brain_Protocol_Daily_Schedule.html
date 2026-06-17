@@ -230,8 +230,9 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 @media(max-width:768px){.share-float-label{display:none;}}
 
 @media print{
-  .phase-nav,footer,.print-btn,nav,.share-float,.no-print{display:none!important;}
-  body{background:white;color:black;padding-top:0!important;}
+  .phase-nav,footer,.print-btn,nav,.share-float,.no-print,.sticky-partb,.sticky-nav-wrap{display:none!important;}
+  body{background:white!important;color:black!important;padding-top:0!important;margin-top:0!important;}
+  .hero{padding-top:16px!important;}
   @page{margin:15mm;size:A4;}
 }
 
@@ -304,8 +305,6 @@ body{padding-top:56px;}
 
 /* TIME BLOCKS */
 .schedule-wrap{display:flex;flex-direction:column;gap:12px;margin:24px 0;}
-.time-block{background:var(--bg-warm);border:1px solid var(--border-s);border-radius:10px;overflow:hidden;}
-.time-block-header{padding:11px 18px 10px;border-bottom:2px solid var(--border-s);display:flex;align-items:center;gap:10px;background:var(--bg-deep);}
 .time-icon{font-size:16px;line-height:1;}
 .time-label{font-family:'DM Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-mid);}
 .time-items{padding:14px 18px 16px;display:flex;flex-direction:column;gap:11px;}
@@ -333,7 +332,7 @@ body{padding-top:56px;}
 .sched-section-title em{font-style:italic;color:var(--sage);}
 .sched-kicker{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:8px;}
 .divider{height:1px;background:linear-gradient(to right,transparent,rgba(61,107,74,0.18),transparent);margin:0;}
-@media print{nav,footer{display:none!important;}body{padding-top:0;}}
+@media print{nav,footer,.no-print,.sticky-partb{display:none!important;}body{padding-top:0!important;margin-top:0!important;}.hero{padding-top:16px!important;}}
 
 /* PHASE PANEL — SINGLE PANEL TEMPLATE */
 .phase-panel{padding:32px 24px 60px;max-width:1020px;margin:0 auto;}
@@ -347,7 +346,6 @@ body{padding-top:56px;}
 .pdf-btn:hover{background:var(--terra);color:#fff;border-color:var(--terra);}
 .note-box{background:var(--honey-pale);border:1px solid rgba(160,120,48,0.18);border-radius:8px;padding:13px 18px;margin-bottom:22px;font-size:12px;color:var(--ink-mid);line-height:1.65;}
 .note-box strong{color:var(--honey);}
-.time-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:26px;}
 
 /* FOOTER */
 .ft-nav a{font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;}
@@ -363,6 +361,34 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 .ft-disc{font-size:12px;color:rgba(212,201,168,0.5);line-height:1.7;}
 .ft-nav{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
 @media(max-width:560px){.ft-nav{align-items:flex-start;}}
+
+
+/* DAILY SCHEDULE TABLE */
+.sched-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px;}
+.sched-table tr{border-bottom:1px solid var(--border-s);}
+.sched-table tr:last-child{border-bottom:none;}
+.sched-table .time-col{width:130px;padding:14px 16px 14px 0;vertical-align:top;white-space:nowrap;}
+.sched-table .time-label{font-family:'DM Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--sage);display:flex;align-items:center;gap:6px;}
+.sched-table .time-label .t-icon{font-size:14px;}
+.sched-table .items-col{padding:14px 0 14px 16px;vertical-align:top;border-left:2px solid var(--border);}
+.sched-row-item{display:flex;flex-direction:column;gap:2px;padding:8px 0;}
+.sched-row-item:not(:last-child){border-bottom:1px solid var(--border-s);}
+.sched-row-item .sr-name{font-weight:700;color:var(--ink);font-size:13px;}
+.sched-row-item .sr-dose{font-family:'DM Mono',monospace;font-size:11px;color:var(--sage);margin-top:1px;}
+.sched-row-item .sr-note{font-size:12px;color:var(--ink-light);line-height:1.55;margin-top:3px;}
+.sched-row-item .sr-warn{font-size:11px;font-weight:600;color:var(--terra);margin-top:3px;}
+.sr-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;}
+.tag{font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:2px 7px;border-radius:3px;}
+.tag-food{background:var(--sage-pale);color:var(--sage);}
+.tag-empty{background:var(--honey-pale);color:var(--honey);}
+.tag-key{background:var(--terra-pale);color:var(--terra);}
+.tag-optional{background:var(--bg-deep);color:var(--ink-light);}
+@media(max-width:560px){
+  .sched-table .time-col{display:none;}
+  .sched-table .items-col{padding:10px 0;border-left:none;}
+  .sched-table tr{display:block;padding:10px 0;border-bottom:2px solid var(--border);}
+  .sched-table tr::before{content:attr(data-label);display:block;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:var(--sage);margin-bottom:8px;letter-spacing:0.1em;}
+}
 
 </style>
 </head>
@@ -462,8 +488,8 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
         <div class="phase-title">Your Day — <em>From Waking to Sleep</em></div>
         <div class="phase-days">Follow this schedule daily. Consistency over weeks and months is what produces measurable neurological change.</div>
       </div>
-      <button class="print-btn no-print" onclick="window.print()">🖨 Print</button>
-      <button class="pdf-btn no-print" onclick="window.print()">⬇ PDF</button>
+      <button class="print-btn no-print" onclick="window.print()">🖨 Print Page</button>
+      <button class="pdf-btn no-print" onclick="printScheduleOnly()">📋 Print Schedule Only</button>
     </div>
   </div>
 
@@ -482,227 +508,208 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
   <div class="divider" style="margin:8px 0 32px;"></div>
 
-  <!-- SCHEDULE BLOCKS -->
-  <div class="time-grid">
+  <!-- SCHEDULE TABLE -->
+  <table class="sched-table">
 
-    <div class="time-block">
-      <div class="time-block-header"><span class="time-icon">🌅</span><span class="time-label">Morning — On Waking</span></div>
-      <div class="time-items">
-        <div class="sched-item">
-          <span class="sched-name">Morning Sunlight</span>
-          <span class="sched-dose">10–20 minutes outside · no sunglasses</span>
-          <span class="sched-note">Sets circadian biology for the entire day · the single free intervention with the most downstream benefit</span>
-          <div class="sched-tags"><span class="tag tag-key">Non-negotiable</span></div>
+    <tr data-label="🌅 Morning — On Waking">
+      <td class="time-col"><div class="time-label"><span class="t-icon">🌅</span>Morning<br>On Waking</div></td>
+      <td class="items-col">
+        <div class="sched-row-item">
+          <span class="sr-name">Morning Sunlight</span>
+          <span class="sr-dose">10–20 minutes outside · no sunglasses</span>
+          <span class="sr-note">Sets circadian biology for the entire day · the single free intervention with the most downstream benefit</span>
+          <div class="sr-tags"><span class="tag tag-key">Non-negotiable</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">Silica Water</span>
-          <span class="sched-dose">500ml Fiji or Volvic · fasted</span>
-          <span class="sched-note">Option B: CGN Choline Silica Complex — 5–10 drops in filtered water · aluminum detox days: 1.5L within one hour</span>
-          <div class="sched-tags"><span class="tag tag-empty">Empty stomach</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">Silica Water</span>
+          <span class="sr-dose">500ml Fiji or Volvic · fasted</span>
+          <span class="sr-note">Option B: CGN Choline Silica Complex — 5–10 drops in filtered water · aluminum detox days: 1.5L within one hour</span>
+          <div class="sr-tags"><span class="tag tag-empty">Empty stomach</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">ACV Morning Drink</span>
-          <span class="sched-dose">1 tbsp Apple Cider Vinegar + ½ tsp baking soda in warm water with lemon</span>
-          <span class="sched-note">Use a straw · activates digestive enzymes · alkalises terrain · gut motility support</span>
-          <div class="sched-tags"><span class="tag tag-empty">Before food</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">ACV Morning Drink</span>
+          <span class="sr-dose">1 tbsp Apple Cider Vinegar + ½ tsp baking soda in warm water with lemon</span>
+          <span class="sr-note">Use a straw · activates digestive enzymes · alkalises terrain · gut motility support</span>
+          <div class="sr-tags"><span class="tag tag-empty">Before food</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">NMN or NR</span>
-          <span class="sched-dose">NMN 500mg · or NR 300mg</span>
-          <span class="sched-note">Fasted — NAD+ precursor · cellular energy and DNA repair · especially important over 40</span>
-          <div class="sched-tags"><span class="tag tag-empty">Fasted</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">NMN or NR</span>
+          <span class="sr-dose">NMN 500mg · or NR 300mg</span>
+          <span class="sr-note">NAD+ precursor · cellular energy and DNA repair · especially important over 40</span>
+          <div class="sr-tags"><span class="tag tag-empty">Fasted</span></div>
         </div>
-      </div>
-    </div>
+      </td>
+    </tr>
 
-    <div class="time-block">
-      <div class="time-block-header"><span class="time-icon">🍳</span><span class="time-label">Breakfast</span></div>
-      <div class="time-items">
-        <div class="sched-item">
-          <span class="sched-name">Lion's Mane Extract</span>
-          <span class="sched-dose">1,000mg</span>
-          <span class="sched-note">With breakfast · NGF stimulation · myelin repair · the most studied neuroregeneration mushroom</span>
-          <div class="sched-tags"><span class="tag tag-food">With food</span><span class="tag tag-key">Core</span></div>
+    <tr data-label="🍳 Breakfast">
+      <td class="time-col"><div class="time-label"><span class="t-icon">🍳</span>Breakfast</div></td>
+      <td class="items-col">
+        <div class="sched-row-item">
+          <span class="sr-name">Lion's Mane Extract</span>
+          <span class="sr-dose">1,000mg</span>
+          <span class="sr-note">NGF stimulation · myelin repair · the most studied neuroregeneration mushroom</span>
+          <div class="sr-tags"><span class="tag tag-food">With food</span><span class="tag tag-key">Core</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">Omega-3 EPA+DHA</span>
-          <span class="sched-dose">1,000mg · triglyceride form only</span>
-          <span class="sched-note">With fat-containing food · structural component of every neuron · anti-neuroinflammation</span>
-          <div class="sched-tags"><span class="tag tag-food">With food</span><span class="tag tag-key">Core</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">Omega-3 EPA+DHA</span>
+          <span class="sr-dose">1,000mg · triglyceride form only</span>
+          <span class="sr-note">With fat-containing food · structural component of every neuron · anti-neuroinflammation</span>
+          <div class="sr-tags"><span class="tag tag-food">With food</span><span class="tag tag-key">Core</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">MCT Oil</span>
-          <span class="sched-dose">1–2 tbsp in coffee or smoothie</span>
-          <span class="sched-note">Instant ketone production · brain fuel when glucose metabolism is impaired</span>
-          <div class="sched-tags"><span class="tag tag-food">With food</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">MCT Oil</span>
+          <span class="sr-dose">1–2 tbsp in coffee or smoothie</span>
+          <span class="sr-note">Instant ketone production · brain fuel when glucose metabolism is impaired</span>
+          <div class="sr-tags"><span class="tag tag-food">With food</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">Vitamin D3 + K2</span>
-          <span class="sched-dose">2,000–5,000 IU D3 · 100mcg K2-MK7</span>
-          <span class="sched-note">With fat-containing food · always together · neuroprotective and anti-inflammatory</span>
-          <div class="sched-tags"><span class="tag tag-food">With food</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">Vitamin D3 + K2</span>
+          <span class="sr-dose">2,000–5,000 IU D3 · 100mcg K2-MK7</span>
+          <span class="sr-note">With fat-containing food · always together · neuroprotective and anti-inflammatory</span>
+          <div class="sr-tags"><span class="tag tag-food">With food</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">Silica supplement</span>
-          <span class="sched-dose">CGN Choline Silica Complex 5–10 drops · or Horsetail Extract 300mg (budget option)</span>
-          <span class="sched-note">Aluminum chelation · connective tissue · collagen synthesis in brain</span>
-          <div class="sched-tags"><span class="tag tag-food">With food</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">Silica Supplement</span>
+          <span class="sr-dose">CGN Choline Silica Complex 5–10 drops · or Horsetail Extract 300mg</span>
+          <span class="sr-note">Aluminum chelation · connective tissue · collagen synthesis in brain</span>
+          <div class="sr-tags"><span class="tag tag-food">With food</span></div>
         </div>
-      </div>
-    </div>
+      </td>
+    </tr>
 
-    <div class="time-block">
-      <div class="time-block-header"><span class="time-icon">🏃</span><span class="time-label">Mid-Morning</span></div>
-      <div class="time-items">
-        <div class="sched-item">
-          <span class="sched-name">Aerobic Exercise</span>
-          <span class="sched-dose">30 minutes · Zone 2 cardio</span>
-          <span class="sched-note">The single most powerful intervention for stimulating new brain cell growth · BDNF production · non-negotiable for neurological conditions · walking counts</span>
-          <div class="sched-tags"><span class="tag tag-key">Non-negotiable</span></div>
+    <tr data-label="🏃 Mid-Morning">
+      <td class="time-col"><div class="time-label"><span class="t-icon">🏃</span>Mid-Morning</div></td>
+      <td class="items-col">
+        <div class="sched-row-item">
+          <span class="sr-name">Aerobic Exercise</span>
+          <span class="sr-dose">30 minutes · Zone 2 cardio</span>
+          <span class="sr-note">The single most powerful intervention for stimulating new brain cell growth · BDNF production · walking counts</span>
+          <div class="sr-tags"><span class="tag tag-key">Non-negotiable</span></div>
         </div>
-      </div>
-    </div>
+      </td>
+    </tr>
 
-    <div class="time-block">
-      <div class="time-block-header"><span class="time-icon">🍽️</span><span class="time-label">Lunch</span></div>
-      <div class="time-items">
-        <div class="sched-item">
-          <span class="sched-name">Curcumin Phytosome</span>
-          <span class="sched-dose">500mg</span>
-          <span class="sched-note">With fat-containing food · crosses blood-brain barrier · potent neuroinflammation suppressor</span>
-          <div class="sched-tags"><span class="tag tag-food">With food</span><span class="tag tag-key">Core</span></div>
+    <tr data-label="🍽️ Lunch">
+      <td class="time-col"><div class="time-label"><span class="t-icon">🍽️</span>Lunch</div></td>
+      <td class="items-col">
+        <div class="sched-row-item">
+          <span class="sr-name">Curcumin Phytosome</span>
+          <span class="sr-dose">500mg</span>
+          <span class="sr-note">With fat-containing food · crosses blood-brain barrier · potent neuroinflammation suppressor</span>
+          <div class="sr-tags"><span class="tag tag-food">With food</span><span class="tag tag-key">Core</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">Bacopa Monnieri</span>
-          <span class="sched-dose">300mg · 50% bacosides extract</span>
-          <span class="sched-note">With food · memory consolidation · anxiety reduction · takes 6–8 weeks for full effect</span>
-          <div class="sched-tags"><span class="tag tag-food">With food</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">Bacopa Monnieri</span>
+          <span class="sr-dose">300mg · 50% bacosides extract</span>
+          <span class="sr-note">Memory consolidation · anxiety reduction · takes 6–8 weeks for full effect</span>
+          <div class="sr-tags"><span class="tag tag-food">With food</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">CoQ10 Ubiquinone</span>
-          <span class="sched-dose">200–400mg · movement disorder protocol: 600mg</span>
-          <span class="sched-note">With fat-containing meal · mitochondrial energy in neurons · critical for any movement disorder</span>
-          <div class="sched-tags"><span class="tag tag-food">With food</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">CoQ10 Ubiquinone</span>
+          <span class="sr-dose">200–400mg · movement disorder protocol: 600mg</span>
+          <span class="sr-note">With fat-containing meal · mitochondrial energy in neurons · critical for any movement disorder</span>
+          <div class="sr-tags"><span class="tag tag-food">With food</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">NAC</span>
-          <span class="sched-dose">600mg</span>
-          <span class="sched-note">Between meals preferred · glutathione precursor · heavy metal chelation · oxidative stress protection</span>
-          <div class="sched-tags"><span class="tag tag-empty">Between meals</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">NAC</span>
+          <span class="sr-dose">600mg</span>
+          <span class="sr-note">Glutathione precursor · heavy metal chelation · oxidative stress protection</span>
+          <div class="sr-tags"><span class="tag tag-empty">Between meals</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">PQQ</span>
-          <span class="sched-dose">20mg</span>
-          <span class="sched-note">With CoQ10 · mitochondrial biogenesis · new mitochondria growth · works synergistically with CoQ10</span>
-          <div class="sched-tags"><span class="tag tag-food">With food</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">PQQ</span>
+          <span class="sr-dose">20mg</span>
+          <span class="sr-note">Mitochondrial biogenesis · new mitochondria growth · works synergistically with CoQ10</span>
+          <div class="sr-tags"><span class="tag tag-food">With food</span></div>
         </div>
-      </div>
-    </div>
+      </td>
+    </tr>
 
-    <div class="time-block">
-      <div class="time-block-header"><span class="time-icon">🌤️</span><span class="time-label">Afternoon</span></div>
-      <div class="time-items">
-        <div class="sched-item">
-          <span class="sched-name">Cold Exposure</span>
-          <span class="sched-dose">Cold shower finish · or cold plunge 2–5 min</span>
-          <span class="sched-note">BDNF surge · norepinephrine release · vagus nerve activation · inflammation reduction</span>
+    <tr data-label="🌤️ Afternoon">
+      <td class="time-col"><div class="time-label"><span class="t-icon">🌤️</span>Afternoon</div></td>
+      <td class="items-col">
+        <div class="sched-row-item">
+          <span class="sr-name">Cold Exposure</span>
+          <span class="sr-dose">Cold shower finish · or cold plunge 2–5 min</span>
+          <span class="sr-note">BDNF surge · norepinephrine release · vagus nerve activation · inflammation reduction</span>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">Glycine</span>
-          <span class="sched-dose">4g in water</span>
-          <span class="sched-note">Glyphosate binder · collagen precursor · inhibitory neurotransmitter — calms overactive neurons</span>
-          <div class="sched-tags"><span class="tag tag-empty">Between meals</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">Glycine</span>
+          <span class="sr-dose">4g in water</span>
+          <span class="sr-note">Glyphosate binder · collagen precursor · inhibitory neurotransmitter — calms overactive neurons</span>
+          <div class="sr-tags"><span class="tag tag-empty">Between meals</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">Modified Citrus Pectin</span>
-          <span class="sched-dose">5g in water</span>
-          <span class="sched-note">2 hours from food · heavy metal binder · galectin-3 inhibitor · most research-backed chelator</span>
-          <div class="sched-tags"><span class="tag tag-empty">Away from food</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">Modified Citrus Pectin</span>
+          <span class="sr-dose">5g in water</span>
+          <span class="sr-note">Heavy metal binder · galectin-3 inhibitor · most research-backed chelator · 2 hours from food</span>
+          <div class="sr-tags"><span class="tag tag-empty">Away from food</span></div>
         </div>
-      </div>
-    </div>
+      </td>
+    </tr>
 
-    <div class="time-block">
-      <div class="time-block-header"><span class="time-icon">🌇</span><span class="time-label">Evening</span></div>
-      <div class="time-items">
-        <div class="sched-item">
-          <span class="sched-name">CoQ10 — 2nd dose</span>
-          <span class="sched-dose">200mg with dinner · movement disorder: 600mg total daily</span>
-          <span class="sched-note">With evening meal · split dosing improves absorption</span>
-          <div class="sched-tags"><span class="tag tag-food">With food</span></div>
+    <tr data-label="🌇 Evening">
+      <td class="time-col"><div class="time-label"><span class="t-icon">🌇</span>Evening</div></td>
+      <td class="items-col">
+        <div class="sched-row-item">
+          <span class="sr-name">CoQ10 — 2nd dose</span>
+          <span class="sr-dose">200mg with dinner · movement disorder: 600mg total daily</span>
+          <span class="sr-note">With evening meal · split dosing improves absorption</span>
+          <div class="sr-tags"><span class="tag tag-food">With food</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">Lion's Mane — 2nd dose</span>
-          <span class="sched-dose">500–1,000mg</span>
-          <span class="sched-note">With dinner · NGF stimulation continues during sleep repair cycle</span>
-          <div class="sched-tags"><span class="tag tag-food">With food</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">Lion's Mane — 2nd dose</span>
+          <span class="sr-dose">500–1,000mg</span>
+          <span class="sr-note">With dinner · NGF stimulation continues during sleep repair cycle</span>
+          <div class="sr-tags"><span class="tag tag-food">With food</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">DMSO Neurological Application</span>
-          <span class="sched-dose">50–60% solution · cervical spine and base of skull</span>
-          <span class="sched-note">Protocol days only · see DMSO Protocol for full application instructions · do not use if on Parkinson's medication without guidance</span>
-          <div class="sched-tags"><span class="tag tag-optional">Protocol days</span></div>
-          <span class="sched-warn">⚠️ Not for Parkinson's patients — see DMSO Protocol</span>
+        <div class="sched-row-item">
+          <span class="sr-name">DMSO Neurological Application</span>
+          <span class="sr-dose">50–60% solution · cervical spine and base of skull</span>
+          <span class="sr-note">Protocol days only · see DMSO Protocol for full application instructions</span>
+          <div class="sr-tags"><span class="tag tag-optional">Protocol days</span></div>
+          <span class="sr-warn">⚠️ Not for Parkinson's patients — see DMSO Protocol</span>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">Humic &amp; Fulvic Acids</span>
-          <span class="sched-dose">As directed · in water</span>
-          <span class="sched-note">Away from food · mineral transport · heavy metal binding · cellular detox</span>
-          <div class="sched-tags"><span class="tag tag-empty">Away from food</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">Humic &amp; Fulvic Acids</span>
+          <span class="sr-dose">As directed · in water</span>
+          <span class="sr-note">Mineral transport · heavy metal binding · cellular detox</span>
+          <div class="sr-tags"><span class="tag tag-empty">Away from food</span></div>
         </div>
-      </div>
-    </div>
+      </td>
+    </tr>
 
-    <div class="time-block">
-      <div class="time-block-header"><span class="time-icon">🌙</span><span class="time-label">Bedtime</span></div>
-      <div class="time-items">
-        <div class="sched-item">
-          <span class="sched-name">Magnesium L-Threonate</span>
-          <span class="sched-dose">1g (2 capsules typically)</span>
-          <span class="sched-note">The only magnesium that crosses the blood-brain barrier · synaptic plasticity · deep sleep · memory consolidation</span>
-          <div class="sched-tags"><span class="tag tag-key">Core</span><span class="tag tag-empty">Before bed</span></div>
+    <tr data-label="🌙 Bedtime">
+      <td class="time-col"><div class="time-label"><span class="t-icon">🌙</span>Bedtime</div></td>
+      <td class="items-col">
+        <div class="sched-row-item">
+          <span class="sr-name">Magnesium L-Threonate</span>
+          <span class="sr-dose">1g (2 capsules typically)</span>
+          <span class="sr-note">The only magnesium that crosses the blood-brain barrier · synaptic plasticity · deep sleep · memory consolidation</span>
+          <div class="sr-tags"><span class="tag tag-key">Core</span><span class="tag tag-empty">Before bed</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">Ashwagandha KSM-66</span>
-          <span class="sched-dose">300mg</span>
-          <span class="sched-note">Before bed · cortisol reduction · neuroprotective · anxiety relief · improves sleep quality</span>
-          <div class="sched-tags"><span class="tag tag-empty">Before bed</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">Ashwagandha KSM-66</span>
+          <span class="sr-dose">300mg</span>
+          <span class="sr-note">Cortisol reduction · neuroprotective · anxiety relief · improves sleep quality</span>
+          <div class="sr-tags"><span class="tag tag-empty">Before bed</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">Meditation or Breathing Practice</span>
-          <span class="sched-dose">15–20 minutes</span>
-          <span class="sched-note">Vagus nerve activation · cortisol reduction · parasympathetic shift · 4:8 breath (inhale 4, exhale 8)</span>
-          <div class="sched-tags"><span class="tag tag-key">Non-negotiable</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">Meditation or Breathing Practice</span>
+          <span class="sr-dose">15–20 minutes · 4:8 breath (inhale 4, exhale 8)</span>
+          <span class="sr-note">Vagus nerve activation · cortisol reduction · parasympathetic shift</span>
+          <div class="sr-tags"><span class="tag tag-key">Non-negotiable</span></div>
         </div>
-        <div class="sched-divider"></div>
-        <div class="sched-item">
-          <span class="sched-name">Sleep Environment</span>
-          <span class="sched-dose">Dark room · 18–20°C · no screens · WiFi off</span>
-          <span class="sched-note">Glymphatic system activates during deep sleep — this is when the brain clears metabolic waste including amyloid. 7–9 hours is not optional.</span>
-          <div class="sched-tags"><span class="tag tag-key">Non-negotiable</span></div>
+        <div class="sched-row-item">
+          <span class="sr-name">Sleep Environment</span>
+          <span class="sr-dose">Dark room · 18–20°C · no screens · WiFi off</span>
+          <span class="sr-note">Glymphatic system activates during deep sleep — this is when the brain clears metabolic waste. 7–9 hours is not optional.</span>
+          <div class="sr-tags"><span class="tag tag-key">Non-negotiable</span></div>
         </div>
-      </div>
-    </div>
+      </td>
+    </tr>
 
-  </div><!-- end schedule-wrap -->
+  </table>
 
   <div class="budget-note">
     <strong>Weekly practices</strong>
@@ -821,6 +828,68 @@ document.addEventListener('click',function(e){
   const d=document.getElementById('nav-protocols');
   if(d && !d.contains(e.target)) d.classList.remove('open');
 });
+
+// Print schedule only — clean popup
+function printScheduleOnly(){
+  const table = document.querySelector('.sched-table');
+  const weeklyNote = document.querySelector('.budget-note');
+  if(!table) return;
+
+  const win = window.open('', '_blank', 'width=900,height=700');
+  win.document.write(`<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Brain Healing Protocol — Daily Schedule</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Georgia',serif;font-size:12px;color:#1e1a14;padding:20px 28px;background:#fff;}
+  h1{font-size:18px;font-weight:700;color:#3d6b4a;margin-bottom:3px;}
+  .sub{font-size:11px;color:#7a6e5c;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #ddd;}
+  table{width:100%;border-collapse:collapse;}
+  tr{border-bottom:1px solid #e8e4dc;}
+  tr:last-child{border-bottom:none;}
+  td{padding:10px 12px;vertical-align:top;}
+  .time-col{width:110px;white-space:nowrap;}
+  .time-label{font-family:monospace;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#3d6b4a;}
+  .t-icon{margin-right:4px;}
+  .items-col{border-left:2px solid #e8e4dc;padding-left:14px;}
+  .sched-row-item{padding:6px 0;}
+  .sched-row-item:not(:last-child){border-bottom:1px solid #f0ece4;}
+  .sr-name{font-weight:700;font-size:12px;display:block;}
+  .sr-dose{font-family:monospace;font-size:10px;color:#3d6b4a;display:block;margin-top:2px;}
+  .sr-note{font-size:10px;color:#7a6e5c;display:block;margin-top:2px;line-height:1.45;}
+  .sr-warn{font-size:10px;font-weight:700;color:#8c5a3c;display:block;margin-top:2px;}
+  .sr-tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:3px;}
+  .tag{font-size:8px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:2px 6px;border-radius:2px;}
+  .tag-food{background:#e4f0e8;color:#3d6b4a;}
+  .tag-empty{background:#f5eddb;color:#a07830;}
+  .tag-key{background:#f5ede6;color:#8c5a3c;}
+  .tag-optional{background:#ede7db;color:#7a6e5c;}
+  .weekly{margin-top:16px;padding:10px 14px;background:#f4efe6;border-radius:5px;font-size:11px;color:#3d3426;line-height:1.6;}
+  .weekly strong{color:#3d6b4a;}
+  .footer{margin-top:18px;padding-top:10px;border-top:1px solid #ddd;font-size:9px;color:#a89e8e;display:flex;justify-content:space-between;}
+  @media print{
+    body{padding:10px 16px;}
+    @page{margin:10mm;size:A4;}
+  }
+</style>
+</head>
+<body>
+<h1>Brain Healing Protocol — Daily Schedule</h1>
+<div class="sub">healyourselfguide.com &nbsp;·&nbsp; For educational purposes only &nbsp;·&nbsp; Not medical advice</div>
+${table.outerHTML}
+${weeklyNote ? '<div class="weekly"><strong>Weekly practices:</strong> ' + weeklyNote.textContent.replace('Weekly practices','').trim() + '</div>' : ''}
+<div class="footer">
+  <span>Heal Yourself Guide &nbsp;·&nbsp; healyourselfguide.com</span>
+  <span>iHerb code: GUW6132</span>
+</div>
+</body>
+</html>`);
+  win.document.close();
+  win.focus();
+  setTimeout(() => { win.print(); win.close(); }, 400);
+}
 </script>
 
 </body>
