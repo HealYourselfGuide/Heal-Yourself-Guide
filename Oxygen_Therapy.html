@@ -67,7 +67,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
 /* SECTION NAV */
 .jump-nav{position:sticky;top:var(--nav-h);z-index:90;background:var(--bg-stone);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
 .jump-nav::-webkit-scrollbar{display:none;}
-.jump-nav-inner{display:flex;align-items:stretch;min-width:max-content;justify-content:center;margin:0 auto;}
+.jump-nav-inner{display:flex;align-items:stretch;min-width:0;justify-content:center;margin:0 auto;}
 .jump-nav a{display:flex;align-items:center;gap:6px;padding:0 15px;height:36px;font-size:10px;font-weight:600;letter-spacing:0.08em;color:var(--ink-light);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:color 0.2s,border-color 0.2s;text-transform:uppercase;}
 .jump-nav a:hover{color:var(--sage);border-bottom-color:var(--sage-mid);}
 .jn-dot{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:0.4;flex-shrink:0;}
@@ -224,7 +224,71 @@ sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;li
 footer{background:var(--bg-footer);padding:40px 24px;}
 footer a{color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;}
 footer a:hover{color:#d4c9a8;}
+
+/* STICKY NAV WRAP */
+.sticky-nav-wrap .jump-nav{position:relative;top:auto;}
+
+/* STICKY CONTEXT BUTTON */
+.sticky-partb{position:fixed;right:20px;bottom:32px;z-index:95;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+.sticky-partb.visible{opacity:1;pointer-events:auto;}
+.sticky-partb-btn{display:inline-flex;align-items:center;gap:8px;background:var(--terra);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;padding:12px 18px;border-radius:8px;box-shadow:0 4px 20px rgba(140,90,60,0.35);transition:transform 0.2s,box-shadow 0.2s,background 0.2s;}
+.sticky-partb-btn:hover{transform:translateY(-2px);}
+@media(max-width:600px){.sticky-partb{right:12px;bottom:70px;}}
+
+/* DD-SUBS */
+.dd-group{position:relative;}
+.dd-group>a{position:relative;padding-right:28px;border-bottom:1px solid rgba(138,184,154,0.07);}
+.dd-group>a::after{content:'›';position:absolute;right:14px;top:50%;transform:translateY(-50%);opacity:0.35;font-size:13px;transition:all 0.15s;}
+.dd-group:hover>a::after{opacity:0.9;color:var(--sage-nav);}
+.dd-group:hover>a{color:#d4c9a8;background:rgba(138,184,154,0.06);}
+.dd-subs{position:absolute;left:100%;top:0;min-width:200px;background:var(--bg-nav);border:1px solid rgba(138,184,154,0.15);border-top:2px solid var(--sage-mid);border-radius:0 0 8px 8px;padding:4px 0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.15s,visibility 0.15s;}
+.dd-group:hover .dd-subs{opacity:1;visibility:visible;pointer-events:auto;}
+.nav-dropdown-menu .dd-subs a.dd-sub{display:flex;align-items:center;gap:8px;padding:10px 16px;font-size:10px;font-weight:500;letter-spacing:0.05em;color:rgba(212,201,168,0.55);text-transform:uppercase;border:none;border-bottom:1px solid rgba(138,184,154,0.08);height:auto;transition:all 0.15s;}
+.nav-dropdown-menu .dd-subs a.dd-sub:last-child{border-bottom:none;}
+.nav-dropdown-menu .dd-subs a.dd-sub:hover{color:rgba(212,201,168,0.85);background:rgba(138,184,154,0.08);}
+
+/* SCROLL MARGIN */
+section[id]{scroll-margin-top:calc(var(--nav-h) + 80px);}
+
+/* FOOTER */
+footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154,0.1);padding:40px 24px;}
+.ft-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+@media(max-width:560px){.ft-inner{grid-template-columns:1fr;}}
+.ft-brand{font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;}
+.ft-disc{font-size:12px;color:rgba(212,201,168,0.5);line-height:1.7;}
+.ft-nav{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
+@media(max-width:560px){.ft-nav{align-items:flex-start;}}
+.ft-nav a{font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;}
+.ft-nav a:hover{color:#d4c9a8;}
+.ft-nav a.hi{color:var(--sage-nav);font-weight:600;}
+
+
+/* CITATIONS */
+.cite-btn{background:none;border:none;padding:0;color:var(--sage);font-size:11px;font-weight:700;cursor:pointer;text-decoration:underline dotted;}
+.citations-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:300;align-items:flex-end;}
+.citations-overlay.open{display:flex;}
+.citations-drawer{background:#fff;width:100%;max-height:60vh;overflow-y:auto;border-radius:14px 14px 0 0;padding:28px 24px;}
+.citations-drawer h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--ink);margin-bottom:16px;}
+.source-list{list-style:none;counter-reset:src;padding:0;}
+.source-list li{counter-increment:src;padding:10px 0 10px 32px;border-bottom:1px solid var(--border-s);font-size:13px;color:var(--ink-mid);line-height:1.7;position:relative;}
+.source-list li::before{content:counter(src);font-family:'DM Mono',monospace;font-size:10px;font-weight:700;color:var(--sage);position:absolute;left:0;top:12px;}
+.citations-close{float:right;background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink-light);}
+
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [{
+    "@type": "MedicalWebPage",
+    "name": "Oxygen Therapy Protocol — H2O2, Ozone and Hyperbaric Oxygen",
+    "description": "A complete oxygen therapy guide covering hydrogen peroxide protocols, ozone therapy, hyperbaric oxygen, and the suppressed science of cellular oxygenation.",
+    "url": "https://sharondrn-sys.github.io/Heal-Yourself-Guide/Oxygen_Therapy.html",
+    "inLanguage": "en",
+    "isPartOf": {"@type": "WebSite", "name": "Heal Yourself Guide", "url": "https://sharondrn-sys.github.io/Heal-Yourself-Guide/"},
+    "dateModified": "2025-06-01"
+  }]
+}
+</script>
 </head>
 <body>
 
@@ -326,8 +390,16 @@ footer a:hover{color:#d4c9a8;}
   <span style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;opacity:0.9;">Part A — Understand It · The Warburg Effect · History · The Suppression · The Three Therapies</span>
 </div>
 
+<!-- STICKY CONTEXT BUTTON -->
+<div class="sticky-partb" id="sticky-partb">
+  <a href="#part-b" class="sticky-partb-btn" id="sticky-partb-link">Part B — Do It →</a>
+</div>
+
+<!-- PART A NAV + COMPANION BAR — sticky wrapper -->
+<div class="sticky-nav-wrap" style="position:sticky;top:var(--nav-h);z-index:90;">
+
 <!-- PART A NAV -->
-<div class="jump-nav">
+<div class="jump-nav" id="part-a-nav">
   <div class="jump-nav-inner">
     <a href="#warburg"><span class="jn-dot"></span>The Science</a>
     <a href="#history"><span class="jn-dot"></span>History</a>
@@ -335,6 +407,16 @@ footer a:hover{color:#d4c9a8;}
     <a href="#therapies"><span class="jn-dot"></span>The Three Therapies</a>
   </div>
 </div>
+
+<!-- PART A COMPANION BAR -->
+<div style="background:var(--bg-stone);border-bottom:1px solid var(--border-s);padding:8px 24px;">
+  <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;">
+    <span style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-ghost);flex-shrink:0;">Jump to:</span>
+    <a href="#part-b" style="display:inline-flex;align-items:center;gap:5px;background:var(--terra);color:#fff;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:6px 12px;border-radius:5px;white-space:nowrap;">Part B — Do It →</a>
+  </div>
+</div>
+
+</div><!-- end sticky wrapper -->
 
 <!-- THE SCIENCE — WARBURG -->
 <section id="warburg" class="sec sec-bg">
@@ -493,7 +575,7 @@ footer a:hover{color:#d4c9a8;}
 </div>
 
 <!-- PART B NAV -->
-<div class="jump-nav">
+<div class="jump-nav" id="part-b-nav">
   <div class="jump-nav-inner">
     <a href="#h2o2"><span class="jn-dot"></span>Hydrogen Peroxide</a>
     <a href="#grades"><span class="jn-dot"></span>Grades & Safety</a>
@@ -839,25 +921,39 @@ footer a:hover{color:#d4c9a8;}
   </div>
 </section>
 
+
+<!-- CITATIONS DRAWER -->
+<div class="citations-overlay" id="citations-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="citations-drawer">
+    <button class="citations-close" onclick="document.getElementById('citations-overlay').classList.remove('open')">×</button>
+    <h3>Sources &amp; References</h3>
+    <ol class="source-list">
+      <li>Warburg O. On the origin of cancer cells. <em>Science</em> 1956;123(3191):309–314.</li>
+      <li>Bocci V. Ozone: A New Medical Drug. Springer, 2005.</li>
+      <li>Tibbles PM, Edelsberg JS. Hyperbaric-oxygen therapy. <em>N Engl J Med</em> 1996;334(25):1642–8.</li>
+      <li>Watt BE, Proudfoot AT, Vale JA. Hydrogen peroxide poisoning. <em>Toxicol Rev</em> 2004;23(1):51–7.</li>
+      <li>Elvis AM, Ekta JS. Ozone therapy: A clinical review. <em>J Nat Sci Biol Med</em> 2011;2(1):66–70.</li>
+    </ol>
+  </div>
+</div>
 <footer>
-  <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+  <div class="ft-inner">
     <div>
-      <div style="font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;">Heal Yourself</div>
-      <p style="font-size:12px;color:rgba(212,201,168,0.5);line-height:1.7;">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor.</p>
-      <p style="font-size:12px;color:rgba(212,201,168,0.5);margin-top:8px;">© 2025 Heal Yourself Guide. All rights reserved.</p>
+      <div class="ft-brand">Heal Yourself</div>
+      <p class="ft-disc">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor.</p>
+      <p class="ft-disc" style="margin-top:6px;">© 2025 Heal Yourself Guide. All rights reserved.</p>
     </div>
-    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
+    <div class="ft-nav">
       <a href="index.html">Home</a>
       <a href="before-you-begin.html">Before You Begin</a>
-      <a href="Full_Body_Detox_Protocol.html">Full Body Detox</a>
-      <a href="DMSO_Protocol.html">DMSO Protocol</a>
-      <a href="protocols.html">All Protocols</a>
+      <a href="protocols.html" class="hi">All Protocols</a>
       <a href="research.html">Research</a>
       <a href="about.html">About</a>
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="mailto:healyourselfguide101@gmail.com">Contact</a>
     </div>
   </div>
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/c3e0fa55054efc8787d2cd7c6/47c72440170a91d68e1cc233b.js");</script>
 </footer>
 
 <script>
@@ -866,6 +962,28 @@ document.addEventListener('click',function(e){
   if(drop&&!drop.contains(e.target))drop.classList.remove('open');
 });
 </script>
-<script id="mcjs-oxygen">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/c3e0fa55054efc8787d2cd7c6/47c72440170a91d68e1cc233b.js");</script>
+<script id="mcjs-oxygen">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/c3e0fa55054efc8787d2cd7c6/47c72440170a91d68e1cc233b.js");
+// Context-aware sticky button
+const stickyBtn = document.getElementById('sticky-partb');
+const stickyLink = document.getElementById('sticky-partb-link');
+const partAEl = document.getElementById('part-a');
+const heroEl = document.querySelector('.hero');
+if(stickyBtn && stickyLink && partAEl){
+  const setPartB = () => { stickyLink.href='#part-b'; stickyLink.textContent='Part B — Do It →'; stickyLink.style.background='var(--terra)'; stickyLink.style.boxShadow='0 4px 20px rgba(140,90,60,0.35)'; };
+  const setPartA = () => { stickyLink.href='#part-a'; stickyLink.textContent='← Back to Part A'; stickyLink.style.background='var(--sage)'; stickyLink.style.boxShadow='0 4px 20px rgba(61,107,74,0.35)'; };
+  const partAObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(!entry.isIntersecting && entry.boundingClientRect.top < 0){ setPartA(); } else { setPartB(); }
+    });
+  }, {threshold:0});
+  partAObs.observe(partAEl);
+  const showAfterHero = () => {
+    const heroH = heroEl ? heroEl.offsetHeight + heroEl.offsetTop : 300;
+    stickyBtn.classList.toggle('visible', window.scrollY > heroH);
+  };
+  window.addEventListener('scroll', showAfterHero, {passive:true});
+  showAfterHero();
+}
+</script>
 </body>
 </html>
