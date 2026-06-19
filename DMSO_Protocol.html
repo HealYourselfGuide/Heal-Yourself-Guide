@@ -1338,7 +1338,7 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
     <div class="ft-nav">
       <a href="index.html">Home</a>
       <a href="before-you-begin.html">Before You Begin</a>
-      <a href="protocols.html" class="hi">All Protocols</a>
+      <a href="protocols.html">All Protocols</a>
       <a href="research.html">Research</a>
       <a href="about.html">About</a>
       <a href="privacy-policy.html">Privacy Policy</a>
@@ -1346,6 +1346,17 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
     </div>
   </div>
 </footer>
+
+<script>
+// Footer active highlight — JS-driven, never hardcoded
+(function(){
+  var path = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.ft-nav a').forEach(function(a){
+    var href = a.getAttribute('href').split('/').pop();
+    if(href === path) a.classList.add('hi');
+  });
+})();
+</script>
 
 <script>
 // Citations drawer
