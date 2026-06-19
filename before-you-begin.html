@@ -192,7 +192,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 .ft-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;}
 @media(max-width:560px){.ft-inner{grid-template-columns:1fr;}}
 .ft-brand{font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;}
-.ft-disc{font-size:12px;color:rgba(212,201,168,0.45);line-height:1.75;}
+.ft-disc{font-size:12px;color:rgba(212,201,168,0.65);line-height:1.75;}
 .ft-nav{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
 @media(max-width:560px){.ft-nav{align-items:flex-start;}}
 .ft-nav a{font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;}
@@ -688,19 +688,20 @@ sup.cite{font-size:9px;font-weight:700;color:var(--sage);vertical-align:super;li
 <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/c3e0fa55054efc8787d2cd7c6/47c72440170a91d68e1cc233b.js");</script>
 
 <footer>
-  <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+  <div class="ft-inner">
     <div>
-      <div style="font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;">Heal Yourself</div>
-      <p style="font-size:12px;color:rgba(212,201,168,0.5);line-height:1.7;">Educational purposes only. Not a doctor. © 2025 Heal Yourself Guide. All rights reserved.</p>
+      <div class="ft-brand">Heal Yourself</div>
+      <p class="ft-disc">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor.</p>
+      <p class="ft-disc" style="margin-top:6px;">© 2025 Heal Yourself Guide. All rights reserved.</p>
     </div>
-    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
-      <a href="index.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">Home</a>
-      <a href="before-you-begin.html" style="font-size:12px;color:var(--sage-nav);font-weight:600;text-decoration:none;">Before You Begin</a>
-      <a href="protocols.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">All Protocols</a>
-      <a href="research.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">Research</a>
-      <a href="about.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">About</a>
-      <a href="privacy-policy.html" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">Privacy Policy</a>
-      <a href="mailto:healyourselfguide101@gmail.com" style="font-size:12px;color:rgba(212,201,168,0.55);text-decoration:none;">Contact</a>
+    <div class="ft-nav">
+      <a href="index.html">Home</a>
+      <a href="before-you-begin.html">Before You Begin</a>
+      <a href="protocols.html">All Protocols</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="mailto:healyourselfguide101@gmail.com">Contact</a>
     </div>
   </div>
 </footer>

@@ -158,7 +158,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 .ft-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;}
 @media(max-width:560px){.ft-inner{grid-template-columns:1fr;}}
 .ft-brand{font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;}
-.ft-disc{font-size:12px;color:rgba(212,201,168,0.45);line-height:1.75;}
+.ft-disc{font-size:12px;color:rgba(212,201,168,0.65);line-height:1.75;}
 .ft-nav{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
 @media(max-width:560px){.ft-nav{align-items:flex-start;}}
 .ft-nav a{font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;}
@@ -293,51 +293,6 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
 <div class="divider"></div>
 
-<!-- TIMELINE -->
-<section class="sec-stone" id="journey">
-  <div class="inner">
-    <div class="kicker">The Journey</div>
-    <h2 class="lh2">How This Guide Was Built</h2>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-year">Years 1–10</div>
-        <div class="tl-content">
-          <div class="tl-title">Inside the System</div>
-          <p class="tl-text">Pharmaceutical Quality Assurance. Every document, every report, every regulatory submission. Learning how the system works — and how it fails.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">2020</div>
-        <div class="tl-content">
-          <div class="tl-title">The Breaking Point</div>
-          <p class="tl-text">The world changed. The curtain was pulled back. The decision to leave an industry and a salary — and begin looking for what the system was never designed to provide.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">2020–2023</div>
-        <div class="tl-content">
-          <div class="tl-title">The Research Years</div>
-          <p class="tl-text">Thousands of hours across peer-reviewed research, suppressed clinical trials, ancient healing traditions, functional medicine, gut science, neurological research, and healing protocols from practitioners the mainstream never references.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">2023</div>
-        <div class="tl-content">
-          <div class="tl-title">The Friend's Diagnosis</div>
-          <p class="tl-text">A best friend diagnosed with Parkinson's in her early fifties. The catalyst that turned years of private research into a structured guide — built first for her, then for everyone who has been told there is nothing more to do.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">Now</div>
-        <div class="tl-content">
-          <div class="tl-title">The Guide Continues Growing</div>
-          <p class="tl-text">This guide is not finished — no honest healing guide ever is. What is here right now is enough to change the trajectory of someone's health. New protocols, new research, and new applications of the system are added continuously.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <div class="divider"></div>
 
 <!-- PHILOSOPHY -->
@@ -449,6 +404,15 @@ document.addEventListener('click',function(e){
   const d=document.getElementById('nav-protocols');
   if(d&&!d.contains(e.target))d.classList.remove('open');
 });
+</script>
+<script>
+(function(){
+  var path=window.location.pathname.split('/').pop()||'index.html';
+  document.querySelectorAll('.ft-nav a').forEach(function(a){
+    var href=a.getAttribute('href').split('/').pop();
+    if(href===path)a.classList.add('hi');
+  });
+})();
 </script>
 </body>
 </html>
