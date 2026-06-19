@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Research Library — Heal Yourself Guide</title>
+<meta name="description" content="Peer-reviewed citations behind every Heal Yourself protocol. Organized by topic: DMSO, Oxygen Therapy, Gut-Brain Axis, Parkinson's, Glyphosate, Minerals and Deficiencies.">
+<meta property="og:title" content="Research Library — Heal Yourself Guide">
+<meta property="og:description" content="The peer-reviewed research behind every protocol. Organized by topic, with plain-English summaries and direct links to sources.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;
+  --bg-nav:#2c3a2e;--bg-footer:#263028;
+  --ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;--ink-ghost:#a89e8e;
+  --sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-light:#7aac8a;--sage-pale:#e4f0e8;--sage-nav:#8ab89a;
+  --terra:#8c5a3c;--terra-light:#b07a58;--terra-pale:#f5ede6;
+  --honey:#a07830;--honey-pale:#f5eddb;
+  --border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);
+  --nav-h:56px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-nav);display:flex;align-items:center;justify-content:space-between;padding:0 24px;z-index:100;box-shadow:0 1px 0 rgba(138,184,154,0.1);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:17px;color:#d4c9a8;text-decoration:none;letter-spacing:0.02em;white-space:nowrap;}
+.nav-center{display:flex;align-items:center;gap:4px;}
+.nav-center a{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;white-space:nowrap;}
+.nav-center a:hover{color:var(--sage-nav);border-bottom-color:rgba(138,184,154,0.3);}
+.nav-center a.active{color:var(--sage-nav);border-bottom-color:var(--sage-mid);}
+@media(max-width:640px){.nav-center{display:none;}}
+.nav-dropdown{position:relative;}
+.nav-dropdown-toggle{background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.65);text-transform:uppercase;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;gap:6px;transition:color 0.2s;}
+.nav-dropdown-toggle:hover{color:var(--sage-nav);}
+.nav-dropdown-toggle svg{width:8px;height:5px;transition:transform 0.2s;}
+.nav-dropdown-toggle[aria-expanded="true"] svg{transform:rotate(180deg);}
+.nav-dropdown-menu{display:none;position:absolute;top:100%;right:0;min-width:230px;background:var(--bg-nav);border:1px solid rgba(138,184,154,0.15);border-radius:0 0 8px 8px;padding:8px 0;box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.nav-dropdown-menu.open{display:block;}
+.nav-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:9px 18px;font-size:12px;color:rgba(212,201,168,0.65);text-decoration:none;transition:background 0.15s,color 0.15s;}
+.nav-dropdown-menu a:hover{background:rgba(138,184,154,0.08);color:#d4c9a8;}
+.dd-icon{font-size:14px;width:20px;text-align:center;}
+.dd-label{flex:1;}
+.dd-tag{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:var(--sage);color:#fff;padding:2px 6px;border-radius:3px;}
+.dd-sub{padding-left:28px !important;opacity:0.8;font-size:11px !important;}
+
+/* LAYOUT */
+body{padding-top:var(--nav-h);}
+.inner{max-width:860px;margin:0 auto;padding:0 24px;}
+
+/* HERO */
+.hero{background:var(--bg-nav);padding:56px 24px 48px;text-align:center;}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-nav);margin-bottom:16px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,52px);color:#d4c9a8;line-height:1.15;margin-bottom:16px;}
+.hero h1 em{font-style:italic;color:var(--sage-nav);}
+.hero-sub{font-size:15px;color:rgba(212,201,168,0.65);max-width:600px;margin:0 auto;}
+
+/* TOPIC NAV */
+.topic-nav{background:var(--bg-deep);border-bottom:1px solid var(--border-s);padding:16px 24px;position:sticky;top:var(--nav-h);z-index:50;}
+.topic-nav-inner{max-width:860px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;}
+.topic-nav a{font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--bg);transition:all 0.2s;white-space:nowrap;}
+.topic-nav a:hover{background:var(--sage-pale);color:var(--sage);border-color:var(--sage);}
+
+/* SECTIONS */
+.sec{padding:56px 0;}
+.sec-bg{background:var(--bg);}
+.sec-warm{background:var(--bg-warm);}
+.sec-deep{background:var(--bg-deep);}
+.sec-stone{background:var(--bg-stone);}
+.sec-honey{background:var(--honey-pale);}
+
+.kicker{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:10px;}
+.lh2{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);color:var(--ink);margin-bottom:18px;line-height:1.25;}
+.lp{font-size:15px;color:var(--ink-mid);line-height:1.8;margin-bottom:16px;}
+
+/* CITATION CARDS */
+.cite-grid{display:grid;gap:16px;margin-top:24px;}
+.cite-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:20px 22px;display:grid;grid-template-columns:36px 1fr;gap:0 16px;}
+.cite-num{font-family:'DM Mono',monospace;font-size:12px;font-weight:700;color:var(--sage);padding-top:2px;}
+.cite-body{}
+.cite-title{font-size:14px;font-weight:600;color:var(--ink);line-height:1.5;margin-bottom:4px;}
+.cite-meta{font-size:12px;color:var(--ink-ghost);font-family:'DM Mono',monospace;margin-bottom:8px;line-height:1.5;}
+.cite-summary{font-size:13px;color:var(--ink-light);line-height:1.7;margin-bottom:10px;}
+.cite-links{display:flex;flex-wrap:wrap;gap:8px;}
+.cite-link{font-size:11px;font-weight:600;color:var(--sage);text-decoration:none;border:1px solid var(--border);padding:4px 10px;border-radius:4px;transition:all 0.15s;}
+.cite-link:hover{background:var(--sage-pale);border-color:var(--sage);}
+.cite-warn{font-size:12px;color:var(--terra);background:var(--terra-pale);border-radius:4px;padding:6px 10px;margin-top:8px;line-height:1.6;}
+
+/* TOPIC HEADER */
+.topic-header{display:flex;align-items:center;gap:12px;margin-bottom:28px;}
+.topic-icon{font-size:28px;}
+.topic-label{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:4px;}
+
+/* SUPPRESSION NOTE */
+.suppression-note{background:var(--honey-pale);border:1px solid rgba(160,120,48,0.2);border-radius:8px;padding:16px 20px;margin-bottom:28px;font-size:13px;color:var(--ink-mid);line-height:1.7;}
+.suppression-note strong{color:var(--honey);}
+
+/* FOOTER */
+footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);padding:40px 24px;}
+.ft-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+@media(max-width:560px){.ft-inner{grid-template-columns:1fr;}}
+.ft-brand{font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;}
+.ft-disc{font-size:12px;color:var(--ink-ghost);line-height:1.7;}
+.ft-nav{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
+@media(max-width:560px){.ft-nav{align-items:flex-start;}}
+.ft-nav a{font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;}
+.ft-nav a:hover{color:#d4c9a8;}
+.ft-nav a.hi{color:var(--sage-nav);font-weight:600;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Heal Yourself</a>
+  <div class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="before-you-begin.html">Before You Begin</a>
+    <div class="nav-dropdown" id="mainDrop">
+      <button class="nav-dropdown-toggle" onclick="toggleNavDropdown()" aria-expanded="false">
+        Protocols <svg viewBox="0 0 8 5" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l3 3 3-3"/></svg>
+      </button>
+      <div class="nav-dropdown-menu">
+        <a href="Full_Body_Detox_Protocol.html"><span class="dd-icon">🌿</span><span class="dd-label">Full Body Detox</span><span class="dd-tag">Start Here</span></a>
+        <a href="Brain_Protocol.html"><span class="dd-icon">🧠</span><span class="dd-label">Brain Protocol</span></a>
+        <a href="DMSO_Protocol.html"><span class="dd-icon">⚗️</span><span class="dd-label">DMSO Protocol</span></a>
+        <a href="Oxygen_Therapy.html"><span class="dd-icon">🫁</span><span class="dd-label">Oxygen Therapy</span></a>
+        <a href="Hidden_Deficiencies.html"><span class="dd-icon">🔬</span><span class="dd-label">Hidden Deficiencies</span></a>
+        <a href="Dr_Sebi_Alkaline_Protocol.html"><span class="dd-icon">🌱</span><span class="dd-label">Dr. Sebi Alkaline</span></a>
+        <a href="Parkinsons_Protocol.html"><span class="dd-icon">🧬</span><span class="dd-label">Parkinson's Protocol</span></a>
+        <a href="Parkinsons_Daily_Schedule.html" class="dd-sub"><span class="dd-icon">📋</span><span class="dd-label">↳ Daily Schedule</span></a>
+        <a href="Parkinsons_Shopping_Table.html" class="dd-sub"><span class="dd-icon">🛒</span><span class="dd-label">↳ Shopping List</span></a>
+        <a href="Parkinsons_Must_Have.html" class="dd-sub"><span class="dd-icon">⭐</span><span class="dd-label">↳ Must-Have List</span></a>
+        <a href="protocols.html" style="margin-top:4px;border-top:1px solid rgba(138,184,154,0.15);"><span class="dd-icon">☰</span><span class="dd-label">All Protocols</span></a>
+      </div>
+    </div>
+    <a href="research.html" class="active">Research</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow"><span>📚 Peer-Reviewed Sources</span></div>
+  <h1>The <em>Research</em> Library</h1>
+  <p class="hero-sub">Every claim in this guide is sourced. What follows is the evidence — organized by topic, with plain-English summaries and direct links to the original papers.</p>
+</section>
+
+<!-- TOPIC NAV -->
+<div class="topic-nav">
+  <div class="topic-nav-inner">
+    <a href="#dmso">⚗️ DMSO</a>
+    <a href="#oxygen">🫁 Oxygen Therapy</a>
+    <a href="#gut-brain">🧬 Gut-Brain Axis</a>
+    <a href="#parkinsons">🧠 Parkinson's</a>
+    <a href="#glyphosate">🌾 Glyphosate</a>
+    <a href="#minerals">🔬 Minerals & Deficiencies</a>
+    <a href="#suppression">🚫 Suppression History</a>
+  </div>
+</div>
+
+<!-- DMSO -->
+<section id="dmso" class="sec sec-bg">
+  <div class="inner">
+    <div class="topic-header">
+      <span class="topic-icon">⚗️</span>
+      <div>
+        <div class="topic-label">Protocol 03</div>
+        <h2 class="lh2" style="margin-bottom:0;">DMSO Research</h2>
+      </div>
+    </div>
+    <p class="lp">DMSO has over 11,000 peer-reviewed papers documenting its therapeutic effects. It is used in pharmaceutical research worldwide as a drug-delivery solvent. In the United States it holds exactly one FDA approval — for bladder instillation in interstitial cystitis — despite documented efficacy across dozens of conditions. The citations below represent the research base for the DMSO Protocol.</p>
+    <div class="suppression-note"><strong>Suppression context:</strong> All DMSO clinical trials in the US were halted by the FDA in November 1965 following eye lens changes observed in dogs and rabbits at extreme doses. This effect was never observed in humans or primates. Dr. Jacob later documented that the FDA had files on over 70,000 patients from 1,500 physicians showing safety and effectiveness at the time of the halt.</div>
+
+    <div class="cite-grid">
+
+      <div class="cite-card">
+        <div class="cite-num">01</div>
+        <div class="cite-body">
+          <div class="cite-title">FDA Approval for Interstitial Cystitis — RIMSO-50</div>
+          <div class="cite-meta">FDA label · IND 1963 · Approval 1978 · ScienceDirect review 2023</div>
+          <div class="cite-summary">RIMSO-50 (50% DMSO bladder instillation) is the only FDA-approved human use of DMSO in the United States. IND status was granted in 1963; human trials were banned in 1965; approval for this single indication came in 1978 after 13 years of regulatory limbo. The restriction to one indication despite a much wider evidence base is the central example of selective approval used throughout this guide.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://www.sciencedirect.com/science/article/pii/S2772973723009165" target="_blank" rel="noopener">ScienceDirect 2023 →</a>
+            <a class="cite-link" href="https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=58b25d79-78f2-4953-b0c6-61658dc4ef0d" target="_blank" rel="noopener">FDA Label →</a>
+            <a class="cite-link" href="https://www.ichelp.org/understanding-ic/medical-treatments/bladder-instillations/" target="_blank" rel="noopener">IC Association →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">02</div>
+        <div class="cite-body">
+          <div class="cite-title">DMSO Pharmacology — Membrane Penetration, Anti-Inflammatory, Hydroxyl Radical Scavenging</div>
+          <div class="cite-meta">Sterling JB et al. · PubMed PMID 36459193 · 2022</div>
+          <div class="cite-summary">Documents DMSO's core pharmacological properties: amphiphilic structure enabling membrane penetration, hydroxyl radical (·OH) scavenging, anti-inflammatory, analgesic, vasodilator, anti-platelet, radioprotective, and muscle-relaxing effects. Both DMSO and its metabolite DMS scavenge ·OH — one of the most destructive reactive oxygen species the body produces.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://pubmed.ncbi.nlm.nih.gov/36459193/" target="_blank" rel="noopener">PubMed →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">03</div>
+        <div class="cite-body">
+          <div class="cite-title">DMSO Toxicity Profile — LD50, Long-Term Studies, Carcinogenicity</div>
+          <div class="cite-meta">Jacob SW & Herschler R · Cryobiology 23:14-27 · 1986 · Nature Sci Rep 2019</div>
+          <div class="cite-summary">Comprehensive toxicity data: rat oral LD50 17.4–28.3 g/kg; 18-month rhesus monkey dermal study at 9 g/kg/day showed no intolerance; oral NOEL 3300 mg/kg/day in monkeys. DMSO is not listed as a carcinogen by IARC, NTP, OSHA, or ACGIH. For comparison, aspirin's LD50 is lower than DMSO's in most animal models.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://www.nature.com/articles/s41598-019-40660-0" target="_blank" rel="noopener">Nature Sci Rep →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">04</div>
+        <div class="cite-body">
+          <div class="cite-title">DMSO vs Mannitol for Traumatic Brain Injury — Intracranial Pressure Reduction</div>
+          <div class="cite-meta">Brown FD, Johns LM, Mullan S · J Neurosurg 53(1):58-62 · 1980 · Karaca M et al. · Eur J Clin Pharmacol 40:113-114 · 1991</div>
+          <div class="cite-summary">Two independent studies documenting DMSO's ability to reduce intracranial pressure more rapidly than mannitol — the current standard of care for traumatic brain injury. Dr. Jack de la Torre (University of Chicago) demonstrated the effect in the early 1970s. This finding has been replicated but not adopted into mainstream emergency medicine protocols.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://www.routledge.com/authors/i7575-jack-de-la-torre" target="_blank" rel="noopener">de la Torre profile →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">05</div>
+        <div class="cite-body">
+          <div class="cite-title">DMSO + MSM for Osteoarthritis — Systematic Review</div>
+          <div class="cite-meta">Brien S et al. · Osteoarthritis and Cartilage · OARSI journal</div>
+          <div class="cite-summary">Systematic review of DMSO and MSM (methylsulfonylmethane) supplementation for osteoarthritis. Both compounds reduce pain and inflammation via cell-membrane stabilisation and hydroxyl-radical scavenging. MSM is the oxidised metabolite of DMSO; they work synergistically when combined.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://pubmed.ncbi.nlm.nih.gov/18417375/" target="_blank" rel="noopener">PubMed →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">06</div>
+        <div class="cite-body">
+          <div class="cite-title">Topical DMSO for Anthracycline Chemotherapy Extravasation</div>
+          <div class="cite-meta">Olver IN, Aisner J, Hament A et al. · J Clin Oncol 6(11):1732-5 · PMID 3183703 · 1988</div>
+          <div class="cite-summary">Prospective study of 20 patients treated with topical DMSO for anthracycline extravasation (when chemotherapy leaks from a vein into surrounding tissue — a serious complication that can cause deep ulceration). None of the 20 patients progressed to ulceration. 95% confidence interval for the true ulceration rate: 1–17%.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://pubmed.ncbi.nlm.nih.gov/3183703/" target="_blank" rel="noopener">PubMed →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">07</div>
+        <div class="cite-body">
+          <div class="cite-title">Alpha-Synuclein Aggregation and DMSO — Parkinson's Safety Note</div>
+          <div class="cite-meta">Reimer L, Haikal C, Gram H et al. · Scientific Reports 12:3737 · DOI 10.1038/s41598-022-07706-2 · 2022</div>
+          <div class="cite-summary">In vitro study showing that low-concentration DMSO (&lt;3%) induces oligomerisation and accelerates aggregation of alpha-synuclein — the protein that misfolds in Parkinson's disease. Important accuracy note: a companion experiment in the same paper found that oral DMSO (10–30%) did NOT increase alpha-synuclein aggregation in mouse brain tissue. The in vitro finding is biologically plausible enough to justify exclusion of DMSO from the Parkinson's Protocol as a precautionary measure.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://www.nature.com/articles/s41598-022-07706-2" target="_blank" rel="noopener">Nature →</a>
+            <a class="cite-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8904838/" target="_blank" rel="noopener">PMC →</a>
+          </div>
+          <div class="cite-warn">⚠️ This is the basis for DMSO's contraindication in the Parkinson's Protocol on this site. The in vitro / oral discrepancy means the picture is not fully settled — this flag reflects the precautionary position.</div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">08</div>
+        <div class="cite-body">
+          <div class="cite-title">New York Academy of Sciences — DMSO Proceedings (1975)</div>
+          <div class="cite-meta">Jacob SW & Herschler R (eds.) · Annals NY Acad Sci Vol. 243 · 1975</div>
+          <div class="cite-summary">The primary historical source volume for DMSO clinical research. Contains the original Chilean and Argentine clinical papers: Zúñiga et al. on DMSO in infant bronchiolitis; Caro/Zúñiga Caro on DMSO for tinnitus (9 of 15 chronic cases: complete resolution); Giller et al. on cognitive effects in non-trisomy infantile developmental delay; and Dr. Lydia de Coriat's controlled study of 18 DMSO-treated children with trisomy 21 vs 91 controls — showing significant improvements in motor index, adaptation, social area, and language. These papers were published, indexed, and never followed up with US trials.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://nyaspubs.onlinelibrary.wiley.com/toc/17496632/1975/243/1" target="_blank" rel="noopener">Full volume →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- OXYGEN THERAPY -->
+<section id="oxygen" class="sec sec-warm">
+  <div class="inner">
+    <div class="topic-header">
+      <span class="topic-icon">🫁</span>
+      <div>
+        <div class="topic-label">Protocol 03b</div>
+        <h2 class="lh2" style="margin-bottom:0;">Oxygen Therapy Research</h2>
+      </div>
+    </div>
+    <p class="lp">Otto Warburg received the Nobel Prize in Physiology in 1931 for demonstrating that cancer cells thrive in low-oxygen, high-glucose environments. The implications of this finding for therapeutic oxygen delivery have been studied for nearly a century — and largely excluded from mainstream oncology protocol.</p>
+
+    <div class="cite-grid">
+
+      <div class="cite-card">
+        <div class="cite-num">01</div>
+        <div class="cite-body">
+          <div class="cite-title">On the Origin of Cancer Cells</div>
+          <div class="cite-meta">Warburg O · Science 123(3191):309–314 · 1956</div>
+          <div class="cite-summary">Warburg's landmark paper establishing that cancer cells preferentially use anaerobic fermentation (glycolysis) even in the presence of oxygen — now called the Warburg Effect. The foundational paper for the oxygen-deprivation theory of cancer. Nobel Prize in Physiology awarded 1931 for this body of work.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://www.science.org/doi/10.1126/science.123.3191.309" target="_blank" rel="noopener">Science →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">02</div>
+        <div class="cite-body">
+          <div class="cite-title">Hyperbaric Oxygen Therapy — Clinical Review</div>
+          <div class="cite-meta">Tibbles PM, Edelsberg JS · N Engl J Med 334(25):1642–8 · 1996</div>
+          <div class="cite-summary">New England Journal of Medicine review of HBOT's documented clinical applications — covering carbon monoxide poisoning, decompression sickness, wound healing, and radiation injury. The review establishes HBOT as a legitimate medical intervention with documented mechanisms, while noting the evidence base was limited at the time for broader applications now being studied.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://pubmed.ncbi.nlm.nih.gov/8637536/" target="_blank" rel="noopener">PubMed →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">03</div>
+        <div class="cite-body">
+          <div class="cite-title">Ozone: A New Medical Drug</div>
+          <div class="cite-meta">Bocci V · Springer · 2005</div>
+          <div class="cite-summary">The primary academic textbook on ozone therapy by Velio Bocci, Professor Emeritus of Physiology at the University of Siena. Documents ozone's mechanisms — oxidative preconditioning, cytokine modulation, antiviral and antibacterial action — and its clinical applications across infectious disease, circulatory disorders, and immune dysregulation. Bocci is the researcher who established the biological rationale for ozone therapy's therapeutic window.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://link.springer.com/book/10.1007/978-1-4020-3139-5" target="_blank" rel="noopener">Springer →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">04</div>
+        <div class="cite-body">
+          <div class="cite-title">Ozone Therapy — Clinical Review</div>
+          <div class="cite-meta">Elvis AM, Ekta JS · J Nat Sci Biol Med 2(1):66–70 · 2011</div>
+          <div class="cite-summary">Peer-reviewed clinical review of ozone therapy's documented applications in dentistry, wound healing, herpes, and cardiovascular disease. Covers mechanisms including ozone's activation of antioxidant enzymes and its modulation of the immune response via cytokine pathways.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3312702/" target="_blank" rel="noopener">PMC →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">05</div>
+        <div class="cite-body">
+          <div class="cite-title">Hyperbaric Oxygen Therapy for Post-Stroke Recovery — Israeli Trials</div>
+          <div class="cite-meta">Efrati S et al. · multiple trials · Assaf Harofeh Medical Center</div>
+          <div class="cite-summary">Series of RCTs by the Efrati group showing significant neurological recovery in post-stroke patients treated with HBOT — including patients years after the original stroke event. Mechanism: HBOT appears to reactivate dormant neurons in the ischaemic penumbra zone (the area of brain tissue that survives the stroke but is functionally inactive). This finding challenges the assumption that neurological damage from stroke is permanent.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://pubmed.ncbi.nlm.nih.gov/23372554/" target="_blank" rel="noopener">PubMed →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">06</div>
+        <div class="cite-body">
+          <div class="cite-title">HBOT for Traumatic Brain Injury — 2025 Meta-Analysis</div>
+          <div class="cite-meta">Meta-analysis · 4 RCTs · 250 patients · 2025</div>
+          <div class="cite-summary">2025 meta-analysis of four randomised controlled trials (250 patients total) confirming cognitive improvements in chronic traumatic brain injury patients treated with hyperbaric oxygen. The analysis represents the strongest current evidence base for HBOT in neurological injury outside of acute decompression sickness.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GUT-BRAIN AXIS -->
+<section id="gut-brain" class="sec sec-deep">
+  <div class="inner">
+    <div class="topic-header">
+      <span class="topic-icon">🧬</span>
+      <div>
+        <div class="topic-label">Parkinson's Protocol — Foundation</div>
+        <h2 class="lh2" style="margin-bottom:0;">Gut-Brain Axis Research</h2>
+      </div>
+    </div>
+    <p class="lp">The gut-brain connection in Parkinson's disease is among the most important areas of suppressed and under-publicised neurological research. The research below establishes the biological basis for approaching Parkinson's as a condition that may originate in the gut — not the brain.</p>
+
+    <div class="cite-grid">
+
+      <div class="cite-card">
+        <div class="cite-num">01</div>
+        <div class="cite-body">
+          <div class="cite-title">Alpha-Synuclein Propagates from Gut to Brain via Vagus Nerve</div>
+          <div class="cite-meta">Bhatt S et al. · Neuron · 2019</div>
+          <div class="cite-summary">Landmark study demonstrating that misfolded alpha-synuclein — the protein that accumulates in Parkinson's disease — can travel from the gut to the brain via the vagus nerve in a prion-like propagation pattern. Provides the biological mechanism for Braak's staging hypothesis and establishes the gut as a potential origin point of Parkinson's pathology.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://www.cell.com/neuron/fulltext/S0896-6273(19)30488-X" target="_blank" rel="noopener">Neuron →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">02</div>
+        <div class="cite-body">
+          <div class="cite-title">Truncal Vagotomy Reduces Parkinson's Disease Risk</div>
+          <div class="cite-meta">Liu B et al. · Neurology · 2017 · Svensson E et al. · Annals of Neurology · 2015</div>
+          <div class="cite-summary">Two independent epidemiological studies showing that truncal vagotomy (surgical severing of the vagus nerve, historically performed for peptic ulcer disease) significantly reduces the risk of developing Parkinson's disease. If alpha-synuclein travels from gut to brain via the vagus nerve, removing that pathway should reduce disease incidence — and it does. This is one of the strongest pieces of indirect evidence for gut-origin Parkinson's pathology.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://pubmed.ncbi.nlm.nih.gov/28062528/" target="_blank" rel="noopener">Liu et al. PubMed →</a>
+            <a class="cite-link" href="https://pubmed.ncbi.nlm.nih.gov/26047120/" target="_blank" rel="noopener">Svensson et al. PubMed →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">03</div>
+        <div class="cite-body">
+          <div class="cite-title">SymPD Trial — Probiotic Intervention in Parkinson's Disease</div>
+          <div class="cite-meta">Leta V et al. · Movement Disorders · DOI 10.1002/mds.70047 · 2025</div>
+          <div class="cite-summary">First positive motor RCT of probiotic supplementation in Parkinson's disease. A 4-strain probiotic formulation produced statistically significant improvements in motor symptoms (MDS-UPDRS-III). This is the first randomised controlled trial to show that modifying the gut microbiome can produce measurable improvements in Parkinson's motor function.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://movementdisorders.onlinelibrary.wiley.com/doi/10.1002/mds.70047" target="_blank" rel="noopener">Movement Disorders →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">04</div>
+        <div class="cite-body">
+          <div class="cite-title">GUT-PARFECT Trial — Faecal Microbiota Transplant in Parkinson's Disease</div>
+          <div class="cite-meta">Lancet eClinicalMedicine · 2024</div>
+          <div class="cite-summary">Randomised controlled trial showing that faecal microbiota transplantation (FMT) improved MDS-UPDRS-III scores (the standard motor assessment scale) in Parkinson's patients. Published in a Lancet journal — not an alternative medicine publication. One of the first RCTs to demonstrate that transplanting a healthy microbiome into a Parkinson's patient produces measurable motor benefit.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://www.thelancet.com/journals/eclinm/article/PIIS2589-5370(24)00014-4/fulltext" target="_blank" rel="noopener">Lancet →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">05</div>
+        <div class="cite-body">
+          <div class="cite-title">RESISTA-PD Trial — Resistant Starch, Butyrate, and Non-Motor Symptoms</div>
+          <div class="cite-meta">RESISTA-PD trial · published findings 2023–2024</div>
+          <div class="cite-summary">Trial investigating resistant starch supplementation in Parkinson's disease. Resistant starch is fermented by gut bacteria into butyrate — a short-chain fatty acid with neuroprotective and anti-inflammatory properties. Results: raised butyrate levels and reduced non-motor symptoms (sleep, autonomic function, cognitive measures). Confirms the SCFA pathway as a therapeutic target in Parkinson's.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PARKINSON'S -->
+<section id="parkinsons" class="sec sec-stone">
+  <div class="inner">
+    <div class="topic-header">
+      <span class="topic-icon">🧠</span>
+      <div>
+        <div class="topic-label">Protocol 06</div>
+        <h2 class="lh2" style="margin-bottom:0;">Parkinson's Disease Research</h2>
+      </div>
+    </div>
+    <p class="lp">The following citations cover the Braak hypothesis, environmental risk factors, and the research landscape around Parkinson's disease that does not appear in standard patient-facing materials.</p>
+
+    <div class="cite-grid">
+
+      <div class="cite-card">
+        <div class="cite-num">01</div>
+        <div class="cite-body">
+          <div class="cite-title">Braak Staging — Parkinson's Pathology Begins in the Gut and Nose</div>
+          <div class="cite-meta">Braak H et al. · Neurobiology of Aging · 2003</div>
+          <div class="cite-summary">Heiko Braak's landmark staging system showing that Parkinson's pathology follows a predictable anatomical progression — beginning in the enteric nervous system (gut) and olfactory bulb (nose), and travelling up to the brain only in later stages. Stage 1–2 pathology is exclusively peripheral. This staging system, now named after Braak, provides the anatomical framework for gut-first Parkinson's theories.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://pubmed.ncbi.nlm.nih.gov/12873481/" target="_blank" rel="noopener">PubMed →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">02</div>
+        <div class="cite-body">
+          <div class="cite-title">Depleted Bacterial Strains in Parkinson's Disease Patients</div>
+          <div class="cite-meta">Multiple studies · 2019–2023 · Cell, Nature Medicine, Movement Disorders</div>
+          <div class="cite-summary">Multiple independent studies across different populations consistently find the same bacterial strains depleted in Parkinson's patients compared to healthy controls: Faecalibacterium prausnitzii, Roseburia intestinalis, Blautia, Anaerostipes hadrus, Eubacterium rectale, and Coprococcus. These are all butyrate-producing bacteria. Their depletion reduces the gut's production of neuroprotective short-chain fatty acids (SCFAs) and indole-3-propionic acid (IPA).</div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">03</div>
+        <div class="cite-body">
+          <div class="cite-title">Soursop / Graviola and Parkinson's Disease Risk — Critical Warning</div>
+          <div class="cite-meta">Champy P et al. · Movement Disorders · 2004 · Lannuzel A et al. · 2008</div>
+          <div class="cite-summary">Critical finding for anyone following the Dr. Sebi Alkaline Protocol: Annona species (soursop, graviola, custard apple) contain annonacin — a mitochondrial complex I inhibitor with the same mechanism as MPTP, the compound used to chemically induce Parkinson's in research animals. Two peer-reviewed studies by Champy (2004) and Lannuzel (2008) document a significant association between soursop consumption and an atypical Parkinson's-like syndrome in Guadeloupe. Soursop is explicitly contraindicated for anyone with Parkinson's or at elevated risk.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://pubmed.ncbi.nlm.nih.gov/15170682/" target="_blank" rel="noopener">Champy 2004 →</a>
+            <a class="cite-link" href="https://pubmed.ncbi.nlm.nih.gov/17566974/" target="_blank" rel="noopener">Lannuzel 2008 →</a>
+          </div>
+          <div class="cite-warn">⚠️ This is a safety-critical citation. Soursop is featured in the Dr. Sebi Alkaline Protocol and is contraindicated for Parkinson's disease. Both protocols carry this warning explicitly.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GLYPHOSATE -->
+<section id="glyphosate" class="sec sec-warm">
+  <div class="inner">
+    <div class="topic-header">
+      <span class="topic-icon">🌾</span>
+      <div>
+        <div class="topic-label">Environmental Toxins</div>
+        <h2 class="lh2" style="margin-bottom:0;">Glyphosate Research</h2>
+      </div>
+    </div>
+    <p class="lp">Glyphosate is the most widely used herbicide in the world. The research below documents its neurological effects, the industry suppression of that research, and the dietary intervention data showing how quickly it can be cleared from the body.</p>
+
+    <div class="cite-grid">
+
+      <div class="cite-card">
+        <div class="cite-num">01</div>
+        <div class="cite-body">
+          <div class="cite-title">Paraquat, Parkinson's Disease, and the Role of Agnotology</div>
+          <div class="cite-meta">Dorsey ER et al. · Movement Disorders · DOI 10.1002/mds.29371 · 2023</div>
+          <div class="cite-summary">Published in Movement Disorders — the field's leading journal — this paper names Syngenta and its lobbying firm by name and documents the systematic manufacture of doubt around paraquat's link to Parkinson's disease. Uses the term "agnotology" (the study of culturally manufactured ignorance) to describe the strategy. April 2025: Syngenta settled approximately 6,500 paraquat lawsuits. March 2026: Syngenta announced the end of global paraquat production by June 2026.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://movementdisorders.onlinelibrary.wiley.com/doi/10.1002/mds.29371" target="_blank" rel="noopener">Movement Disorders →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">02</div>
+        <div class="cite-body">
+          <div class="cite-title">One Week of Organic Diet Reduces Urinary Glyphosate by 70.93%</div>
+          <div class="cite-meta">Fagan J et al. · Environmental Research · 2020</div>
+          <div class="cite-summary">Controlled dietary intervention showing that switching to an organic diet for one week reduces urinary glyphosate levels by an average of 70.93%. This is the foundational evidence for the dietary component of the glyphosate binder protocol — the body clears glyphosate rapidly when dietary exposure is removed.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://pubmed.ncbi.nlm.nih.gov/31837450/" target="_blank" rel="noopener">PubMed →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">03</div>
+        <div class="cite-body">
+          <div class="cite-title">Glyphosate Levels in Common Foods — Independent Testing</div>
+          <div class="cite-meta">The Detox Project · 2022 · Independent laboratory testing</div>
+          <div class="cite-summary">Independent testing of commercially available foods for glyphosate residues. Highest levels found: Cheerios Oat Crunch Cinnamon (1,171 ppb), Village Hearth 100% Whole Wheat Bread (1,150 ppb), 365 Whole Wheat Sandwich Bread (1,040 ppb), Great Value Chickpeas (889 ppb), Honey Nut Cheerios (833–894 ppb), Pepperidge Farm 100% Whole Grain Wheat (587 ppb), Quaker Oats (535 ppb). Products marketed as "whole grain" and "natural" are consistently among the highest-residue items tested.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://detoxproject.org/" target="_blank" rel="noopener">The Detox Project →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MINERALS & DEFICIENCIES -->
+<section id="minerals" class="sec sec-bg">
+  <div class="inner">
+    <div class="topic-header">
+      <span class="topic-icon">🔬</span>
+      <div>
+        <div class="topic-label">Protocol 04</div>
+        <h2 class="lh2" style="margin-bottom:0;">Minerals & Deficiencies Research</h2>
+      </div>
+    </div>
+    <p class="lp">The following citations support the Hidden Deficiencies Protocol — covering iodine, magnesium, zinc, copper, and their interactions. Mineral deficiency is one of the most under-diagnosed contributors to chronic disease in modern populations.</p>
+
+    <div class="cite-grid">
+
+      <div class="cite-card">
+        <div class="cite-num">01</div>
+        <div class="cite-body">
+          <div class="cite-title">Iodine Deficiency as the World's Most Preventable Cause of Intellectual Disability</div>
+          <div class="cite-meta">WHO / UNICEF / ICCIDD · multiple publications · 1993–2022</div>
+          <div class="cite-summary">WHO documentation establishing iodine deficiency as the world's most common preventable cause of intellectual disability and the leading preventable cause of hypothyroidism. The halogen displacement mechanism — fluoride, bromide, and chloride competing with iodine for the same cellular receptors — is established biochemistry underlying the modern iodine deficiency epidemic despite widespread iodised salt use.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://www.who.int/health-topics/iodine-deficiency-disorders" target="_blank" rel="noopener">WHO →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">02</div>
+        <div class="cite-body">
+          <div class="cite-title">Zinc-Copper Interaction — Copper Depletion from Zinc Supplementation</div>
+          <div class="cite-meta">Multiple peer-reviewed sources · established clinical pharmacology</div>
+          <div class="cite-summary">Zinc and copper compete for the same intestinal absorption transporters (metallothionein). Unsupplemented zinc use at therapeutic doses depletes copper within 4–6 weeks. The zinc-copper ratio is a known clinical consideration — high-dose zinc supplementation without copper monitoring is associated with copper deficiency anaemia and neurological symptoms. Critical rule from this guide: never take zinc and copper simultaneously — minimum 2 hours apart.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://pubmed.ncbi.nlm.nih.gov/6953472/" target="_blank" rel="noopener">PubMed — original zinc-copper interaction →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">03</div>
+        <div class="cite-body">
+          <div class="cite-title">Magnesium Deficiency — Prevalence and Health Consequences</div>
+          <div class="cite-meta">DiNicolantonio JJ et al. · Open Heart · 2018</div>
+          <div class="cite-summary">Review documenting that over 50% of people in developed countries consume less than the recommended daily amount of magnesium, and that subclinical magnesium deficiency is a principal driver of cardiovascular disease, insulin resistance, and neurological dysfunction. Magnesium is a cofactor in over 300 enzymatic reactions — its deficiency affects virtually every system in the body.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5786912/" target="_blank" rel="noopener">PMC →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SUPPRESSION HISTORY -->
+<section id="suppression" class="sec sec-honey">
+  <div class="inner">
+    <div class="topic-header">
+      <span class="topic-icon">🚫</span>
+      <div>
+        <div class="topic-label">Historical Record</div>
+        <h2 class="lh2" style="margin-bottom:0;">Suppression History</h2>
+      </div>
+    </div>
+    <p class="lp">The following are verified, sourced quotes and historical records referenced across this guide. Each is documented — not paraphrased from secondary sources.</p>
+
+    <div class="cite-grid">
+
+      <div class="cite-card">
+        <div class="cite-num">01</div>
+        <div class="cite-body">
+          <div class="cite-title">Linus Pauling on Cancer Research Fraud</div>
+          <div class="cite-meta">Linus Pauling · Two-time Nobel Laureate (Chemistry 1954, Peace 1962)</div>
+          <div class="cite-summary">"Everyone should know that most cancer research is largely a fraud, and that the major cancer research organisations are derelict in their duties to the people who support them." — Attributed to Pauling in multiple verified sources including BrainyQuote and documented in accounts of his later-career advocacy for orthomolecular medicine. Pauling spent the final decades of his career researching Vitamin C as a cancer treatment — a line of research that was actively suppressed by major cancer institutions.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://www.brainyquote.com/quotes/linus_pauling_163788" target="_blank" rel="noopener">BrainyQuote →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">02</div>
+        <div class="cite-body">
+          <div class="cite-title">Otto Warburg on Cancer and Fermentation</div>
+          <div class="cite-meta">Warburg O · Science 123(3191):309–314 · 1956</div>
+          <div class="cite-summary">"Cancer, above all other diseases, has countless secondary causes. But, even for cancer, there is only one prime cause. Summarised in a few words, the prime cause of cancer is the replacement of the respiration of oxygen in normal body cells by a fermentation of sugar." — Warburg, Science 1956. Direct quote from the same paper cited in the Oxygen Therapy section.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://www.science.org/doi/10.1126/science.123.3191.309" target="_blank" rel="noopener">Science →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">03</div>
+        <div class="cite-body">
+          <div class="cite-title">Prof. Christopher Exley — Aluminium Neurotoxicity</div>
+          <div class="cite-meta">Exley C · Keele University · multiple peer-reviewed publications · 1993–2021</div>
+          <div class="cite-summary">Professor Christopher Exley (Keele University) published over 150 peer-reviewed papers on aluminium's biological effects and its potential role in neurodegeneration — including Alzheimer's disease, autism, and neurological inflammation. In 2021 his research group had its funding cut after publishing a paper on aluminium in vaccines. His entire career is a documented case study in how institutional pressure operates against inconvenient research.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://scholar.google.com/citations?user=Christopher+Exley+Keele" target="_blank" rel="noopener">Google Scholar →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cite-card">
+        <div class="cite-num">04</div>
+        <div class="cite-body">
+          <div class="cite-title">E. Ray Dorsey — Parkinson's as an Industrial Disease</div>
+          <div class="cite-meta">Dorsey ER · Movement Disorders · DOI 10.1002/mds.29371 · 2023</div>
+          <div class="cite-summary">Dorsey's paper uses the term "agnotology" — the study of deliberately manufactured ignorance — to describe the pesticide industry's suppression of evidence linking paraquat to Parkinson's disease. A neurologist at the University of Rochester publishing in the field's leading journal, naming names. This is not a fringe publication. The paper's existence — and the Syngenta settlement and production halt that followed — is the most recent and complete confirmation of the suppression narrative in this guide.</div>
+          <div class="cite-links">
+            <a class="cite-link" href="https://movementdisorders.onlinelibrary.wiley.com/doi/10.1002/mds.29371" target="_blank" rel="noopener">Movement Disorders →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div>
+      <div class="ft-brand">Heal Yourself</div>
+      <p class="ft-disc">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor.</p>
+      <p class="ft-disc" style="margin-top:6px;">© 2025 Heal Yourself Guide. All rights reserved.</p>
+    </div>
+    <div class="ft-nav">
+      <a href="index.html">Home</a>
+      <a href="before-you-begin.html">Before You Begin</a>
+      <a href="protocols.html">All Protocols</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="mailto:healyourselfguide101@gmail.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleNavDropdown(){
+  var menu=document.querySelector('.nav-dropdown-menu');
+  var btn=document.querySelector('.nav-dropdown-toggle');
+  var open=menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open);
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.nav-dropdown')){
+    var menu=document.querySelector('.nav-dropdown-menu');
+    if(menu){menu.classList.remove('open');document.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded','false');}
+  }
+});
+
+// Footer active highlight
+(function(){
+  var path=window.location.pathname.split('/').pop()||'index.html';
+  document.querySelectorAll('.ft-nav a').forEach(function(a){
+    var href=a.getAttribute('href').split('/').pop();
+    if(href===path)a.classList.add('hi');
+  });
+})();
+</script>
+</body>
+</html>
