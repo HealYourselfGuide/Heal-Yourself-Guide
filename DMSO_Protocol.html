@@ -40,7 +40,39 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
 .nav-center{display:flex;align-items:center;}
 .nav-center a{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.80);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;white-space:nowrap;}
 .nav-center a:hover{color:var(--sage-nav);border-bottom-color:rgba(138,184,154,0.3);}
-@media(max-width:400px){.nav-center{display:none;}}
+
+/* MOBILE HAMBURGER MENU */
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;width:40px;height:40px;align-items:center;justify-content:center;flex-shrink:0;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#d4c9a8;border-radius:2px;transition:transform 0.25s,opacity 0.2s;}
+.nav-hamburger span+span{margin-top:5px;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:98;opacity:0;transition:opacity 0.25s;}
+.nav-overlay.open{display:block;opacity:1;}
+@media(max-width:768px){
+  .nav-hamburger{display:flex;}
+  .nav-center{
+    position:fixed;top:var(--nav-h);right:0;bottom:0;width:min(300px,80vw);
+    background:var(--bg-nav);flex-direction:column;align-items:stretch;
+    padding:8px 0 24px;overflow-y:auto;z-index:99;
+    transform:translateX(100%);transition:transform 0.28s ease;
+    border-left:1px solid rgba(138,184,154,0.15);
+  }
+  .nav-center.open{transform:translateX(0);}
+  .nav-center a{height:auto;padding:14px 24px;border-bottom:1px solid rgba(138,184,154,0.08);justify-content:flex-start;}
+  .nav-center a:hover{border-bottom-color:rgba(138,184,154,0.08);}
+  .nav-dropdown{flex-direction:column;align-items:stretch;height:auto;}
+  .nav-dropdown-toggle{height:auto;padding:14px 24px;justify-content:space-between;width:100%;border-bottom:1px solid rgba(138,184,154,0.08);}
+  .nav-dropdown-menu{position:static;opacity:1;visibility:visible;transform:none;background:rgba(0,0,0,0.15);border:none;border-radius:0;min-width:0;padding:0;max-height:0;overflow:hidden;transition:max-height 0.25s ease;}
+  .nav-dropdown.open .nav-dropdown-menu{max-height:2000px;}
+  .nav-dropdown-menu>a,.dd-group>a{padding-left:36px;}
+  .dd-group>a::after{display:none;}
+  .dd-subs{position:static;opacity:1;visibility:visible;pointer-events:auto;background:rgba(0,0,0,0.15);border:none;border-radius:0;min-width:0;padding:0;}
+  .dd-subs a.dd-sub{padding-left:52px!important;}
+}
+
+
 .nav-dropdown{position:relative;display:flex;align-items:center;height:var(--nav-h);}
 .nav-dropdown-toggle{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.80);padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;white-space:nowrap;cursor:pointer;gap:5px;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;}
 .nav-dropdown-toggle:hover,.nav-dropdown:hover .nav-dropdown-toggle{color:var(--sage-nav);border-bottom-color:rgba(138,184,154,0.3);}
@@ -344,7 +376,11 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
     <a href="research.html">Research</a>
     <a href="about.html">About</a>
   </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-overlay" id="navOverlay" onclick="closeMobileNav()"></div>
 
 <!-- FLOATING SHARE BAR -->
 <div class="share-float" aria-label="Share this guide">
@@ -1461,6 +1497,33 @@ if(stickyBtn && stickyLink && partAEl){
   window.addEventListener('scroll', showAfterHero, {passive:true});
   showAfterHero();
 }
+</script>
+<script>
+function toggleMobileNav(){
+  var center=document.querySelector('.nav-center');
+  var ham=document.getElementById('navHamburger');
+  var overlay=document.getElementById('navOverlay');
+  var isOpen=center.classList.toggle('open');
+  ham.classList.toggle('open',isOpen);
+  ham.setAttribute('aria-expanded',isOpen?'true':'false');
+  overlay.classList.toggle('open',isOpen);
+  document.body.style.overflow=isOpen?'hidden':'';
+}
+function closeMobileNav(){
+  document.querySelector('.nav-center').classList.remove('open');
+  document.getElementById('navHamburger').classList.remove('open');
+  document.getElementById('navHamburger').setAttribute('aria-expanded','false');
+  document.getElementById('navOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+// Close mobile nav when a link inside it is clicked
+document.querySelectorAll('.nav-center a').forEach(function(a){
+  a.addEventListener('click',function(){
+    if(window.innerWidth<=768 && !a.closest('.nav-dropdown')){
+      closeMobileNav();
+    }
+  });
+});
 </script>
 </body>
 </html>
