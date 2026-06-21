@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--nav-h:56px;--bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-nav:#2c3a2e;--bg-footer:#263028;--ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#7a6e5c;--ink-ghost:#a89e8e;--sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-nav:#8ab89a;--terra:#8c5a3c;--border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);}
+:root{--nav-h:56px;--bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-nav:#2c3a2e;--bg-footer:#263028;--ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#5c5144;--ink-ghost:#a89e8e;--sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-nav:#8ab89a;--terra:#8c5a3c;--border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);padding-top:var(--nav-h);}
@@ -34,15 +34,21 @@ footer p{font-size:12px;color:rgba(212,201,168,0.45);line-height:1.7;}
 footer a{color:rgba(212,201,168,0.55);text-decoration:none;border-bottom:none;}
 footer a:hover{color:#d4c9a8;}
 @media print{nav,footer{display:none!important;}}
+
+/* SKIP LINK */
+.skip-link{position:absolute;top:-60px;left:8px;background:var(--sage);color:#fff;padding:10px 18px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;z-index:1000;transition:top 0.2s;}
+.skip-link:focus{top:8px;}
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <nav>
   <a href="index.html" class="nav-logo">Heal Yourself</a>
   <a href="index.html" class="nav-back">← Back to Guide</a>
 </nav>
 
-<div class="inner">
+<div class="inner" id="main-content">
   <h1>Privacy Policy</h1>
   <p class="updated">Last updated: June 2025</p>
 
@@ -98,7 +104,7 @@ footer a:hover{color:#d4c9a8;}
 </div>
 
 <footer>
-  <p>© 2025 Heal Yourself Guide · <a href="index.html">Home</a> · <a href="mailto:healyourselfguide101@gmail.com">Contact</a></p>
+  <p>© 2026 Heal Yourself Guide · <a href="index.html">Home</a> · <a href="terms-of-service.html">Terms of Use</a> · <a href="mailto:healyourselfguide101@gmail.com">Contact</a></p>
 </footer>
 </body>
 </html>
