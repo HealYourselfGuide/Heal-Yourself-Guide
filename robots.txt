@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block junk files
+Disallow: /index (1).html
+Disallow: /google24303806d14d3752.html
+
+Sitemap: https://healyourselfguide.github.io/Heal-Yourself-Guide/sitemap.xml

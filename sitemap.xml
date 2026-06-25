@@ -1,93 +1,196 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
   <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/index.html</loc>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/index.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/protocols.html</loc>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/before-you-begin.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/Full_Body_Detox_Protocol.html</loc>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/protocols.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/Full_Body_Detox_Daily_Schedule.html</loc>
-    <priority>0.7</priority>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/research.html</loc>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/Full_Body_Detox_Shopping_List.html</loc>
-    <priority>0.7</priority>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/about.html</loc>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
+
+  <!-- Full Body Detox -->
   <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/Brain_Protocol.html</loc>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Full_Body_Detox_Protocol.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/Brain_Protocol_Daily_Schedule.html</loc>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Full_Body_Detox_Daily_Schedule.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/Brain_Protocol_Shopping_List.html</loc>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Full_Body_Detox_Shopping_List.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
   </url>
+
+  <!-- Brain Protocol -->
   <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/DMSO_Protocol.html</loc>
-    <priority>0.8</priority>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Brain_Protocol.html</loc>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/DMSO_Daily_Schedule.html</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/Oxygen_Therapy.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/Hidden_Deficiencies.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/Dr_Sebi_Alkaline_Protocol.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/Parkinsons_Protocol.html</loc>
     <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/Parkinsons_Daily_Schedule.html</loc>
-    <priority>0.7</priority>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Brain_Protocol_Daily_Schedule.html</loc>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/Parkinsons_Shopping_Table.html</loc>
-    <priority>0.7</priority>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Brain_Protocol_Shopping_List.html</loc>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- DMSO Protocol -->
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/DMSO_Protocol.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/Parkinsons_Must_Have.html</loc>
-    <priority>0.7</priority>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/DMSO_Daily_Schedule.html</loc>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sharondrn-sys.github.io/Heal-Yourself-Guide/Parkinsons_Symptoms.html</loc>
-    <priority>0.7</priority>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/DMSO_Shopping_List.html</loc>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/DMSO_Oxygen_Therapy.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Oxygen Therapy -->
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Oxygen_Therapy.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hidden Deficiencies -->
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Hidden_Deficiencies.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Hidden_Deficiencies_Daily_Schedule.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Hidden_Deficiencies_Shopping_List.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Dr. Sebi Alkaline Protocol -->
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Dr_Sebi_Alkaline_Protocol.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Dr_Sebi_Alkaline_Protocol_Daily_Schedule.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Dr_Sebi_Alkaline_Protocol_Shopping_List.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Parkinson's Protocol -->
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Parkinsons_Protocol.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Parkinsons_Daily_Schedule.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Parkinsons_Shopping_Table.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Parkinsons_Must_Have.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/Parkinsons_Symptoms.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Legal -->
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/privacy-policy.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://healyourselfguide.github.io/Heal-Yourself-Guide/terms-of-service.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
