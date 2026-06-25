@@ -42,9 +42,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
 .nav-center a:hover{color:var(--sage-nav);border-bottom-color:rgba(138,184,154,0.3);}
 
 /* MOBILE HAMBURGER MENU */
-.nav-hamburger{display:none;background:rgba(255,255,255,0.08);border:1px solid rgba(212,201,168,0.25);border-radius:6px;cursor:pointer;padding:10px;width:44px;height:44px;align-items:center;justify-content:center;flex-shrink:0;}
-.nav-hamburger span{display:block;width:24px;height:2.5px;background:#d4c9a8;border-radius:3px;transition:transform 0.25s,opacity 0.2s;}
-.nav-hamburger span+span{margin-top:6px;}
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px 8px;font-size:26px;color:#d4c9a8;line-height:1;flex-shrink:0;letter-spacing:0;}
 .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .nav-hamburger.open span:nth-child(2){opacity:0;}
 .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
@@ -54,7 +52,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
   nav{padding:0 16px;}
   .nav-hamburger{display:flex;}
   .nav-center{
-    position:fixed;top:var(--nav-h);right:0;bottom:0;width:min(280px,75vw);
+    position:fixed;top:var(--nav-h);right:0;bottom:0;width:min(260px,65vw);
     background:var(--bg-nav);flex-direction:column;align-items:stretch;
     padding:8px 0 24px;overflow-y:auto;z-index:99;
     transform:translateX(100%);transition:transform 0.28s ease;
@@ -399,9 +397,7 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
     <a href="research.html">Research</a>
     <a href="about.html">About</a>
   </div>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav()">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav()">☰</button>
 </nav>
 <div class="nav-overlay" id="navOverlay" onclick="closeMobileNav()"></div>
 
