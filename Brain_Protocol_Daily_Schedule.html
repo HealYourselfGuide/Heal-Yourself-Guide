@@ -422,6 +422,11 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
   .dd-subs{position:static;opacity:1;visibility:visible;pointer-events:auto;background:rgba(0,0,0,0.15);border:none;border-radius:0;min-width:0;padding:0;}
   .dd-subs a.dd-sub{padding-left:52px!important;}
 }
+.jump-nav{background:var(--bg-deep);border-bottom:1px solid var(--border-s);padding:0 24px;position:sticky;top:var(--nav-h);z-index:90;overflow-x:auto;scrollbar-width:none;}
+.jump-nav-inner{display:flex;min-width:0;max-width:960px;margin:0 auto;justify-content:center;}
+.jump-nav::-webkit-scrollbar{display:none;}
+.jump-nav a{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:12px 14px;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;}
+.jump-nav a:hover,.jump-nav a.active{color:var(--sage);border-bottom-color:var(--sage);}
 </style>
   <script type="application/ld+json">
   {
@@ -581,10 +586,23 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
   <div class="divider" style="margin:8px 0 32px;"></div>
 
+<!-- JUMP NAV -->
+<div class="jump-nav">
+  <div class="jump-nav-inner" style="min-width:0;">
+    <a href="#morning">🌅 Morning</a>
+    <a href="#breakfast">🍳 Breakfast</a>
+    <a href="#mid-morning">🏃 Mid-Morning</a>
+    <a href="#lunch">🍽️ Lunch</a>
+    <a href="#afternoon">🌤️ Afternoon</a>
+    <a href="#evening">🌇 Evening</a>
+    <a href="#bedtime">🌙 Bedtime</a>
+  </div>
+</div>
+
   <!-- SCHEDULE TABLE -->
   <table class="sched-table">
 
-    <tr data-label="🌅 Morning — On Waking">
+    <tr id="morning" data-label="🌅 Morning — On Waking">
       <td class="time-col"><div class="time-label"><span class="t-icon">🌅</span>Morning<br>On Waking</div></td>
       <td class="items-col">
         <div class="sched-row-item">
@@ -614,7 +632,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
       </td>
     </tr>
 
-    <tr data-label="🍳 Breakfast">
+    <tr id="breakfast" data-label="🍳 Breakfast">
       <td class="time-col"><div class="time-label"><span class="t-icon">🍳</span>Breakfast</div></td>
       <td class="items-col">
         <div class="sched-row-item">
@@ -650,7 +668,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
       </td>
     </tr>
 
-    <tr data-label="🏃 Mid-Morning">
+    <tr id="mid-morning" data-label="🏃 Mid-Morning">
       <td class="time-col"><div class="time-label"><span class="t-icon">🏃</span>Mid-Morning</div></td>
       <td class="items-col">
         <div class="sched-row-item">
@@ -662,7 +680,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
       </td>
     </tr>
 
-    <tr data-label="🍽️ Lunch">
+    <tr id="lunch" data-label="🍽️ Lunch">
       <td class="time-col"><div class="time-label"><span class="t-icon">🍽️</span>Lunch</div></td>
       <td class="items-col">
         <div class="sched-row-item">
@@ -698,7 +716,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
       </td>
     </tr>
 
-    <tr data-label="🌤️ Afternoon">
+    <tr id="afternoon" data-label="🌤️ Afternoon">
       <td class="time-col"><div class="time-label"><span class="t-icon">🌤️</span>Afternoon</div></td>
       <td class="items-col">
         <div class="sched-row-item">
@@ -721,7 +739,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
       </td>
     </tr>
 
-    <tr data-label="🌇 Evening">
+    <tr id="evening" data-label="🌇 Evening">
       <td class="time-col"><div class="time-label"><span class="t-icon">🌇</span>Evening</div></td>
       <td class="items-col">
         <div class="sched-row-item">
@@ -752,7 +770,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
       </td>
     </tr>
 
-    <tr data-label="🌙 Bedtime">
+    <tr id="bedtime" data-label="🌙 Bedtime">
       <td class="time-col"><div class="time-label"><span class="t-icon">🌙</span>Bedtime</div></td>
       <td class="items-col">
         <div class="sched-row-item">
