@@ -534,6 +534,16 @@ footer a:hover{color:#d4c9a8;}
   </div>
 </div>
 
+
+<!-- PHASE COMPANION BAR -->
+<div id="shop-companion" style="position:sticky;top:calc(var(--nav-h) + 40px);z-index:89;background:var(--bg-stone);border-bottom:1px solid var(--border-s);padding:8px 24px;">
+  <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;">
+    <a href="Full_Body_Detox_Protocol.html" style="display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:5px;">📖 Full Protocol</a>
+    <a id="shop-sched-link" href="Full_Body_Detox_Daily_Schedule.html" style="display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#fff;background:var(--sage);text-decoration:none;padding:5px 12px;border-radius:5px;">📋 Phase 1 Daily Schedule →</a>
+  </div>
+</div>
+
+
 <div class="main">
 
   <!-- ═══════════════════════════════ PHASE 1 ═══════════════════════════════ -->
@@ -1194,6 +1204,36 @@ document.querySelectorAll('.nav-center a').forEach(function(a){
     }
   });
 });
+</script>
+
+<script>
+// Shopping list companion bar - updates as user scrolls to each phase
+(function(){
+  var phases = [1,2,3,4,5];
+  var phaseNames = {1:'Phase 1',2:'Phase 2',3:'Phase 3',4:'Phase 4',5:'Phase 5'};
+  var link = document.getElementById('shop-sched-link');
+  if(!link) return;
+  
+  var updateCompanion = function(phaseNum){
+    link.href = 'Full_Body_Detox_Daily_Schedule.html';
+    link.textContent = '📋 ' + (phaseNames[phaseNum]||'Phase '+phaseNum) + ' Daily Schedule →';
+  };
+  
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var id = entry.target.id;
+        var num = parseInt(id.replace('phase',''));
+        if(num) updateCompanion(num);
+      }
+    });
+  }, {threshold:0.1, rootMargin:'-10% 0px -80% 0px'});
+  
+  phases.forEach(function(n){
+    var el = document.getElementById('phase'+n);
+    if(el) observer.observe(el);
+  });
+})();
 </script>
 </body>
 </html>

@@ -542,10 +542,6 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
     <strong style="color:var(--sage);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:6px;">How to use this page</strong>
     Select your current phase from the bar below. Each phase shows exactly what to take at each time of day — morning, lunch, evening, and bedtime. Colour-coded tags tell you whether to take something with food, on an empty stomach, or with a full glass of water. Print the page for your current phase and put it somewhere visible — on your fridge, next to your supplements, or by your bed.
   </div>
-  <div class="hero-links">
-    <a href="Full_Body_Detox_Protocol.html" class="hero-link">← Full Protocol</a>
-    <a href="Full_Body_Detox_Shopping_List.html" class="hero-link">🛒 Shopping List</a>
-  </div>
 </section>
 
 <!-- PHASE NAV -->
@@ -592,6 +588,15 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
     </button>
   </div>
 </div>
+
+<!-- PHASE COMPANION BAR -->
+<div id="phase-companion" style="position:sticky;top:calc(var(--nav-h) + 52px);z-index:89;background:var(--bg-stone);border-bottom:1px solid var(--border-s);padding:8px 24px;">
+  <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;">
+    <a href="Full_Body_Detox_Protocol.html" style="display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:5px;">📖 Full Protocol</a>
+    <a id="phase-shop-link" href="Full_Body_Detox_Shopping_List.html#phase1" style="display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#fff;background:var(--sage);text-decoration:none;padding:5px 12px;border-radius:5px;">🛒 Phase 1 Shopping →</a>
+  </div>
+</div>
+
 
 
 <!-- ══════════════════ PHASE 1 ══════════════════ -->
@@ -1492,6 +1497,14 @@ function switchPhase(num){
   // Update URL hash without scrolling
   try{ history.replaceState(null,null,'#phase-'+num); }catch(e){}
   try{ localStorage.setItem('detox-schedule-phase', num); }catch(e){}
+
+  // Update phase companion bar
+  var shopLink = document.getElementById('phase-shop-link');
+  if(shopLink){
+    var phaseNames={1:'Phase 1',2:'Phase 2',3:'Phase 3',4:'Phase 4',5:'Phase 5'};
+    shopLink.href='Full_Body_Detox_Shopping_List.html#phase'+num;
+    shopLink.textContent='🛒 '+(phaseNames[num]||'Phase '+num)+' Shopping →';
+  }
 }
 
 (function(){
