@@ -479,7 +479,9 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
 
 
 <!-- ═══ PART A — UNDERSTAND IT ═══ -->
-<div id="part-a" style="background:var(--sage);padding:10px 24px;text-align:center;">
+<!-- PART A NAV + COMPANION BAR — sticky wrapper -->
+<div class="sticky-nav-wrap" style="position:sticky;top:var(--nav-h);z-index:90;">
+<div id="part-a" style="background:var(--sage);padding:10px 24px;text-align:center;position:sticky;top:var(--nav-h);z-index:91;">
   <span style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;opacity:0.9;">Part A — Understand It · Why This Works · What to Expect · How to Prepare</span>
 
 <!-- STICKY CONTEXT BUTTON -->
@@ -488,8 +490,6 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
 </div>
 </div>
 
-<!-- PART A NAV + COMPANION BAR — sticky wrapper -->
-<div class="sticky-nav-wrap" style="position:sticky;top:var(--nav-h);z-index:90;">
 
 <!-- PART A CHAPTER NAV -->
 <div class="phase-nav" id="part-a-nav" style="background:var(--bg-deep);">
@@ -760,11 +760,10 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
 <!-- PHASE 1 -->
 
 <!-- ═══ PART B — DO IT ═══ -->
-<div id="part-b" style="background:var(--terra);padding:10px 24px;text-align:center;">
+<div style="position:sticky;top:var(--nav-h);z-index:90;">
+<div id="part-b" style="background:var(--terra);padding:10px 24px;text-align:center;position:sticky;top:var(--nav-h);z-index:91;">
   <span style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;opacity:0.9;">Part B — Do It · 4 Phases · Daily Schedules · Supplement Stacks · Shopping Lists</span>
 </div>
-
-
 <!-- PHASE NAV — Part B only -->
 <div class="phase-nav" id="part-b-nav">
   <div class="phase-nav-inner" style="min-width:0;justify-content:center;">
@@ -779,6 +778,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
     <a href="#phase5" data-section="phase5" class="pn-phase"><span class="pn-phase-label">Phase 5</span><span class="pn-phase-sub">Day 91+ · Life After</span></a>
   </div>
 </div>
+</div><!-- end Part B sticky wrapper -->
 
 
 <section class="sec-p1" id="phase1">
