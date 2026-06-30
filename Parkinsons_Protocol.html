@@ -46,6 +46,9 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);ove
 /* Only one Part's sticky nav bar should be visible at a time */
 body.in-part-b #sticky-nav-wrap-a{display:none;}
 body:not(.in-part-b) #sticky-nav-wrap-b{display:none;}
+/* Part A's tab row has too many items for one line — wrap to 2 rows */
+#part-a-nav{height:auto;min-height:80px;flex-wrap:wrap;align-content:center;padding:4px 28px;}
+#part-a-nav .phase-nav-inner{flex-wrap:wrap;row-gap:2px;}
 .phase-nav::-webkit-scrollbar{display:none;}
 .phase-nav-inner{display:flex;align-items:stretch;min-width:0;margin:0 auto;justify-content:center;}
 .phase-nav a{display:flex;align-items:center;gap:6px;padding:0 14px;height:38px;font-size:10px;font-weight:600;letter-spacing:0.07em;color:var(--ink-light);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:color 0.2s,border-color 0.2s;text-transform:uppercase;flex-shrink:0;}
@@ -452,6 +455,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 </div><!-- end sticky wrapper -->
 
 <!-- PERSISTENT COMPANION BAR — stays visible across Part A and Part B -->
+<p style="max-width:700px;margin:14px auto 0;padding:0 24px;text-align:center;font-size:13px;color:var(--ink-light);line-height:1.6;">This protocol has a dedicated daily schedule — exact timing, morning through evening — and a complete shopping list with direct iHerb links.</p>
 <div id="companion-bar" style="position:sticky;top:calc(var(--nav-h)*2);z-index:85;background:var(--bg-stone);border-bottom:1px solid var(--border-s);padding:8px 24px;">
   <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;">
     <span style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-ghost);flex-shrink:0;">Jump to:</span>
@@ -1270,12 +1274,23 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
   var sentinel = document.getElementById('part-b-sentinel');
   if(!sentinel) return;
   var navH = 56;
+  var wrapA = document.getElementById('sticky-nav-wrap-a');
+  var wrapB = document.getElementById('sticky-nav-wrap-b');
+  var companionBar = document.getElementById('companion-bar');
+  function positionCompanionBar(){
+    if(!companionBar) return;
+    var visibleHeight = (wrapA && wrapA.offsetHeight) + (wrapB && wrapB.offsetHeight) || 0;
+    companionBar.style.top = (navH + visibleHeight) + 'px';
+  }
   var obs2 = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       document.body.classList.toggle('in-part-b', e.boundingClientRect.top < navH);
+      positionCompanionBar();
     });
   },{rootMargin:'-' + navH + 'px 0px 0px 0px', threshold:[0,1]});
   obs2.observe(sentinel);
+  positionCompanionBar();
+  window.addEventListener('resize', positionCompanionBar);
 })();
 
 
