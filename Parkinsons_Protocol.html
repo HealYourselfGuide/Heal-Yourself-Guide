@@ -944,6 +944,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
 <div class="divider"></div>
 
+<div id="part-b-sentinel" style="height:1px;"></div>
 
 <!-- ═══ PART B — DO IT ═══ -->
 <div id="part-b" style="background:var(--terra);padding:10px 24px;text-align:center;position:sticky;top:var(--nav-h);z-index:91;">
@@ -1277,15 +1278,15 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
 // Switch between Part A and Part B sticky chapter-nav bars based on scroll position
 (function(){
-  var partB = document.getElementById('part-b');
-  if(!partB) return;
+  var sentinel = document.getElementById('part-b-sentinel');
+  if(!sentinel) return;
   var navH = 56;
   var obs2 = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       document.body.classList.toggle('in-part-b', e.boundingClientRect.top < navH);
     });
   },{rootMargin:'-' + navH + 'px 0px 0px 0px', threshold:[0,1]});
-  obs2.observe(partB);
+  obs2.observe(sentinel);
 })();
 
 
