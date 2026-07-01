@@ -51,6 +51,9 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);ove
 #part-b summary::-webkit-details-marker{display:none;}
 #part-b summary::marker{content:"";}
 #part-b[open] .part-b-chevron{transform:rotate(180deg);}
+#part-b summary .part-b-hint{font-size:11px;color:rgba(255,255,255,0.75);font-weight:500;letter-spacing:0.05em;}
+#part-b summary .part-b-hint::after{content:"Click to expand the science behind this protocol  ▾";}
+#part-b[open] summary .part-b-hint::after{content:"Click to collapse  ▴";}
 .phase-nav a.pn-active{color:var(--sage);border-bottom-color:var(--sage);}
 .pn-dot{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:0.35;flex-shrink:0;}
 .phase-nav a.pn-active .pn-dot{opacity:1;}
@@ -615,9 +618,14 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
 <!-- ═══ PART B — UNDERSTAND IT (collapsible) ═══ -->
 <details id="part-b">
-<summary style="background:var(--terra);padding:14px 24px;text-align:center;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:center;gap:10px;">
-  <span style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;opacity:0.95;">Part B — Understand It · The Science · Root Causes · What to Expect</span>
-  <span class="part-b-chevron" style="color:#fff;font-size:12px;transition:transform 0.2s;">▾</span>
+<summary style="background:var(--terra);padding:16px 24px;text-align:center;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:center;gap:12px;border-bottom:2px solid rgba(255,255,255,0.15);transition:background 0.2s;" onmouseover="this.style.background='#7a4e35'" onmouseout="this.style.background='var(--terra)'">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
+    <span style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;opacity:0.95;">Part B — Understand It · The Science · Root Causes · What to Expect</span>
+    <span class="part-b-hint"></span>
+  </div>
+  <span style="display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:20px;padding:4px 10px;white-space:nowrap;flex-shrink:0;">
+    <span class="part-b-chevron" style="color:#fff;font-size:13px;transition:transform 0.25s;">▾</span>
+  </span>
 </summary>
 <div style="background:var(--bg-stone);border-bottom:1px solid var(--border-s);padding:10px 24px;">
   <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:6px 10px;flex-wrap:wrap;">
