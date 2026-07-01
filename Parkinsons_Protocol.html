@@ -627,25 +627,24 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
     <span class="part-b-chevron" style="color:#fff;font-size:13px;transition:transform 0.25s;">▾</span>
   </span>
 </summary>
-<div style="background:var(--bg-stone);border-bottom:1px solid var(--border-s);padding:10px 24px;">
-  <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:6px 10px;flex-wrap:wrap;">
-    <a href="#part-a-content" style="display:inline-flex;align-items:center;gap:5px;background:var(--sage);color:#fff;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:6px 12px;border-radius:5px;white-space:nowrap;">← Back to Part A</a>
-    <span style="width:1px;height:16px;background:var(--border-s);"></span>
-    <a href="#whoisthisfor" style="font-size:11px;color:var(--ink-light);text-decoration:none;">Who It's For</a>
-    <a href="#symptom-lookup" style="font-size:11px;color:var(--ink-light);text-decoration:none;">Symptom Lookup</a>
-    <a href="#understanding" style="font-size:11px;color:var(--ink-light);text-decoration:none;">Overview</a>
-    <a href="#silent-decade" style="font-size:11px;color:var(--ink-light);text-decoration:none;">The Silent Decade</a>
-    <a href="#alpha-syn" style="font-size:11px;color:var(--ink-light);text-decoration:none;">Alpha-Synuclein</a>
-    <a href="#mitochondria" style="font-size:11px;color:var(--ink-light);text-decoration:none;">Mitochondria</a>
-    <a href="#gut-origin" style="font-size:11px;color:var(--ink-light);text-decoration:none;">Gut Origin</a>
-    <a href="#toxins" style="font-size:11px;color:var(--ink-light);text-decoration:none;">Toxins</a>
-    <a href="#inflammation" style="font-size:11px;color:var(--ink-light);text-decoration:none;">Neuroinflammation</a>
-    <a href="#dopamine" style="font-size:11px;color:var(--ink-light);text-decoration:none;">Dopamine</a>
-    <a href="#hope" style="font-size:11px;color:var(--ink-light);text-decoration:none;">Hope &amp; Evidence</a>
+<div class="phase-nav no-print" id="part-b-nav" style="position:sticky;top:var(--nav-h);z-index:89;height:auto;min-height:var(--nav-h);flex-wrap:wrap;align-content:center;padding:4px 16px;overflow-x:visible;">
+  <div class="phase-nav-inner" style="flex-wrap:wrap;row-gap:2px;justify-content:center;">
+    <a href="#part-a-content" style="color:var(--terra);border-bottom-color:transparent;"><span class="pn-dot" style="background:var(--terra);opacity:0.7;"></span>← Back to Part A</a>
+    <a href="#whoisthisfor" data-section="whoisthisfor"><span class="pn-dot"></span>Who It's For</a>
+    <a href="#symptom-lookup" data-section="symptom-lookup"><span class="pn-dot"></span>Symptom Lookup</a>
+    <a href="#understanding" data-section="understanding"><span class="pn-dot"></span>Overview</a>
+    <a href="#silent-decade" data-section="silent-decade"><span class="pn-dot"></span>The Silent Decade</a>
+    <a href="#alpha-syn" data-section="alpha-syn"><span class="pn-dot"></span>Alpha-Synuclein</a>
+    <a href="#mitochondria" data-section="mitochondria"><span class="pn-dot"></span>Mitochondria</a>
+    <a href="#gut-origin" data-section="gut-origin"><span class="pn-dot"></span>Gut Origin</a>
+    <a href="#toxins" data-section="toxins"><span class="pn-dot"></span>Toxins</a>
+    <a href="#inflammation" data-section="inflammation"><span class="pn-dot"></span>Neuroinflammation</a>
+    <a href="#dopamine" data-section="dopamine"><span class="pn-dot"></span>Dopamine</a>
+    <a href="#hope" data-section="hope"><span class="pn-dot"></span>Hope &amp; Evidence</a>
   </div>
 </div>
 <!-- WHO IS THIS FOR -->
-<section class="sec-b" id="whoisthisfor" style="scroll-margin-top:calc(var(--nav-h) + 20px);">
+<section class="sec-b" id="whoisthisfor" style="scroll-margin-top:calc(var(--nav-h) + 100px);">
   <div class="inner">
     <div class="kicker">Is This For You</div>
     <h2 class="sec-title">Who This Protocol Is For</h2>
@@ -680,7 +679,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 </section>
 
 <!-- SYMPTOM LOOKUP -->
-<section class="sec-c" id="symptom-lookup" style="scroll-margin-top:calc(var(--nav-h) + 20px);">
+<section class="sec-c" id="symptom-lookup" style="scroll-margin-top:calc(var(--nav-h) + 100px);">
   <div class="inner">
     <div class="kicker">Where to Start</div>
     <h2 class="sec-title">Symptom → Where to Start</h2>
@@ -705,7 +704,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
 <!-- CHAPTER: understanding -->
 <div class="chapter open" id="ch-understanding" data-section="understanding">
-  <div id="understanding" style="scroll-margin-top:calc(var(--nav-h) + 20px);"></div>
+  <div id="understanding" style="scroll-margin-top:calc(var(--nav-h) + 100px);"></div>
   <div class="chapter-header" onclick="toggleChapter('ch-understanding')">
     <div class="chapter-header-inner">
         <div class="chapter-header-left">
@@ -728,7 +727,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
 <!-- CHAPTER: silent-decade -->
 <div class="chapter" id="ch-silent" data-section="silent-decade">
-  <div id="silent-decade" style="scroll-margin-top:calc(var(--nav-h) + 20px);"></div>
+  <div id="silent-decade" style="scroll-margin-top:calc(var(--nav-h) + 100px);"></div>
   <div class="chapter-header" onclick="toggleChapter('ch-silent')">
     <div class="chapter-header-inner">
         <div class="chapter-header-left">
@@ -763,7 +762,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
 <!-- CHAPTER: alpha-syn -->
 <div class="chapter" id="ch-alpha" data-section="alpha-syn">
-  <div id="alpha-syn" style="scroll-margin-top:calc(var(--nav-h) + 20px);"></div>
+  <div id="alpha-syn" style="scroll-margin-top:calc(var(--nav-h) + 100px);"></div>
   <div class="chapter-header" onclick="toggleChapter('ch-alpha')">
     <div class="chapter-header-inner">
         <div class="chapter-header-left">
@@ -800,7 +799,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
 <!-- CHAPTER: mitochondria -->
 <div class="chapter" id="ch-mito" data-section="mitochondria">
-  <div id="mitochondria" style="scroll-margin-top:calc(var(--nav-h) + 20px);"></div>
+  <div id="mitochondria" style="scroll-margin-top:calc(var(--nav-h) + 100px);"></div>
   <div class="chapter-header" onclick="toggleChapter('ch-mito')">
     <div class="chapter-header-inner">
         <div class="chapter-header-left">
@@ -837,7 +836,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
 <!-- CHAPTER: gut-origin -->
 <div class="chapter" id="ch-gut" data-section="gut-origin">
-  <div id="gut-origin" style="scroll-margin-top:calc(var(--nav-h) + 20px);"></div>
+  <div id="gut-origin" style="scroll-margin-top:calc(var(--nav-h) + 100px);"></div>
   <div class="chapter-header" onclick="toggleChapter('ch-gut')">
     <div class="chapter-header-inner">
         <div class="chapter-header-left">
@@ -874,7 +873,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
 <!-- CHAPTER: toxins -->
 <div class="chapter" id="ch-toxins" data-section="toxins">
-  <div id="toxins" style="scroll-margin-top:calc(var(--nav-h) + 20px);"></div>
+  <div id="toxins" style="scroll-margin-top:calc(var(--nav-h) + 100px);"></div>
   <div class="chapter-header" onclick="toggleChapter('ch-toxins')">
     <div class="chapter-header-inner">
         <div class="chapter-header-left">
@@ -911,7 +910,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
 <!-- CHAPTER: inflammation -->
 <div class="chapter" id="ch-inflam" data-section="inflammation">
-  <div id="inflammation" style="scroll-margin-top:calc(var(--nav-h) + 20px);"></div>
+  <div id="inflammation" style="scroll-margin-top:calc(var(--nav-h) + 100px);"></div>
   <div class="chapter-header" onclick="toggleChapter('ch-inflam')">
     <div class="chapter-header-inner">
         <div class="chapter-header-left">
@@ -948,7 +947,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
 <!-- CHAPTER: dopamine -->
 <div class="chapter" id="ch-dopa" data-section="dopamine">
-  <div id="dopamine" style="scroll-margin-top:calc(var(--nav-h) + 20px);"></div>
+  <div id="dopamine" style="scroll-margin-top:calc(var(--nav-h) + 100px);"></div>
   <div class="chapter-header" onclick="toggleChapter('ch-dopa')">
     <div class="chapter-header-inner">
         <div class="chapter-header-left">
@@ -993,7 +992,7 @@ footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);pa
 
 <!-- CHAPTER: hope -->
 <div class="chapter" id="ch-hope" data-section="hope">
-  <div id="hope" style="scroll-margin-top:calc(var(--nav-h) + 20px);"></div>
+  <div id="hope" style="scroll-margin-top:calc(var(--nav-h) + 100px);"></div>
   <div class="chapter-header" onclick="toggleChapter('ch-hope')">
     <div class="chapter-header-inner">
         <div class="chapter-header-left">
