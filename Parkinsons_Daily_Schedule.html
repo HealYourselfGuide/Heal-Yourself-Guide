@@ -72,11 +72,11 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
 
 /* LAYOUT */
 .inner{max-width:800px;margin:0 auto;}
-.phase-section{padding:0 0 60px;}
+.phase-section{padding:0 0 60px;scroll-margin-top:calc(var(--nav-h) + var(--jump-nav-h,76px));}
 
 /* PHASE HEADER */
-.phase-header{padding:40px 24px 32px;border-bottom:3px solid var(--phase-color);}
-.phase-meta{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
+.phase-header{padding:28px 24px 32px;border-bottom:3px solid var(--phase-color);}
+.phase-meta{position:sticky;top:calc(var(--nav-h) + var(--jump-nav-h,76px));z-index:80;display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--bg);padding:10px 24px;border-bottom:1px solid var(--border-s);}
 .phase-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:600;color:#fff;background:var(--phase-color);padding:5px 12px;border-radius:3px;}
 .phase-weeks{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-light);background:var(--bg-stone);padding:5px 10px;border-radius:3px;}
 .phase-focus{font-size:11px;color:var(--phase-color);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
@@ -153,6 +153,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
   .phase-section{page-break-before:always;padding-bottom:20px;}
   .phase-section:first-child{page-break-before:avoid;}
   .phase-header{padding:16px 0 12px!important;}
+  .phase-meta{position:static!important;padding:0 0 10px!important;border-bottom:none!important;background:none!important;}
   .time-label{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   .time-block{page-break-inside:avoid;}
   .feel-box{margin:0 0 12px!important;}
@@ -213,11 +214,12 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
   .nav-center a{height:auto;padding:14px 24px;border-bottom:1px solid rgba(138,184,154,0.08);justify-content:flex-start;}
   .nav-center a:hover{border-bottom-color:rgba(138,184,154,0.08);}
 }
-.jump-nav{background:var(--bg-deep);border-bottom:1px solid var(--border-s);padding:0 24px;position:sticky;top:var(--nav-h);z-index:90;overflow-x:auto;scrollbar-width:none;}
-.jump-nav-inner{display:flex;min-width:0;max-width:960px;margin:0 auto;justify-content:center;}
-.jump-nav::-webkit-scrollbar{display:none;}
-.jump-nav a{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:12px 14px;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;}
-.jump-nav a:hover,.jump-nav a.active{color:var(--sage);border-bottom-color:var(--sage);}
+.jump-nav{background:var(--bg-stone);border-bottom:1px solid var(--border-s);padding:0 24px;position:sticky;top:var(--nav-h);z-index:90;}
+.jump-nav-inner{display:grid;grid-template-columns:repeat(3,1fr);min-width:0;max-width:960px;margin:0 auto;}
+.jump-nav a{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:11px 8px;text-align:center;border-bottom:2px solid transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color 0.15s,border-color 0.15s,background 0.15s;}
+.jump-nav a:hover{color:var(--sage);border-bottom-color:var(--sage);}
+.jump-nav a.active{color:var(--sage);border-bottom-color:var(--sage);background:var(--sage-pale);}
+@media(max-width:640px){.jump-nav-inner{grid-template-columns:repeat(2,1fr);}.jump-nav a{font-size:9px;padding:9px 6px;}}
 </style>
 </head>
 <body>
@@ -288,8 +290,8 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
 <!-- PHASE 1 -->
 <!-- ═══════════════════════════════════════════════════════ -->
 <!-- JUMP NAV -->
-<div class="jump-nav" style="position:sticky;top:var(--nav-h);z-index:90;background:var(--bg-stone);border-bottom:1px solid var(--border-s);padding:0 24px;overflow-x:auto;scrollbar-width:none;">
-  <div class="jump-nav-inner" style="min-width:0;display:flex;gap:0;align-items:stretch;">
+<div class="jump-nav">
+  <div class="jump-nav-inner">
     <a href="#phase1">Phase 1 — Prepare · Wk 1–2</a>
     <a href="#phase2">Phase 2 — Detox · Wk 3–4</a>
     <a href="#phase3">Phase 3 — Repair · Wk 5–8</a>
@@ -1801,6 +1803,36 @@ document.querySelectorAll('.nav-center a').forEach(function(a){
     if(window.innerWidth<=768&&!a.closest('.nav-dropdown')){closeMobileNav();}
   });
 });
+</script>
+<script>
+(function(){
+  var jn = document.querySelector('.jump-nav');
+  function setNavH(){
+    if(jn) document.documentElement.style.setProperty('--jump-nav-h', jn.offsetHeight + 'px');
+  }
+  var links = [].slice.call(document.querySelectorAll('.jump-nav a'));
+  var map = {};
+  links.forEach(function(a){
+    var h = a.getAttribute('href');
+    if(h && h.charAt(0) === '#') map[h.slice(1)] = a;
+  });
+  var sections = [].slice.call(document.querySelectorAll('.phase-section[id]'));
+  function onScroll(){
+    var line = (jn ? jn.getBoundingClientRect().bottom : 132) + 4;
+    var current = null;
+    sections.forEach(function(s){
+      if(s.getBoundingClientRect().top <= line) current = s.id;
+    });
+    for(var i=0;i<links.length;i++) links[i].classList.remove('active');
+    if(current && map[current]) map[current].classList.add('active');
+  }
+  function refresh(){ setNavH(); onScroll(); }
+  setNavH();
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', refresh);
+  window.addEventListener('load', refresh);
+})();
 </script>
 </body>
 </html>
