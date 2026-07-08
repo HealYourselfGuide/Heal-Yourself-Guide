@@ -344,8 +344,11 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
   <div class="eyebrow"><span>Parkinson's Recovery Protocol</span></div>
   <h1>Symptom <em>Guide</em></h1>
   <p class="hero-sub">Every symptom has a mechanism. Every mechanism has a natural intervention. This is what to do right now — not just what to take every day.</p>
-  <div style="margin-top:20px;">
-    <a href="Parkinsons_Protocol.html" style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--sage);text-decoration:none;letter-spacing:0.04em;padding:9px 16px;border:1px solid var(--border);border-radius:5px;background:var(--sage-pale);transition:all 0.2s;">← Back to Full Protocol</a>
+  <div style="margin-top:20px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;">
+    <a href="Parkinsons_Protocol.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--sage);color:#fff;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:6px 12px;border-radius:5px;white-space:nowrap;">← Full Protocol</a>
+    <a href="Parkinsons_Daily_Schedule.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--bg-warm);border:1px solid var(--border);color:var(--sage);font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:6px 12px;border-radius:5px;white-space:nowrap;">📋 Daily Schedule</a>
+    <a href="Parkinsons_Shopping_Table.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--bg-warm);border:1px solid var(--border);color:var(--sage);font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:6px 12px;border-radius:5px;white-space:nowrap;">🛒 Shopping List</a>
+    <a href="Parkinsons_Must_Have.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--bg-warm);border:1px solid var(--border);color:var(--sage);font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:6px 12px;border-radius:5px;white-space:nowrap;">⭐ Must-Have List</a>
   </div>
 </section>
 
@@ -908,29 +911,6 @@ document.querySelectorAll('.nav-center a').forEach(function(a){
   });
 });
 </script>
-<script>
-function toggleMobileNav(){
-  var center=document.querySelector('.nav-center');
-  var ham=document.getElementById('navHamburger');
-  var overlay=document.getElementById('navOverlay');
-  var isOpen=center.classList.toggle('open');
-  ham.classList.toggle('open',isOpen);
-  ham.setAttribute('aria-expanded',isOpen?'true':'false');
-  overlay.classList.toggle('open',isOpen);
-  document.body.style.overflow=isOpen?'hidden':'';
-}
-function closeMobileNav(){
-  document.querySelector('.nav-center').classList.remove('open');
-  document.getElementById('navHamburger').classList.remove('open');
-  document.getElementById('navHamburger').setAttribute('aria-expanded','false');
-  document.getElementById('navOverlay').classList.remove('open');
-  document.body.style.overflow='';
-}
-document.querySelectorAll('.nav-center a').forEach(function(a){
-  a.addEventListener('click',function(){
-    if(window.innerWidth<=768&&!a.closest('.nav-dropdown')){closeMobileNav();}
-  });
-});
 </script>
 </body>
 </html>
