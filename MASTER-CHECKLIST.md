@@ -57,7 +57,7 @@
 | Parkinsons_Daily_Schedule.html | ✅ | ✅ | ✅ | ✅ | N/A | ✅ | ✅ | N/A | N/A | N/A | ✅ | ✅ |
 | Parkinsons_Shopping_Table.html | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | N/A | N/A | N/A | ✅ | ✅ |
 | Parkinsons_Must_Have.html | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | N/A | N/A | N/A | ✅ | ✅ |
-| Parkinsons_Symptoms.html | ✅ | ✅ | ✅ | ✅ | N/A | ✅ | ✅ | N/A | N/A | ❌ | ✅ | ⚠️ |
+| Parkinsons_Symptoms.html | ✅ | ✅ | ✅ | ✅ | N/A | ✅ | ✅ | N/A | N/A | N/A | ✅ | ✅ |
 
 **Key:** ✅ done · ❌ missing · ⚠️ partial · ⏸ on hold · N/A not applicable
 
@@ -82,7 +82,8 @@
 | 6 | `about.html` | Citations drawer missing |
 | 7 | `protocols.html` | Citations drawer missing |
 | 8 | `research.html` | Citations drawer missing |
-| 9 | `Parkinsons_Symptoms.html` | Citations drawer missing |
+
+~~9. `Parkinsons_Symptoms.html` — Citations drawer missing~~ — **removed, was stale.** Citations drawers belong on Protocol pages only; sub-pages (Daily Schedules, Shopping Lists, Must-Have Lists, Symptom pages) are exempt by rule. `Parkinsons_Symptoms.html` is a Symptom page, so it correctly has no citations drawer — this was never a real open issue.
 
 ### ⏸ On hold — safety review required before touching
 
