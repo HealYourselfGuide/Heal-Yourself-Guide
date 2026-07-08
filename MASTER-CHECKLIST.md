@@ -12,7 +12,7 @@
 4. **jump-nav-inner:** `min-width:0` — never `max-content`
 5. **Footer nav tag:** `<div>` — never `<nav>`
 6. **Citations JS:** Must go AFTER any template literals containing `</body></html>`
-7. **Nav order (non-negotiable):** Home · Before You Begin · Protocols ▾ · Research · About
+7. **Nav order (non-negotiable):** Home · Start Here · Protocols · About — flat, no dropdown (Research is footer-only). Confirmed live in `index.html` — canonical nav source of truth.
 8. **dd-subs:** `position:absolute;left:100%;top:0` side panel — never inline expand (causes cursor jump)
 9. **iHerb links:** `www.iherb.com` only — never `il.iherb.com`
 10. **Language:** "reverse" / "heal" — never "cure". "may improve" — never "proven" or "cures"
@@ -104,7 +104,7 @@ All fixes from the brief. None started yet unless noted.
 - `Protocols` links to `protocols.html` (discovery page) — dropdown removed entirely
 - Mobile hamburger mirrors same 4 items
 - Research link moves to footer only
-- **Status: ❌ Not started**
+- **Status: ✅ Done — live** (verified against `index.html`; corrects the stale Rule #7 above which still described the old dropdown nav)
 
 ### Fix #2 — Homepage Entry Selector ("Where do you need to start?")
 **`index.html`** · Very High priority · Medium effort
