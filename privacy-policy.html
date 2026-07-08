@@ -246,6 +246,7 @@ footer a:hover{color:#d4c9a8;}
 </footer>
 <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/c3e0fa55054efc8787d2cd7c6/47c72440170a91d68e1cc233b.js");</script>
 
+<script>
 // Share buttons
 (function(){
   var pageUrl = encodeURIComponent(window.location.href);
@@ -254,7 +255,12 @@ footer a:hover{color:#d4c9a8;}
   var fb = document.getElementById('sf-fb');
   if(wa) wa.href = 'https://wa.me/?text=' + msg;
   if(fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + pageUrl;
+  var waBtn = document.getElementById('wa-share-btn');
+  var fbBtn = document.getElementById('fb-share-btn');
+  if(waBtn) waBtn.href = 'https://wa.me/?text=' + msg;
+  if(fbBtn) fbBtn.href = 'https://www.facebook.com/sharer/sharer.php?u=' + pageUrl;
 })();
+</script>
 <script>
 function toggleMobileNav(){
   var center=document.querySelector('.nav-center');

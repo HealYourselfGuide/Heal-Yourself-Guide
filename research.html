@@ -818,6 +818,7 @@ document.addEventListener('click',function(e){
 })();
 </script>
 
+<script>
 // Share buttons
 (function(){
   var pageUrl = encodeURIComponent(window.location.href);
@@ -826,7 +827,12 @@ document.addEventListener('click',function(e){
   var fb = document.getElementById('sf-fb');
   if(wa) wa.href = 'https://wa.me/?text=' + msg;
   if(fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + pageUrl;
+  var waBtn = document.getElementById('wa-share-btn');
+  var fbBtn = document.getElementById('fb-share-btn');
+  if(waBtn) waBtn.href = 'https://wa.me/?text=' + msg;
+  if(fbBtn) fbBtn.href = 'https://www.facebook.com/sharer/sharer.php?u=' + pageUrl;
 })();
+</script>
 <script>
 function toggleMobileNav(){
   var center=document.querySelector('.nav-center');
