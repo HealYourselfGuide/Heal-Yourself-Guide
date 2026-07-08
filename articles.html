@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Articles from Heal Yourself Guide — deeper dives into the research behind the protocols, reader questions, and the stories that don't fit into a daily schedule. Free, no ads.">
+<link rel="canonical" href="https://healyourselfguide.github.io/Heal-Yourself-Guide/articles.html">
+  <meta property="og:title" content="Articles — Heal Yourself Guide">
+<meta property="og:description" content="Deeper dives into the research behind the protocols — free, no ads.">
+<meta property="og:url" content="https://healyourselfguide.github.io/Heal-Yourself-Guide/articles.html">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<title>Articles — Heal Yourself</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4efe6;--bg-warm:#faf7f2;--bg-deep:#ede7db;--bg-stone:#e5dfd4;
+  --bg-nav:#2c3a2e;--bg-footer:#263028;
+  --ink:#1e1a14;--ink-mid:#3d3426;--ink-light:#5c5144;--ink-ghost:#a89e8e;
+  --sage:#3d6b4a;--sage-mid:#5a8c6a;--sage-light:#7aac8a;--sage-pale:#e4f0e8;--sage-nav:#8ab89a;
+  --terra:#8c5a3c;--terra-light:#b07a58;--terra-pale:#f5ede6;
+  --honey:#a07830;--honey-pale:#f5eddb;
+  --border:rgba(61,107,74,0.15);--border-s:rgba(30,26,20,0.08);--nav-h:52px;
+  --ink2:#263028;--cream:#f4efe6;--warm:#faf7f2;
+  --gold:var(--sage);--gold-light:var(--sage-mid);--gold-pale:var(--sage-pale);
+  --mist:var(--ink-mid);--text:var(--ink-mid);--text-mid:var(--ink-mid);--text-light:var(--ink-light);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink-mid);overflow-x:hidden;max-width:100vw;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-nav);border-bottom:1px solid rgba(138,184,154,0.12);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 28px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;color:#d4c9a8;text-decoration:none;letter-spacing:0.02em;white-space:nowrap;display:flex;align-items:center;}
+.nav-center{display:flex;align-items:center;gap:4px;}
+.nav-center a{font-size:11px;font-weight:500;letter-spacing:0.07em;color:rgba(212,201,168,0.80);text-decoration:none;padding:0 14px;height:var(--nav-h);display:flex;align-items:center;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;white-space:nowrap;}
+.nav-center a:hover{color:var(--sage-nav);border-bottom-color:rgba(138,184,154,0.3);}
+.nav-center a.active{color:var(--sage-nav);border-bottom-color:var(--sage-mid);}
+
+/* HERO */
+.hero{background:var(--bg-warm);padding:80px 24px 56px;text-align:center;position:relative;overflow:hidden;margin-top:var(--nav-h);}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 40%,rgba(61,107,74,0.06) 0%,transparent 70%);pointer-events:none;}
+.eyebrow{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:20px;}
+.eyebrow::before{content:'';flex:1;max-width:80px;height:1px;background:linear-gradient(to right,transparent,var(--sage-mid));}
+.eyebrow::after{content:'';flex:1;max-width:80px;height:1px;background:linear-gradient(to left,transparent,var(--sage-mid));}
+.eyebrow span{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(30px,4.5vw,52px);font-weight:700;color:var(--ink);line-height:1.1;margin-bottom:12px;}
+.hero h1 em{font-style:italic;color:var(--sage);}
+.hero-sub{font-size:clamp(14px,1.8vw,16px);color:var(--ink-light);font-weight:300;max-width:520px;margin:0 auto;line-height:1.75;}
+
+/* ARTICLES GRID (scaffold for when articles publish) */
+.articles-wrap{background:var(--bg);padding:48px 24px 80px;}
+.inner{max-width:960px;margin:0 auto;}
+.article-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;}
+@media(max-width:680px){.article-grid{grid-template-columns:1fr;}}
+
+.article-card{display:block;text-decoration:none;background:var(--bg-warm);border:1px solid var(--border-s);border-radius:10px;padding:28px 28px 24px;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;}
+.article-card:hover{border-color:var(--sage-mid);transform:translateY(-3px);box-shadow:0 4px 20px rgba(61,107,74,0.1);}
+.article-card-top{display:flex;align-items:flex-start;gap:16px;margin-bottom:14px;}
+.article-icon{font-size:32px;flex-shrink:0;margin-top:2px;}
+.article-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--sage);display:block;margin-bottom:5px;}
+.article-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink);line-height:1.2;}
+.article-desc{font-size:13px;color:var(--ink-light);line-height:1.7;margin-bottom:16px;}
+.article-pills{display:flex;flex-wrap:wrap;gap:6px;}
+.article-pill{font-size:10px;font-weight:500;letter-spacing:0.06em;color:var(--ink-light);background:var(--bg-deep);border:1px solid var(--border-s);padding:3px 10px;border-radius:12px;}
+.article-arrow{position:absolute;bottom:22px;right:22px;font-size:16px;color:var(--sage);opacity:0.4;transition:opacity 0.2s,transform 0.2s;}
+.article-card:hover .article-arrow{opacity:1;transform:translateX(3px);}
+
+/* SECTION LABEL */
+.section-label{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);display:flex;align-items:center;gap:12px;margin-bottom:0;}
+.section-label::before{content:'';width:32px;height:1px;background:var(--sage-mid);}
+.section-label-soon{color:var(--ink-ghost);}
+.section-label-soon::before{background:var(--ink-ghost);}
+
+/* EMPTY STATE (v1) */
+.empty-state{max-width:640px;margin:32px auto 0;text-align:center;background:var(--bg-warm);border:1px solid var(--border-s);border-radius:10px;padding:48px 32px;}
+.empty-state-icon{font-size:40px;margin-bottom:16px;}
+.empty-state-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:10px;}
+.empty-state-desc{font-size:14px;line-height:1.8;color:var(--ink-light);}
+
+/* FOOTER */
+footer{background:var(--bg-footer);border-top:1px solid rgba(138,184,154,0.1);padding:40px 24px;}
+.ft-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+@media(max-width:560px){.ft-inner{grid-template-columns:1fr;}}
+.ft-brand{font-family:'Playfair Display',serif;font-size:18px;color:#d4c9a8;margin-bottom:10px;}
+.ft-disc{font-size:12px;color:var(--ink-ghost);line-height:1.7;}
+.ft-nav{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
+@media(max-width:560px){.ft-nav{align-items:flex-start;}}
+.ft-nav a{font-size:13px;color:rgba(212,201,168,0.55);text-decoration:none;transition:color 0.2s;}
+.ft-nav a:hover{color:#d4c9a8;}
+.ft-nav a.hi{color:#d4c9a8;}
+
+.skip-link{position:absolute;top:-60px;left:8px;background:var(--sage);color:#fff;padding:10px 18px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;z-index:1000;transition:top 0.2s;}
+.skip-link:focus{top:8px;}
+/* MOBILE HAMBURGER MENU */
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px 8px;font-size:26px;color:#d4c9a8;line-height:1;flex-shrink:0;letter-spacing:0;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:98;opacity:0;transition:opacity 0.25s;}
+.nav-overlay.open{display:block;opacity:1;}
+@media(max-width:768px){
+  nav{padding:0 16px;}
+  .nav-hamburger{display:flex;}
+  .nav-center{
+    position:fixed;top:var(--nav-h);right:0;bottom:0;width:min(260px,65vw);
+    background:var(--bg-nav);flex-direction:column;align-items:stretch;
+    padding:8px 0 24px;overflow-y:auto;z-index:99;
+    transform:translateX(100%);transition:transform 0.28s ease;
+    border-left:1px solid rgba(138,184,154,0.2);
+    box-shadow:-4px 0 20px rgba(0,0,0,0.22);
+  }
+  .nav-center.open{transform:translateX(0);}
+  .nav-center a{height:auto;padding:14px 24px;border-bottom:1px solid rgba(138,184,154,0.08);justify-content:flex-start;}
+  .nav-center a:hover{border-bottom-color:rgba(138,184,154,0.08);}
+}
+.share-float{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:10px;align-items:center;}
+@media(max-width:768px){.share-float{top:auto;bottom:0;left:0;right:0;transform:none;flex-direction:row;justify-content:center;background:var(--bg-nav);border-top:1px solid rgba(138,184,154,0.15);padding:10px 16px;gap:12px;}}
+.share-float-label{font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);writing-mode:vertical-rl;margin-bottom:6px;opacity:0.7;}
+@media(max-width:768px){.share-float-label{display:none;}}
+.share-pill{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;text-decoration:none;transition:opacity 0.2s;}
+.share-pill:hover{opacity:0.85;}
+.share-pill.wa{background:#25D366;}
+.share-pill.fb{background:#1877F2;}
+.share-pill svg{width:18px;height:18px;fill:#fff;}
+</style>
+  <meta property="og:site_name" content="Heal Yourself Guide">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Articles — Heal Yourself",
+    "description": "Articles from Heal Yourself Guide — deeper dives into the research behind the protocols.",
+    "url": "https://healyourselfguide.github.io/Heal-Yourself-Guide/articles.html",
+    "author": {
+      "@type": "Person",
+      "name": "Sharona",
+      "jobTitle": "Former Pharmaceutical QA Internal Auditor"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Heal Yourself Guide",
+      "url": "https://healyourselfguide.github.io/Heal-Yourself-Guide/"
+    },
+    "dateModified": "2026-07"
+  }
+  </script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 68 68" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:inline-block;vertical-align:middle;margin-right:8px;flex-shrink:0;">
+      <circle cx="34" cy="34" r="33" fill="#FAF7F2" opacity="0.08"/>
+      <circle cx="34" cy="26" r="10" fill="#F5A623" opacity="0.18"/>
+      <circle cx="34" cy="26" r="6.5" fill="#F5A623" opacity="0.85"/>
+      <circle cx="34" cy="26" r="3.5" fill="#C4622D" opacity="0.9"/>
+      <line x1="34" y1="12" x2="34" y2="16" stroke="#F5A623" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="34" y1="36" x2="34" y2="40" stroke="#F5A623" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="20" y1="26" x2="24" y2="26" stroke="#F5A623" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="44" y1="26" x2="48" y2="26" stroke="#F5A623" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="23.5" y1="15.5" x2="26.5" y2="18.5" stroke="#F5A623" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="41.5" y1="33.5" x2="44.5" y2="36.5" stroke="#F5A623" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="44.5" y1="15.5" x2="41.5" y2="18.5" stroke="#F5A623" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="26.5" y1="33.5" x2="23.5" y2="36.5" stroke="#F5A623" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="34" y1="40" x2="34" y2="56" stroke="#8ab89a" stroke-width="1.8" stroke-linecap="round"/>
+      <ellipse cx="27" cy="47" rx="5" ry="7.5" fill="#8ab89a" opacity="0.85" transform="rotate(-30 27 47)"/>
+      <ellipse cx="41" cy="50" rx="4.5" ry="7" fill="#8ab89a" opacity="0.75" transform="rotate(25 41 50)"/>
+      <ellipse cx="26" cy="54" rx="4" ry="6" fill="#8ab89a" opacity="0.65" transform="rotate(-20 26 54)"/>
+    </svg>Heal Yourself</a>
+    <div class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="before-you-begin.html">Start Here</a>
+    <a href="protocols.html">Protocols</a>
+    <a href="articles.html" class="active">Articles</a>
+    <a href="about.html">About</a>
+  </div>
+<button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav()">&#9776;</button>
+</nav>
+<div class="nav-overlay" id="navOverlay" onclick="closeMobileNav()"></div>
+
+<div class="share-float" aria-label="Share this guide">
+  <span class="share-float-label">Share</span>
+  <a id="sf-wa" class="share-pill wa" href="#" target="_blank" rel="noopener" aria-label="Share on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <a id="sf-fb" class="share-pill fb" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">
+    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="main-content">
+  <div class="eyebrow"><span>From the Research</span></div>
+  <h1>All <em>Articles</em></h1>
+  <p class="hero-sub">Deeper dives into the research behind the protocols, the questions readers ask most, and the stories that don't fit into a daily schedule.</p>
+</section>
+
+<!-- ARTICLES -->
+<div class="articles-wrap">
+  <div class="inner">
+
+    <div class="section-label section-label-soon">Coming Soon</div>
+
+    <div class="empty-state">
+      <div class="empty-state-icon">📝</div>
+      <div class="empty-state-title">The First Articles Are Being Written</div>
+      <p class="empty-state-desc">This library is just getting started. The first pieces are on the way — join the list below and we'll let you know the moment they're live. In the meantime, every protocol already lives in full on the <a href="protocols.html" style="color:var(--sage);font-weight:600;">Protocols</a> page.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ABOUT STRIP -->
+<section style="background:var(--bg-deep);padding:40px 24px;border-top:1px solid var(--border-s);">
+  <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+    <div>
+      <div style="font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;">About This Guide</div>
+      <p style="font-size:14px;line-height:1.8;color:var(--ink-mid);margin-bottom:10px;">This guide was built from thousands of hours of independent research — peer-reviewed studies, suppressed clinical trials, and ancient healing traditions that predate the pharmaceutical model. The author spent years as a Pharmaceutical QA Internal Auditor before leaving to find the answers the system was not asking for.</p>
+      <p style="font-size:14px;line-height:1.8;color:var(--ink-mid);">Every protocol here is free — because health knowledge should not be a luxury. It will always remain free. If it helps you, the only thing asked in return is that you buy your supplements through iHerb using the code below. You save money. This guide stays alive.</p>
+      <a href="index.html#about" style="display:inline-block;margin-top:14px;font-size:12px;font-weight:600;color:var(--sage);text-decoration:underline;text-underline-offset:3px;">Read the full story</a>
+    </div>
+    <div style="text-align:center;padding:28px;background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-light);margin-bottom:8px;">Support this free guide</div>
+      <div style="font-family:'Playfair Display',serif;font-size:15px;color:var(--ink);margin-bottom:4px;">Buy supplements on iHerb</div>
+      <div style="font-family:'DM Mono',monospace;font-size:36px;font-weight:700;color:var(--sage);letter-spacing:0.06em;margin:10px 0;">GUW6132</div>
+      <div style="font-size:12px;color:var(--ink-light);margin-bottom:16px;">Enter at checkout &middot; You get a discount</div>
+      <a href="https://www.iherb.com/?rcode=GUW6132" target="_blank" style="display:inline-block;background:var(--sage);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:10px 22px;border-radius:5px;">Shop iHerb</a>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM SHARE -->
+<section style="background:var(--bg-warm);padding:36px 24px;text-align:center;border-top:1px solid var(--border-s);">
+  <div style="max-width:560px;margin:0 auto;">
+    <p style="font-size:13px;font-weight:600;color:var(--ink-mid);margin-bottom:16px;letter-spacing:0.03em;">Know someone who needs this guide?</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a id="wa-share-btn" href="#" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-size:12px;font-weight:700;text-decoration:none;padding:11px 20px;border-radius:6px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Share on WhatsApp
+      </a>
+      <a id="fb-share-btn" href="#" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#1877F2;color:#fff;font-size:12px;font-weight:700;text-decoration:none;padding:11px 20px;border-radius:6px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Share on Facebook
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL SIGNUP -->
+<section style="background:var(--bg-deep);padding:48px 24px;border-top:1px solid var(--border-s);">
+  <div style="max-width:480px;margin:0 auto;text-align:center;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;">New articles · New research</div>
+    <h3 style="font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--ink);margin-bottom:10px;">Be the first to know when new articles are added</h3>
+    <p style="font-size:14px;color:var(--ink-light);line-height:1.7;margin-bottom:24px;">No algorithms. No ads. Just the information that matters, when it matters.</p>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <input type="email" id="mc-email-articles" placeholder="Your email address" style="width:100%;padding:14px 18px;border-radius:6px;border:1px solid var(--border);background:var(--bg-warm);color:var(--ink);font-size:15px;font-family:'Jost',sans-serif;outline:none;" />
+      <button onclick="mcSubmitArticles()" style="width:100%;padding:14px;background:var(--sage);color:#fff;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border:none;border-radius:6px;cursor:pointer;font-family:'Jost',sans-serif;">Join the Community →</button>
+      <p id="mc-msg-articles" style="font-size:13px;color:var(--sage);min-height:20px;"></p>
+      <p style="font-size:11px;color:var(--ink-light);margin-top:4px;">Free · No spam · Unsubscribe anytime</p>
+    </div>
+  </div>
+</section>
+<script>
+function mcSubmitArticles(){
+  var email=document.getElementById('mc-email-articles').value.trim();
+  var msg=document.getElementById('mc-msg-articles');
+  if(!email||!email.includes('@')){msg.style.color='#e88a7a';msg.textContent='Please enter a valid email address.';return;}
+  msg.style.color='#9ab89e';
+  msg.textContent='Thank you \u2014 you\'re on the list!';
+  document.getElementById('mc-email-articles').value='';
+}
+</script>
+
+<footer>
+  <div class="ft-inner">
+    <div>
+      <div class="ft-brand">Heal Yourself</div>
+      <p class="ft-disc">This guide is for educational purposes only. It does not replace the guidance of a qualified healthcare practitioner. The author is not a doctor.</p>
+      <p class="ft-disc" style="margin-top:6px;">© 2026 Heal Yourself Guide. All rights reserved.</p>
+    </div>
+    <div class="ft-nav">
+      <a href="index.html">Home</a>
+      <a href="before-you-begin.html">Before You Begin</a>
+      <a href="protocols.html">All Protocols</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-service.html">Terms of Use</a>
+      <a href="mailto:healyourselfguide101@gmail.com">Contact</a>
+    </div>
+  </div>
+</footer>
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/c3e0fa55054efc8787d2cd7c6/47c72440170a91d68e1cc233b.js");</script>
+
+<script>
+// Footer active highlight — JS-driven, never hardcoded
+(function(){
+  var path = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.ft-nav a').forEach(function(a){
+    var href = a.getAttribute('href').split('/').pop();
+    if(href === path) a.classList.add('hi');
+  });
+})();
+</script>
+
+<script>
+// Share buttons
+(function(){
+  var pageUrl = encodeURIComponent(window.location.href);
+  var msg = encodeURIComponent('I found this free healing guide and had to share it. Worth reading: ' + window.location.href);
+  var wa = document.getElementById('sf-wa');
+  var fb = document.getElementById('sf-fb');
+  if(wa) wa.href = 'https://wa.me/?text=' + msg;
+  if(fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + pageUrl;
+  var waBtn = document.getElementById('wa-share-btn');
+  var fbBtn = document.getElementById('fb-share-btn');
+  if(waBtn) waBtn.href = 'https://wa.me/?text=' + msg;
+  if(fbBtn) fbBtn.href = 'https://www.facebook.com/sharer/sharer.php?u=' + pageUrl;
+})();
+</script>
+
+<script>
+function toggleMobileNav(){
+  var center=document.querySelector('.nav-center');
+  var ham=document.getElementById('navHamburger');
+  var overlay=document.getElementById('navOverlay');
+  var isOpen=center.classList.toggle('open');
+  ham.classList.toggle('open',isOpen);
+  ham.setAttribute('aria-expanded',isOpen?'true':'false');
+  overlay.classList.toggle('open',isOpen);
+  document.body.style.overflow=isOpen?'hidden':'';
+}
+function closeMobileNav(){
+  document.querySelector('.nav-center').classList.remove('open');
+  document.getElementById('navHamburger').classList.remove('open');
+  document.getElementById('navHamburger').setAttribute('aria-expanded','false');
+  document.getElementById('navOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.querySelectorAll('.nav-center a').forEach(function(a){
+  a.addEventListener('click',function(){
+    if(window.innerWidth<=768 && !a.closest('.nav-dropdown')){
+      closeMobileNav();
+    }
+  });
+});
+</script>
+</body>
+</html>
