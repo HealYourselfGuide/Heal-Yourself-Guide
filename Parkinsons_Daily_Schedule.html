@@ -280,6 +280,15 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
   </div>
 </div>
 
+<div style="background:var(--bg-stone);border-bottom:1px solid var(--border-s);padding:8px 24px;">
+  <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;">
+    <a href="Parkinsons_Protocol.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--sage);color:#fff;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:6px 12px;border-radius:5px;white-space:nowrap;">← Full Protocol</a>
+    <a href="Parkinsons_Shopping_Table.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--bg-warm);border:1px solid var(--border);color:var(--sage);font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:6px 12px;border-radius:5px;white-space:nowrap;">🛒 Shopping List</a>
+    <a href="Parkinsons_Must_Have.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--bg-warm);border:1px solid var(--border);color:var(--sage);font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:6px 12px;border-radius:5px;white-space:nowrap;">⭐ Must-Have List</a>
+    <a href="Parkinsons_Symptoms.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--bg-warm);border:1px solid var(--border);color:var(--sage);font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:6px 12px;border-radius:5px;white-space:nowrap;">🔍 Symptom Guide</a>
+  </div>
+</div>
+
 <div class="print-bar no-print">
   <p>Print only your current phase — use Ctrl+P and select the pages you need.</p>
   <button class="print-btn" onclick="window.print()">🖨 Print All Phases</button>
@@ -305,15 +314,19 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
 <section class="phase-section" id="phase1">
   <div class="inner">
 
+    <div class="phase-meta">
+      <span class="phase-num" style="background:#3d6b4a;">Phase 1</span>
+      <span class="phase-weeks">Weeks 1–2 · Days 1–14</span>
+      <span class="phase-focus" style="color:#3d6b4a;">Open the Drainage Doors</span>
+    </div>
+
     <div class="phase-header" style="--phase-color:#3d6b4a;">
-      <div class="phase-meta">
-        <span class="phase-num" style="background:#3d6b4a;">Phase 1</span>
-        <span class="phase-weeks">Weeks 1–2 · Days 1–14</span>
-        <span class="phase-focus" style="color:#3d6b4a;">Open the Drainage Doors</span>
-      </div>
       <h2 class="phase-title">Prepare the Body. No Supplements Yet.</h2>
       <p class="phase-desc">The body's five exit routes — colon, liver, kidneys, lymph, skin — must be open before anything else is added. Putting supplements into a congested body is like pouring clean water into a blocked drain. These two weeks are the foundation everything else is built on.</p>
-      <button class="phase-print-btn no-print" onclick="printPhase('phase1')" title="Print Phase 1" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid #3d6b4a;color:#3d6b4a;border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.2s;margin-top:12px;" onmouseover="this.style.background='#3d6b4a';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#3d6b4a'">🖨 Print Phase 1</button>
+      <div class="phase-actions no-print" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+        <button class="phase-print-btn no-print" onclick="printPhase('phase1')" title="Print Phase 1" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid #3d6b4a;color:#3d6b4a;border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.2s;" onmouseover="this.style.background='#3d6b4a';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#3d6b4a'">🖨 Print Phase 1</button>
+        <a href="Parkinsons_Shopping_Table.html#phase1" class="no-print" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid #3d6b4a;color:#3d6b4a;border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;font-family:'Jost',sans-serif;transition:all 0.2s;" onmouseover="this.style.background='#3d6b4a';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#3d6b4a'">🛒 Shopping List — Phase 1</a>
+      </div>
 
     </div>
 
@@ -528,15 +541,19 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
 <section class="phase-section" id="phase2">
   <div class="inner">
 
+    <div class="phase-meta">
+      <span class="phase-num" style="background:#6a5acd;">Phase 2</span>
+      <span class="phase-weeks">Weeks 3–4 · Days 15–28</span>
+      <span class="phase-focus" style="color:#6a5acd;">Neurological Stack Begins + Biofilm Disruption</span>
+    </div>
+
     <div class="phase-header" style="border-bottom-color:#6a5acd;">
-      <div class="phase-meta">
-        <span class="phase-num" style="background:#6a5acd;">Phase 2</span>
-        <span class="phase-weeks">Weeks 3–4 · Days 15–28</span>
-        <span class="phase-focus" style="color:#6a5acd;">Neurological Stack Begins + Biofilm Disruption</span>
-      </div>
       <h2 class="phase-title">The Brain Starts Getting Support.</h2>
       <p class="phase-desc">Drainage is open. Now the core Parkinson's supplements begin. Simultaneously, biofilm disruption starts — breaking the protective shell around pathogens so the immune system can find them. Everything from Phase 1 continues. This is where the real work begins.</p>
-      <button class="phase-print-btn no-print" onclick="printPhase('phase2')" title="Print Phase 2" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid #6a5acd;color:#6a5acd;border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.2s;margin-top:12px;" onmouseover="this.style.background='#6a5acd';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#6a5acd'">🖨 Print Phase 2</button>
+      <div class="phase-actions no-print" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+        <button class="phase-print-btn no-print" onclick="printPhase('phase2')" title="Print Phase 2" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid #6a5acd;color:#6a5acd;border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.2s;" onmouseover="this.style.background='#6a5acd';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#6a5acd'">🖨 Print Phase 2</button>
+        <a href="Parkinsons_Shopping_Table.html#phase2" class="no-print" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid #6a5acd;color:#6a5acd;border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;font-family:'Jost',sans-serif;transition:all 0.2s;" onmouseover="this.style.background='#6a5acd';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#6a5acd'">🛒 Shopping List — Phase 2</a>
+      </div>
 
     </div>
 
@@ -789,15 +806,19 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
 <section class="phase-section" id="phase3">
   <div class="inner">
 
+    <div class="phase-meta">
+      <span class="phase-num" style="background:var(--terra);">Phase 3</span>
+      <span class="phase-weeks">Weeks 5–8 · Days 29–56</span>
+      <span class="phase-focus" style="color:var(--terra);">Antiparasitic Rotation</span>
+    </div>
+
     <div class="phase-header" style="border-bottom-color:var(--terra);">
-      <div class="phase-meta">
-        <span class="phase-num" style="background:var(--terra);">Phase 3</span>
-        <span class="phase-weeks">Weeks 5–8 · Days 29–56</span>
-        <span class="phase-focus" style="color:var(--terra);">Antiparasitic Rotation</span>
-      </div>
       <h2 class="phase-title">Clear What Has Been Hidden.</h2>
       <p class="phase-desc">Everything from Phases 1 and 2 continues. Now add the antiparasitic rotation. Rotate herbs every 7–10 days — parasites adapt to a single herb but cannot adapt to a rotation. This phase is the most intensive. Expect die-off. Support the drainage system heavily.</p>
-      <button class="phase-print-btn no-print" onclick="printPhase('phase3')" title="Print Phase 3" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--terra);color:var(--terra);border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.2s;margin-top:12px;" onmouseover="this.style.background='var(--terra)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--terra)'">🖨 Print Phase 3</button>
+      <div class="phase-actions no-print" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+        <button class="phase-print-btn no-print" onclick="printPhase('phase3')" title="Print Phase 3" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--terra);color:var(--terra);border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.2s;" onmouseover="this.style.background='var(--terra)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--terra)'">🖨 Print Phase 3</button>
+        <a href="Parkinsons_Shopping_Table.html#phase3" class="no-print" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--terra);color:var(--terra);border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;font-family:'Jost',sans-serif;transition:all 0.2s;" onmouseover="this.style.background='var(--terra)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--terra)'">🛒 Shopping List — Phase 3</a>
+      </div>
 
     </div>
 
@@ -984,15 +1005,19 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
 <section class="phase-section" id="phase4">
   <div class="inner">
 
+    <div class="phase-meta">
+      <span class="phase-num" style="background:#4a7a8c;">Phase 4</span>
+      <span class="phase-weeks">Weeks 9–12 · Days 57–84</span>
+      <span class="phase-focus" style="color:#4a7a8c;">Heavy Metal Clearing — Aluminium Out</span>
+    </div>
+
     <div class="phase-header" style="border-bottom-color:#4a7a8c;">
-      <div class="phase-meta">
-        <span class="phase-num" style="background:#4a7a8c;">Phase 4</span>
-        <span class="phase-weeks">Weeks 9–12 · Days 57–84</span>
-        <span class="phase-focus" style="color:#4a7a8c;">Heavy Metal Clearing — Aluminium Out</span>
-      </div>
       <h2 class="phase-title">Pull the Metals From Deep Tissue.</h2>
       <p class="phase-desc">Aluminium accumulation in the substantia nigra — the brain region that fails in Parkinson's — is documented in post-mortem studies. This phase pulls it out. All previous phases continue. Binders are added and must be taken at least 2 hours away from food and supplements. <strong>If you take prescription levodopa/carbidopa (Sinemet, Madopar), binders must also be kept 2+ hours from every levodopa dose</strong> — not just from other supplements — since levodopa works on a tight timing schedule and a binder taken too close to a dose can quietly block it, which can look like the disease getting worse rather than a timing collision. Silica water intensifies. Never mobilise metals without binders present.</p>
-      <button class="phase-print-btn no-print" onclick="printPhase('phase4')" title="Print Phase 4" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid #4a7a8c;color:#4a7a8c;border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.2s;margin-top:12px;" onmouseover="this.style.background='#4a7a8c';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#4a7a8c'">🖨 Print Phase 4</button>
+      <div class="phase-actions no-print" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+        <button class="phase-print-btn no-print" onclick="printPhase('phase4')" title="Print Phase 4" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid #4a7a8c;color:#4a7a8c;border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.2s;" onmouseover="this.style.background='#4a7a8c';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#4a7a8c'">🖨 Print Phase 4</button>
+        <a href="Parkinsons_Shopping_Table.html#phase4" class="no-print" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid #4a7a8c;color:#4a7a8c;border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;font-family:'Jost',sans-serif;transition:all 0.2s;" onmouseover="this.style.background='#4a7a8c';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#4a7a8c'">🛒 Shopping List — Phase 4</a>
+      </div>
 
     </div>
 
@@ -1194,15 +1219,19 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
 <section class="phase-section" id="phase5">
   <div class="inner">
 
+    <div class="phase-meta">
+      <span class="phase-num" style="background:var(--sage);">Phase 5</span>
+      <span class="phase-weeks">Weeks 13–16 · Days 85–112</span>
+      <span class="phase-focus" style="color:var(--sage);">Gut Rebuild — The Origin Point</span>
+    </div>
+
     <div class="phase-header" style="border-bottom-color:var(--sage);">
-      <div class="phase-meta">
-        <span class="phase-num" style="background:var(--sage);">Phase 5</span>
-        <span class="phase-weeks">Weeks 13–16 · Days 85–112</span>
-        <span class="phase-focus" style="color:var(--sage);">Gut Rebuild — The Origin Point</span>
-      </div>
       <h2 class="phase-title">Rebuild the Gut. Heal the Brain.</h2>
       <p class="phase-desc">Alpha-synuclein begins in the gut. The clearing phases have removed what was damaging it. Now it must be rebuilt — the lining, the microbiome, the motility. This is where the gut-brain axis is repaired. Everything from previous phases continues, simplified. This phase is gentler — the body is ready to receive.</p>
-      <button class="phase-print-btn no-print" onclick="printPhase('phase5')" title="Print Phase 5" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--sage);color:var(--sage);border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.2s;margin-top:12px;" onmouseover="this.style.background='var(--sage)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--sage)'">🖨 Print Phase 5</button>
+      <div class="phase-actions no-print" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+        <button class="phase-print-btn no-print" onclick="printPhase('phase5')" title="Print Phase 5" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--sage);color:var(--sage);border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.2s;" onmouseover="this.style.background='var(--sage)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--sage)'">🖨 Print Phase 5</button>
+        <a href="Parkinsons_Shopping_Table.html#phase5" class="no-print" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--sage);color:var(--sage);border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;font-family:'Jost',sans-serif;transition:all 0.2s;" onmouseover="this.style.background='var(--sage)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--sage)'">🛒 Shopping List — Phase 5</a>
+      </div>
 
     </div>
 
@@ -1404,15 +1433,19 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
 <section class="phase-section" id="phase6">
   <div class="inner">
 
+    <div class="phase-meta">
+      <span class="phase-num" style="background:#2c3a2e;">Phase 6</span>
+      <span class="phase-weeks">Week 17 & Beyond · Forever</span>
+      <span class="phase-focus" style="color:#2c3a2e;">Maintenance — This Is Now Your Life</span>
+    </div>
+
     <div class="phase-header" style="border-bottom-color:#2c3a2e;">
-      <div class="phase-meta">
-        <span class="phase-num" style="background:#2c3a2e;">Phase 6</span>
-        <span class="phase-weeks">Week 17 & Beyond · Forever</span>
-        <span class="phase-focus" style="color:#2c3a2e;">Maintenance — This Is Now Your Life</span>
-      </div>
       <h2 class="phase-title">This Is Not a Protocol Anymore. This Is How You Live.</h2>
       <p class="phase-desc">The world has not changed. Toxic exposure continues. Dopamine neurons need daily support. The gut microbiome needs daily feeding. These are not things you do for 16 weeks — they are the conditions under which a body can maintain and regenerate. This page is your permanent daily rhythm.</p>
-      <button class="phase-print-btn no-print" onclick="printPhase('phase6')" title="Print Phase 6" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid #2c3a2e;color:#2c3a2e;border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.2s;margin-top:12px;" onmouseover="this.style.background='#2c3a2e';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#2c3a2e'">🖨 Print Phase 6</button>
+      <div class="phase-actions no-print" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+        <button class="phase-print-btn no-print" onclick="printPhase('phase6')" title="Print Phase 6" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid #2c3a2e;color:#2c3a2e;border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.2s;" onmouseover="this.style.background='#2c3a2e';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#2c3a2e'">🖨 Print Phase 6</button>
+        <a href="Parkinsons_Shopping_Table.html#phase6" class="no-print" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid #2c3a2e;color:#2c3a2e;border-radius:4px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;font-family:'Jost',sans-serif;transition:all 0.2s;" onmouseover="this.style.background='#2c3a2e';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#2c3a2e'">🛒 Shopping List — Phase 6</a>
+      </div>
 
     </div>
 
