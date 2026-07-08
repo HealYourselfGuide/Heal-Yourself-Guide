@@ -146,8 +146,8 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
 
 /* PRINT */
 @media print{
-  body{background:#fff;font-size:11px;max-width:100vw;overflow-x:hidden;}
-  .topnav,.print-bar,.phase-nav,.no-print{display:none!important;}
+  body{background:#fff;font-size:11px;max-width:100vw;overflow-x:hidden;padding-top:0!important;}
+  nav,.print-bar,.phase-nav,.no-print{display:none!important;}
   .hero{background:#2c3a2e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:20px!important;}
   .hero h1{font-size:20px!important;}
   .phase-section{page-break-before:always;padding-bottom:20px;}
