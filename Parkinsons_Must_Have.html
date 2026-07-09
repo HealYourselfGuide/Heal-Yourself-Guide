@@ -95,7 +95,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
 .phase-block{padding:36px 0 8px;}
 .phase-divider{height:4px;border-radius:2px;margin-bottom:0;}
 .phase-head{padding:28px 0 6px;}
-.phase-meta{display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+.phase-meta{position:sticky;top:calc(var(--nav-h) + var(--jump-nav-h,52px));z-index:80;display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--bg);padding:10px 24px;border-bottom:1px solid var(--border-s);}
 .phase-badge{font-family:'DM Mono',monospace;font-size:11px;font-weight:600;color:#fff;padding:5px 12px;border-radius:3px;}
 .phase-weeks{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-light);background:var(--bg-stone);padding:5px 10px;border-radius:3px;}
 .phase-title{font-family:'Playfair Display',serif;font-size:clamp(18px,3vw,26px);font-weight:700;color:var(--ink);margin-bottom:4px;}
@@ -159,8 +159,9 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg-
   nav,.print-bar,.no-print{display:none!important;}
   .hero{background:#2c3a2e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:16px!important;}
   .hero h1{font-size:18px!important;}
-  .phase-block{page-break-before:always;padding:16px 0 6px!important;}
-  .phase-block-first{page-break-before:avoid;}
+  .phase-meta{page-break-before:always;position:static!important;padding:0 0 8px!important;border-bottom:none!important;background:none!important;}
+  .phase-meta-first{page-break-before:avoid;}
+  .phase-block{padding:16px 0 6px!important;}
   .must-item{page-break-inside:avoid;}
   .phase-badge{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   .must-num{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
@@ -220,7 +221,8 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
 .jump-nav-inner{display:flex;min-width:0;max-width:960px;margin:0 auto;justify-content:center;}
 .jump-nav::-webkit-scrollbar{display:none;}
 .jump-nav a{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;padding:12px 14px;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;}
-.jump-nav a:hover,.jump-nav a.active{color:var(--sage);border-bottom-color:var(--sage);}
+.jump-nav a:hover{color:var(--sage);border-bottom-color:var(--sage);}
+.jump-nav a.active{background:var(--sage);color:#fff;font-weight:700;border-bottom-color:var(--sage);}
 </style>
 </head>
 <body>
@@ -313,13 +315,13 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
 <!-- ═══════════════════════════════ PHASE 1 ═══════════════════════════════ -->
 <div class="phase-divider" style="background:var(--p1);" id="phase1"></div>
 <div class="inner">
-<div class="phase-block phase-block-first">
-  <div class="phase-head">
-    <div class="phase-meta">
+    <div class="phase-meta phase-meta-first">
       <span class="phase-badge" style="background:var(--p1);">Phase 1</span>
       <span class="phase-weeks">Weeks 1–2</span>
       <span style="font-size:12px;color:var(--p1);font-weight:700;">Open the Drainage Doors</span>
     </div>
+<div class="phase-block phase-block-first">
+  <div class="phase-head">
     <h2 class="phase-title">9 Must-Haves — The Drainage Foundation</h2>
     <p class="phase-desc">The colon must move daily. The liver must be protected. The lymph must be activated. Without these, everything added in Phase 2 either recirculates as toxin or fails to absorb. This phase is the most affordable of all — most items cost almost nothing.</p>
   </div>
@@ -441,13 +443,13 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
 <!-- ═══════════════════════════════ PHASE 2 ═══════════════════════════════ -->
 <div class="phase-divider" style="background:var(--p2);" id="phase2"></div>
 <div class="inner">
-<div class="phase-block">
-  <div class="phase-head">
     <div class="phase-meta">
       <span class="phase-badge" style="background:var(--p2);">Phase 2</span>
       <span class="phase-weeks">Weeks 3–4</span>
       <span style="font-size:12px;color:var(--p2);font-weight:700;">Neurological Stack + Biofilm</span>
     </div>
+<div class="phase-block">
+  <div class="phase-head">
     <h2 class="phase-title">12 Must-Haves — The Core Parkinson's Stack</h2>
     <p class="phase-desc">This is the most important phase for Parkinson's specifically. Every item here either directly addresses dopamine, neuroprotection, or biofilm — the three mechanisms that determine whether the protocol works. Do not cut from this phase.</p>
   </div>
@@ -602,13 +604,13 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
 <!-- ═══════════════════════════════ PHASE 3 ═══════════════════════════════ -->
 <div class="phase-divider" style="background:var(--p3);" id="phase3"></div>
 <div class="inner">
-<div class="phase-block">
-  <div class="phase-head">
     <div class="phase-meta">
       <span class="phase-badge" style="background:var(--p3);">Phase 3</span>
       <span class="phase-weeks">Weeks 5–8</span>
       <span style="font-size:12px;color:var(--p3);font-weight:700;">Antiparasitic Rotation</span>
     </div>
+<div class="phase-block">
+  <div class="phase-head">
     <h2 class="phase-title">5 Must-Haves — Clear the Hidden Load</h2>
     <p class="phase-desc">The rotation is the mechanism. One herb is not enough. The charcoal is essential — without it, die-off toxins recirculate. The pumpkin seeds are free and must run every day.</p>
   </div>
@@ -686,13 +688,13 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
 <!-- ═══════════════════════════════ PHASE 4 ═══════════════════════════════ -->
 <div class="phase-divider" style="background:var(--p4);" id="phase4"></div>
 <div class="inner">
-<div class="phase-block">
-  <div class="phase-head">
     <div class="phase-meta">
       <span class="phase-badge" style="background:var(--p4);">Phase 4</span>
       <span class="phase-weeks">Weeks 9–12</span>
       <span style="font-size:12px;color:var(--p4);font-weight:700;">Heavy Metal Clearing</span>
     </div>
+<div class="phase-block">
+  <div class="phase-head">
     <h2 class="phase-title">4 Must-Haves — Remove the Aluminium</h2>
     <p class="phase-desc">Aluminium in the substantia nigra is documented in Parkinson's post-mortem studies. This phase is non-negotiable for this condition specifically. All four items serve different mechanisms — none can replace another.</p>
   </div>
@@ -752,13 +754,13 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
 <!-- ═══════════════════════════════ PHASE 5 ═══════════════════════════════ -->
 <div class="phase-divider" style="background:var(--p5);" id="phase5"></div>
 <div class="inner">
-<div class="phase-block">
-  <div class="phase-head">
     <div class="phase-meta">
       <span class="phase-badge" style="background:var(--p5);">Phase 5</span>
       <span class="phase-weeks">Weeks 13–16</span>
       <span style="font-size:12px;color:var(--p5);font-weight:700;">Gut Rebuild</span>
     </div>
+<div class="phase-block">
+  <div class="phase-head">
     <h2 class="phase-title">5 Must-Haves — Repair the Origin Point</h2>
     <p class="phase-desc">Alpha-synuclein begins in the gut. This phase rebuilds what the clearing exposed. The gut lining, the microbiome, and the gut-brain axis must all be actively restored — not just left to recover on their own.</p>
   </div>
@@ -837,13 +839,13 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
 <!-- ═══════════════════════════════ PERMANENT ═══════════════════════════════ -->
 <div class="phase-divider" style="background:var(--p6);" id="permanent"></div>
 <div class="inner">
-<div class="phase-block">
-  <div class="phase-head">
     <div class="phase-meta">
       <span class="phase-badge" style="background:var(--p6);">Permanent</span>
       <span class="phase-weeks">Week 17 & Forever</span>
       <span style="font-size:12px;color:var(--p6);font-weight:700;">These never stop</span>
     </div>
+<div class="phase-block">
+  <div class="phase-head">
     <h2 class="phase-title">The 6 Permanent Non-Negotiables</h2>
     <p class="phase-desc">If budget ever becomes severely limited and everything must be cut to the bone — these 6 remain. They are the minimum viable daily protocol for life.</p>
   </div>
@@ -923,11 +925,11 @@ footer{background:var(--bg-footer,#263028);border-top:1px solid rgba(138,184,154
 <!-- ═══════════════════════════════ MASTER VIEW ═══════════════════════════════ -->
 <div class="phase-divider" style="background:var(--sage);" id="master"></div>
 <div class="inner">
-<div class="phase-block">
-  <div class="phase-head">
     <div class="phase-meta">
       <span class="phase-badge" style="background:var(--sage);">Master View</span>
     </div>
+<div class="phase-block">
+  <div class="phase-head">
     <h2 class="phase-title">All Must-Haves at a Glance</h2>
     <p class="phase-desc">Every non-negotiable item across all phases. Use this to plan your purchases phase by phase.</p>
   </div>
@@ -1100,6 +1102,36 @@ document.querySelectorAll('.nav-center a').forEach(function(a){
     }
   });
 });
+</script>
+<script>
+(function(){
+  var jn = document.querySelector('.jump-nav');
+  function setNavH(){
+    if(jn) document.documentElement.style.setProperty('--jump-nav-h', jn.offsetHeight + 'px');
+  }
+  var links = [].slice.call(document.querySelectorAll('.jump-nav a'));
+  var map = {};
+  links.forEach(function(a){
+    var h = a.getAttribute('href');
+    if(h && h.charAt(0) === '#') map[h.slice(1)] = a;
+  });
+  var sections = [].slice.call(document.querySelectorAll('.phase-divider[id]'));
+  function onScroll(){
+    var line = (jn ? jn.getBoundingClientRect().bottom : 132) + 4;
+    var current = null;
+    sections.forEach(function(s){
+      if(s.getBoundingClientRect().top <= line) current = s.id;
+    });
+    for(var i=0;i<links.length;i++) links[i].classList.remove('active');
+    if(current && map[current]) map[current].classList.add('active');
+  }
+  function refresh(){ setNavH(); onScroll(); }
+  setNavH();
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', refresh);
+  window.addEventListener('load', refresh);
+})();
 </script>
 </body>
 </html>
