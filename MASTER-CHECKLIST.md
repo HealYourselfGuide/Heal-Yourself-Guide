@@ -22,6 +22,7 @@
 14. **`toggleMobileNav()` insertion rule:** Must go AFTER any print popup `document.write()` strings containing `</body></html>`. If placed before, the function is trapped inside the string.
 15. **Never pull from GitHub without explicit session authorization from Sharona**
 16. **Div balance check after every change:** `<div` count must equal `</div` count (strip `<script>` blocks before counting)
+17. **Watch for browser "Save Page As" contamination:** `Parkinsons_Shopping_Table.html` and `Hidden_Deficiencies_Shopping_List.html` were both found this session to have been committed from a live browser tab capture rather than clean source — signs: a `<!-- saved from url -->` comment, `data-qb-installed`/`data-gr-ext-installed` attributes on `<html>`/`<body>`, a `<link>` or `<script src>` rewritten to a local `*_files/` path (breaks Google Fonts and other externals silently), and/or a large injected blob (Adobe Acrobat's AI-summary widget, Grammarly's integration div) sitting after the real `</body>`. Grep for `_files"`, `saved from url`, `aiFabShadowRoot`, `data-qb-installed`, `data-gr-ext-installed` across the repo periodically.
 
 ---
 
@@ -49,7 +50,7 @@
 | Oxygen_Therapy.html | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Hidden_Deficiencies.html | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Hidden_Deficiencies_Daily_Schedule.html | ✅ | ✅ | ✅ | ✅ | N/A | ✅ | ✅ | N/A | N/A | N/A | ✅ | ✅ |
-| Hidden_Deficiencies_Shopping_List.html | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | N/A | N/A | N/A | ✅ | ❌ |
+| Hidden_Deficiencies_Shopping_List.html | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | N/A | N/A | N/A | ✅ | ✅ |
 | Dr_Sebi_Alkaline_Protocol.html | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Dr_Sebi_Alkaline_Protocol_Daily_Schedule.html | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | N/A | N/A | N/A | ✅ | ✅ |
 | Dr_Sebi_Alkaline_Protocol_Shopping_List.html | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | N/A | N/A | N/A | ✅ | ✅ |
@@ -69,10 +70,9 @@
 
 | # | Page | Issue |
 |---|------|-------|
-| 1 | `Full_Body_Detox_Daily_Schedule.html` | Disclaimer missing · Footer structure broken |
-| 2 | `Hidden_Deficiencies_Shopping_List.html` | Footer structure broken (`ft-inner` / `ft-nav` missing) |
-| 3 | `protocols.html` | Disclaimer missing |
-| 4 | `404.html` | Disclaimer missing |
+| 1 | `Full_Body_Detox_Daily_Schedule.html` | Disclaimer missing · Footer structure broken — **diagnosed this session:** `.ft-inner` is defined twice with conflicting `grid-template-columns` (`1fr 1fr` at one point, `1fr auto` at another) and `.ft-nav a.hi` isn't consistently present between them; likely a duplicate/leftover style block rather than browser contamination (that signature was checked and is absent here). Not yet fixed. |
+| 2 | `protocols.html` | Disclaimer missing |
+| 3 | `404.html` | Disclaimer missing |
 
 ### 🟡 Fix next (content / citations)
 
